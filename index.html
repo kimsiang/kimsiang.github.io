@@ -3,483 +3,400 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kim Siang Khaw — TDLI Muon Physics Group</title>
+<title>TDLI Muon Tech Lab — Tsung-Dao Lee Institute</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
-:root {
-  --bg-deep: #0a0e1a;
-  --bg-card: #111827;
-  --bg-card-hover: #1a2340;
-  --text-primary: #e8ecf4;
-  --text-secondary: #8b95aa;
-  --text-muted: #5a6478;
-  --accent-cyan: #22d3ee;
-  --accent-gold: #f0b429;
-  --accent-magenta: #e879a8;
-  --accent-blue: #3b82f6;
-  --border-subtle: rgba(255,255,255,0.06);
-  --font-display: 'DM Serif Display', Georgia, serif;
-  --font-body: 'Outfit', sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+--bg:#0a0e1a;--card:#111827;--card-h:#1a2340;
+--t1:#e8ecf4;--t2:#8b95aa;--t3:#5a6478;
+--cyan:#22d3ee;--gold:#f0b429;--magenta:#e879a8;--blue:#3b82f6;
+--bdr:rgba(255,255,255,0.06);
+--fd:'DM Serif Display',Georgia,serif;--fb:'Outfit',sans-serif;--fm:'JetBrains Mono',monospace;
 }
-
-html { scroll-behavior: smooth; }
-body {
-  font-family: var(--font-body); background: var(--bg-deep);
-  color: var(--text-primary); line-height: 1.7; overflow-x: hidden;
-}
-a { color: inherit; text-decoration: none; }
+html{scroll-behavior:smooth}
+body{font-family:var(--fb);background:var(--bg);color:var(--t1);line-height:1.7;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img{display:block}
 
 /* NAV */
-.nav {
-  position: fixed; top: 0; left: 0; width: 100%; z-index: 100;
-  padding: 0 2.5rem;
-  background: rgba(10,14,26,0.82);
-  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid var(--border-subtle);
-}
-.nav-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 60px; }
-.nav-logo { font-family: var(--font-mono); font-size: 0.85rem; color: var(--accent-cyan); letter-spacing: 0.08em; font-weight: 500; flex-shrink: 0; }
-.nav-logo span { color: var(--text-muted); }
-.nav-links { display: flex; align-items: center; gap: 0.3rem; }
-.nav-links > a, .nav-dropdown > a {
-  font-size: 0.78rem; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase;
-  color: var(--text-secondary); padding: 0.5rem 0.65rem; border-radius: 6px; transition: all 0.25s;
-}
-.nav-links > a:hover, .nav-dropdown > a:hover { color: var(--text-primary); background: rgba(255,255,255,0.04); }
-.nav-dropdown { position: relative; }
-.nav-dropdown > a::after { content: ' ▾'; font-size: 0.55rem; }
-.nav-dropdown-menu {
-  display: none; position: absolute; top: 100%; left: 0;
-  background: #111827; border: 1px solid var(--border-subtle);
-  border-radius: 10px; padding: 0.5rem 0; min-width: 230px;
-  box-shadow: 0 15px 40px rgba(0,0,0,0.5); z-index: 200;
-}
-.nav-dropdown:hover .nav-dropdown-menu { display: block; }
-.nav-dropdown-menu a { display: block; padding: 0.5rem 1.2rem; font-size: 0.78rem; text-transform: none; letter-spacing: 0; color: var(--text-secondary); }
-.nav-dropdown-menu a:hover { background: rgba(34,211,238,0.06); color: var(--accent-cyan); }
-.nav-lang {
-  font-size: 0.78rem; padding: 0.35rem 0.9rem; border: 1px solid var(--border-subtle);
-  border-radius: 100px; color: var(--text-secondary); transition: all 0.25s; cursor: pointer; flex-shrink: 0;
-}
-.nav-lang:hover { border-color: var(--accent-cyan); color: var(--accent-cyan); }
-.nav-toggle { display: none; background: none; border: 1px solid var(--border-subtle); border-radius: 6px; color: var(--text-secondary); padding: 6px 10px; font-size: 1.2rem; cursor: pointer; }
+.nav{position:fixed;top:0;left:0;width:100%;z-index:100;padding:0 2.5rem;background:rgba(10,14,26,0.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--bdr)}
+.nav-in{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:56px}
+.nav-logo{font-family:var(--fm);font-size:0.85rem;color:var(--cyan);letter-spacing:.08em;font-weight:500}
+.nav-logo span{color:var(--t3)}
+.nav-links{display:flex;gap:.2rem}
+.nav-links a{font-size:.76rem;font-weight:500;letter-spacing:.04em;text-transform:uppercase;color:var(--t2);padding:.5rem .6rem;border-radius:6px;transition:all .25s}
+.nav-links a:hover{color:var(--t1);background:rgba(255,255,255,.04)}
+.nav-lang{font-size:.76rem;padding:.3rem .8rem;border:1px solid var(--bdr);border-radius:100px;color:var(--t2);transition:all .25s}
+.nav-lang:hover{border-color:var(--cyan);color:var(--cyan)}
+.nav-toggle{display:none;background:none;border:1px solid var(--bdr);border-radius:6px;color:var(--t2);padding:5px 9px;font-size:1.1rem;cursor:pointer}
 
 /* HERO */
-.hero { position: relative; min-height: 100vh; display: flex; align-items: center; padding: 7rem 2rem 4rem; overflow: hidden; }
-.hero-bg {
-  position: absolute; inset: 0; z-index: 0;
-  background: radial-gradient(ellipse 80% 60% at 70% 30%, rgba(34,211,238,0.06), transparent),
-    radial-gradient(ellipse 60% 50% at 20% 70%, rgba(240,180,41,0.04), transparent), var(--bg-deep);
-}
-.hero-grid {
-  position: absolute; inset: 0; z-index: 1;
-  background-image: linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
-  background-size: 60px 60px;
-  mask-image: radial-gradient(ellipse 70% 60% at 60% 40%, black 20%, transparent 70%);
-}
-canvas#particles { position: absolute; inset: 0; z-index: 2; pointer-events: none; }
-.hero-inner { position: relative; z-index: 10; max-width: 1200px; margin: 0 auto; width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 3.5rem; align-items: center; }
-.hero-content { max-width: 560px; }
-.hero-tag { display: inline-flex; align-items: center; gap: 0.5rem; font-family: var(--font-mono); font-size: 0.72rem; color: var(--accent-cyan); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1.5rem; opacity: 0; animation: fadeUp 0.8s 0.2s forwards; }
-.hero-tag .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent-cyan); animation: pulse 2s infinite; }
-.hero-title { font-family: var(--font-display); font-size: clamp(2.5rem,5vw,4.2rem); line-height: 1.1; margin-bottom: 0.3rem; opacity: 0; animation: fadeUp 0.8s 0.4s forwards; }
-.hero-title .highlight { color: var(--accent-cyan); }
-.hero-subtitle { font-size: 1.15rem; font-weight: 300; color: var(--text-secondary); margin-bottom: 0.4rem; opacity: 0; animation: fadeUp 0.8s 0.55s forwards; }
-.hero-affiliation { font-size: 0.92rem; color: var(--text-muted); margin-bottom: 2rem; opacity: 0; animation: fadeUp 0.8s 0.65s forwards; }
-.hero-affiliation strong { color: var(--text-secondary); font-weight: 500; }
-.hero-desc { font-size: 0.98rem; color: var(--text-secondary); max-width: 540px; line-height: 1.8; margin-bottom: 2rem; opacity: 0; animation: fadeUp 0.8s 0.75s forwards; }
-.hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; opacity: 0; animation: fadeUp 0.8s 0.9s forwards; }
-.hero-photo { opacity: 0; animation: fadeIn 1s 0.6s forwards; }
-.hero-photo img { width: 100%; border-radius: 16px; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 25px 60px rgba(0,0,0,0.5); }
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;padding:5rem 2rem 4rem;overflow:hidden}
+.hero-bg{position:absolute;inset:0;z-index:0;background:radial-gradient(ellipse 80% 60% at 70% 30%,rgba(34,211,238,.06),transparent),radial-gradient(ellipse 60% 50% at 20% 70%,rgba(240,180,41,.04),transparent),var(--bg)}
+.hero-grid{position:absolute;inset:0;z-index:1;background-image:linear-gradient(rgba(255,255,255,.015) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.015) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse 70% 60% at 60% 40%,black 20%,transparent 70%)}
+canvas#p{position:absolute;inset:0;z-index:2;pointer-events:none}
+.hero-in{position:relative;z-index:10;max-width:1200px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
+.hero-c{max-width:540px}
+.hero-tag{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--fm);font-size:.7rem;color:var(--cyan);letter-spacing:.1em;text-transform:uppercase;margin-bottom:1.5rem;opacity:0;animation:fu .8s .2s forwards}
+.hero-tag .dot{width:6px;height:6px;border-radius:50%;background:var(--cyan);animation:pulse 2s infinite}
+.hero-h{font-family:var(--fd);font-size:clamp(2.2rem,4.5vw,3.8rem);line-height:1.08;margin-bottom:.5rem;opacity:0;animation:fu .8s .4s forwards}
+.hero-h .hl{color:var(--cyan)}
+.hero-sub{font-size:1.05rem;font-weight:300;color:var(--t2);margin-bottom:1.8rem;opacity:0;animation:fu .8s .6s forwards;max-width:480px;line-height:1.7}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap;opacity:0;animation:fu .8s .8s forwards}
+.hero-img{opacity:0;animation:fi 1s .5s forwards}
+.hero-img img{width:100%;border-radius:16px;border:1px solid rgba(255,255,255,.08);box-shadow:0 25px 60px rgba(0,0,0,.5)}
 
-.btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.8rem 1.8rem; border-radius: 6px; font-family: var(--font-body); font-size: 0.86rem; font-weight: 600; letter-spacing: 0.02em; cursor: pointer; border: none; transition: all 0.3s; }
-.btn-primary { background: var(--accent-cyan); color: var(--bg-deep); box-shadow: 0 0 30px rgba(34,211,238,0.2); }
-.btn-primary:hover { box-shadow: 0 0 50px rgba(34,211,238,0.35); transform: translateY(-2px); }
-.btn-outline { background: transparent; border: 1.5px solid var(--border-subtle); color: var(--text-primary); }
-.btn-outline:hover { border-color: var(--accent-cyan); color: var(--accent-cyan); background: rgba(34,211,238,0.05); }
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.75rem 1.6rem;border-radius:6px;font-family:var(--fb);font-size:.84rem;font-weight:600;cursor:pointer;border:none;transition:all .3s}
+.btn-p{background:var(--cyan);color:var(--bg);box-shadow:0 0 30px rgba(34,211,238,.2)}
+.btn-p:hover{box-shadow:0 0 50px rgba(34,211,238,.35);transform:translateY(-2px)}
+.btn-o{background:transparent;border:1.5px solid var(--bdr);color:var(--t1)}
+.btn-o:hover{border-color:var(--cyan);color:var(--cyan);background:rgba(34,211,238,.05)}
 
 /* SECTIONS */
-.section { padding: 6rem 2rem; position: relative; }
-.section-inner { max-width: 1200px; margin: 0 auto; }
-.section-label { font-family: var(--font-mono); font-size: 0.72rem; color: var(--accent-cyan); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 0.8rem; }
-.section-title { font-family: var(--font-display); font-size: clamp(1.8rem,3.5vw,2.8rem); line-height: 1.2; margin-bottom: 1rem; }
-.section-subtitle { font-size: 1rem; color: var(--text-secondary); max-width: 640px; margin-bottom: 3rem; }
+.sec{padding:5.5rem 2rem;position:relative}
+.sec-in{max-width:1200px;margin:0 auto}
+.sec-l{font-family:var(--fm);font-size:.7rem;color:var(--cyan);letter-spacing:.15em;text-transform:uppercase;margin-bottom:.7rem}
+.sec-t{font-family:var(--fd);font-size:clamp(1.7rem,3.2vw,2.6rem);line-height:1.2;margin-bottom:.8rem}
+.sec-s{font-size:.95rem;color:var(--t2);max-width:580px;margin-bottom:2.5rem}
 
 /* STATS */
-.stats-bar { display: flex; justify-content: center; gap: 4rem; flex-wrap: wrap; padding: 3.5rem 2rem; border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle); }
-.stat { text-align: center; }
-.stat-number { font-family: var(--font-display); font-size: 2.5rem; color: var(--accent-cyan); }
-.stat-label { font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 0.2rem; }
+.stats{display:flex;justify-content:center;gap:3.5rem;flex-wrap:wrap;padding:3rem 2rem;border-top:1px solid var(--bdr);border-bottom:1px solid var(--bdr)}
+.stat-n{font-family:var(--fd);font-size:2.3rem;color:var(--cyan)}
+.stat-l{font-size:.78rem;color:var(--t3);text-transform:uppercase;letter-spacing:.1em;margin-top:.15rem}
+.stat{text-align:center}
 
-/* RESEARCH */
-.research-text { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; margin-bottom: 4rem; }
-.research-text-content p { color: var(--text-secondary); font-size: 0.95rem; line-height: 1.85; margin-bottom: 1.2rem; }
-.research-image img { width: 100%; border-radius: 12px; border: 1px solid var(--border-subtle); }
-.research-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; }
-.research-card { background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 12px; padding: 1.8rem; transition: all 0.4s; position: relative; overflow: hidden; }
-.research-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--card-accent, var(--accent-cyan)); opacity: 0; transition: opacity 0.3s; }
-.research-card:hover { border-color: rgba(255,255,255,0.1); background: var(--bg-card-hover); transform: translateY(-4px); box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
-.research-card:hover::before { opacity: 1; }
-.card-icon { width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; margin-bottom: 1rem; }
-.card-icon.cyan { background: rgba(34,211,238,0.08); color: var(--accent-cyan); }
-.card-icon.gold { background: rgba(240,180,41,0.08); color: var(--accent-gold); }
-.card-icon.magenta { background: rgba(232,121,168,0.08); color: var(--accent-magenta); }
-.card-icon.blue { background: rgba(59,130,246,0.08); color: var(--accent-blue); }
-.research-card h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem; }
-.research-card p { font-size: 0.88rem; color: var(--text-secondary); line-height: 1.7; }
-.card-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1rem; }
-.card-tag { font-family: var(--font-mono); font-size: 0.66rem; padding: 0.2rem 0.55rem; border-radius: 4px; background: rgba(255,255,255,0.04); color: var(--text-muted); }
+/* RESEARCH — image cards */
+.r-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem}
+.r-card{border-radius:14px;overflow:hidden;border:1px solid var(--bdr);background:var(--card);transition:all .4s;position:relative}
+.r-card:hover{border-color:rgba(255,255,255,.1);transform:translateY(-4px);box-shadow:0 20px 50px rgba(0,0,0,.35)}
+.r-img{height:220px;overflow:hidden;position:relative}
+.r-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.r-card:hover .r-img img{transform:scale(1.05)}
+.r-img::after{content:'';position:absolute;bottom:0;left:0;right:0;height:80px;background:linear-gradient(transparent,rgba(17,24,39,.9))}
+.r-body{padding:1.5rem 1.5rem 1.3rem}
+.r-body h3{font-size:1.15rem;font-weight:600;margin-bottom:.4rem}
+.r-body p{font-size:.86rem;color:var(--t2);line-height:1.65}
+.r-tags{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.8rem}
+.r-tag{font-family:var(--fm);font-size:.64rem;padding:.18rem .5rem;border-radius:4px;background:rgba(255,255,255,.04);color:var(--t3)}
+.r-accent{position:absolute;top:0;left:0;right:0;height:3px}
 
-/* CULTURE */
-.culture-section { background: rgba(255,255,255,0.01); }
-.culture-text { color: var(--text-secondary); font-size: 0.95rem; line-height: 1.85; max-width: 800px; margin-bottom: 3rem; }
-.culture-text p { margin-bottom: 1.2rem; }
-.culture-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-bottom: 3rem; }
-.culture-item { display: flex; gap: 1rem; padding: 1.5rem; border-radius: 10px; border: 1px solid var(--border-subtle); transition: all 0.3s; }
-.culture-item:hover { border-color: rgba(255,255,255,0.08); background: rgba(255,255,255,0.02); }
-.culture-icon { flex-shrink: 0; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; }
-.culture-item h4 { font-weight: 600; margin-bottom: 0.25rem; font-size: 0.95rem; }
-.culture-item p { font-size: 0.85rem; color: var(--text-secondary); }
+/* MEMBERS */
+.m-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:1.2rem}
+.m-card{text-align:center}
+.m-card img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:10px;border:1px solid var(--bdr);margin-bottom:.6rem;transition:all .3s}
+.m-card:hover img{border-color:rgba(34,211,238,.2);transform:translateY(-3px);box-shadow:0 10px 25px rgba(0,0,0,.3)}
+.m-card h4{font-size:.82rem;font-weight:600;line-height:1.3;margin-bottom:.15rem}
+.m-card .m-sub{font-size:.7rem;color:var(--t3);font-family:var(--fm)}
+.m-cat{font-size:.82rem;font-weight:600;color:var(--t2);margin:2.5rem 0 1rem;padding-bottom:.4rem;border-bottom:1px solid var(--bdr)}
+.m-cat:first-of-type{margin-top:0}
 
 /* GALLERY */
-.gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
-.gallery-item { border-radius: 10px; overflow: hidden; border: 1px solid var(--border-subtle); aspect-ratio: 4/3; transition: all 0.4s; }
-.gallery-item:hover { transform: translateY(-4px); box-shadow: 0 15px 35px rgba(0,0,0,0.4); border-color: rgba(255,255,255,0.12); }
-.gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
-.gallery-item:hover img { transform: scale(1.06); }
+.g-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.8rem}
+.g-grid.wide{grid-template-columns:repeat(6,1fr)}
+.g-item{border-radius:8px;overflow:hidden;border:1px solid var(--bdr);aspect-ratio:1;transition:all .4s}
+.g-item.landscape{aspect-ratio:16/9;grid-column:span 2}
+.g-item:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(0,0,0,.4);border-color:rgba(255,255,255,.1)}
+.g-item img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.g-item:hover img{transform:scale(1.06)}
+.g-cap{font-size:.78rem;color:var(--t3);margin-top:1rem;text-align:center;font-style:italic}
 
 /* JOIN */
-.join-section { padding: 6rem 2rem; text-align: center; position: relative; }
-.join-section::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 50% at 50% 50%, rgba(34,211,238,0.06), transparent); pointer-events: none; }
-.join-box { position: relative; z-index: 2; max-width: 800px; margin: 0 auto; padding: 3.5rem 3rem; border: 1px solid rgba(34,211,238,0.15); border-radius: 16px; background: linear-gradient(135deg, rgba(34,211,238,0.03), rgba(240,180,41,0.02)); }
-.join-box .section-title { margin-bottom: 1.5rem; }
-.join-text { text-align: left; max-width: 680px; margin: 0 auto 2rem; }
-.join-text p { color: var(--text-secondary); font-size: 0.93rem; line-height: 1.8; margin-bottom: 1rem; }
-.join-languages { display: flex; justify-content: center; gap: 0.7rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
-.lang-badge { font-family: var(--font-mono); font-size: 0.7rem; padding: 0.25rem 0.75rem; border-radius: 100px; border: 1px solid var(--border-subtle); color: var(--text-muted); }
-.join-email { font-family: var(--font-mono); font-size: 0.95rem; color: var(--accent-cyan); margin-bottom: 1.5rem; display: block; }
-.join-roles { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem; }
-.role-chip { font-size: 0.8rem; padding: 0.45rem 1.1rem; border-radius: 6px; background: rgba(255,255,255,0.04); color: var(--text-secondary); border: 1px solid var(--border-subtle); }
+.join{padding:5.5rem 2rem;text-align:center;position:relative}
+.join::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 50%,rgba(34,211,238,.06),transparent);pointer-events:none}
+.join-box{position:relative;z-index:2;max-width:760px;margin:0 auto;padding:3rem 2.5rem;border:1px solid rgba(34,211,238,.15);border-radius:16px;background:linear-gradient(135deg,rgba(34,211,238,.03),rgba(240,180,41,.02))}
+.join-box p{color:var(--t2);font-size:.92rem;line-height:1.8;margin-bottom:1rem;text-align:left}
+.join-langs{display:flex;justify-content:center;gap:.6rem;margin:1.5rem 0;flex-wrap:wrap}
+.join-lang{font-family:var(--fm);font-size:.68rem;padding:.22rem .7rem;border-radius:100px;border:1px solid var(--bdr);color:var(--t3)}
+.join-email{font-family:var(--fm);font-size:.92rem;color:var(--cyan);margin-bottom:1.3rem;display:block}
+.join-roles{display:flex;justify-content:center;gap:.8rem;flex-wrap:wrap;margin-top:1.3rem}
+.join-role{font-size:.78rem;padding:.4rem 1rem;border-radius:6px;background:rgba(255,255,255,.04);color:var(--t2);border:1px solid var(--bdr)}
 
 /* NEWS */
-.news-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 1rem; }
-.news-card { display: flex; align-items: center; gap: 1rem; padding: 1rem 1.2rem; border: 1px solid var(--border-subtle); border-radius: 10px; background: var(--bg-card); transition: all 0.3s; }
-.news-card:hover { border-color: rgba(34,211,238,0.15); background: var(--bg-card-hover); transform: translateX(4px); }
-.news-thumb { width: 56px; height: 56px; flex-shrink: 0; border-radius: 8px; overflow: hidden; border: 1px solid var(--border-subtle); }
-.news-thumb img { width: 100%; height: 100%; object-fit: cover; }
-.news-body { flex: 1; min-width: 0; }
-.news-date { font-family: var(--font-mono); font-size: 0.68rem; color: var(--text-muted); letter-spacing: 0.06em; margin-bottom: 0.2rem; }
-.news-body h3 { font-size: 0.88rem; font-weight: 500; line-height: 1.45; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+.n-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1rem}
+.n-card{display:flex;align-items:center;gap:1rem;padding:.9rem 1.1rem;border:1px solid var(--bdr);border-radius:10px;background:var(--card);transition:all .3s}
+.n-card:hover{border-color:rgba(34,211,238,.15);background:var(--card-h);transform:translateX(4px)}
+.n-thumb{width:52px;height:52px;flex-shrink:0;border-radius:8px;overflow:hidden;border:1px solid var(--bdr)}
+.n-thumb img{width:100%;height:100%;object-fit:cover}
+.n-body{flex:1;min-width:0}
+.n-date{font-family:var(--fm);font-size:.66rem;color:var(--t3);letter-spacing:.06em;margin-bottom:.15rem}
+.n-body h3{font-size:.84rem;font-weight:500;line-height:1.4;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
 
 /* COLLAB */
-.collab-strip { padding: 3.5rem 2rem; border-top: 1px solid var(--border-subtle); }
-.collab-strip .section-label { text-align: center; margin-bottom: 2rem; }
-.collab-logos { display: flex; justify-content: center; align-items: center; gap: 3rem; flex-wrap: wrap; }
-.collab-item { font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); text-align: center; opacity: 0.6; transition: opacity 0.3s; }
-.collab-item:hover { opacity: 1; }
-.collab-item .collab-name { font-family: var(--font-body); font-weight: 600; font-size: 0.95rem; color: var(--text-secondary); display: block; margin-bottom: 0.1rem; }
+.collab{padding:3rem 2rem;border-top:1px solid var(--bdr)}
+.collab .sec-l{text-align:center;margin-bottom:1.5rem}
+.c-logos{display:flex;justify-content:center;gap:3rem;flex-wrap:wrap}
+.c-item{font-family:var(--fm);font-size:.72rem;color:var(--t3);text-align:center;opacity:.6;transition:opacity .3s}
+.c-item:hover{opacity:1}
+.c-item strong{font-family:var(--fb);font-weight:600;font-size:.92rem;color:var(--t2);display:block;margin-bottom:.1rem}
 
 /* FOOTER */
-.footer { padding: 2.5rem 2rem; border-top: 1px solid var(--border-subtle); }
-.footer-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
-.footer-left { font-size: 0.8rem; color: var(--text-muted); }
-.footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
-.footer-links a { font-size: 0.76rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; transition: color 0.25s; }
-.footer-links a:hover { color: var(--accent-cyan); }
+.foot{padding:2rem 2rem;border-top:1px solid var(--bdr);text-align:center;font-size:.78rem;color:var(--t3)}
 
 /* ANIMATIONS */
-@keyframes fadeUp { from { opacity: 0; transform: translateY(25px); } to { opacity: 1; transform: translateY(0); } }
-@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-@keyframes pulse { 0%,100% { opacity:1; box-shadow:0 0 0 0 rgba(34,211,238,0.4); } 50% { opacity:0.7; box-shadow:0 0 0 6px rgba(34,211,238,0); } }
-.reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s, transform 0.7s; }
-.reveal.visible { opacity: 1; transform: translateY(0); }
-::-webkit-scrollbar { width: 8px; }
-::-webkit-scrollbar-track { background: #0a0e1a; }
-::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 4px; }
-::selection { background: rgba(34,211,238,0.25); color: #fff; }
+@keyframes fu{from{opacity:0;transform:translateY(25px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fi{from{opacity:0}to{opacity:1}}
+@keyframes pulse{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(34,211,238,.4)}50%{opacity:.7;box-shadow:0 0 0 6px rgba(34,211,238,0)}}
+.rv{opacity:0;transform:translateY(25px);transition:opacity .7s,transform .7s}
+.rv.v{opacity:1;transform:translateY(0)}
 
-/* RESPONSIVE */
-@media (max-width: 1024px) {
-  .hero-inner { grid-template-columns: 1fr; gap: 2.5rem; }
-  .hero-photo { order: -1; max-width: 600px; }
-  .research-text { grid-template-columns: 1fr; }
+::-webkit-scrollbar{width:7px}::-webkit-scrollbar-track{background:#0a0e1a}::-webkit-scrollbar-thumb{background:#1e293b;border-radius:4px}
+::selection{background:rgba(34,211,238,.25);color:#fff}
+
+@media(max-width:1024px){.hero-in{grid-template-columns:1fr;gap:2rem}.hero-img{order:-1;max-width:550px}.r-grid{grid-template-columns:1fr}}
+@media(max-width:768px){
+.nav-links,.nav-lang{display:none}.nav-toggle{display:block}
+.nav.open .nav-links{display:flex;flex-direction:column;position:absolute;top:56px;left:0;right:0;background:#111827;border-bottom:1px solid var(--bdr);padding:1rem;gap:0}
+.g-grid,.g-grid.wide{grid-template-columns:repeat(2,1fr)}.g-item.landscape{grid-column:span 1}
+.m-grid{grid-template-columns:repeat(3,1fr)}
+.stats{gap:1.5rem}.hero{min-height:auto;padding-top:4.5rem}.join-box{padding:2rem 1.5rem}
+.n-grid{grid-template-columns:1fr}
 }
-@media (max-width: 768px) {
-  .nav-links, .nav-lang { display: none; }
-  .nav-toggle { display: block; }
-  .nav.open .nav-links { display: flex; flex-direction: column; position: absolute; top: 60px; left: 0; right: 0; background: #111827; border-bottom: 1px solid var(--border-subtle); padding: 1rem; gap: 0; }
-  .nav.open .nav-lang { display: inline-block; }
-  .nav-dropdown-menu { position: static; box-shadow: none; border: none; background: rgba(255,255,255,0.02); border-radius: 6px; margin: 0.3rem 0 0 1rem; }
-  .nav-dropdown:hover .nav-dropdown-menu { display: none; }
-  .nav-dropdown.open .nav-dropdown-menu { display: block; }
-  .culture-grid { grid-template-columns: 1fr; }
-  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
-  .stats-bar { gap: 2rem; }
-  .hero { min-height: auto; padding-top: 5rem; }
-  .join-box { padding: 2rem 1.5rem; }
-  .news-grid { grid-template-columns: 1fr; }
-}
+@media(max-width:480px){.m-grid{grid-template-columns:repeat(2,1fr)}}
 </style>
 </head>
 <body>
 
-<nav class="nav" id="mainNav">
-  <div class="nav-inner">
-    <div class="nav-logo">μ<span>-phys</span> // TDLI</div>
-    <button class="nav-toggle" onclick="document.getElementById('mainNav').classList.toggle('open')" aria-label="Menu">☰</button>
-    <div class="nav-links">
-      <a href="#home">Home</a>
-      <a href="#research">Research</a>
-      <div class="nav-dropdown" onclick="event.stopPropagation();this.classList.toggle('open')">
-        <a href="https://web.tdli.sjtu.edu.cn/kimsiang84/about-muons/">About Muons</a>
-        <div class="nav-dropdown-menu">
-          <a href="https://web.tdli.sjtu.edu.cn/kimsiang84/muon-sources/">Muon Sources</a>
-          <a href="https://web.tdli.sjtu.edu.cn/kimsiang84/muon-detection-techniques/">Muon Detection Techniques</a>
-          <a href="https://web.tdli.sjtu.edu.cn/kimsiang84/fundamental-muon-physics/">Fundamental Muon Physics</a>
-          <a href="https://web.tdli.sjtu.edu.cn/kimsiang84/muonium/">Muonium</a>
-          <a href="https://web.tdli.sjtu.edu.cn/kimsiang84/applications-of-muons/">Applications of Muons</a>
-          <a href="https://web.tdli.sjtu.edu.cn/kimsiang84/muography-applications/">Muography Applications</a>
-        </div>
-      </div>
-      <a href="https://web.tdli.sjtu.edu.cn/kimsiang84/members/">Members</a>
-      <a href="https://web.tdli.sjtu.edu.cn/kimsiang84/teaching/">Teaching</a>
-      <a href="https://web.tdli.sjtu.edu.cn/kimsiang84/publications/">Publications</a>
-      <a href="https://web.tdli.sjtu.edu.cn/kimsiang84/selected-talks/">Talks</a>
-      <a href="https://web.tdli.sjtu.edu.cn/kimsiang84/posters/">Posters</a>
-      <a href="https://web.tdli.sjtu.edu.cn/kimsiang84/photo-gallery/">Gallery</a>
-      <a href="#news">News</a>
-    </div>
-    <a href="https://web.tdli.sjtu.edu.cn/kimsiang84/%e4%b8%ad%e6%96%87%e4%b8%bb%e9%a1%b5/" class="nav-lang">中文</a>
-  </div>
+<nav class="nav" id="mn">
+<div class="nav-in">
+<div class="nav-logo">TDLI <span>Muon Tech Lab</span></div>
+<button class="nav-toggle" onclick="document.getElementById('mn').classList.toggle('open')" aria-label="Menu">☰</button>
+<div class="nav-links">
+<a href="#research">Research</a>
+<a href="#members">Members</a>
+<a href="#gallery">Gallery</a>
+<a href="#news">News</a>
+<a href="#join">Join Us</a>
+</div>
+<a href="#join" class="nav-lang">联系我们</a>
+</div>
 </nav>
 
+<!-- HERO -->
 <section class="hero" id="home">
-  <div class="hero-bg"></div>
-  <div class="hero-grid"></div>
-  <canvas id="particles"></canvas>
-  <div class="hero-inner">
-    <div class="hero-content">
-      <div class="hero-tag"><span class="dot"></span> Tsung-Dao Lee Institute · Shanghai Jiao Tong University</div>
-      <h1 class="hero-title">Kim Siang <span class="highlight">Khaw</span></h1>
-      <p class="hero-subtitle">Associate Professor · Experimental Muon Physics</p>
-      <p class="hero-affiliation">许金祥 · <strong>TDLI Muon Physics Group</strong></p>
-      <p class="hero-desc">We probe the Standard Model at the precision frontier using muons — measuring fundamental properties, developing next-generation muon sources, and pioneering muography for real-world applications.</p>
-      <div class="hero-actions">
-        <a href="#join" class="btn btn-primary">Join Our Group</a>
-        <a href="#research" class="btn btn-outline">Explore Research →</a>
-      </div>
-    </div>
-    <div class="hero-photo">
-      <img src="https://web.tdli.sjtu.edu.cn/kimsiang84/wp-content/uploads/sites/4/2024/04/WechatIMG5168-1024x683.jpg" alt="TDLI Muon Physics Group" loading="eager">
-    </div>
-  </div>
+<div class="hero-bg"></div><div class="hero-grid"></div><canvas id="p"></canvas>
+<div class="hero-in">
+<div class="hero-c">
+<div class="hero-tag"><span class="dot"></span> Tsung-Dao Lee Institute · Shanghai Jiao Tong University</div>
+<h1 class="hero-h">TDLI Muon<br><span class="hl">Tech Lab</span></h1>
+<p class="hero-sub">We probe the Standard Model at the precision frontier — measuring the muon's fundamental properties, building next-generation muon sources, and pioneering muography for real-world applications.</p>
+<div class="hero-btns">
+<a href="#join" class="btn btn-p">Join Our Group</a>
+<a href="#research" class="btn btn-o">Explore Research →</a>
+</div>
+</div>
+<div class="hero-img">
+<img src="https://web.tdli.sjtu.edu.cn/kimsiang84/wp-content/uploads/sites/4/2025/06/Weixin-Image_2025-06-26_160943_281.png" alt="TDLI Muon Tech Lab Group Photo 2025">
+</div>
+</div>
 </section>
 
-<div class="stats-bar">
-  <div class="stat"><div class="stat-number">4</div><div class="stat-label">Research Programs</div></div>
-  <div class="stat"><div class="stat-number">3</div><div class="stat-label">World-Class Partners</div></div>
-  <div class="stat"><div class="stat-number">11+</div><div class="stat-label">Group Members</div></div>
-  <div class="stat"><div class="stat-number">5</div><div class="stat-label">Languages Spoken</div></div>
+<!-- STATS -->
+<div class="stats">
+<div class="stat"><div class="stat-n">4</div><div class="stat-l">Research Programs</div></div>
+<div class="stat"><div class="stat-n">3</div><div class="stat-l">World-Class Partners</div></div>
+<div class="stat"><div class="stat-n">20+</div><div class="stat-l">Group Members</div></div>
+<div class="stat"><div class="stat-n">5</div><div class="stat-l">Languages Spoken</div></div>
 </div>
 
-<section class="section" id="research">
-  <div class="section-inner">
-    <div class="section-label reveal">// Research Focus of Our Group</div>
-    <h2 class="section-title reveal">Pushing the Precision Frontier</h2>
+<!-- RESEARCH -->
+<section class="sec" id="research">
+<div class="sec-in">
+<div class="sec-l rv">// Research</div>
+<h2 class="sec-t rv">Pushing the Precision Frontier</h2>
+<p class="sec-s rv">From fundamental symmetries to underground imaging — our experiments span the full spectrum of muon physics.</p>
 
-    <div class="research-text reveal">
-      <div class="research-text-content">
-        <p>Our group is dedicated to advancing precision frontier experiments that use the muon as a powerful probe to test the Standard Model of particle physics. Despite being discovered in 1936, the muon remains central to cutting-edge research today, playing a key role in both confirming and challenging our understanding of the Standard Model. The muon and the electron, both leptons, are nearly identical except for their mass, yet the reason for the muon's (also tau's) existence remains an open question. To help solve this puzzle, our group focuses on precision measurements of the muon's fundamental properties, including the magnetic anomaly and electric dipole moment.</p>
-        <p>We are actively engaged in a wide range of experimental physics activities, including the development of high-quality muon beams, beam and detector simulations, detector prototyping, data reconstruction, and advanced data analysis techniques. Recently, we have initiated two major projects: the establishment of a high-repetition-rate pulsed muon source as part of the SHINE facility and a muography initiative aimed at advancing detector technology and imaging applications for city underground space exploration.</p>
-        <p>We warmly welcome young, motivated physicists to join us in Shanghai and contribute to these exciting efforts!</p>
-      </div>
-      <div class="research-image">
-        <img src="https://web.tdli.sjtu.edu.cn/kimsiang84/wp-content/uploads/sites/4/2024/09/Screenshot-2024-09-23-at-12.35.03%20PM-1024x502.png" alt="Research Activities Overview" loading="lazy">
-      </div>
-    </div>
-
-    <div class="research-grid">
-      <div class="research-card reveal" style="--card-accent: var(--accent-cyan);">
-        <div class="card-icon cyan">⊕</div>
-        <h3>Muon g−2</h3>
-        <p>Precision measurement of the muon's anomalous magnetic moment — one of the most sensitive tests of the Standard Model and a window to new physics.</p>
-        <div class="card-tags"><span class="card-tag">Fermilab E989</span><span class="card-tag">J-PARC E34</span><span class="card-tag">Precision Frontier</span></div>
-      </div>
-      <div class="research-card reveal" style="--card-accent: var(--accent-gold);">
-        <div class="card-icon gold">◎</div>
-        <h3>Muon EDM</h3>
-        <p>Searching for the muon's electric dipole moment at PSI — probing CP violation and matter-antimatter asymmetry in the universe.</p>
-        <div class="card-tags"><span class="card-tag">PSI muEDM</span><span class="card-tag">CP Violation</span><span class="card-tag">BSM Physics</span></div>
-      </div>
-      <div class="research-card reveal" style="--card-accent: var(--accent-magenta);">
-        <div class="card-icon magenta">◇</div>
-        <h3>SHINE Muon Source</h3>
-        <p>Establishing a high-repetition-rate pulsed muon source at the SHINE facility — building China's next-generation muon beam infrastructure.</p>
-        <div class="card-tags"><span class="card-tag">SHINE Facility</span><span class="card-tag">Beam R&D</span><span class="card-tag">μSR</span></div>
-      </div>
-      <div class="research-card reveal" style="--card-accent: var(--accent-blue);">
-        <div class="card-icon blue">▦</div>
-        <h3>Muography</h3>
-        <p>Imaging underground structures with cosmic-ray muons — from tunnels and infrastructure to geological features beneath Shanghai's surface.</p>
-        <div class="card-tags"><span class="card-tag">Detector R&D</span><span class="card-tag">Urban Imaging</span><span class="card-tag">SiPM / MWPC</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section culture-section" id="culture">
-  <div class="section-inner">
-    <div class="section-label reveal">// TDLI Muon Physics Group Culture</div>
-    <h2 class="section-title reveal">A Place to Grow</h2>
-
-    <div class="culture-text reveal">
-      <p>At the TDLI Muon Physics Group, we are committed to fostering an enriching environment for both education and research. To support the growth and development of our members, we hold weekly journal clubs where we discuss recent advances in muon physics and related topics. Additionally, we organize study groups focused on foundational textbooks to help newcomers gain a strong grasp of key concepts in particle physics and muon physics.</p>
-      <p>We encourage our students and postdocs to actively share their work at national and international conferences, with the goal of presenting at least twice a year. Participation in these events not only builds presentation skills but also provides valuable networking opportunities with experts in the field.</p>
-      <p>Our group also welcomes motivated undergraduate students through various research programs, including the PRP, Zhiyuan Scholar Program, Summer Internship, and international initiatives like the DAAD Worldwide RISE program. Exceptional students may have the opportunity to collaborate with world-class institutions such as Fermilab, PSI, and J-PARC, where they can engage in hands-on research in cutting-edge facilities.</p>
-      <p>We strive to create a vibrant, supportive culture where members are empowered to pursue excellence in muon physics while contributing to the global scientific community.</p>
-    </div>
-
-    <div class="culture-grid reveal">
-      <div class="culture-item"><div class="culture-icon">📖</div><div><h4>Weekly Journal Club</h4><p>Discuss recent advances in muon physics and related topics together as a group.</p></div></div>
-      <div class="culture-item"><div class="culture-icon">🎤</div><div><h4>Conference Participation</h4><p>Every member presents at national and international conferences at least twice a year.</p></div></div>
-      <div class="culture-item"><div class="culture-icon">🌏</div><div><h4>Global Collaborations</h4><p>Work on-site at Fermilab, PSI, and J-PARC — hands-on at world-class facilities.</p></div></div>
-      <div class="culture-item"><div class="culture-icon">🧑‍🎓</div><div><h4>Undergraduate Programs</h4><p>PRP, Zhiyuan Scholar, Summer Internship, DAAD RISE — multiple pathways in.</p></div></div>
-    </div>
-
-    <div class="gallery-grid reveal">
-      <div class="gallery-item"><img src="https://web.tdli.sjtu.edu.cn/kimsiang84/wp-content/uploads/sites/4/2024/08/picturejc-1.png" alt="Journal Club" loading="lazy"></div>
-      <div class="gallery-item"><img src="https://web.tdli.sjtu.edu.cn/kimsiang84/wp-content/uploads/sites/4/2024/09/542773979399b12a4130f5864ea0feb2-1024x768.jpg" alt="Group Activity" loading="lazy"></div>
-      <div class="gallery-item"><img src="https://web.tdli.sjtu.edu.cn/kimsiang84/wp-content/uploads/sites/4/2024/09/WechatIMG4933-1024x768.jpg" alt="Group Photo" loading="lazy"></div>
-      <div class="gallery-item"><img src="https://web.tdli.sjtu.edu.cn/kimsiang84/wp-content/uploads/sites/4/2024/09/WechatIMG5530-1024x768.jpg" alt="Group Event" loading="lazy"></div>
-    </div>
-  </div>
-</section>
-
-<section class="join-section" id="join">
-  <div class="join-box reveal">
-    <div class="section-label">// Open Positions</div>
-    <h2 class="section-title">诚邀海内外人才加盟！<br>We are hiring!</h2>
-    <div class="join-text">
-      <p>本课题组每年招收多位本科生（PRP项目、䇹政项目、致远学者研究计划、物理研究实践、毕业设计），研究生（含国际研究生）以及优秀博士后研究员。欢迎对精确测量实验有浓厚兴趣者和我联系 (kimsiang84 [at] sjtu.edu.cn)！</p>
-      <p>Interested in an undergraduate research project, master thesis, PhD thesis and postdoctoral research experience? Feel free to contact me at kimsiang84 [at] sjtu.edu.cn. Thanks to my cultural and educational background, I am happy to provide supervision in multiple languages: English, Chinese, Malaysian, and Japanese (and a little bit of German).</p>
-    </div>
-    <div class="join-languages">
-      <span class="lang-badge">English</span>
-      <span class="lang-badge">中文</span>
-      <span class="lang-badge">Bahasa Melayu</span>
-      <span class="lang-badge">日本語</span>
-      <span class="lang-badge">Deutsch</span>
-    </div>
-    <span class="join-email">kimsiang84 [at] sjtu.edu.cn</span>
-    <a href="mailto:kimsiang84@sjtu.edu.cn" class="btn btn-primary">Get in Touch</a>
-    <div class="join-roles">
-      <span class="role-chip">Undergraduate Research (PRP / 致远 / 毕业设计)</span>
-      <span class="role-chip">Master's Thesis</span>
-      <span class="role-chip">PhD Positions</span>
-      <span class="role-chip">Postdoctoral Researcher</span>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="news">
-  <div class="section-inner">
-    <div class="section-label reveal">// Latest</div>
-    <h2 class="section-title reveal">Recent News</h2>
-    <p class="section-subtitle reveal">Highlights from workshops, beamtests, publications, and group activities.</p>
-
-    <div class="news-grid">
-      <a class="news-card reveal" href="https://web.tdli.sjtu.edu.cn/kimsiang84/2026/01/08/2025%e5%b9%b4%e7%b2%92%e5%ad%90%e7%89%a9%e7%90%86%e4%b8%8e%e6%a0%b8%e7%89%a9%e7%90%86%e4%b8%8a%e6%b5%b7%e7%a0%94%e8%ae%a8%e4%bc%9a/">
-        <div class="news-thumb"><img src="https://web.tdli.sjtu.edu.cn/kimsiang84/wp-content/uploads/sites/4/2026/01/Weixin-Image_20251230205540_162_358-150x150.jpg" alt="" loading="lazy"></div>
-        <div class="news-body"><div class="news-date">January 8, 2026</div><h3>2025年粒子物理与核物理上海研讨会</h3></div>
-      </a>
-      <a class="news-card reveal" href="https://web.tdli.sjtu.edu.cn/kimsiang84/2026/01/08/sjtu-summer-research-internship-program-2026/">
-        <div class="news-thumb"><img src="https://web.tdli.sjtu.edu.cn/kimsiang84/wp-content/uploads/sites/4/2026/01/Screenshot-2026-01-08-at-11.29.24%20AM-150x150.png" alt="" loading="lazy"></div>
-        <div class="news-body"><div class="news-date">January 8, 2026</div><h3>SJTU Summer Research Internship Program 2026</h3></div>
-      </a>
-      <a class="news-card reveal" href="https://web.tdli.sjtu.edu.cn/kimsiang84/2025/12/12/the-first-workshop-on-shine-muon-source-and-its-applications-sms-2025/">
-        <div class="news-thumb"><img src="https://web.tdli.sjtu.edu.cn/kimsiang84/wp-content/uploads/sites/4/2025/12/Weixin-Image_2025-12-11_152314_935-150x150.jpg" alt="" loading="lazy"></div>
-        <div class="news-body"><div class="news-date">December 12, 2025</div><h3>The First Workshop on SHINE Muon Source and Its Applications (SMS 2025)</h3></div>
-      </a>
-      <a class="news-card reveal" href="https://web.tdli.sjtu.edu.cn/kimsiang84/2025/12/12/test-beam-2025-at-psi-for-muon-trigger-detector/">
-        <div class="news-thumb"><img src="https://web.tdli.sjtu.edu.cn/kimsiang84/wp-content/uploads/sites/4/2025/12/Weixin-Image_20251212100422_443_170-150x150.jpg" alt="" loading="lazy"></div>
-        <div class="news-body"><div class="news-date">December 12, 2025</div><h3>Test beam 2025 at PSI for muon trigger detector</h3></div>
-      </a>
-      <a class="news-card reveal" href="https://web.tdli.sjtu.edu.cn/kimsiang84/2025/11/24/the-3rd-national-muography-workshop-%e7%ac%ac%e4%b8%89%e5%b1%8a%e5%85%a8%e5%9b%bd%e7%bc%aa%e5%ad%90%e6%88%90%e5%83%8f%e6%8a%80%e6%9c%af%e4%b8%8e%e5%ba%94%e7%94%a8%e7%a0%94%e8%ae%a8%e4%bc%9a/">
-        <div class="news-thumb"><img src="https://web.tdli.sjtu.edu.cn/kimsiang84/wp-content/uploads/sites/4/2025/11/Weixin-Image_20251123103746_66_2722-150x150.jpg" alt="" loading="lazy"></div>
-        <div class="news-body"><div class="news-date">November 24, 2025</div><h3>The 3rd National Muography Workshop 第三届全国缪子成像技术与应用研讨会</h3></div>
-      </a>
-      <a class="news-card reveal" href="https://web.tdli.sjtu.edu.cn/kimsiang84/2025/11/20/muon-track-visualizer-and-muon-flux-monitor-are-currently-on-display-at-tdli/">
-        <div class="news-thumb"><img src="https://web.tdli.sjtu.edu.cn/kimsiang84/wp-content/uploads/sites/4/2025/11/IMG_3906-150x150.jpg" alt="" loading="lazy"></div>
-        <div class="news-body"><div class="news-date">November 20, 2025</div><h3>Muon Track Visualizer and Muon Flux Monitor on display at TDLI!</h3></div>
-      </a>
-      <a class="news-card reveal" href="https://web.tdli.sjtu.edu.cn/kimsiang84/2025/09/30/7-summer-research-interns-completed-their-work-in-our-group/">
-        <div class="news-thumb"><img src="https://web.tdli.sjtu.edu.cn/kimsiang84/wp-content/uploads/sites/4/2025/11/Picture10-150x150.jpg" alt="" loading="lazy"></div>
-        <div class="news-body"><div class="news-date">September 30, 2025</div><h3>7 Summer Research Interns completed their work in our group</h3></div>
-      </a>
-      <a class="news-card reveal" href="https://web.tdli.sjtu.edu.cn/kimsiang84/2025/09/22/the-7th-tianwen-forum-on-particle-physics-%e7%ac%ac%e4%b8%83%e5%b1%8a%e7%b2%92%e5%ad%90%e7%89%a9%e7%90%86%e5%a4%a9%e9%97%ae%e8%ae%ba%e5%9d%9b/">
-        <div class="news-thumb"><img src="https://web.tdli.sjtu.edu.cn/kimsiang84/wp-content/uploads/sites/4/2025/11/Picture3-150x150.jpg" alt="" loading="lazy"></div>
-        <div class="news-body"><div class="news-date">September 22, 2025</div><h3>The 7th Tianwen Forum on Particle Physics (第七届粒子物理天问论坛)</h3></div>
-      </a>
-      <a class="news-card reveal" href="https://web.tdli.sjtu.edu.cn/kimsiang84/2025/09/16/our-paper-on-the-shanghai-outer-ring-tunnel-muography-is-out/">
-        <div class="news-thumb"><img src="https://web.tdli.sjtu.edu.cn/kimsiang84/wp-content/uploads/sites/4/2025/11/Picture5-150x150.png" alt="" loading="lazy"></div>
-        <div class="news-body"><div class="news-date">September 16, 2025</div><h3>Our paper on the Shanghai Outer Ring Tunnel Muography is out!</h3></div>
-      </a>
-      <a class="news-card reveal" href="https://web.tdli.sjtu.edu.cn/kimsiang84/2025/09/12/physics-of-fundamental-symmetries-and-interactions-psi-2025/">
-        <div class="news-thumb"><img src="https://web.tdli.sjtu.edu.cn/kimsiang84/wp-content/uploads/sites/4/2025/11/Picturepsi1-150x150.jpg" alt="" loading="lazy"></div>
-        <div class="news-body"><div class="news-date">September 12, 2025</div><h3>Physics of Fundamental Symmetries and Interactions (PSI 2025)</h3></div>
-      </a>
-    </div>
-
-    <div style="text-align:center;margin-top:2.5rem;" class="reveal">
-      <a href="https://web.tdli.sjtu.edu.cn/kimsiang84/news/" class="btn btn-outline">View All News →</a>
-    </div>
-  </div>
-</section>
-
-<div class="collab-strip">
-  <div class="section-label">// Collaborations & Partners</div>
-  <div class="collab-logos">
-    <div class="collab-item"><span class="collab-name">Fermilab</span>Muon g−2 (E989)</div>
-    <div class="collab-item"><span class="collab-name">J-PARC</span>Muon g−2/EDM (E34)</div>
-    <div class="collab-item"><span class="collab-name">PSI</span>muEDM Experiment</div>
-    <div class="collab-item"><span class="collab-name">SHINE</span>Muon Source R&D</div>
-    <div class="collab-item"><span class="collab-name">TDLI</span>Shanghai Jiao Tong University</div>
-  </div>
+<div class="r-grid">
+<div class="r-card rv">
+<div class="r-accent" style="background:var(--cyan)"></div>
+<div class="r-img"><img src="https://web.tdli.sjtu.edu.cn/kimsiang84/wp-content/uploads/sites/4/2020/08/MuonG2FNAL-1024x618.png" alt="Fermilab Muon g-2" loading="lazy"></div>
+<div class="r-body">
+<h3>Muon g−2</h3>
+<p>Precision measurement of the muon's anomalous magnetic moment at Fermilab and J-PARC — one of the most sensitive tests of the Standard Model and a window to new physics beyond it.</p>
+<div class="r-tags"><span class="r-tag">Fermilab E989</span><span class="r-tag">J-PARC E34</span><span class="r-tag">Anomalous Precession</span></div>
+</div>
 </div>
 
-<footer class="footer">
-  <div class="footer-inner">
-    <div class="footer-left">© 2026 Kim Siang Khaw · Tsung-Dao Lee Institute, SJTU</div>
-    <div class="footer-links">
-      <a href="https://web.tdli.sjtu.edu.cn/kimsiang84/publications/">Publications</a>
-      <a href="https://web.tdli.sjtu.edu.cn/kimsiang84/selected-talks/">Talks</a>
-      <a href="https://web.tdli.sjtu.edu.cn/kimsiang84/photo-gallery/">Gallery</a>
-      <a href="https://web.tdli.sjtu.edu.cn/kimsiang84/posters/">Posters</a>
-      <a href="https://web.tdli.sjtu.edu.cn/kimsiang84/teaching/">Teaching</a>
-      <a href="https://web.tdli.sjtu.edu.cn/kimsiang84/members/">Members</a>
-      <a href="https://web.tdli.sjtu.edu.cn/kimsiang84/research/">Research</a>
-    </div>
-  </div>
-</footer>
+<div class="r-card rv">
+<div class="r-accent" style="background:var(--gold)"></div>
+<div class="r-img"><img src="https://web.tdli.sjtu.edu.cn/kimsiang84/wp-content/uploads/sites/4/2024/08/muEDMPic-1024x522-1.png" alt="PSI muEDM" loading="lazy"></div>
+<div class="r-body">
+<h3>Muon EDM</h3>
+<p>Searching for the muon's electric dipole moment at PSI using the frozen-spin technique — probing CP violation and matter-antimatter asymmetry with sensitivity to 10⁻²³ e·cm.</p>
+<div class="r-tags"><span class="r-tag">PSI muEDM</span><span class="r-tag">CP Violation</span><span class="r-tag">Frozen-Spin</span></div>
+</div>
+</div>
+
+<div class="r-card rv">
+<div class="r-accent" style="background:var(--magenta)"></div>
+<div class="r-img"><img src="https://web.tdli.sjtu.edu.cn/kimsiang84/wp-content/uploads/sites/4/2022/11/SHINE-TDLI.png" alt="SHINE Facility" loading="lazy"></div>
+<div class="r-body">
+<h3>SHINE Muon Source</h3>
+<p>Establishing a high-repetition-rate pulsed muon source at the SHINE facility using an 8 GeV CW superconducting RF linac — building China's next-generation muon beam for μSR and particle physics.</p>
+<div class="r-tags"><span class="r-tag">SHINE Facility</span><span class="r-tag">Beam R&D</span><span class="r-tag">μSR</span></div>
+</div>
+</div>
+
+<div class="r-card rv">
+<div class="r-accent" style="background:var(--blue)"></div>
+<div class="r-img"><img src="https://web.tdli.sjtu.edu.cn/kimsiang84/wp-content/uploads/sites/4/2024/08/Picture1.jpg" alt="Muography Underground Survey" loading="lazy"></div>
+<div class="r-body">
+<h3>Muography</h3>
+<p>Imaging underground structures with cosmic-ray muons — developing next-generation detectors and applying muon tomography to survey city infrastructure like Shanghai's Outer Ring Tunnel.</p>
+<div class="r-tags"><span class="r-tag">Detector R&D</span><span class="r-tag">Urban Imaging</span><span class="r-tag">SiPM / MWPC</span></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- MEMBERS -->
+<section class="sec" id="members" style="background:rgba(255,255,255,.01)">
+<div class="sec-in">
+<div class="sec-l rv">// Our Team</div>
+<h2 class="sec-t rv">Meet the Group</h2>
+
+<div class="m-cat rv">Principal Investigator</div>
+<div class="m-grid rv">
+<div class="m-card"><img src="https://web.tdli.sjtu.edu.cn/kimsiang84/wp-content/uploads/sites/4/2025/11/Screenshot-2025-11-24-at-2.11.57%20PM-805x1024.png" alt="Kim Siang Khaw" loading="lazy"><h4>Kim Siang Khaw<br>许金祥</h4><div class="m-sub">Assoc. Prof.</div></div>
+</div>
+
+<div class="m-cat rv">Postdoctoral Researchers</div>
+<div class="m-grid rv">
+<div class="m-card"><img src="https://web.tdli.sjtu.edu.cn/kimsiang84/wp-content/uploads/sites/4/2024/03/PictureSY.jpg" alt="Siew Yan Hoh" loading="lazy"><h4>Siew Yan Hoh<br>何守仁</h4><div class="m-sub">g-2 / muEDM</div></div>
+<div class="m-card"><img src="https://web.tdli.sjtu.edu.cn/kimsiang84/wp-content/uploads/sites/4/2025/11/d1edbed2527b42dc886cb8dc443337a9.jpg" alt="Yusuke Takeuchi" loading="lazy"><h4>Yusuke Takeuchi<br>竹内佑甫</h4><div class="m-sub">g-2 / SHINE</div></div>
+<div class="m-card"><img src="https://web.tdli.sjtu.edu.cn/kimsiang84/wp-content/uploads/sites/4/2025/11/SamipBasnet.jpg" alt="Samip Basnet" loading="lazy"><h4>Samip Basnet</h4><div class="m-sub">muEDM / Muography</div></div>
+</div>
+
+<div class="m-cat rv">Research Assistant</div>
+<div class="m-grid rv">
+<div class="m-card"><img src="https://web.tdli.sjtu.edu.cn/kimsiang84/wp-content/uploads/sites/4/2025/11/MengjieWu.jpg" alt="Mengjie Wu" loading="lazy"><h4>Mengjie Wu<br>吴梦洁</h4><div class="m-sub">Muography</div></div>
+</div>
+
+<div class="m-cat rv">Doctoral Students</div>
+<div class="m-grid rv">
+<div class="m-card"><img src="https://web.tdli.sjtu.edu.cn/kimsiang84/wp-content/uploads/sites/4/2024/03/4e42cc63113049f58a372e5d266b7aba.png" alt="Yonghao Zeng" loading="lazy"><h4>Yonghao Zeng<br>曾永浩</h4><div class="m-sub">g-2 / muEDM</div></div>
+<div class="m-card"><img src="https://web.tdli.sjtu.edu.cn/kimsiang84/wp-content/uploads/sites/4/2024/03/aaea0d22e69c477c869775644f6de2b9.png" alt="Jiangtao Wang" loading="lazy"><h4>Jiangtao Wang<br>王江涛</h4><div class="m-sub">SHINE / Muography</div></div>
+<div class="m-card"><img src="https://web.tdli.sjtu.edu.cn/kimsiang84/wp-content/uploads/sites/4/2025/11/XingyunHuang.jpg" alt="Xingyun Huang" loading="lazy"><h4>Xingyun Huang<br>黄幸运</h4><div class="m-sub">muEDM / Muography</div></div>
+<div class="m-card"><img src="https://web.tdli.sjtu.edu.cn/kimsiang84/wp-content/uploads/sites/4/2025/11/JunkaiNg.jpg" alt="Jun Kai Ng" loading="lazy"><h4>Jun Kai Ng<br>黄俊凯</h4><div class="m-sub">SHINE</div></div>
+<div class="m-card"><img src="https://web.tdli.sjtu.edu.cn/kimsiang84/wp-content/uploads/sites/4/2025/11/MinyangTan.jpg" alt="Min Yang Tan" loading="lazy"><h4>Min Yang Tan<br>陈铭扬</h4><div class="m-sub">Muography</div></div>
+<div class="m-card"><img src="https://web.tdli.sjtu.edu.cn/kimsiang84/wp-content/uploads/sites/4/2025/11/YingheWang.jpg" alt="Yinghe Wang" loading="lazy"><h4>Yinghe Wang<br>王赢鹤</h4><div class="m-sub">Muography</div></div>
+<div class="m-card"><img src="https://web.tdli.sjtu.edu.cn/kimsiang84/wp-content/uploads/sites/4/2024/03/5e239df3ef5e464cbe3f749e6da5199c.jpg" alt="Guan Ming Wong" loading="lazy"><h4>Guan Ming Wong<br>黄冠铭</h4><div class="m-sub">muEDM</div></div>
+</div>
+
+<div class="m-cat rv">Undergraduate Students</div>
+<div class="m-grid rv">
+<div class="m-card"><img src="https://web.tdli.sjtu.edu.cn/kimsiang84/wp-content/uploads/sites/4/2024/03/WechatIMG336.jpg" alt="Beining Rao" loading="lazy"><h4>Beining Rao<br>饶倍宁</h4><div class="m-sub">Positronium</div></div>
+<div class="m-card"><img src="https://web.tdli.sjtu.edu.cn/kimsiang84/wp-content/uploads/sites/4/2024/03/WechatIMG335-732x1024.jpg" alt="Zeyu Luo" loading="lazy"><h4>Zeyu Luo<br>罗泽宇</h4><div class="m-sub">Positronium</div></div>
+<div class="m-card"><img src="https://web.tdli.sjtu.edu.cn/kimsiang84/wp-content/uploads/sites/4/2024/03/WechatIMG334-731x1024.jpg" alt="Xuerui Liu" loading="lazy"><h4>Xuerui Liu<br>刘学睿</h4><div class="m-sub">Positronium</div></div>
+<div class="m-card"><img src="https://web.tdli.sjtu.edu.cn/kimsiang84/wp-content/uploads/sites/4/2025/11/BeiyaoShi.jpg" alt="Beiyao Shi" loading="lazy"><h4>Beiyao Shi<br>史贝尧</h4><div class="m-sub">MWPC</div></div>
+<div class="m-card"><img src="https://web.tdli.sjtu.edu.cn/kimsiang84/wp-content/uploads/sites/4/2025/11/ZhouXu.jpg" alt="Zhou Xu" loading="lazy"><h4>Zhou Xu<br>徐洲</h4><div class="m-sub">MWPC</div></div>
+<div class="m-card"><img src="https://web.tdli.sjtu.edu.cn/kimsiang84/wp-content/uploads/sites/4/2025/11/YifeiLi.jpg" alt="Yifei Li" loading="lazy"><h4>Yifei Li<br>李逸飞</h4><div class="m-sub">Muography</div></div>
+<div class="m-card"><img src="https://web.tdli.sjtu.edu.cn/kimsiang84/wp-content/uploads/sites/4/2025/11/XuCHen.jpg" alt="Xu Chen" loading="lazy"><h4>Xu Chen<br>陈旭</h4><div class="m-sub">Muography</div></div>
+<div class="m-card"><img src="https://web.tdli.sjtu.edu.cn/kimsiang84/wp-content/uploads/sites/4/2024/03/WechatIMG24.jpg" alt="Jier Qiu" loading="lazy"><h4>Jier Qiu<br>邱吉尔</h4><div class="m-sub">Muography</div></div>
+<div class="m-card"><img src="https://web.tdli.sjtu.edu.cn/kimsiang84/wp-content/uploads/sites/4/2025/11/WujieZhang.jpg" alt="Wujie Zhang" loading="lazy"><h4>Wujie Zhang<br>张武杰</h4><div class="m-sub">Electronics</div></div>
+</div>
+</div>
+</section>
+
+<!-- GALLERY -->
+<section class="sec" id="gallery">
+<div class="sec-in">
+<div class="sec-l rv">// Life in the Lab</div>
+<h2 class="sec-t rv">Photo Gallery</h2>
+
+<p style="font-size:.85rem;color:var(--t2);margin-bottom:1.2rem" class="rv">The Lab · Summer 2024</p>
+<div class="g-grid rv" style="margin-bottom:2rem">
+<div class="g-item"><img src="https://web.tdli.sjtu.edu.cn/kimsiang84/wp-content/uploads/sites/4/2024/08/5f5a2238e6eacaf5a313e085379e2f-768x1024.jpg" alt="Lab 1" loading="lazy"></div>
+<div class="g-item"><img src="https://web.tdli.sjtu.edu.cn/kimsiang84/wp-content/uploads/sites/4/2024/08/5216e20c1e94814581d6374a368218-768x1024.jpg" alt="Lab 2" loading="lazy"></div>
+<div class="g-item"><img src="https://web.tdli.sjtu.edu.cn/kimsiang84/wp-content/uploads/sites/4/2024/08/a47096b69717063dbebb6a73c9442c-768x1024.jpg" alt="Lab 3" loading="lazy"></div>
+<div class="g-item"><img src="https://web.tdli.sjtu.edu.cn/kimsiang84/wp-content/uploads/sites/4/2024/08/IMG_4783-768x1024.jpg" alt="Lab 4" loading="lazy"></div>
+</div>
+
+<p style="font-size:.85rem;color:var(--t2);margin-bottom:1.2rem" class="rv">Group Moments</p>
+<div class="g-grid rv" style="margin-bottom:2rem">
+<div class="g-item"><img src="https://web.tdli.sjtu.edu.cn/kimsiang84/wp-content/uploads/sites/4/2024/08/picturejc-1.png" alt="Journal Club" loading="lazy"></div>
+<div class="g-item"><img src="https://web.tdli.sjtu.edu.cn/kimsiang84/wp-content/uploads/sites/4/2024/09/542773979399b12a4130f5864ea0feb2-1024x768.jpg" alt="Group Activity" loading="lazy"></div>
+<div class="g-item"><img src="https://web.tdli.sjtu.edu.cn/kimsiang84/wp-content/uploads/sites/4/2024/09/WechatIMG4933-1024x768.jpg" alt="Group Photo" loading="lazy"></div>
+<div class="g-item"><img src="https://web.tdli.sjtu.edu.cn/kimsiang84/wp-content/uploads/sites/4/2024/09/WechatIMG5530-1024x768.jpg" alt="Group Event" loading="lazy"></div>
+</div>
+
+<p style="font-size:.85rem;color:var(--t2);margin-bottom:1.2rem" class="rv">Group Dinners Through the Years</p>
+<div class="g-grid rv">
+<div class="g-item"><img src="https://web.tdli.sjtu.edu.cn/kimsiang84/wp-content/uploads/sites/4/2022/04/IMG_0310-scaled.jpg" alt="Dinner 2022 Zhangjiang" loading="lazy"></div>
+<div class="g-item"><img src="https://web.tdli.sjtu.edu.cn/kimsiang84/wp-content/uploads/sites/4/2022/04/IMG_0400-scaled.jpg" alt="Dinner 2022 Minhang" loading="lazy"></div>
+<div class="g-item"><img src="https://web.tdli.sjtu.edu.cn/kimsiang84/wp-content/uploads/sites/4/2024/01/IMG_3111.jpg" alt="Dinner 2023" loading="lazy"></div>
+<div class="g-item"><img src="https://web.tdli.sjtu.edu.cn/kimsiang84/wp-content/uploads/sites/4/2025/11/Weixin-Image_20251120172242_239_419.jpg" alt="Dinner 2025" loading="lazy"></div>
+</div>
+</div>
+</section>
+
+<!-- JOIN -->
+<section class="join" id="join">
+<div class="join-box rv">
+<div class="sec-l">// Open Positions</div>
+<h2 class="sec-t" style="text-align:center">诚邀海内外人才加盟！<br>We are hiring!</h2>
+<p>本课题组每年招收多位本科生（PRP项目、䇹政项目、致远学者研究计划、物理研究实践、毕业设计），研究生（含国际研究生）以及优秀博士后研究员。欢迎对精确测量实验有浓厚兴趣者和我联系！</p>
+<p>Interested in undergraduate research, master thesis, PhD, or postdoc positions? We offer supervision in multiple languages.</p>
+<div class="join-langs">
+<span class="join-lang">English</span><span class="join-lang">中文</span><span class="join-lang">Bahasa Melayu</span><span class="join-lang">日本語</span><span class="join-lang">Deutsch</span>
+</div>
+<span class="join-email">kimsiang84 [at] sjtu.edu.cn</span>
+<a href="mailto:kimsiang84@sjtu.edu.cn" class="btn btn-p">Get in Touch</a>
+<div class="join-roles">
+<span class="join-role">Undergraduate (PRP / 致远 / 毕业设计)</span>
+<span class="join-role">Master's Thesis</span>
+<span class="join-role">PhD Positions</span>
+<span class="join-role">Postdoc</span>
+</div>
+</div>
+</section>
+
+<!-- NEWS -->
+<section class="sec" id="news">
+<div class="sec-in">
+<div class="sec-l rv">// Latest</div>
+<h2 class="sec-t rv">Recent News</h2>
+<div class="n-grid">
+<div class="n-card rv"><div class="n-thumb"><img src="https://web.tdli.sjtu.edu.cn/kimsiang84/wp-content/uploads/sites/4/2026/01/Weixin-Image_20251230205540_162_358-150x150.jpg" alt="" loading="lazy"></div><div class="n-body"><div class="n-date">January 8, 2026</div><h3>2025年粒子物理与核物理上海研讨会</h3></div></div>
+<div class="n-card rv"><div class="n-thumb"><img src="https://web.tdli.sjtu.edu.cn/kimsiang84/wp-content/uploads/sites/4/2026/01/Screenshot-2026-01-08-at-11.29.24%20AM-150x150.png" alt="" loading="lazy"></div><div class="n-body"><div class="n-date">January 8, 2026</div><h3>SJTU Summer Research Internship Program 2026</h3></div></div>
+<div class="n-card rv"><div class="n-thumb"><img src="https://web.tdli.sjtu.edu.cn/kimsiang84/wp-content/uploads/sites/4/2025/12/Weixin-Image_2025-12-11_152314_935-150x150.jpg" alt="" loading="lazy"></div><div class="n-body"><div class="n-date">December 12, 2025</div><h3>First Workshop on SHINE Muon Source (SMS 2025)</h3></div></div>
+<div class="n-card rv"><div class="n-thumb"><img src="https://web.tdli.sjtu.edu.cn/kimsiang84/wp-content/uploads/sites/4/2025/12/Weixin-Image_20251212100422_443_170-150x150.jpg" alt="" loading="lazy"></div><div class="n-body"><div class="n-date">December 12, 2025</div><h3>Test beam 2025 at PSI for muon trigger detector</h3></div></div>
+<div class="n-card rv"><div class="n-thumb"><img src="https://web.tdli.sjtu.edu.cn/kimsiang84/wp-content/uploads/sites/4/2025/11/Weixin-Image_20251123103746_66_2722-150x150.jpg" alt="" loading="lazy"></div><div class="n-body"><div class="n-date">November 24, 2025</div><h3>第三届全国缪子成像技术与应用研讨会</h3></div></div>
+<div class="n-card rv"><div class="n-thumb"><img src="https://web.tdli.sjtu.edu.cn/kimsiang84/wp-content/uploads/sites/4/2025/11/IMG_3906-150x150.jpg" alt="" loading="lazy"></div><div class="n-body"><div class="n-date">November 20, 2025</div><h3>Muon Track Visualizer & Flux Monitor on display at TDLI</h3></div></div>
+<div class="n-card rv"><div class="n-thumb"><img src="https://web.tdli.sjtu.edu.cn/kimsiang84/wp-content/uploads/sites/4/2025/11/Picture10-150x150.jpg" alt="" loading="lazy"></div><div class="n-body"><div class="n-date">September 30, 2025</div><h3>7 Summer Research Interns completed their work</h3></div></div>
+<div class="n-card rv"><div class="n-thumb"><img src="https://web.tdli.sjtu.edu.cn/kimsiang84/wp-content/uploads/sites/4/2025/11/Picture3-150x150.jpg" alt="" loading="lazy"></div><div class="n-body"><div class="n-date">September 22, 2025</div><h3>第七届粒子物理天问论坛</h3></div></div>
+<div class="n-card rv"><div class="n-thumb"><img src="https://web.tdli.sjtu.edu.cn/kimsiang84/wp-content/uploads/sites/4/2025/11/Picture5-150x150.png" alt="" loading="lazy"></div><div class="n-body"><div class="n-date">September 16, 2025</div><h3>Shanghai Outer Ring Tunnel Muography paper published</h3></div></div>
+<div class="n-card rv"><div class="n-thumb"><img src="https://web.tdli.sjtu.edu.cn/kimsiang84/wp-content/uploads/sites/4/2025/11/Picturepsi1-150x150.jpg" alt="" loading="lazy"></div><div class="n-body"><div class="n-date">September 12, 2025</div><h3>Physics of Fundamental Symmetries and Interactions (PSI 2025)</h3></div></div>
+</div>
+</div>
+</section>
+
+<!-- COLLAB -->
+<div class="collab">
+<div class="sec-l">// Collaborations</div>
+<div class="c-logos">
+<div class="c-item"><strong>Fermilab</strong>Muon g−2 (E989)</div>
+<div class="c-item"><strong>J-PARC</strong>Muon g−2/EDM (E34)</div>
+<div class="c-item"><strong>PSI</strong>muEDM Experiment</div>
+<div class="c-item"><strong>SHINE</strong>Muon Source R&D</div>
+<div class="c-item"><strong>TDLI</strong>Shanghai Jiao Tong Univ.</div>
+</div>
+</div>
+
+<footer class="foot">© 2026 TDLI Muon Tech Lab · Tsung-Dao Lee Institute, Shanghai Jiao Tong University</footer>
 
 <script>
-const canvas=document.getElementById('particles'),ctx=canvas.getContext('2d');
-let w,h,pts=[];
-function resize(){w=canvas.width=window.innerWidth;h=canvas.height=window.innerHeight;}
-resize();window.addEventListener('resize',resize);
-class P{constructor(){this.reset();}reset(){this.x=Math.random()*w;this.y=Math.random()*h;this.vx=(Math.random()-0.5)*0.3;this.vy=(Math.random()-0.5)*0.3;this.r=Math.random()*1.5+0.3;this.a=Math.random()*0.25+0.05;this.c=Math.random()>0.7?'240,180,41':'34,211,238';}update(){this.x+=this.vx;this.y+=this.vy;if(this.x<0||this.x>w||this.y<0||this.y>h)this.reset();}draw(){ctx.beginPath();ctx.arc(this.x,this.y,this.r,0,Math.PI*2);ctx.fillStyle=`rgba(${this.c},${this.a})`;ctx.fill();}}
-for(let i=0;i<70;i++)pts.push(new P());
-function lines(){for(let i=0;i<pts.length;i++)for(let j=i+1;j<pts.length;j++){const d=Math.hypot(pts[i].x-pts[j].x,pts[i].y-pts[j].y);if(d<140){ctx.beginPath();ctx.moveTo(pts[i].x,pts[i].y);ctx.lineTo(pts[j].x,pts[j].y);ctx.strokeStyle=`rgba(34,211,238,${0.025*(1-d/140)})`;ctx.stroke();}}}
-function anim(){ctx.clearRect(0,0,w,h);pts.forEach(p=>{p.update();p.draw();});lines();requestAnimationFrame(anim);}
-anim();
-const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:0.08});
-document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
-let lastScroll=0;
-window.addEventListener('scroll',()=>{const nav=document.querySelector('.nav');const cur=window.scrollY;if(cur>lastScroll&&cur>200)nav.style.transform='translateY(-100%)';else nav.style.transform='translateY(0)';nav.style.transition='transform 0.3s';lastScroll=cur;});
+const c=document.getElementById('p'),x=c.getContext('2d');let w,h,ps=[];
+function rs(){w=c.width=innerWidth;h=c.height=innerHeight}rs();addEventListener('resize',rs);
+class P{constructor(){this.r()}r(){this.x=Math.random()*w;this.y=Math.random()*h;this.vx=(Math.random()-.5)*.3;this.vy=(Math.random()-.5)*.3;this.s=Math.random()*1.5+.3;this.a=Math.random()*.25+.05;this.c=Math.random()>.7?'240,180,41':'34,211,238'}u(){this.x+=this.vx;this.y+=this.vy;if(this.x<0||this.x>w||this.y<0||this.y>h)this.r()}d(){x.beginPath();x.arc(this.x,this.y,this.s,0,Math.PI*2);x.fillStyle=`rgba(${this.c},${this.a})`;x.fill()}}
+for(let i=0;i<60;i++)ps.push(new P);
+function ln(){for(let i=0;i<ps.length;i++)for(let j=i+1;j<ps.length;j++){const d=Math.hypot(ps[i].x-ps[j].x,ps[i].y-ps[j].y);if(d<130){x.beginPath();x.moveTo(ps[i].x,ps[i].y);x.lineTo(ps[j].x,ps[j].y);x.strokeStyle=`rgba(34,211,238,${.025*(1-d/130)})`;x.stroke()}}}
+function an(){x.clearRect(0,0,w,h);ps.forEach(p=>{p.u();p.d()});ln();requestAnimationFrame(an)}an();
+new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('v')})},{threshold:.08}).observe(document.body);
+document.querySelectorAll('.rv').forEach(el=>new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('v')})},{threshold:.08}).observe(el));
+let ls=0;addEventListener('scroll',()=>{const n=document.querySelector('.nav'),c=scrollY;n.style.transform=c>ls&&c>180?'translateY(-100%)':'translateY(0)';n.style.transition='transform .3s';ls=c});
 </script>
 </body>
 </html>
