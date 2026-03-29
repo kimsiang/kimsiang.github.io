@@ -1,402 +1,344 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TDLI Muon Tech Lab — Tsung-Dao Lee Institute</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-:root{
---bg:#0a0e1a;--card:#111827;--card-h:#1a2340;
---t1:#e8ecf4;--t2:#8b95aa;--t3:#5a6478;
---cyan:#22d3ee;--gold:#f0b429;--magenta:#e879a8;--blue:#3b82f6;
---bdr:rgba(255,255,255,0.06);
---fd:'DM Serif Display',Georgia,serif;--fb:'Outfit',sans-serif;--fm:'JetBrains Mono',monospace;
-}
-html{scroll-behavior:smooth}
-body{font-family:var(--fb);background:var(--bg);color:var(--t1);line-height:1.7;overflow-x:hidden}
-a{color:inherit;text-decoration:none}
-img{display:block}
-
-/* NAV */
-.nav{position:fixed;top:0;left:0;width:100%;z-index:100;padding:0 2.5rem;background:rgba(10,14,26,0.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--bdr)}
-.nav-in{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:56px}
-.nav-logo{font-family:var(--fm);font-size:0.85rem;color:var(--cyan);letter-spacing:.08em;font-weight:500}
-.nav-logo span{color:var(--t3)}
-.nav-links{display:flex;gap:.2rem}
-.nav-links a{font-size:.76rem;font-weight:500;letter-spacing:.04em;text-transform:uppercase;color:var(--t2);padding:.5rem .6rem;border-radius:6px;transition:all .25s}
-.nav-links a:hover{color:var(--t1);background:rgba(255,255,255,.04)}
-.nav-lang{font-size:.76rem;padding:.3rem .8rem;border:1px solid var(--bdr);border-radius:100px;color:var(--t2);transition:all .25s}
-.nav-lang:hover{border-color:var(--cyan);color:var(--cyan)}
-.nav-toggle{display:none;background:none;border:1px solid var(--bdr);border-radius:6px;color:var(--t2);padding:5px 9px;font-size:1.1rem;cursor:pointer}
-
-/* HERO */
-.hero{position:relative;min-height:100vh;display:flex;align-items:center;padding:5rem 2rem 4rem;overflow:hidden}
-.hero-bg{position:absolute;inset:0;z-index:0;background:radial-gradient(ellipse 80% 60% at 70% 30%,rgba(34,211,238,.06),transparent),radial-gradient(ellipse 60% 50% at 20% 70%,rgba(240,180,41,.04),transparent),var(--bg)}
-.hero-grid{position:absolute;inset:0;z-index:1;background-image:linear-gradient(rgba(255,255,255,.015) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.015) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse 70% 60% at 60% 40%,black 20%,transparent 70%)}
-canvas#p{position:absolute;inset:0;z-index:2;pointer-events:none}
-.hero-in{position:relative;z-index:10;max-width:1200px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
-.hero-c{max-width:540px}
-.hero-tag{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--fm);font-size:.7rem;color:var(--cyan);letter-spacing:.1em;text-transform:uppercase;margin-bottom:1.5rem;opacity:0;animation:fu .8s .2s forwards}
-.hero-tag .dot{width:6px;height:6px;border-radius:50%;background:var(--cyan);animation:pulse 2s infinite}
-.hero-h{font-family:var(--fd);font-size:clamp(2.2rem,4.5vw,3.8rem);line-height:1.08;margin-bottom:.5rem;opacity:0;animation:fu .8s .4s forwards}
-.hero-h .hl{color:var(--cyan)}
-.hero-sub{font-size:1.05rem;font-weight:300;color:var(--t2);margin-bottom:1.8rem;opacity:0;animation:fu .8s .6s forwards;max-width:480px;line-height:1.7}
-.hero-btns{display:flex;gap:1rem;flex-wrap:wrap;opacity:0;animation:fu .8s .8s forwards}
-.hero-img{opacity:0;animation:fi 1s .5s forwards}
-.hero-img img{width:100%;border-radius:16px;border:1px solid rgba(255,255,255,.08);box-shadow:0 25px 60px rgba(0,0,0,.5)}
-
-.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.75rem 1.6rem;border-radius:6px;font-family:var(--fb);font-size:.84rem;font-weight:600;cursor:pointer;border:none;transition:all .3s}
-.btn-p{background:var(--cyan);color:var(--bg);box-shadow:0 0 30px rgba(34,211,238,.2)}
-.btn-p:hover{box-shadow:0 0 50px rgba(34,211,238,.35);transform:translateY(-2px)}
-.btn-o{background:transparent;border:1.5px solid var(--bdr);color:var(--t1)}
-.btn-o:hover{border-color:var(--cyan);color:var(--cyan);background:rgba(34,211,238,.05)}
-
-/* SECTIONS */
-.sec{padding:5.5rem 2rem;position:relative}
-.sec-in{max-width:1200px;margin:0 auto}
-.sec-l{font-family:var(--fm);font-size:.7rem;color:var(--cyan);letter-spacing:.15em;text-transform:uppercase;margin-bottom:.7rem}
-.sec-t{font-family:var(--fd);font-size:clamp(1.7rem,3.2vw,2.6rem);line-height:1.2;margin-bottom:.8rem}
-.sec-s{font-size:.95rem;color:var(--t2);max-width:580px;margin-bottom:2.5rem}
-
-/* STATS */
-.stats{display:flex;justify-content:center;gap:3.5rem;flex-wrap:wrap;padding:3rem 2rem;border-top:1px solid var(--bdr);border-bottom:1px solid var(--bdr)}
-.stat-n{font-family:var(--fd);font-size:2.3rem;color:var(--cyan)}
-.stat-l{font-size:.78rem;color:var(--t3);text-transform:uppercase;letter-spacing:.1em;margin-top:.15rem}
-.stat{text-align:center}
-
-/* RESEARCH — image cards */
-.r-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem}
-.r-card{border-radius:14px;overflow:hidden;border:1px solid var(--bdr);background:var(--card);transition:all .4s;position:relative}
-.r-card:hover{border-color:rgba(255,255,255,.1);transform:translateY(-4px);box-shadow:0 20px 50px rgba(0,0,0,.35)}
-.r-img{height:220px;overflow:hidden;position:relative}
-.r-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
-.r-card:hover .r-img img{transform:scale(1.05)}
-.r-img::after{content:'';position:absolute;bottom:0;left:0;right:0;height:80px;background:linear-gradient(transparent,rgba(17,24,39,.9))}
-.r-body{padding:1.5rem 1.5rem 1.3rem}
-.r-body h3{font-size:1.15rem;font-weight:600;margin-bottom:.4rem}
-.r-body p{font-size:.86rem;color:var(--t2);line-height:1.65}
-.r-tags{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.8rem}
-.r-tag{font-family:var(--fm);font-size:.64rem;padding:.18rem .5rem;border-radius:4px;background:rgba(255,255,255,.04);color:var(--t3)}
-.r-accent{position:absolute;top:0;left:0;right:0;height:3px}
-
-/* MEMBERS */
-.m-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:1.2rem}
-.m-card{text-align:center}
-.m-card img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:10px;border:1px solid var(--bdr);margin-bottom:.6rem;transition:all .3s}
-.m-card:hover img{border-color:rgba(34,211,238,.2);transform:translateY(-3px);box-shadow:0 10px 25px rgba(0,0,0,.3)}
-.m-card h4{font-size:.82rem;font-weight:600;line-height:1.3;margin-bottom:.15rem}
-.m-card .m-sub{font-size:.7rem;color:var(--t3);font-family:var(--fm)}
-.m-cat{font-size:.82rem;font-weight:600;color:var(--t2);margin:2.5rem 0 1rem;padding-bottom:.4rem;border-bottom:1px solid var(--bdr)}
-.m-cat:first-of-type{margin-top:0}
-
-/* GALLERY */
-.g-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.8rem}
-.g-grid.wide{grid-template-columns:repeat(6,1fr)}
-.g-item{border-radius:8px;overflow:hidden;border:1px solid var(--bdr);aspect-ratio:1;transition:all .4s}
-.g-item.landscape{aspect-ratio:16/9;grid-column:span 2}
-.g-item:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(0,0,0,.4);border-color:rgba(255,255,255,.1)}
-.g-item img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
-.g-item:hover img{transform:scale(1.06)}
-.g-cap{font-size:.78rem;color:var(--t3);margin-top:1rem;text-align:center;font-style:italic}
-
-/* JOIN */
-.join{padding:5.5rem 2rem;text-align:center;position:relative}
-.join::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 50%,rgba(34,211,238,.06),transparent);pointer-events:none}
-.join-box{position:relative;z-index:2;max-width:760px;margin:0 auto;padding:3rem 2.5rem;border:1px solid rgba(34,211,238,.15);border-radius:16px;background:linear-gradient(135deg,rgba(34,211,238,.03),rgba(240,180,41,.02))}
-.join-box p{color:var(--t2);font-size:.92rem;line-height:1.8;margin-bottom:1rem;text-align:left}
-.join-langs{display:flex;justify-content:center;gap:.6rem;margin:1.5rem 0;flex-wrap:wrap}
-.join-lang{font-family:var(--fm);font-size:.68rem;padding:.22rem .7rem;border-radius:100px;border:1px solid var(--bdr);color:var(--t3)}
-.join-email{font-family:var(--fm);font-size:.92rem;color:var(--cyan);margin-bottom:1.3rem;display:block}
-.join-roles{display:flex;justify-content:center;gap:.8rem;flex-wrap:wrap;margin-top:1.3rem}
-.join-role{font-size:.78rem;padding:.4rem 1rem;border-radius:6px;background:rgba(255,255,255,.04);color:var(--t2);border:1px solid var(--bdr)}
-
-/* NEWS */
-.n-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1rem}
-.n-card{display:flex;align-items:center;gap:1rem;padding:.9rem 1.1rem;border:1px solid var(--bdr);border-radius:10px;background:var(--card);transition:all .3s}
-.n-card:hover{border-color:rgba(34,211,238,.15);background:var(--card-h);transform:translateX(4px)}
-.n-thumb{width:52px;height:52px;flex-shrink:0;border-radius:8px;overflow:hidden;border:1px solid var(--bdr)}
-.n-thumb img{width:100%;height:100%;object-fit:cover}
-.n-body{flex:1;min-width:0}
-.n-date{font-family:var(--fm);font-size:.66rem;color:var(--t3);letter-spacing:.06em;margin-bottom:.15rem}
-.n-body h3{font-size:.84rem;font-weight:500;line-height:1.4;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
-
-/* COLLAB */
-.collab{padding:3rem 2rem;border-top:1px solid var(--bdr)}
-.collab .sec-l{text-align:center;margin-bottom:1.5rem}
-.c-logos{display:flex;justify-content:center;gap:3rem;flex-wrap:wrap}
-.c-item{font-family:var(--fm);font-size:.72rem;color:var(--t3);text-align:center;opacity:.6;transition:opacity .3s}
-.c-item:hover{opacity:1}
-.c-item strong{font-family:var(--fb);font-weight:600;font-size:.92rem;color:var(--t2);display:block;margin-bottom:.1rem}
-
-/* FOOTER */
-.foot{padding:2rem 2rem;border-top:1px solid var(--bdr);text-align:center;font-size:.78rem;color:var(--t3)}
-
-/* ANIMATIONS */
-@keyframes fu{from{opacity:0;transform:translateY(25px)}to{opacity:1;transform:translateY(0)}}
-@keyframes fi{from{opacity:0}to{opacity:1}}
-@keyframes pulse{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(34,211,238,.4)}50%{opacity:.7;box-shadow:0 0 0 6px rgba(34,211,238,0)}}
-.rv{opacity:0;transform:translateY(25px);transition:opacity .7s,transform .7s}
-.rv.v{opacity:1;transform:translateY(0)}
-
-::-webkit-scrollbar{width:7px}::-webkit-scrollbar-track{background:#0a0e1a}::-webkit-scrollbar-thumb{background:#1e293b;border-radius:4px}
-::selection{background:rgba(34,211,238,.25);color:#fff}
-
-@media(max-width:1024px){.hero-in{grid-template-columns:1fr;gap:2rem}.hero-img{order:-1;max-width:550px}.r-grid{grid-template-columns:1fr}}
-@media(max-width:768px){
-.nav-links,.nav-lang{display:none}.nav-toggle{display:block}
-.nav.open .nav-links{display:flex;flex-direction:column;position:absolute;top:56px;left:0;right:0;background:#111827;border-bottom:1px solid var(--bdr);padding:1rem;gap:0}
-.g-grid,.g-grid.wide{grid-template-columns:repeat(2,1fr)}.g-item.landscape{grid-column:span 1}
-.m-grid{grid-template-columns:repeat(3,1fr)}
-.stats{gap:1.5rem}.hero{min-height:auto;padding-top:4.5rem}.join-box{padding:2rem 1.5rem}
-.n-grid{grid-template-columns:1fr}
-}
-@media(max-width:480px){.m-grid{grid-template-columns:repeat(2,1fr)}}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TDLI Muon Physics Group | TDLI缪子物理课题组 — 上海交通大学李政道研究所</title>
+  <meta name="description" content="TDLI Muon Physics Group at Shanghai Jiao Tong University — precision muon physics, Muon g-2, muEDM, SHINE muon source, and muography. Led by Prof. Kim Siang Khaw (许金祥).">
+  <meta name="keywords" content="muon physics, TDLI, 李政道研究所, 上海交通大学, muon g-2, muEDM, muography, SHINE muon source, particle physics, 缪子物理, Kim Siang Khaw, 许金祥, precision frontier, Fermilab, PSI, J-PARC, CERN">
+  <meta property="og:title" content="TDLI Muon Physics Group | TDLI缪子物理课题组">
+  <meta property="og:description" content="Precision muon physics at Shanghai Jiao Tong University — Muon g-2, muEDM, SHINE muon source, muography. We are hiring!">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="TDLI Muon Physics Group">
+  <meta name="twitter:description" content="Precision muon physics at the Tsung-Dao Lee Institute, SJTU">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>μ</text></svg>">
 </head>
 <body>
 
-<nav class="nav" id="mn">
-<div class="nav-in">
-<div class="nav-logo">TDLI <span>Muon Tech Lab</span></div>
-<button class="nav-toggle" onclick="document.getElementById('mn').classList.toggle('open')" aria-label="Menu">☰</button>
-<div class="nav-links">
-<a href="#research">Research</a>
-<a href="#members">Members</a>
-<a href="#gallery">Gallery</a>
-<a href="#news">News</a>
-<a href="#join">Join Us</a>
-</div>
-<a href="#join" class="nav-lang">联系我们</a>
-</div>
+<!-- NAVIGATION -->
+<nav>
+  <a href="#" class="nav-logo">
+    <div class="nav-logo-icon">μ</div>
+    <div class="nav-logo-text">TDLI <span>Muon</span> Physics</div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#home" class="active">首页</a></li>
+    <li><a href="#about">关于</a></li>
+    <li><a href="#research">研究</a></li>
+    <li><a href="#team">团队</a></li>
+    <li><a href="#news">动态</a></li>
+    <li><a href="#education">教学</a></li>
+    <li><a href="#journey">历程</a></li>
+    <li><a href="#joinus" class="nav-cta">加入我们</a></li>
+  </ul>
+  <button class="mobile-toggle" aria-label="Toggle menu">☰</button>
 </nav>
 
 <!-- HERO -->
 <section class="hero" id="home">
-<div class="hero-bg"></div><div class="hero-grid"></div><canvas id="p"></canvas>
-<div class="hero-in">
-<div class="hero-c">
-<div class="hero-tag"><span class="dot"></span> Tsung-Dao Lee Institute · Shanghai Jiao Tong University</div>
-<h1 class="hero-h">TDLI Muon<br><span class="hl">Tech Lab</span></h1>
-<p class="hero-sub">We probe the Standard Model at the precision frontier — measuring the muon's fundamental properties, building next-generation muon sources, and pioneering muography for real-world applications.</p>
-<div class="hero-btns">
-<a href="#join" class="btn btn-p">Join Our Group</a>
-<a href="#research" class="btn btn-o">Explore Research →</a>
-</div>
-</div>
-<div class="hero-img">
-<img src="https://web.tdli.sjtu.edu.cn/kimsiang84/wp-content/uploads/sites/4/2025/06/Weixin-Image_2025-06-26_160943_281.png" alt="TDLI Muon Tech Lab Group Photo 2025">
-</div>
-</div>
+  <div class="hero-bg"></div>
+  <div class="hero-particles"><div class="particle-track"></div><div class="particle-track"></div><div class="particle-track"></div><div class="particle-track"></div><div class="particle-track"></div><div class="particle-track"></div><div class="particle-track"></div><div class="particle-track"></div></div>
+  <div class="hero-content">
+    <div class="hero-badge">上海交通大学 · 李政道研究所</div>
+    <h1>TDLI <span class="highlight">缪子物理</span>课题组</h1>
+    <p class="hero-sub">以缪子为探针，精密检验粒子物理标准模型。从费米实验室到PSI，从SHINE缪子源到城市地下成像——探索物质世界最深层的对称性与结构。</p>
+    <div class="hero-actions">
+      <a href="#research" class="btn btn-primary">探索研究方向 →</a>
+      <a href="#joinus" class="btn btn-outline">加入我们 / Join Us</a>
+    </div>
+  </div>
 </section>
 
-<!-- STATS -->
-<div class="stats">
-<div class="stat"><div class="stat-n">4</div><div class="stat-l">Research Programs</div></div>
-<div class="stat"><div class="stat-n">3</div><div class="stat-l">World-Class Partners</div></div>
-<div class="stat"><div class="stat-n">20+</div><div class="stat-l">Group Members</div></div>
-<div class="stat"><div class="stat-n">5</div><div class="stat-l">Languages Spoken</div></div>
-</div>
-
-<!-- RESEARCH -->
-<section class="sec" id="research">
-<div class="sec-in">
-<div class="sec-l rv">// Research</div>
-<h2 class="sec-t rv">Pushing the Precision Frontier</h2>
-<p class="sec-s rv">From fundamental symmetries to underground imaging — our experiments span the full spectrum of muon physics.</p>
-
-<div class="r-grid">
-<div class="r-card rv">
-<div class="r-accent" style="background:var(--cyan)"></div>
-<div class="r-img"><img src="https://web.tdli.sjtu.edu.cn/kimsiang84/wp-content/uploads/sites/4/2020/08/MuonG2FNAL-1024x618.png" alt="Fermilab Muon g-2" loading="lazy"></div>
-<div class="r-body">
-<h3>Muon g−2</h3>
-<p>Precision measurement of the muon's anomalous magnetic moment at Fermilab and J-PARC — one of the most sensitive tests of the Standard Model and a window to new physics beyond it.</p>
-<div class="r-tags"><span class="r-tag">Fermilab E989</span><span class="r-tag">J-PARC E34</span><span class="r-tag">Anomalous Precession</span></div>
-</div>
-</div>
-
-<div class="r-card rv">
-<div class="r-accent" style="background:var(--gold)"></div>
-<div class="r-img"><img src="https://web.tdli.sjtu.edu.cn/kimsiang84/wp-content/uploads/sites/4/2024/08/muEDMPic-1024x522-1.png" alt="PSI muEDM" loading="lazy"></div>
-<div class="r-body">
-<h3>Muon EDM</h3>
-<p>Searching for the muon's electric dipole moment at PSI using the frozen-spin technique — probing CP violation and matter-antimatter asymmetry with sensitivity to 10⁻²³ e·cm.</p>
-<div class="r-tags"><span class="r-tag">PSI muEDM</span><span class="r-tag">CP Violation</span><span class="r-tag">Frozen-Spin</span></div>
-</div>
-</div>
-
-<div class="r-card rv">
-<div class="r-accent" style="background:var(--magenta)"></div>
-<div class="r-img"><img src="https://web.tdli.sjtu.edu.cn/kimsiang84/wp-content/uploads/sites/4/2022/11/SHINE-TDLI.png" alt="SHINE Facility" loading="lazy"></div>
-<div class="r-body">
-<h3>SHINE Muon Source</h3>
-<p>Establishing a high-repetition-rate pulsed muon source at the SHINE facility using an 8 GeV CW superconducting RF linac — building China's next-generation muon beam for μSR and particle physics.</p>
-<div class="r-tags"><span class="r-tag">SHINE Facility</span><span class="r-tag">Beam R&D</span><span class="r-tag">μSR</span></div>
-</div>
-</div>
-
-<div class="r-card rv">
-<div class="r-accent" style="background:var(--blue)"></div>
-<div class="r-img"><img src="https://web.tdli.sjtu.edu.cn/kimsiang84/wp-content/uploads/sites/4/2024/08/Picture1.jpg" alt="Muography Underground Survey" loading="lazy"></div>
-<div class="r-body">
-<h3>Muography</h3>
-<p>Imaging underground structures with cosmic-ray muons — developing next-generation detectors and applying muon tomography to survey city infrastructure like Shanghai's Outer Ring Tunnel.</p>
-<div class="r-tags"><span class="r-tag">Detector R&D</span><span class="r-tag">Urban Imaging</span><span class="r-tag">SiPM / MWPC</span></div>
-</div>
-</div>
-</div>
-</div>
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-visual">
+      <div class="about-visual-box">
+        <div class="detector-illustration">
+          <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#00d4ff" stop-opacity="0.6"/><stop offset="100%" stop-color="#7b61ff" stop-opacity="0.3"/></linearGradient>
+              <linearGradient id="g2" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#00d4ff" stop-opacity="0.8"/><stop offset="100%" stop-color="transparent"/></linearGradient>
+            </defs>
+            <rect x="120" y="100" width="160" height="120" rx="8" fill="#1c2240" stroke="url(#g1)" stroke-width="1.5"/>
+            <rect x="135" y="115" width="130" height="20" rx="3" fill="#0f1220" stroke="#00d4ff" stroke-width="0.5" opacity="0.6"/>
+            <rect x="135" y="145" width="130" height="20" rx="3" fill="#0f1220" stroke="#00d4ff" stroke-width="0.5" opacity="0.6"/>
+            <rect x="135" y="175" width="130" height="20" rx="3" fill="#0f1220" stroke="#7b61ff" stroke-width="0.5" opacity="0.6"/>
+            <circle cx="150" cy="125" r="3" fill="#00d4ff" opacity="0.8"/><circle cx="165" cy="125" r="3" fill="#00d4ff" opacity="0.6"/><circle cx="180" cy="125" r="3" fill="#00d4ff" opacity="0.9"/>
+            <circle cx="195" cy="155" r="3" fill="#00d4ff" opacity="0.7"/><circle cx="210" cy="155" r="3" fill="#00d4ff" opacity="0.8"/><circle cx="225" cy="155" r="3" fill="#00d4ff" opacity="0.5"/>
+            <circle cx="160" cy="185" r="3" fill="#7b61ff" opacity="0.7"/><circle cx="200" cy="185" r="3" fill="#7b61ff" opacity="0.9"/><circle cx="240" cy="185" r="3" fill="#7b61ff" opacity="0.6"/>
+            <line x1="200" y1="20" x2="200" y2="100" stroke="url(#g2)" stroke-width="2" stroke-dasharray="6 4" opacity="0.8"/>
+            <line x1="200" y1="220" x2="200" y2="280" stroke="#7b61ff" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.4"/>
+            <text x="215" y="40" fill="#00d4ff" font-size="10" font-family="monospace" opacity="0.7">μ⁻</text>
+            <path d="M290 140 Q310 130 300 150 Q290 170 310 160" stroke="#00d4ff" stroke-width="1" fill="none" opacity="0.4"/>
+            <text x="200" y="250" fill="#8b90a8" font-size="11" font-family="monospace" text-anchor="middle" opacity="0.6">MuDigi-64 Detector Module</text>
+          </svg>
+        </div>
+      </div>
+      <div class="about-stats">
+        <div class="stat-card"><div class="stat-num">4</div><div class="stat-label">国际合作实验</div></div>
+        <div class="stat-card"><div class="stat-num">15+</div><div class="stat-label">课题组成员</div></div>
+        <div class="stat-card"><div class="stat-num">5</div><div class="stat-label">国家/地区</div></div>
+      </div>
+    </div>
+    <div class="about-text">
+      <div class="section-label">关于课题组</div>
+      <h2 class="section-title">"Who ordered that?"</h2>
+      <p class="section-desc">尽管缪子早在1936年就被发现，但至今仍处于前沿研究的核心。我们课题组致力于以缪子为探针的精密前沿实验，精确测量缪子的基本性质——包括磁异常矩(g-2)和电偶极矩(EDM)——以检验和挑战粒子物理标准模型。</p>
+      <p class="section-desc">同时，我们积极开展缪子束流开发、探测器研制、模拟仿真与数据分析，并推动两大重点项目：依托SHINE装置建设中国首个高重复频率脉冲缪子源，以及面向城市地下空间探测的缪子成像技术。</p>
+      <div class="about-quote">
+        <p>"We warmly welcome young, motivated physicists to join us in Shanghai and contribute to these exciting efforts!"</p>
+      </div>
+    </div>
+  </div>
 </section>
 
-<!-- MEMBERS -->
-<section class="sec" id="members" style="background:rgba(255,255,255,.01)">
-<div class="sec-in">
-<div class="sec-l rv">// Our Team</div>
-<h2 class="sec-t rv">Meet the Group</h2>
-
-<div class="m-cat rv">Principal Investigator</div>
-<div class="m-grid rv">
-<div class="m-card"><img src="https://web.tdli.sjtu.edu.cn/kimsiang84/wp-content/uploads/sites/4/2025/11/Screenshot-2025-11-24-at-2.11.57%20PM-805x1024.png" alt="Kim Siang Khaw" loading="lazy"><h4>Kim Siang Khaw<br>许金祥</h4><div class="m-sub">Assoc. Prof.</div></div>
-</div>
-
-<div class="m-cat rv">Postdoctoral Researchers</div>
-<div class="m-grid rv">
-<div class="m-card"><img src="https://web.tdli.sjtu.edu.cn/kimsiang84/wp-content/uploads/sites/4/2024/03/PictureSY.jpg" alt="Siew Yan Hoh" loading="lazy"><h4>Siew Yan Hoh<br>何守仁</h4><div class="m-sub">g-2 / muEDM</div></div>
-<div class="m-card"><img src="https://web.tdli.sjtu.edu.cn/kimsiang84/wp-content/uploads/sites/4/2025/11/d1edbed2527b42dc886cb8dc443337a9.jpg" alt="Yusuke Takeuchi" loading="lazy"><h4>Yusuke Takeuchi<br>竹内佑甫</h4><div class="m-sub">g-2 / SHINE</div></div>
-<div class="m-card"><img src="https://web.tdli.sjtu.edu.cn/kimsiang84/wp-content/uploads/sites/4/2025/11/SamipBasnet.jpg" alt="Samip Basnet" loading="lazy"><h4>Samip Basnet</h4><div class="m-sub">muEDM / Muography</div></div>
-</div>
-
-<div class="m-cat rv">Research Assistant</div>
-<div class="m-grid rv">
-<div class="m-card"><img src="https://web.tdli.sjtu.edu.cn/kimsiang84/wp-content/uploads/sites/4/2025/11/MengjieWu.jpg" alt="Mengjie Wu" loading="lazy"><h4>Mengjie Wu<br>吴梦洁</h4><div class="m-sub">Muography</div></div>
-</div>
-
-<div class="m-cat rv">Doctoral Students</div>
-<div class="m-grid rv">
-<div class="m-card"><img src="https://web.tdli.sjtu.edu.cn/kimsiang84/wp-content/uploads/sites/4/2024/03/4e42cc63113049f58a372e5d266b7aba.png" alt="Yonghao Zeng" loading="lazy"><h4>Yonghao Zeng<br>曾永浩</h4><div class="m-sub">g-2 / muEDM</div></div>
-<div class="m-card"><img src="https://web.tdli.sjtu.edu.cn/kimsiang84/wp-content/uploads/sites/4/2024/03/aaea0d22e69c477c869775644f6de2b9.png" alt="Jiangtao Wang" loading="lazy"><h4>Jiangtao Wang<br>王江涛</h4><div class="m-sub">SHINE / Muography</div></div>
-<div class="m-card"><img src="https://web.tdli.sjtu.edu.cn/kimsiang84/wp-content/uploads/sites/4/2025/11/XingyunHuang.jpg" alt="Xingyun Huang" loading="lazy"><h4>Xingyun Huang<br>黄幸运</h4><div class="m-sub">muEDM / Muography</div></div>
-<div class="m-card"><img src="https://web.tdli.sjtu.edu.cn/kimsiang84/wp-content/uploads/sites/4/2025/11/JunkaiNg.jpg" alt="Jun Kai Ng" loading="lazy"><h4>Jun Kai Ng<br>黄俊凯</h4><div class="m-sub">SHINE</div></div>
-<div class="m-card"><img src="https://web.tdli.sjtu.edu.cn/kimsiang84/wp-content/uploads/sites/4/2025/11/MinyangTan.jpg" alt="Min Yang Tan" loading="lazy"><h4>Min Yang Tan<br>陈铭扬</h4><div class="m-sub">Muography</div></div>
-<div class="m-card"><img src="https://web.tdli.sjtu.edu.cn/kimsiang84/wp-content/uploads/sites/4/2025/11/YingheWang.jpg" alt="Yinghe Wang" loading="lazy"><h4>Yinghe Wang<br>王赢鹤</h4><div class="m-sub">Muography</div></div>
-<div class="m-card"><img src="https://web.tdli.sjtu.edu.cn/kimsiang84/wp-content/uploads/sites/4/2024/03/5e239df3ef5e464cbe3f749e6da5199c.jpg" alt="Guan Ming Wong" loading="lazy"><h4>Guan Ming Wong<br>黄冠铭</h4><div class="m-sub">muEDM</div></div>
-</div>
-
-<div class="m-cat rv">Undergraduate Students</div>
-<div class="m-grid rv">
-<div class="m-card"><img src="https://web.tdli.sjtu.edu.cn/kimsiang84/wp-content/uploads/sites/4/2024/03/WechatIMG336.jpg" alt="Beining Rao" loading="lazy"><h4>Beining Rao<br>饶倍宁</h4><div class="m-sub">Positronium</div></div>
-<div class="m-card"><img src="https://web.tdli.sjtu.edu.cn/kimsiang84/wp-content/uploads/sites/4/2024/03/WechatIMG335-732x1024.jpg" alt="Zeyu Luo" loading="lazy"><h4>Zeyu Luo<br>罗泽宇</h4><div class="m-sub">Positronium</div></div>
-<div class="m-card"><img src="https://web.tdli.sjtu.edu.cn/kimsiang84/wp-content/uploads/sites/4/2024/03/WechatIMG334-731x1024.jpg" alt="Xuerui Liu" loading="lazy"><h4>Xuerui Liu<br>刘学睿</h4><div class="m-sub">Positronium</div></div>
-<div class="m-card"><img src="https://web.tdli.sjtu.edu.cn/kimsiang84/wp-content/uploads/sites/4/2025/11/BeiyaoShi.jpg" alt="Beiyao Shi" loading="lazy"><h4>Beiyao Shi<br>史贝尧</h4><div class="m-sub">MWPC</div></div>
-<div class="m-card"><img src="https://web.tdli.sjtu.edu.cn/kimsiang84/wp-content/uploads/sites/4/2025/11/ZhouXu.jpg" alt="Zhou Xu" loading="lazy"><h4>Zhou Xu<br>徐洲</h4><div class="m-sub">MWPC</div></div>
-<div class="m-card"><img src="https://web.tdli.sjtu.edu.cn/kimsiang84/wp-content/uploads/sites/4/2025/11/YifeiLi.jpg" alt="Yifei Li" loading="lazy"><h4>Yifei Li<br>李逸飞</h4><div class="m-sub">Muography</div></div>
-<div class="m-card"><img src="https://web.tdli.sjtu.edu.cn/kimsiang84/wp-content/uploads/sites/4/2025/11/XuCHen.jpg" alt="Xu Chen" loading="lazy"><h4>Xu Chen<br>陈旭</h4><div class="m-sub">Muography</div></div>
-<div class="m-card"><img src="https://web.tdli.sjtu.edu.cn/kimsiang84/wp-content/uploads/sites/4/2024/03/WechatIMG24.jpg" alt="Jier Qiu" loading="lazy"><h4>Jier Qiu<br>邱吉尔</h4><div class="m-sub">Muography</div></div>
-<div class="m-card"><img src="https://web.tdli.sjtu.edu.cn/kimsiang84/wp-content/uploads/sites/4/2025/11/WujieZhang.jpg" alt="Wujie Zhang" loading="lazy"><h4>Wujie Zhang<br>张武杰</h4><div class="m-sub">Electronics</div></div>
-</div>
-</div>
+<!-- RESEARCH: 4 PILLARS -->
+<section id="research">
+  <div class="section-header-center">
+    <div class="section-label">研究方向 / Research</div>
+    <h2 class="section-title">四大研究支柱</h2>
+    <p class="section-desc">从基础物理到应用技术，我们的研究覆盖缪子科学的完整图景。</p>
+  </div>
+  <div class="research-grid">
+    <div class="research-card" style="--card-accent: #00d4ff;">
+      <div class="research-icon">🔬</div>
+      <div class="research-tag">Fermilab, USA</div>
+      <h3>Muon g-2</h3>
+      <h4>缪子反常磁矩</h4>
+      <p>费米实验室E989实验致力于将缪子g-2测量精度提升至140 ppb。若理论与实验的偏差保持不变，统计显著性将超过7σ——明确的超越标准模型新物理信号。课题组负责反常进动频率测量及束流动力学修正。</p>
+      <a href="https://muon-g-2.fnal.gov/" class="research-link" target="_blank" rel="noopener">了解更多 →</a>
+    </div>
+    <div class="research-card" style="--card-accent: #7b61ff;">
+      <div class="research-icon">⚛️</div>
+      <div class="research-tag">PSI, Switzerland</div>
+      <h3>muEDM</h3>
+      <h4>缪子电偶极矩</h4>
+      <p>任何基本粒子的永久电偶极矩都意味着CP对称性破坏，有助于解释宇宙物质-反物质不对称。我们在PSI采用冻结自旋技术，目标灵敏度达10⁻²³–10⁻²² e·cm。课题组负责缪子入射触发探测器研发。</p>
+      <a href="https://web.tdli.sjtu.edu.cn/kimsiang84/research/" class="research-link" target="_blank" rel="noopener">了解更多 →</a>
+    </div>
+    <div class="research-card" style="--card-accent: #ff6b35;">
+      <div class="research-icon">⚡</div>
+      <div class="research-tag">Shanghai, China</div>
+      <h3>SHINE Muon Source</h3>
+      <h4>上海缪子源</h4>
+      <p>利用上海SHINE装置8 GeV超导射频直线加速器的高重频脉冲电子束（可达MHz量级），在beam dump下游建设中国首个电子驱动缪子源，为凝聚态、材料科学和粒子物理开辟全新实验可能。</p>
+      <a href="https://web.tdli.sjtu.edu.cn/kimsiang84/research/" class="research-link" target="_blank" rel="noopener">了解更多 →</a>
+    </div>
+    <div class="research-card" style="--card-accent: #00e88f;">
+      <div class="research-icon">🌍</div>
+      <div class="research-tag">Shanghai Field Deployments</div>
+      <h3>Muography</h3>
+      <h4>缪子成像</h4>
+      <p>利用宇宙射线缪子的强穿透能力，对城市地铁隧道、地下管廊进行无损密度成像。自研MuDigi系列探测器已在上海外环隧道与曹宝路隧道完成现场验证，可识别结构异常与潜在空洞。</p>
+      <a href="https://web.tdli.sjtu.edu.cn/kimsiang84/muography-applications/" class="research-link" target="_blank" rel="noopener">了解更多 →</a>
+    </div>
+  </div>
 </section>
 
-<!-- GALLERY -->
-<section class="sec" id="gallery">
-<div class="sec-in">
-<div class="sec-l rv">// Life in the Lab</div>
-<h2 class="sec-t rv">Photo Gallery</h2>
+<!-- TEAM -->
+<section id="team">
+  <div class="section-header-center">
+    <div class="section-label">课题组成员 / Team</div>
+    <h2 class="section-title">我们的团队</h2>
+    <p class="section-desc">一支跨学科、国际化的研究团队——成员来自中国、马来西亚、日本、尼泊尔及世界各地。</p>
+  </div>
+  <div class="team-pi">
+    <div class="team-pi-avatar">许</div>
+    <div class="team-pi-info">
+      <h3>许金祥 Kim Siang Khaw</h3>
+      <div class="team-role-pi">课题组长 · 长聘副教授 / Principal Investigator</div>
+      <p class="team-pi-bio">2025–今：TDLI长聘Fellow / SPA长聘副教授 · 2019–2025：T.D. Lee Fellow · 2015–2019：华盛顿大学博士后 · 2011–2015：ETH Zurich博士 · 2009–2011：东京大学硕士 · 2005–2009：京都大学学士</p>
+      <div class="team-pi-links">
+        <a href="mailto:kimsiang84@sjtu.edu.cn">✉ Email</a>
+        <a href="https://inspirehep.net/authors/1273881" target="_blank" rel="noopener">📄 INSPIRE</a>
+        <a href="https://web.tdli.sjtu.edu.cn/kimsiang84/" target="_blank" rel="noopener">🏠 Homepage</a>
+      </div>
+    </div>
+  </div>
 
-<p style="font-size:.85rem;color:var(--t2);margin-bottom:1.2rem" class="rv">The Lab · Summer 2024</p>
-<div class="g-grid rv" style="margin-bottom:2rem">
-<div class="g-item"><img src="https://web.tdli.sjtu.edu.cn/kimsiang84/wp-content/uploads/sites/4/2024/08/5f5a2238e6eacaf5a313e085379e2f-768x1024.jpg" alt="Lab 1" loading="lazy"></div>
-<div class="g-item"><img src="https://web.tdli.sjtu.edu.cn/kimsiang84/wp-content/uploads/sites/4/2024/08/5216e20c1e94814581d6374a368218-768x1024.jpg" alt="Lab 2" loading="lazy"></div>
-<div class="g-item"><img src="https://web.tdli.sjtu.edu.cn/kimsiang84/wp-content/uploads/sites/4/2024/08/a47096b69717063dbebb6a73c9442c-768x1024.jpg" alt="Lab 3" loading="lazy"></div>
-<div class="g-item"><img src="https://web.tdli.sjtu.edu.cn/kimsiang84/wp-content/uploads/sites/4/2024/08/IMG_4783-768x1024.jpg" alt="Lab 4" loading="lazy"></div>
-</div>
+  <h4 class="team-section-title">博士后研究员 / Postdocs</h4>
+  <div class="team-grid">
+    <div class="team-card"><div class="team-avatar" style="--avatar-bg: linear-gradient(135deg, #00d4ff, #0090b0);">何</div><h3>何守仁 Siew Yan Hoh</h3><div class="team-role">Muon g-2 · muEDM</div><p class="team-desc">马来西亚 · 帕多瓦大学博士</p></div>
+    <div class="team-card"><div class="team-avatar" style="--avatar-bg: linear-gradient(135deg, #7b61ff, #5040b0);">竹</div><h3>竹内佑甫 Y. Takeuchi</h3><div class="team-role">Muon g-2 · SHINE缪子源</div><p class="team-desc">日本 · 九州大学博士</p></div>
+    <div class="team-card"><div class="team-avatar" style="--avatar-bg: linear-gradient(135deg, #ff6b35, #c04020);">S</div><h3>Samip Basnet</h3><div class="team-role">muEDM · Muography</div><p class="team-desc">尼泊尔 · 鲁汶大学博士</p></div>
+  </div>
 
-<p style="font-size:.85rem;color:var(--t2);margin-bottom:1.2rem" class="rv">Group Moments</p>
-<div class="g-grid rv" style="margin-bottom:2rem">
-<div class="g-item"><img src="https://web.tdli.sjtu.edu.cn/kimsiang84/wp-content/uploads/sites/4/2024/08/picturejc-1.png" alt="Journal Club" loading="lazy"></div>
-<div class="g-item"><img src="https://web.tdli.sjtu.edu.cn/kimsiang84/wp-content/uploads/sites/4/2024/09/542773979399b12a4130f5864ea0feb2-1024x768.jpg" alt="Group Activity" loading="lazy"></div>
-<div class="g-item"><img src="https://web.tdli.sjtu.edu.cn/kimsiang84/wp-content/uploads/sites/4/2024/09/WechatIMG4933-1024x768.jpg" alt="Group Photo" loading="lazy"></div>
-<div class="g-item"><img src="https://web.tdli.sjtu.edu.cn/kimsiang84/wp-content/uploads/sites/4/2024/09/WechatIMG5530-1024x768.jpg" alt="Group Event" loading="lazy"></div>
-</div>
+  <h4 class="team-section-title">科研助理 / Research Assistant</h4>
+  <div class="team-grid">
+    <div class="team-card"><div class="team-avatar" style="--avatar-bg: linear-gradient(135deg, #00e88f, #008855);">吴</div><h3>吴梦洁 Mengjie Wu</h3><div class="team-role">Muography</div><p class="team-desc">2025.02 至今</p></div>
+  </div>
 
-<p style="font-size:.85rem;color:var(--t2);margin-bottom:1.2rem" class="rv">Group Dinners Through the Years</p>
-<div class="g-grid rv">
-<div class="g-item"><img src="https://web.tdli.sjtu.edu.cn/kimsiang84/wp-content/uploads/sites/4/2022/04/IMG_0310-scaled.jpg" alt="Dinner 2022 Zhangjiang" loading="lazy"></div>
-<div class="g-item"><img src="https://web.tdli.sjtu.edu.cn/kimsiang84/wp-content/uploads/sites/4/2022/04/IMG_0400-scaled.jpg" alt="Dinner 2022 Minhang" loading="lazy"></div>
-<div class="g-item"><img src="https://web.tdli.sjtu.edu.cn/kimsiang84/wp-content/uploads/sites/4/2024/01/IMG_3111.jpg" alt="Dinner 2023" loading="lazy"></div>
-<div class="g-item"><img src="https://web.tdli.sjtu.edu.cn/kimsiang84/wp-content/uploads/sites/4/2025/11/Weixin-Image_20251120172242_239_419.jpg" alt="Dinner 2025" loading="lazy"></div>
-</div>
-</div>
+  <h4 class="team-section-title">博士研究生 / PhD Students</h4>
+  <div class="team-grid">
+    <div class="team-card"><div class="team-avatar">曾</div><h3>曾永浩 Yonghao Zeng</h3><div class="team-role">Muon g-2 · muEDM</div><p class="team-desc">2022级</p></div>
+    <div class="team-card"><div class="team-avatar">王</div><h3>王江涛 Jiangtao Wang</h3><div class="team-role">SHINE · Muography</div><p class="team-desc">2022级</p></div>
+    <div class="team-card"><div class="team-avatar">黄</div><h3>黄幸运 Xingyun Huang</h3><div class="team-role">muEDM · Muography</div><p class="team-desc">2024级</p></div>
+    <div class="team-card"><div class="team-avatar">黄</div><h3>黄俊凯 Jun Kai Ng</h3><div class="team-role">SHINE缪子源</div><p class="team-desc">2024级 · 马来西亚</p></div>
+    <div class="team-card"><div class="team-avatar">陈</div><h3>陈铭扬 Min Yang Tan</h3><div class="team-role">Muography</div><p class="team-desc">2024级 · 马来西亚</p></div>
+    <div class="team-card"><div class="team-avatar">王</div><h3>王赢鹤 Yinghe Wang</h3><div class="team-role">Muography</div><p class="team-desc">2024级</p></div>
+    <div class="team-card"><div class="team-avatar">黄</div><h3>黄冠铭 Guan Ming Wong</h3><div class="team-role">muEDM</div><p class="team-desc">2025级 · 马来西亚</p></div>
+  </div>
+  <p class="team-alumni-link"><a href="https://web.tdli.sjtu.edu.cn/kimsiang84/members/" target="_blank" rel="noopener">查看本科生成员与历届校友 →</a></p>
 </section>
 
-<!-- JOIN -->
-<section class="join" id="join">
-<div class="join-box rv">
-<div class="sec-l">// Open Positions</div>
-<h2 class="sec-t" style="text-align:center">诚邀海内外人才加盟！<br>We are hiring!</h2>
-<p>本课题组每年招收多位本科生（PRP项目、䇹政项目、致远学者研究计划、物理研究实践、毕业设计），研究生（含国际研究生）以及优秀博士后研究员。欢迎对精确测量实验有浓厚兴趣者和我联系！</p>
-<p>Interested in undergraduate research, master thesis, PhD, or postdoc positions? We offer supervision in multiple languages.</p>
-<div class="join-langs">
-<span class="join-lang">English</span><span class="join-lang">中文</span><span class="join-lang">Bahasa Melayu</span><span class="join-lang">日本語</span><span class="join-lang">Deutsch</span>
-</div>
-<span class="join-email">kimsiang84 [at] sjtu.edu.cn</span>
-<a href="mailto:kimsiang84@sjtu.edu.cn" class="btn btn-p">Get in Touch</a>
-<div class="join-roles">
-<span class="join-role">Undergraduate (PRP / 致远 / 毕业设计)</span>
-<span class="join-role">Master's Thesis</span>
-<span class="join-role">PhD Positions</span>
-<span class="join-role">Postdoc</span>
-</div>
-</div>
+<!-- JOIN US -->
+<section id="joinus">
+  <div class="joinus-inner">
+    <div class="joinus-text">
+      <div class="section-label">诚邀加盟 / Join Us</div>
+      <h2 class="section-title">We are hiring!</h2>
+      <p class="section-desc">本课题组每年招收多位本科生（PRP项目、䇹政项目、致远学者研究计划、物理研究实践、毕业设计）、研究生（含国际研究生）以及优秀博士后研究员。欢迎对精确测量实验有浓厚兴趣者联系我们！</p>
+      <p class="section-desc" style="margin-top:16px;">Interested in an undergraduate research project, master thesis, PhD thesis, or postdoctoral experience? Thanks to our PI's cultural and educational background, we offer supervision in <strong>English, Chinese, Malay, Japanese</strong>, and a little bit of German.</p>
+    </div>
+    <div class="joinus-cards">
+      <div class="joinus-card"><div class="joinus-card-icon">🎓</div><h4>本科生</h4><p>PRP · 致远学者 · 暑期实习 · DAAD RISE · 毕业设计</p></div>
+      <div class="joinus-card"><div class="joinus-card-icon">📘</div><h4>硕士 & 博士</h4><p>精密缪子物理 · 探测器研发 · 数据分析 · 加速器物理</p></div>
+      <div class="joinus-card"><div class="joinus-card-icon">🔭</div><h4>博士后</h4><p>竞争性薪酬 · 国际合作 · Fermilab/PSI/J-PARC驻站机会</p></div>
+      <div class="joinus-card"><div class="joinus-card-icon">🌏</div><h4>国际机会</h4><p>在世界一流实验室从事前沿研究的亲身体验</p></div>
+    </div>
+    <div class="joinus-culture">
+      <h4>课题组文化 / Group Culture</h4>
+      <p>每周缪子物理Journal Club · 教材研读小组 · 每年≥2次国内/国际会议报告 · 支持性、开放性的研究环境</p>
+    </div>
+    <div class="joinus-cta">
+      <a href="#contact" class="btn btn-primary">联系我们 →</a>
+      <a href="mailto:kimsiang84@sjtu.edu.cn" class="btn btn-outline">✉ kimsiang84@sjtu.edu.cn</a>
+    </div>
+  </div>
 </section>
 
 <!-- NEWS -->
-<section class="sec" id="news">
-<div class="sec-in">
-<div class="sec-l rv">// Latest</div>
-<h2 class="sec-t rv">Recent News</h2>
-<div class="n-grid">
-<div class="n-card rv"><div class="n-thumb"><img src="https://web.tdli.sjtu.edu.cn/kimsiang84/wp-content/uploads/sites/4/2026/01/Weixin-Image_20251230205540_162_358-150x150.jpg" alt="" loading="lazy"></div><div class="n-body"><div class="n-date">January 8, 2026</div><h3>2025年粒子物理与核物理上海研讨会</h3></div></div>
-<div class="n-card rv"><div class="n-thumb"><img src="https://web.tdli.sjtu.edu.cn/kimsiang84/wp-content/uploads/sites/4/2026/01/Screenshot-2026-01-08-at-11.29.24%20AM-150x150.png" alt="" loading="lazy"></div><div class="n-body"><div class="n-date">January 8, 2026</div><h3>SJTU Summer Research Internship Program 2026</h3></div></div>
-<div class="n-card rv"><div class="n-thumb"><img src="https://web.tdli.sjtu.edu.cn/kimsiang84/wp-content/uploads/sites/4/2025/12/Weixin-Image_2025-12-11_152314_935-150x150.jpg" alt="" loading="lazy"></div><div class="n-body"><div class="n-date">December 12, 2025</div><h3>First Workshop on SHINE Muon Source (SMS 2025)</h3></div></div>
-<div class="n-card rv"><div class="n-thumb"><img src="https://web.tdli.sjtu.edu.cn/kimsiang84/wp-content/uploads/sites/4/2025/12/Weixin-Image_20251212100422_443_170-150x150.jpg" alt="" loading="lazy"></div><div class="n-body"><div class="n-date">December 12, 2025</div><h3>Test beam 2025 at PSI for muon trigger detector</h3></div></div>
-<div class="n-card rv"><div class="n-thumb"><img src="https://web.tdli.sjtu.edu.cn/kimsiang84/wp-content/uploads/sites/4/2025/11/Weixin-Image_20251123103746_66_2722-150x150.jpg" alt="" loading="lazy"></div><div class="n-body"><div class="n-date">November 24, 2025</div><h3>第三届全国缪子成像技术与应用研讨会</h3></div></div>
-<div class="n-card rv"><div class="n-thumb"><img src="https://web.tdli.sjtu.edu.cn/kimsiang84/wp-content/uploads/sites/4/2025/11/IMG_3906-150x150.jpg" alt="" loading="lazy"></div><div class="n-body"><div class="n-date">November 20, 2025</div><h3>Muon Track Visualizer & Flux Monitor on display at TDLI</h3></div></div>
-<div class="n-card rv"><div class="n-thumb"><img src="https://web.tdli.sjtu.edu.cn/kimsiang84/wp-content/uploads/sites/4/2025/11/Picture10-150x150.jpg" alt="" loading="lazy"></div><div class="n-body"><div class="n-date">September 30, 2025</div><h3>7 Summer Research Interns completed their work</h3></div></div>
-<div class="n-card rv"><div class="n-thumb"><img src="https://web.tdli.sjtu.edu.cn/kimsiang84/wp-content/uploads/sites/4/2025/11/Picture3-150x150.jpg" alt="" loading="lazy"></div><div class="n-body"><div class="n-date">September 22, 2025</div><h3>第七届粒子物理天问论坛</h3></div></div>
-<div class="n-card rv"><div class="n-thumb"><img src="https://web.tdli.sjtu.edu.cn/kimsiang84/wp-content/uploads/sites/4/2025/11/Picture5-150x150.png" alt="" loading="lazy"></div><div class="n-body"><div class="n-date">September 16, 2025</div><h3>Shanghai Outer Ring Tunnel Muography paper published</h3></div></div>
-<div class="n-card rv"><div class="n-thumb"><img src="https://web.tdli.sjtu.edu.cn/kimsiang84/wp-content/uploads/sites/4/2025/11/Picturepsi1-150x150.jpg" alt="" loading="lazy"></div><div class="n-body"><div class="n-date">September 12, 2025</div><h3>Physics of Fundamental Symmetries and Interactions (PSI 2025)</h3></div></div>
-</div>
-</div>
+<section id="news">
+  <div class="section-header-center">
+    <div class="section-label">最新动态 / News</div>
+    <h2 class="section-title">Recent Highlights</h2>
+  </div>
+  <div class="news-grid">
+    <a class="news-card" href="https://web.tdli.sjtu.edu.cn/kimsiang84/2026/01/08/sjtu-summer-research-internship-program-2026/" target="_blank" rel="noopener"><div class="news-date">2026.01</div><h3>SJTU Summer Research Internship Program 2026</h3><p>2026年暑期国际研究实习项目开放申请。</p></a>
+    <a class="news-card" href="https://web.tdli.sjtu.edu.cn/kimsiang84/2025/12/12/the-first-workshop-on-shine-muon-source-and-its-applications-sms-2025/" target="_blank" rel="noopener"><div class="news-date">2025.12</div><h3>SHINE Muon Source Workshop (SMS 2025)</h3><p>首届SHINE缪子源及其应用研讨会成功举办。</p></a>
+    <a class="news-card" href="https://web.tdli.sjtu.edu.cn/kimsiang84/2025/12/12/test-beam-2025-at-psi-for-muon-trigger-detector/" target="_blank" rel="noopener"><div class="news-date">2025.12</div><h3>Test Beam 2025 at PSI</h3><p>缪子触发探测器束流测试顺利完成。</p></a>
+    <a class="news-card" href="https://web.tdli.sjtu.edu.cn/kimsiang84/2025/11/24/the-3rd-national-muography-workshop-%e7%ac%ac%e4%b8%89%e5%b1%8a%e5%85%a8%e5%9b%bd%e7%bc%aa%e5%ad%90%e6%88%90%e5%83%8f%e6%8a%80%e6%9c%af%e4%b8%8e%e5%ba%94%e7%94%a8%e7%a0%94%e8%ae%a8%e4%bc%9a/" target="_blank" rel="noopener"><div class="news-date">2025.11</div><h3>第三届全国缪子成像研讨会</h3><p>The 3rd National Muography Workshop 成功召开。</p></a>
+    <a class="news-card" href="https://web.tdli.sjtu.edu.cn/kimsiang84/2025/09/16/our-paper-on-the-shanghai-outer-ring-tunnel-muography-is-out/" target="_blank" rel="noopener"><div class="news-date">2025.09</div><h3>外环隧道缪子成像论文发表</h3><p>Shanghai Outer Ring Tunnel Muography paper published!</p></a>
+    <a class="news-card" href="https://web.tdli.sjtu.edu.cn/kimsiang84/2025/09/30/7-summer-research-interns-completed-their-work-in-our-group/" target="_blank" rel="noopener"><div class="news-date">2025.09</div><h3>7位暑期实习生完成课题</h3><p>来自多国的暑期研究实习生顺利结题。</p></a>
+  </div>
+  <p style="text-align:center; margin-top:32px;"><a href="https://web.tdli.sjtu.edu.cn/kimsiang84/news/" target="_blank" rel="noopener" class="btn btn-outline">查看所有新闻 →</a></p>
 </section>
 
-<!-- COLLAB -->
-<div class="collab">
-<div class="sec-l">// Collaborations</div>
-<div class="c-logos">
-<div class="c-item"><strong>Fermilab</strong>Muon g−2 (E989)</div>
-<div class="c-item"><strong>J-PARC</strong>Muon g−2/EDM (E34)</div>
-<div class="c-item"><strong>PSI</strong>muEDM Experiment</div>
-<div class="c-item"><strong>SHINE</strong>Muon Source R&D</div>
-<div class="c-item"><strong>TDLI</strong>Shanghai Jiao Tong Univ.</div>
-</div>
-</div>
+<!-- EDUCATION -->
+<section id="education">
+  <div class="edu-grid">
+    <div class="edu-text">
+      <div class="section-label">教学与培训 / Teaching</div>
+      <h2 class="section-title">教育与人才培养</h2>
+      <p class="section-desc">从课堂到实验室，从本科生到研究生，我们致力于培养下一代粒子物理与探测器技术人才。</p>
+      <div class="edu-features">
+        <div class="edu-feature-item"><div class="edu-feature-icon">📐</div><div><h4>PHY1950 · 物理研究导论</h4><p>面向致远学院一年级本科生：科学研究方法、费米估算、文献检索、论文写作与学术报告。</p></div></div>
+        <div class="edu-feature-item"><div class="edu-feature-icon">✍️</div><div><h4>PHY6009 · 科学写作与学术伦理</h4><p>面向二年级及以上研究生：英文科学论文写作训练与学术诚信规范。</p></div></div>
+        <div class="edu-feature-item"><div class="edu-feature-icon">🤖</div><div><h4>AI入门课程</h4><p>面向物理学生的人工智能基础，探索AI在粒子物理研究中的前沿应用。</p></div></div>
+        <div class="edu-feature-item"><div class="edu-feature-icon">🔭</div><div><h4>暑期国际实习</h4><p>1-2个月沉浸式培训：粒子物理入门、探测器与DAQ系统、模拟分析、缪子桌面实验。</p></div></div>
+        <div class="edu-feature-item"><div class="edu-feature-icon">📡</div><div><h4>Cosmic Watch宇宙射线探测器</h4><p>基于开源设计的桌面级缪子探测器套件，面向STEM教育与科学普及。</p></div></div>
+      </div>
+    </div>
+    <div class="edu-visual">
+      <div class="edu-visual-box"><div class="edu-visual-text">μ</div></div>
+      <div class="edu-courses-list">
+        <h4>讲习班与暑期学校</h4>
+        <p>Precision Muon Physics @ TDLI Summer School (每年)</p>
+        <p>KMI School, Nagoya (2022)</p>
+        <p>SUT-PSI Muon School, Thailand (2023)</p>
+        <p>SJTU Physics Int'l Summer School (2024)</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-<footer class="foot">© 2026 TDLI Muon Tech Lab · Tsung-Dao Lee Institute, Shanghai Jiao Tong University</footer>
+<!-- COLLABORATIONS -->
+<section id="collaborations">
+  <div class="section-header-center">
+    <div class="section-label">国际合作 / Collaborations</div>
+    <h2 class="section-title">全球合作网络</h2>
+    <p class="section-desc">我们与世界顶级粒子物理实验室保持紧密合作。</p>
+  </div>
+  <div class="collab-grid">
+    <div class="collab-card"><div class="collab-flag">🇺🇸</div><h3>Fermilab</h3><p>美国费米国立加速器实验室</p><div class="collab-tag">Muon g-2 (E989)</div></div>
+    <div class="collab-card"><div class="collab-flag">🇨🇭</div><h3>PSI</h3><p>瑞士保罗·谢勒研究所</p><div class="collab-tag">muEDM</div></div>
+    <div class="collab-card"><div class="collab-flag">🇯🇵</div><h3>J-PARC</h3><p>日本质子加速器研究中心</p><div class="collab-tag">Muon beams</div></div>
+    <div class="collab-card"><div class="collab-flag">🇨🇭</div><h3>CERN</h3><p>欧洲核子研究组织</p><div class="collab-tag">Various</div></div>
+    <div class="collab-card"><div class="collab-flag">🇦🇺</div><h3>Swinburne / mDetect</h3><p>澳大利亚斯威本科技大学</p><div class="collab-tag">Muography</div></div>
+  </div>
+</section>
 
-<script>
-const c=document.getElementById('p'),x=c.getContext('2d');let w,h,ps=[];
-function rs(){w=c.width=innerWidth;h=c.height=innerHeight}rs();addEventListener('resize',rs);
-class P{constructor(){this.r()}r(){this.x=Math.random()*w;this.y=Math.random()*h;this.vx=(Math.random()-.5)*.3;this.vy=(Math.random()-.5)*.3;this.s=Math.random()*1.5+.3;this.a=Math.random()*.25+.05;this.c=Math.random()>.7?'240,180,41':'34,211,238'}u(){this.x+=this.vx;this.y+=this.vy;if(this.x<0||this.x>w||this.y<0||this.y>h)this.r()}d(){x.beginPath();x.arc(this.x,this.y,this.s,0,Math.PI*2);x.fillStyle=`rgba(${this.c},${this.a})`;x.fill()}}
-for(let i=0;i<60;i++)ps.push(new P);
-function ln(){for(let i=0;i<ps.length;i++)for(let j=i+1;j<ps.length;j++){const d=Math.hypot(ps[i].x-ps[j].x,ps[i].y-ps[j].y);if(d<130){x.beginPath();x.moveTo(ps[i].x,ps[i].y);x.lineTo(ps[j].x,ps[j].y);x.strokeStyle=`rgba(34,211,238,${.025*(1-d/130)})`;x.stroke()}}}
-function an(){x.clearRect(0,0,w,h);ps.forEach(p=>{p.u();p.d()});ln();requestAnimationFrame(an)}an();
-new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('v')})},{threshold:.08}).observe(document.body);
-document.querySelectorAll('.rv').forEach(el=>new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('v')})},{threshold:.08}).observe(el));
-let ls=0;addEventListener('scroll',()=>{const n=document.querySelector('.nav'),c=scrollY;n.style.transform=c>ls&&c>180?'translateY(-100%)':'translateY(0)';n.style.transition='transform .3s';ls=c});
-</script>
+<!-- TIMELINE -->
+<section id="journey">
+  <div class="section-header-center">
+    <div class="section-label">发展历程 / Timeline</div>
+    <h2 class="section-title">我们的旅程</h2>
+  </div>
+  <div class="timeline">
+    <div class="timeline-item"><div class="tl-dot"></div><div class="tl-content"><div class="tl-year">2019</div><h3>Kim加入TDLI</h3><p>许金祥以T.D. Lee Fellow身份加入李政道研究所，开启缪子物理课题组筹建。</p></div></div>
+    <div class="timeline-item"><div class="tl-dot"></div><div class="tl-content"><div class="tl-year">2020</div><h3>课题组正式成立</h3><p>正式加入Muon g-2和muEDM两大国际合作实验。首批学生入组。</p></div></div>
+    <div class="timeline-item"><div class="tl-dot"></div><div class="tl-content"><div class="tl-year">2021</div><h3>团队壮大</h3><p>首位博士后和多名研究生加入。启动缪子Journal Club和Tea Time学术活动。</p></div></div>
+    <div class="timeline-item"><div class="tl-dot"></div><div class="tl-content"><div class="tl-year">2022</div><h3>MuDigi探测器原型</h3><p>完成MuDigi系列探测器原型设计与测试。首次上海隧道现场部署。</p></div></div>
+    <div class="timeline-item"><div class="tl-dot"></div><div class="tl-content"><div class="tl-year">2023</div><h3>外环隧道缪子成像</h3><p>完成上海外环隧道现场实验。获批NSFC面上项目和上海基础研究先导专项。</p></div></div>
+    <div class="timeline-item"><div class="tl-dot"></div><div class="tl-content"><div class="tl-year">2024</div><h3>MuDigi-64B与国家重点研发</h3><p>MuDigi-64B设计完成，提交中国发明专利。获批科技部国家重点研发计划。团队扩至15人以上。</p></div></div>
+    <div class="timeline-item"><div class="tl-dot"></div><div class="tl-content"><div class="tl-year">2025</div><h3>SHINE研讨会 · Kim获长聘</h3><p>成功举办SMS 2025和第三届全国缪子成像研讨会。PSI束流测试完成。许金祥获长聘。</p></div></div>
+    <div class="timeline-item"><div class="tl-dot"></div><div class="tl-content"><div class="tl-year">2026</div><h3>NuFact 2026 @ TDLI</h3><p>8-9月在李政道研究所主办NuFact 2026——中微子工厂和缪子对撞机领域的旗舰国际会议。</p></div></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-inner">
+    <div class="section-label" style="justify-content:center">联系我们 / Contact</div>
+    <h2 class="section-title">想了解更多？</h2>
+    <p class="section-desc">无论您是潜在合作伙伴、学生还是对缪子技术感兴趣的企业，欢迎随时联系我们。</p>
+    <div class="contact-info-row">
+      <div class="contact-info-item"><strong>✉ Email</strong><br><a href="mailto:kimsiang84@sjtu.edu.cn">kimsiang84@sjtu.edu.cn</a></div>
+      <div class="contact-info-item"><strong>📍 地址</strong><br>Tsung-Dao Lee Institute, SJTU<br>上海市浦东新区华夏中路393号</div>
+    </div>
+    <form id="contact-form" class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <input type="text" name="name" placeholder="姓名 / Name" required>
+      <input type="email" name="email" placeholder="邮箱 / Email" required>
+      <input type="text" name="affiliation" placeholder="机构 / Affiliation" class="full-width">
+      <textarea name="message" placeholder="您的留言 / Message" class="full-width" required></textarea>
+      <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+      <button type="submit" class="btn btn-primary full-width">提交留言 →</button>
+    </form>
+    <div id="form-status" class="form-status"></div>
+    <div class="contact-links">
+      <a href="mailto:kimsiang84@sjtu.edu.cn" class="contact-link" title="Email">✉</a>
+      <a href="https://inspirehep.net/authors/1273881" class="contact-link" title="INSPIRE-HEP" target="_blank" rel="noopener">📄</a>
+      <a href="https://web.tdli.sjtu.edu.cn/kimsiang84/" class="contact-link" title="Homepage" target="_blank" rel="noopener">🏠</a>
+      <a href="https://web.tdli.sjtu.edu.cn/kimsiang84/publications/" class="contact-link" title="Publications" target="_blank" rel="noopener">📚</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-left">
+      <div class="footer-logo-icon">μ</div>
+      <span class="footer-copyright">© 2026 TDLI Muon Physics Group · 李政道研究所 · 上海交通大学</span>
+    </div>
+    <div class="footer-links">
+      <a href="#home">首页</a>
+      <a href="#research">研究</a>
+      <a href="#team">团队</a>
+      <a href="#joinus">加入</a>
+      <a href="https://web.tdli.sjtu.edu.cn/kimsiang84/" target="_blank" rel="noopener">旧版主页</a>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
 </body>
 </html>
