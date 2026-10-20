@@ -57,7 +57,7 @@ export function initHero(canvas, opts = {}) {
 
   // ---------- Lights ----------
   scene.add(new THREE.AmbientLight(0x6d8cff, 0.35));
-  const key = new THREE.DirectionalLight(0xcfe6ff, 1.6);
+  const key = new THREE.DirectionalLight(0xcfe6ff, 0.9);
   key.position.set(6, 10, 7);
   scene.add(key);
   const rim = new THREE.DirectionalLight(0x2251ff, 2.2);
@@ -73,7 +73,7 @@ export function initHero(canvas, opts = {}) {
 
   const frameMat = new THREE.MeshStandardMaterial({ color: 0x8794a8, metalness: 0.9, roughness: 0.35 });
   const boardMat = new THREE.MeshStandardMaterial({ color: 0x0a1a14, metalness: 0.3, roughness: 0.7 });
-  const edgeMat = new THREE.LineBasicMaterial({ color: 0x4fbfff, transparent: true, opacity: 0.35 });
+  const edgeMat = new THREE.LineBasicMaterial({ color: 0x4fbfff, transparent: true, opacity: 0.5 });
 
   for (let p = 0; p < PLANES; p++) {
     const y = (p - (PLANES - 1) / 2) * PLANE_GAP;
@@ -84,7 +84,7 @@ export function initHero(canvas, opts = {}) {
     const row = [];
     for (let i = 0; i < STRIPS; i++) {
       const mat = new THREE.MeshStandardMaterial({
-        color: 0x0c1828, metalness: 0.55, roughness: 0.4,
+        color: 0x0d1a2c, metalness: 0.25, roughness: 0.78,
         emissive: CYAN, emissiveIntensity: 0,
       });
       const w = alongX ? SIZE_Z / STRIPS : stripW;
@@ -280,12 +280,13 @@ export function initHero(canvas, opts = {}) {
   // ---------- Post-processing ----------
   const composer = new EffectComposer(renderer);
   composer.addPass(new RenderPass(scene, camera));
-  const bloom = new UnrealBloomPass(new THREE.Vector2(1, 1), 0.85, 0.55, 0.18);
+  const bloom = new UnrealBloomPass(new THREE.Vector2(1, 1), 0.8, 0.45, 0.42);
   composer.addPass(bloom);
   composer.addPass(new OutputPass());
 
   // ---------- Camera & interaction ----------
   const target = new THREE.Vector3(0, -0.2, 0);
+  const mobileTarget = new THREE.Vector3(0, -5.2, 0);
   let az = 0.75, mouseX = 0, mouseY = 0, mx = 0, my = 0, scrollP = 0;
   window.addEventListener('pointermove', e => {
     mouseX = (e.clientX / window.innerWidth) * 2 - 1;
@@ -303,7 +304,7 @@ export function initHero(canvas, opts = {}) {
     bloom.setSize(w, h);
     camera.aspect = w / h;
     // shift the detector to the right on wide screens so the headline breathes
-    if (w >= 860) camera.setViewOffset(w, h, -w * 0.17, 0, w, h);
+    if (w >= 860) camera.setViewOffset(w, h, -w * 0.21, 0, w, h);
     else camera.clearViewOffset();
     camera.fov = w < 860 ? 42 : 34;
     camera.updateProjectionMatrix();
@@ -314,11 +315,12 @@ export function initHero(canvas, opts = {}) {
   function placeCamera() {
     mx += (mouseX - mx) * 0.04;
     my += (mouseY - my) * 0.04;
-    const r = (small() ? 17 : 14.5) + scrollP * 5;
+    const portrait = canvas.clientHeight > canvas.clientWidth * 1.1;
+    const r = (portrait ? 31 : small() ? 20 : 18.5) + scrollP * 5;
     const el = 0.32 + my * 0.06 + scrollP * 0.25;
     const a = az + mx * 0.18;
-    camera.position.set(Math.cos(a) * Math.cos(el) * r, Math.sin(el) * r + (small() ? 2.2 : 0), Math.sin(a) * Math.cos(el) * r);
-    camera.lookAt(small() ? new THREE.Vector3(0, 1.4, 0) : target);
+    camera.position.set(Math.cos(a) * Math.cos(el) * r, Math.sin(el) * r, Math.sin(a) * Math.cos(el) * r);
+    camera.lookAt(portrait ? mobileTarget : target);
   }
 
   // ---------- Loop ----------
