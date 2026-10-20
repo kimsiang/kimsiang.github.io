@@ -7,7 +7,8 @@ Reads   content/home.html            – home page body (hand-written, bilingual
         content/pages/*.html         – page bodies (research, people, teaching, …)
         content/news/*.html + news.json
         content/publications.json    – refresh with tools/update_publications.py
-Writes  index.html, *.html, news/*.html, muons/*.html
+        content/members.json         – member sub-pages; papers via tools/update_members.py
+Writes  index.html, *.html, news/*.html, muons/*.html, people/*.html
 Local links inside content use the {ROOT} prefix, replaced per page depth.
 """
 import html, json, os, re
@@ -339,6 +340,68 @@ def build_publications():
 </div></section>'''
     layout('publications.html', 'Publications', 'Publications of the TDLI Muon Physics Group — Muon g-2, muEDM, SHINE muon source and muography.', body, 'publications')
 
+# ------------------------------------------------------------------ member sub-pages
+MEMBERS = json.load(open(os.path.join(C, 'members.json')))
+CODES = {'Research Assistant': 'RA', 'Postdoctoral Researcher': 'POSTDOC', 'Doctoral Student': 'PHD'}
+
+def link_members(raw):
+    """On the People page, link each current member's name to their sub-page."""
+    soup = BeautifulSoup(raw, 'html.parser')
+    for m in MEMBERS:
+        href = '{ROOT}people/' + m['slug'] + '.html'
+        for st in soup.find_all('strong'):
+            if st.find_parent('a') or not st.get_text(strip=True).startswith(m['name']): continue
+            a = soup.new_tag('a', href=href, **{'class': 'plink'})
+            st.wrap(a)
+            more = BeautifulSoup(f'<a class="pmore mono" href="{href}">{bi("Profile &amp; papers →", "个人主页与论文 →")}</a>', 'html.parser')
+            a.find_parent('p').append(more)
+            break
+    return str(soup)
+
+def build_members():
+    pubs = json.load(open(os.path.join(C, 'member-publications.json')))
+    today = date.today().isoformat()
+    for m in MEMBERS:
+        role_en, role_zh = m['role']
+        name = html.escape(m['name'])
+        title = name + (f' <span class="zh-name">{m["zh"]}</span>' if m['zh'] else '')
+        lead_en = f'{role_en} · since {m["since"]}' + (f' · {m["topics"][0]}' if m['topics'] else '')
+        lead_zh = f'{role_zh} · {m["since"]} 起' + (f' · {m["topics"][1]}' if m['topics'] else '')
+        crumbs = '<p class="crumbs mono"><a href="{ROOT}people.html">' + bi('People', '团队成员') + '</a> / ' + bi(role_en, role_zh) + '</p>'
+        hero = phero(CODES.get(role_en, 'TEAM'), 'People', '团队成员', title, bi(lead_en, lead_zh), crumbs=crumbs)
+
+        links = []
+        if m.get('orcid'):
+            links.append(f'<a href="https://orcid.org/{m["orcid"]}" target="_blank" rel="noopener"><b>ORCID</b><span>{m["orcid"]}</span></a>')
+        if m.get('inspire'):
+            links.append(f'<a href="https://inspirehep.net/authors/{m["inspire"]}" target="_blank" rel="noopener"><b>INSPIRE-HEP</b><span>{m["inspire"]}</span></a>')
+        if m.get('scholar'):
+            links.append(f'<a href="https://scholar.google.com/citations?user={m["scholar"]}" target="_blank" rel="noopener"><b>Google Scholar</b><span>{m["scholar"]}</span></a>')
+        none = '<span class="faint">' + bi('Not yet available', '暂无') + '</span>'
+        photo = '{ROOT}' + m['photo']
+        side = (f'<figure class="mphoto"><a class="zoom" href="{photo}"><img src="{photo}" alt="{name}" loading="lazy" decoding="async"></a></figure>'
+                + '<p class="mono mlabel">' + bi('Profiles', '学术主页') + '</p>'
+                + '<div class="mlinks">' + (''.join(links) or none) + '</div>')
+
+        edu = ''.join(f'<li><b>{html.escape(y)}</b><span>{bi(html.escape(en), html.escape(zh))}</span></li>'
+                      for y, en, zh in m['education'])
+        mine = pubs.get(m['slug'], [])
+        if mine:
+            cites = sum(p['cites'] for p in mine)
+            plist = ('<p class="mcount mono">'
+                     + bi(f'{len(mine)} papers · {cites:,} citations (INSPIRE-HEP)', f'{len(mine)} 篇论文 · 引用 {cites:,} 次（INSPIRE-HEP）')
+                     + '</p><ol class="pubs">' + ''.join(pub_rows(mine)) + '</ol>')
+        else:
+            plist = '<p>' + bi('No publications listed yet.', '暂无论文。') + '</p>'
+        body = ('<h2 id="background">' + bi('Background', '教育与经历') + '</h2>'
+                + f'<ul class="mtl">{edu}</ul>'
+                + '<h2 id="publications">' + bi('Publications', '论文发表') + '</h2>' + plist
+                + '<p class="src mono">' + bi(f'Data: INSPIRE-HEP, updated {today}', f'数据来源：INSPIRE-HEP，更新于{today}') + '</p>')
+        out = (hero + '<section class="pbody"><div class="wrap with-side">'
+               + f'<aside class="side mside">{side}</aside><div class="prose doc member">{body}</div></div></section>')
+        layout(f'people/{m["slug"]}.html', m['name'],
+               f'{m["name"]} — {role_en}, TDLI Muon Physics Group, Shanghai Jiao Tong University.', out, 'people')
+
 # ------------------------------------------------------------------ pages
 MUONS = [
     ('index', 'About Muons', '缪子简介'),
@@ -368,6 +431,7 @@ def build_muons():
 
 def page(path, key, code, en, zh, lead_en='', lead_zh='', active='', ids=None, people=False, with_toc=False, desc=None, pre='', scene='module'):
     b = prose(read(f'pages/{key}.html'), ids=ids, people=people)
+    if people: b = link_members(b)
     side = toc(b, 'h2' if people else 'h3') if with_toc else ''
     body = phero(code, en, zh, bi(en, zh), bi(lead_en, lead_zh) if lead_en else '', scene=scene) + pre + article(b, side)
     layout(path, en, desc or f'{en} — TDLI Muon Physics Group, Shanghai Jiao Tong University.', body, active)
@@ -407,6 +471,6 @@ def build_home():
            body, home=True)
 
 if __name__ == '__main__':
-    build_home(); build_pages(); build_muons(); build_news(); build_publications()
+    build_home(); build_pages(); build_muons(); build_news(); build_publications(); build_members()
     n = sum(1 for d, _, fs in os.walk(ROOT) if not any(x in os.path.relpath(d, ROOT).split(os.sep) for x in ('.git', 'node_modules', 'content', 'tools')) for f in fs if f.endswith('.html'))
     print('built', n, 'html files')

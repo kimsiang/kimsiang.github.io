@@ -21,12 +21,19 @@ python3 tools/build.py              # regenerates index.html and every sub-page
 | `content/pages/*.html` | Research, People, Teaching, Talks, Posters, Gallery, PI profile, About Muons chapters |
 | `content/news/<slug>.html` + `content/news.json` | News posts (add an entry to `news.json`, newest first) |
 | `content/publications-extra.json` | Papers INSPIRE doesn't list |
+| `content/members.json` | Member sub-pages `people/<slug>.html` — background, ORCID / INSPIRE / Google Scholar IDs |
 | `assets/media/` | Images used in pages and news (WebP, `-sm` = thumbnail) |
 
 Refresh the publication list from INSPIRE-HEP (author record [1114795](https://inspirehep.net/authors/1114795)):
 
 ```bash
 python3 tools/update_publications.py && python3 tools/build.py
+```
+
+Refresh each member's paper list (their INSPIRE record + PI papers matching their name; add a control number to `exclude` to drop a misattribution):
+
+```bash
+python3 tools/update_members.py && python3 tools/build.py
 ```
 
 The 3D hero (a simulated cosmic-muon tracker) lives in `src/hero.js` and is bundled with Three.js into `assets/js/hero.bundle.js`:

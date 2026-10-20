@@ -732,3 +732,29 @@ html[data-lang="zh"] .cites { font-family: var(--cjk); }
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
   .js .rv { opacity: 1; transform: none; }
 }
+
+/* ---------- member sub-pages ---------- */
+.plink { color: inherit; }
+.plink:hover strong, .plink:hover { color: var(--accent); }
+.pcard .pmore { display: block; width: fit-content; margin-top: 8px; font-size: 11.5px; color: var(--accent); letter-spacing: .04em; }
+.pcard .pmore:hover { color: #fff; }
+.zh-name { color: var(--muted); font-weight: 400; margin-left: .25em; }
+.mphoto { margin: 0 0 24px; }
+.mphoto img { width: 100%; max-width: 250px; aspect-ratio: 1; object-fit: cover; object-position: 50% 20%; border: 1px solid var(--line-2); border-radius: 6px; }
+.mlabel { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--faint); margin: 0 0 10px; }
+.mlinks { display: flex; flex-direction: column; border-top: 1px solid var(--line); }
+.mlinks a { display: flex; flex-direction: column; gap: 3px; padding: 11px 0; border-bottom: 1px solid var(--line); color: var(--text); }
+.mlinks a b { font: 500 14px/1.2 var(--f-display); }
+.mlinks a span { font: 400 11.5px/1.2 var(--f-mono); color: var(--faint); }
+.mlinks a:hover b { color: var(--accent); }
+.mlinks .faint { padding: 11px 0; font-size: 13px; color: var(--faint); }
+.member .mtl { list-style: none; padding: 0; margin: 0 0 8px; border-top: 1px solid var(--line); }
+.member .mtl li { display: grid; grid-template-columns: 9em 1fr; gap: 16px; padding: 12px 0; border-bottom: 1px solid var(--line); margin: 0; }
+.member .mtl b { font: 400 12.5px/1.6 var(--f-mono); color: var(--faint); }
+.member .mcount { font-size: 12px; color: var(--muted); letter-spacing: .04em; }
+.member .pubs { list-style: none; padding: 0; margin-left: 0; }
+@media (max-width: 860px) {
+  .mphoto img { max-width: 160px; }
+  .member .mtl li { grid-template-columns: 1fr; gap: 2px; }
+}
+.member .mtl > li::before { display: none; }
