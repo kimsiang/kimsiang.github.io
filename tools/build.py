@@ -342,7 +342,7 @@ def build_publications():
 
 # ------------------------------------------------------------------ member sub-pages
 MEMBERS = json.load(open(os.path.join(C, 'members.json')))
-CODES = {'Research Assistant': 'RA', 'Postdoctoral Researcher': 'POSTDOC', 'Doctoral Student': 'PHD'}
+CODES = {'Research Assistant': 'RA', 'Postdoctoral Researcher': 'POSTDOC', 'Doctoral Student': 'PHD', "Master's Student": 'MSC'}
 
 def link_members(raw):
     """On the People page, link each current member's name to their sub-page."""
@@ -379,7 +379,7 @@ def build_members():
             links.append(f'<a href="https://scholar.google.com/citations?user={m["scholar"]}" target="_blank" rel="noopener"><b>Google Scholar</b><span>{m["scholar"]}</span></a>')
         none = '<span class="faint">' + bi('Not yet available', '暂无') + '</span>'
         photo = '{ROOT}' + m['photo']
-        side = (f'<figure class="mphoto"><a class="zoom" href="{photo}"><img src="{photo}" alt="{name}" loading="lazy" decoding="async"></a></figure>'
+        side = ((f'<figure class="mphoto"><a class="zoom" href="{photo}"><img src="{photo}" alt="{name}" loading="lazy" decoding="async"></a></figure>' if m['photo'] else '')
                 + '<p class="mono mlabel">' + bi('Profiles', '学术主页') + '</p>'
                 + '<div class="mlinks">' + (''.join(links) or none) + '</div>')
 
