@@ -789,3 +789,34 @@ html[data-lang="zh"] .cites { font-family: var(--cjk); }
 .partner .logo img { max-height: 44px; max-width: 100%; object-fit: contain; background: #fff; padding: 4px 6px; border-radius: 4px; }
 .partner b { font: 500 18px/1.2 var(--f-display); color: var(--text); margin-top: auto; }
 .partner p { font-size: 12px; line-height: 1.45; color: var(--muted); }
+
+/* ---------- About Muons outreach page ---------- */
+.doc .mu-hook { font-size: clamp(18px, 1.6vw, 22px); line-height: 1.6; color: var(--text); font-weight: 300; }
+.mu-facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin: 2em 0; border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+.mu-facts > div { padding: 20px 18px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.mu-facts b { display: block; font: 500 clamp(28px, 3vw, 38px)/1.1 var(--f-display); color: var(--text); letter-spacing: -0.02em; }
+.mu-facts b small { font-size: .5em; color: var(--accent); margin-left: 2px; }
+.mu-facts span { display: block; margin-top: 8px; font-size: 13px; line-height: 1.5; color: var(--muted); }
+.mu-fig svg { width: 100%; height: auto; display: block; border: 1px solid var(--line); border-radius: 6px; background: var(--bg-2); }
+.doc ol.mu-tl { list-style: none; padding-left: 0; border-left: 1px solid var(--line); margin-left: 6px; }
+.doc ol.mu-tl > li { position: relative; padding: 0 0 1.4em 26px; margin: 0; }
+.doc ol.mu-tl > li::before { content: ""; position: absolute; left: -5px; top: .55em; width: 9px; height: 9px; border-radius: 50%; background: var(--bg); border: 2px solid var(--accent); }
+.mu-tl time { display: block; font: 500 13px/1.4 var(--f-mono); color: var(--accent); letter-spacing: .06em; }
+.doc .mu-tl p, .doc .mu-tl p + p { margin-top: 4px; }
+.doc .mu-note { font-size: 14px; color: var(--muted); padding-left: 14px; border-left: 2px solid #FFB547; }
+.mu-faq { border-top: 1px solid var(--line); }
+.mu-faq details { border-bottom: 1px solid var(--line); padding: 16px 0; }
+.mu-faq summary { cursor: pointer; list-style: none; color: var(--text); font-weight: 500; font-size: 17px; display: flex; justify-content: space-between; gap: 16px; }
+.mu-faq summary::-webkit-details-marker { display: none; }
+.mu-faq summary::after { content: "+"; color: var(--accent); font-family: var(--f-mono); transition: transform .25s var(--ease); }
+.mu-faq details[open] summary::after { transform: rotate(45deg); }
+.mu-faq details p { margin-top: 10px; }
+.doc ul.mu-chaps { display: grid; grid-template-columns: 1fr 1fr; gap: 0 24px; padding-left: 0; }
+.doc ul.mu-chaps > li { margin: 0; border-bottom: 1px solid var(--line); }
+.doc ul.mu-chaps > li::before { display: none; }
+.doc ul.mu-chaps a { display: block; padding: 12px 0; text-decoration: none; }
+.doc ul.mu-chaps a::after { content: " →"; }
+@media (max-width: 640px) {
+  .mu-facts { grid-template-columns: 1fr 1fr; }
+  .doc ul.mu-chaps { grid-template-columns: 1fr; }
+}

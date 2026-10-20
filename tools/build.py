@@ -437,8 +437,8 @@ def build_muons():
         pn += f'<a class="next" href="{{ROOT}}muons/{MUONS[i + 1][0]}.html"><small>{bi("Next →", "下一章 →")}</small>{bi(MUONS[i + 1][1], MUONS[i + 1][2])}</a>' if i + 1 < len(MUONS) else '<span></span>'
         pn += '</nav>'
         hero = phero(f'{i + 1:02d}/{len(MUONS):02d}', 'About Muons', '缪子科普', bi(en, zh),
-                     bi('A primer on the muon — its physics, how we make and detect it, and what it is good for.',
-                        '缪子入门——它的物理、产生与探测方式，以及广泛应用。') if k == 'index' else '', scene='muonium')
+                     bi('Right now, cosmic muons are passing through you. Meet the particle behind them — where it comes from, why physicists love it, and how you can see it yourself.',
+                        '此刻，宇宙线缪子正穿过你的身体。来认识这种粒子——它从哪里来，物理学家为何钟爱它，以及你如何亲眼看见它。') if k == 'index' else '', scene='muonium')
         body = hero + f'<section class="pbody"><div class="wrap with-side"><aside class="side">{side}</aside><div class="prose doc">{b}{pn}</div></div></section>'
         layout(f'muons/{k}.html', en, f'{en} — muon physics primer by the TDLI Muon Physics Group.', body, 'muons')
 
