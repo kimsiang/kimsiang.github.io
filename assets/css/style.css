@@ -759,12 +759,6 @@ html[data-lang="zh"] .cites { font-family: var(--cjk); }
 }
 .member .mtl > li::before { display: none; }
 
-/* former members: avatar list */
-.prose ul.alumni { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 10px 22px; }
-.prose ul.alumni li { display: flex; gap: 14px; align-items: center; margin: 0; padding: 0; font-size: 13.5px; line-height: 1.5; color: var(--muted); }
-.prose ul.alumni li::before { content: none; display: none; }
-.prose ul.alumni .av { width: 52px; height: 52px; flex: none; object-fit: cover; object-position: 50% 20%; border: 1px solid var(--line-2); border-radius: 6px; margin: 0; }
-.prose ul.alumni a.zoom { flex: none; line-height: 0; }
-.prose ul.alumni .ini.av { font-size: 13px; }
-@media (max-width: 560px) { .prose ul.alumni { grid-template-columns: 1fr; } .prose ul.alumni .av { width: 44px; height: 44px; } }
-.prose ul.alumni .at { min-width: 0; }
+/* former members: cards like current members */
+.pcard .ini { width: 96px; height: 96px; font-size: 18px; }
+@media (max-width: 560px) { .pcard .ini { width: 72px; height: 72px; font-size: 15px; } }

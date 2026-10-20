@@ -170,7 +170,7 @@ def prose(raw, ids=None, people=False):
     if people:
         # figure (portrait) followed by <p> → person card
         for fig in list(soup.find_all('figure')):
-            if fig.find_parent('div', class_='pgal'): continue
+            if fig.find_parent('div', class_='pgal') or fig.find_parent('div', class_='pcard'): continue
             nxt = fig.find_next_sibling()
             if nxt is not None and nxt.name == 'p':
                 card = soup.new_tag('div', **{'class': 'pcard'})
