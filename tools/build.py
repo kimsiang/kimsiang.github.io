@@ -205,6 +205,21 @@ def article(body, side=''):
 # ------------------------------------------------------------------ news
 news = json.load(open(os.path.join(C, 'news.json')))
 
+def _excerpt(slug, fallback=''):
+    """First paragraph of the post body, so previews follow the edited text."""
+    try:
+        soup = BeautifulSoup(open(os.path.join(C, 'news', slug + '.html')).read(), 'html.parser')
+    except FileNotFoundError:
+        return fallback
+    for p in soup.find_all('p'):
+        t = re.sub(r'\s+', ' ', p.get_text(' ', strip=True)).strip()
+        if len(t) > 40:
+            return t[:240]
+    return fallback
+
+for _n in news:
+    _n['excerpt'] = _excerpt(_n['slug'], _n.get('excerpt', ''))
+
 def month(d):
     y, m, dd = d.split('-')
     return f'{y}.{m}.{dd}'
