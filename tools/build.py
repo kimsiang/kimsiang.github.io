@@ -271,12 +271,19 @@ def build_news():
 KINDS = {'journal': ('Journal articles', '期刊论文'), 'proceedings': ('Proceedings', '会议论文'),
          'preprint': ('Preprints', '预印本'), 'report': ('Reports', '报告'), 'thesis': ('Theses', '学位论文')}
 
-def pub_rows(pubs):
+SHANGHAI = '2020'   # first full year after the PI moved to TDLI, Shanghai
+
+def pub_rows(pubs, era=False):
     rows, cur = [], None
-    for p in pubs:
+    for i, p in enumerate(pubs):
+        if era and i == 0 and p['year'] >= SHANGHAI:
+            rows.append('<li class="pera">' + bi('Since moving to Shanghai (TDLI) · 2020 –', '来到上海（李政道研究所）之后 · 2020 –') + '</li>')
+        if era and cur is not None and cur >= SHANGHAI > p['year']:
+            rows.append('<li class="pera pre">' + bi('Before Shanghai · 2012 – 2019', '来上海之前 · 2012 – 2019') + '</li>')
         if p['year'] != cur:
             cur = p['year']
-            rows.append(f'<li class="pyear" data-year="{cur}">{cur}</li>')
+            tag = ('<span class="sh-pill mono">' + bi('Shanghai', '上海') + '</span>') if era and cur >= SHANGHAI else ''
+            rows.append(f'<li class="pyear" data-year="{cur}">{cur}{tag}</li>')
         url = p.get('url') or (f'https://doi.org/{p["doi"]}' if p['doi'] else f'https://arxiv.org/abs/{p["arxiv"]}' if p['arxiv'] else f'https://inspirehep.net/literature/{p["id"]}')
         auth = ', '.join(html.escape(a) for a in p['authors'])
         if p['collaboration']:
@@ -288,7 +295,7 @@ def pub_rows(pubs):
         if isinstance(p['id'], int): badges.append(f'<a href="https://inspirehep.net/literature/{p["id"]}" target="_blank" rel="noopener">INSPIRE</a>')
         if p['cites']: badges.append(f'<span class="cites" title="Citations (INSPIRE)">{p["cites"]} {bi("citations", "次引用")}</span>')
         big = 'big' if p['author_count'] > 50 else 'small'
-        rows.append(f'''<li class="pub" data-kind="{p["kind"]}" data-size="{big}" data-q="{html.escape((p["title"] + " " + auth + " " + p["journal"]).lower())}">
+        rows.append(f'''<li class="pub" data-kind="{p["kind"]}" data-size="{big}" data-era="{'sh' if p['year'] >= SHANGHAI else 'pre'}" data-q="{html.escape((p["title"] + " " + auth + " " + p["journal"]).lower())}">
         <span class="pk mono">{bi(*KINDS[p["kind"]])}</span>
         <div><a class="pt" href="{url}" target="_blank" rel="noopener">{html.escape(p["title"])}</a>
         <p class="pa">{auth}</p>
@@ -312,7 +319,8 @@ def build_publications():
     cites = sum(p['cites'] for p in pubs)
     cs = sorted((p['cites'] for p in pubs), reverse=True)
     h = sum(1 for i, c in enumerate(cs, 1) if c >= i)
-    rows = pub_rows(pubs)
+    rows = pub_rows(pubs, era=True)
+    n_sh = sum(1 for p in pubs if p['year'] >= SHANGHAI)
     chips = f'<button type="button" class="on" data-k="all">{bi("All", "全部")}</button>' + ''.join(
         f'<button type="button" data-k="{k}">{bi(*v)}</button>' for k, v in KINDS.items() if any(p['kind'] == k for p in pubs))
     stats = f'''<div class="pstats">
@@ -328,6 +336,7 @@ def build_publications():
   {stats}
   <div class="filters">
     <div class="chips" role="group" aria-label="Filter by type">{chips}</div>
+    <label class="check"><input type="checkbox" id="pub-sh"> {bi(f"Since moving to Shanghai (2020 –) · {n_sh}", f"来上海后（2020 –）· {n_sh} 篇")}</label>
     <label class="check"><input type="checkbox" id="pub-small"> {bi("Hide large-collaboration papers", "隐藏大型合作组论文")}</label>
     <label class="search"><span class="sr">Search</span><input type="search" id="pub-q" placeholder="Search title, author, journal / 搜索" autocomplete="off"></label>
   </div>
@@ -342,7 +351,7 @@ def build_publications():
 
 # ------------------------------------------------------------------ member sub-pages
 MEMBERS = json.load(open(os.path.join(C, 'members.json')))
-CODES = {'Research Assistant': 'RA', 'Postdoctoral Researcher': 'POSTDOC', 'Doctoral Student': 'PHD', "Master's Student": 'MSC'}
+CODES = {'Principal Investigator': 'PI', 'Research Assistant': 'RA', 'Postdoctoral Researcher': 'POSTDOC', 'Doctoral Student': 'PHD', "Master's Student": 'MSC'}
 
 def link_members(raw):
     """On the People page, link each current member's name to their sub-page."""
@@ -385,7 +394,7 @@ def build_members():
 
         edu = ''.join(f'<li><b>{html.escape(y)}</b><span>{bi(html.escape(en), html.escape(zh))}</span></li>'
                       for y, en, zh in m['education'])
-        mine = pubs.get(m['slug'], [])
+        mine = json.load(open(os.path.join(C, 'publications.json'))) if m.get('all_pubs') else pubs.get(m['slug'], [])
         if mine:
             cites = sum(p['cites'] for p in mine)
             plist = ('<p class="mcount mono">'

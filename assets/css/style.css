@@ -762,3 +762,10 @@ html[data-lang="zh"] .cites { font-family: var(--cjk); }
 /* former members: cards like current members */
 .pcard .ini { width: 96px; height: 96px; font-size: 18px; }
 @media (max-width: 560px) { .pcard .ini { width: 72px; height: 72px; font-size: 15px; } }
+
+/* publications: Shanghai era markers */
+.pera { list-style: none; margin: 46px 0 0; padding: 10px 14px; border-left: 2px solid var(--accent); background: rgba(47, 200, 255, .06); font: 500 12.5px/1.4 var(--f-mono); letter-spacing: .06em; text-transform: uppercase; color: var(--accent); }
+.pera:first-child { margin-top: 0; }
+.pera.pre { border-left-color: var(--faint); background: rgba(255, 255, 255, .025); color: var(--muted); }
+.pera[hidden] { display: none; }
+.sh-pill { display: inline-block; vertical-align: middle; margin-left: 12px; padding: 3px 9px; border: 1px solid rgba(47, 200, 255, .45); border-radius: 999px; font-size: 10.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); }

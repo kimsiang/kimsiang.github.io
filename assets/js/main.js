@@ -120,17 +120,22 @@
   const filterList = (cfg) => {
     const items = [...document.querySelectorAll(cfg.items)];
     if (!items.length) return;
-    let chip = 'all', q = '', small = false;
+    let chip = 'all', q = '', small = false, sh = false;
     const run = () => {
       let shown = 0;
       items.forEach((it) => {
-        const ok = (chip === 'all' || it.dataset[cfg.key] === chip) && (!q || it.dataset.q.includes(q)) && (!small || it.dataset.size !== 'big');
+        const ok = (chip === 'all' || it.dataset[cfg.key] === chip) && (!q || it.dataset.q.includes(q)) && (!small || it.dataset.size !== 'big') && (!sh || it.dataset.era === 'sh');
         it.hidden = !ok; if (ok) shown++;
       });
       document.querySelectorAll(cfg.heads || '_none').forEach((h) => {
         let n = h.nextElementSibling, any = false;
-        while (n && !n.matches(cfg.heads)) { if (!n.hidden) any = true; n = n.nextElementSibling; }
+        while (n && !n.matches(cfg.heads) && !n.matches('.pera')) { if (!n.hidden) any = true; n = n.nextElementSibling; }
         h.hidden = !any;
+      });
+      document.querySelectorAll('.pera').forEach((d) => {
+        let n = d.nextElementSibling, any = false;
+        while (n && !n.matches('.pera')) { if (n.matches(cfg.items) && !n.hidden) any = true; n = n.nextElementSibling; }
+        d.hidden = !any;
       });
       const e = document.getElementById(cfg.empty); if (e) e.hidden = shown > 0;
     };
@@ -142,9 +147,11 @@
     if (qi) qi.addEventListener('input', () => { q = qi.value.trim().toLowerCase(); run(); });
     const sm = document.getElementById(cfg.small || '_none');
     if (sm) sm.addEventListener('change', () => { small = sm.checked; run(); });
+    const se = document.getElementById(cfg.sh || '_none');
+    if (se) se.addEventListener('change', () => { sh = se.checked; run(); });
   };
   filterList({ items: '.ncard', chips: '.filters .chips button', key: 'y', q: 'news-q', empty: 'news-empty' });
-  filterList({ items: '.pub', chips: '.filters .chips button', key: 'k', q: 'pub-q', empty: 'pub-empty', small: 'pub-small', heads: '.pyear' });
+  filterList({ items: '.pub', chips: '.filters .chips button', key: 'k', q: 'pub-q', empty: 'pub-empty', small: 'pub-small', sh: 'pub-sh', heads: '.pyear' });
 
   /* table-of-contents highlight */
   const tocLinks = [...document.querySelectorAll('.toc a')];
