@@ -165,6 +165,33 @@
     window.location.href = `mailto:kimsiang84@sjtu.edu.cn?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   });
 
+  /* ---------- 3D tilt on solid cards ---------- */
+  if (!reduced && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    document.querySelectorAll('.module, .person, .role, .lab, .ncard a, .pcard, .pi, .pn a').forEach((el) => {
+      el.classList.add('tilt');
+      const max = el.classList.contains('module') || el.classList.contains('pi') ? 4 : 7;
+      el.addEventListener('pointermove', (e) => {
+        const r = el.getBoundingClientRect(), x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
+        el.style.setProperty('--ry', ((x - 0.5) * max).toFixed(2) + 'deg');
+        el.style.setProperty('--rx', ((0.5 - y) * max).toFixed(2) + 'deg');
+        el.style.setProperty('--mx', (x * 100).toFixed(1) + '%');
+        el.style.setProperty('--my', (y * 100).toFixed(1) + '%');
+        el.classList.add('hot');
+      });
+      el.addEventListener('pointerleave', () => { el.classList.remove('hot'); el.style.setProperty('--rx', '0deg'); el.style.setProperty('--ry', '0deg'); });
+    });
+  }
+
+  /* ---------- 3D sub-page header scenes ---------- */
+  const sub = document.querySelector('.phero-3d');
+  if (sub && !reduced && sub.offsetWidth > 0) {
+    import(heroSrc).then(({ initSubScene }) => {
+      if (initSubScene(sub, sub.dataset.scene)) requestAnimationFrame(() => sub.classList.add('on'));
+    }).catch(() => {});
+  } else if (sub && reduced) {
+    import(heroSrc).then(({ initSubScene }) => { if (initSubScene(sub, sub.dataset.scene)) sub.classList.add('on'); }).catch(() => {});
+  }
+
   /* ---------- 3D hero ---------- */
   const canvas = document.getElementById('hero-canvas');
   if (!canvas) return;

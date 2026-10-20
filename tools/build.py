@@ -109,9 +109,11 @@ def layout(path, title, desc, body, active='', home=False):
     open(dest, 'w').write(out)
     return out
 
-def phero(code, eyebrow_en, eyebrow_zh, title_html, lead_html='', crumbs=''):
+def phero(code, eyebrow_en, eyebrow_zh, title_html, lead_html='', crumbs='', scene='module'):
     return f'''<section class="phero">
   <div class="phero-grid" aria-hidden="true"></div>
+  <div class="phero-floor" aria-hidden="true"></div>
+  <canvas class="phero-3d" data-scene="{scene}" aria-hidden="true"></canvas>
   <div class="wrap">
     {crumbs}
     <p class="label"><span class="idx">{code}</span>{bi(eyebrow_en, eyebrow_zh)}</p>
@@ -298,7 +300,7 @@ def build_publications():
       <div><b>{h}</b>{bi("h-index", "h指数")}</div>
       <div><b>{sum(1 for p in pubs if p["refereed"])}</b>{bi("Peer-reviewed", "同行评审")}</div>
     </div>'''
-    body = phero('PUB', 'Publications', '论文发表', bi('Publications', '论文发表'),
+    body = phero('PUB', 'Publications', '论文发表', bi('Publications', '论文发表'), scene='ring', lead_html=
                  bi('Research output of the group, synced from <a href="https://inspirehep.net/authors/1114795" target="_blank" rel="noopener">INSPIRE-HEP</a> — also on <a href="https://scholar.google.com/citations?user=dyaRjrcAAAAJ" target="_blank" rel="noopener">Google Scholar</a>.',
                     '课题组研究成果，同步自<a href="https://inspirehep.net/authors/1114795" target="_blank" rel="noopener">INSPIRE-HEP</a>，亦可见<a href="https://scholar.google.com/citations?user=dyaRjrcAAAAJ" target="_blank" rel="noopener">Google Scholar</a>。'))
     body += f'''<section class="pbody"><div class="wrap">
@@ -340,14 +342,14 @@ def build_muons():
         pn += '</nav>'
         hero = phero(f'{i + 1:02d}/{len(MUONS):02d}', 'About Muons', '缪子科普', bi(en, zh),
                      bi('A primer on the muon — its physics, how we make and detect it, and what it is good for.',
-                        '缪子入门——它的物理、产生与探测方式，以及广泛应用。') if k == 'index' else '')
+                        '缪子入门——它的物理、产生与探测方式，以及广泛应用。') if k == 'index' else '', scene='muonium')
         body = hero + f'<section class="pbody"><div class="wrap with-side"><aside class="side">{side}</aside><div class="prose doc">{b}{pn}</div></div></section>'
         layout(f'muons/{k}.html', en, f'{en} — muon physics primer by the TDLI Muon Physics Group.', body, 'muons')
 
-def page(path, key, code, en, zh, lead_en='', lead_zh='', active='', ids=None, people=False, with_toc=False, desc=None, pre=''):
+def page(path, key, code, en, zh, lead_en='', lead_zh='', active='', ids=None, people=False, with_toc=False, desc=None, pre='', scene='module'):
     b = prose(read(f'pages/{key}.html'), ids=ids, people=people)
     side = toc(b, 'h2' if people else 'h3') if with_toc else ''
-    body = phero(code, en, zh, bi(en, zh), bi(lead_en, lead_zh) if lead_en else '') + pre + article(b, side)
+    body = phero(code, en, zh, bi(en, zh), bi(lead_en, lead_zh) if lead_en else '', scene=scene) + pre + article(b, side)
     layout(path, en, desc or f'{en} — TDLI Muon Physics Group, Shanghai Jiao Tong University.', body, active)
 
 def build_pages():
@@ -355,7 +357,7 @@ def build_pages():
          'Precision muon physics from Fermilab to PSI, a new muon source at SHINE, and muography beneath Shanghai.',
          '从费米实验室到PSI的精密缪子物理、SHINE新型缪子源，以及上海地下空间的缪子成像。',
          'research', ids={'Muon g-2': 'muon-g-2', 'Dipole': 'muon-edm', 'SHINE': 'shine-muon-source', 'Muography': 'muography'},
-         with_toc=True)
+         with_toc=True, scene='ring')
     page('people.html', 'people', 'TEAM', 'People', '团队成员',
          'Current members, students and alumni of the TDLI Muon Physics Group.', '课题组现任成员、学生与校友。',
          'people', ids={'Former': 'former-members'}, people=True, with_toc=True)
@@ -364,9 +366,9 @@ def build_pages():
          '课程、文献阅读会、教材研读、暑期/冬季学校与国际暑期科研实习。', 'teaching', with_toc=True)
     page('talks.html', 'talks', 'TALKS', 'Selected talks', '学术报告',
          'Talks by group members at national and international workshops, conferences and universities.',
-         '课题组成员在国内外研讨会、学术会议及高校所作的报告。', 'publications', with_toc=False)
+         '课题组成员在国内外研讨会、学术会议及高校所作的报告。', 'publications', with_toc=False, scene='ring')
     page('posters.html', 'posters', 'POSTERS', 'Posters', '学术海报',
-         'Posters presented by group members at national and international conferences.', '课题组成员在国内外会议上展示的海报。', 'publications')
+         'Posters presented by group members at national and international conferences.', '课题组成员在国内外会议上展示的海报。', 'publications', scene='ring')
     page('gallery.html', 'gallery', 'PHOTO', 'Photo gallery', '照片集',
          'Life in the lab and around the world — from building the Muon Tech Lab to Fermilab, PSI and KEK.',
          '实验室内外的点滴——从建设缪子技术实验室，到费米实验室、PSI与KEK。', 'gallery', with_toc=True)

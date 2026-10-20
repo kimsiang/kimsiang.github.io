@@ -434,3 +434,4 @@ export function initHero(canvas, opts = {}) {
   requestAnimationFrame(loop);
   return { rate: () => recent.length / 10 };
 }
+export { initSubScene } from './scenes.js';
