@@ -100,15 +100,15 @@
   "names": ["Wong, Guan Ming", "Wong, G.M."]
  },
  {
-  "slug": "jing-tian-yang", "name": "Jing Tian Yang", "zh": "",
+  "slug": "jing-tian-yong", "name": "Jing Tian Yong", "zh": "杨景天",
   "role": ["Doctoral Student", "博士研究生"], "since": "2026.09", "topics": [],
-  "photo": "assets/img/people/jing-tian-yang.webp",
+  "photo": "assets/img/people/jing-tian-yong.webp",
   "education": [
    ["2026 – present", "Ph.D. student, Tsung-Dao Lee Institute, Shanghai Jiao Tong University, China", "博士研究生，上海交通大学李政道研究所"],
    ["– 2026", "Bachelor, Xiamen University Malaysia (XMUM), Malaysia", "学士，厦门大学马来西亚分校"]
   ],
   "orcid": "", "inspire": "", "scholar": "",
-  "names": ["Yang, Jing Tian"]
+  "names": ["Yong, Jing Tian"]
  },
  {
   "slug": "jia-cheng-yap", "name": "Jia Cheng Yap", "zh": "叶嘉诚",
