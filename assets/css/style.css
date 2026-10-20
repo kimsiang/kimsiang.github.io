@@ -844,3 +844,5 @@ html[data-lang="zh"] .cites { font-family: var(--cjk); }
 .mu-doc .mu-pair img { width: 100%; height: auto; }
 .mu-doc .table-wrap table { min-width: 560px; }
 @media (max-width: 560px) { .mu-doc .mu-pair { grid-template-columns: 1fr; } }
+.prose.mu-doc ol.mu-refs li { font-size: 14px; line-height: 1.6; color: var(--muted); }
+.mu-doc ol.mu-refs a { white-space: nowrap; }
