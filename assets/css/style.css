@@ -796,7 +796,7 @@ html[data-lang="zh"] .cites { font-family: var(--cjk); }
 @media (max-width: 720px) { .partners { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; } .partner { height: 220px; padding: 14px; } .partner b { font-size: 17px; } }
 
 /* ---------- About Muons outreach page ---------- */
-.doc .mu-hook { font-size: clamp(18px, 1.6vw, 22px); line-height: 1.6; color: var(--text); font-weight: 300; }
+.doc .mu-hook { font-size: 18px; line-height: 1.65; color: var(--text); font-weight: 300; }
 .mu-facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin: 2em 0; border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
 .mu-facts > div { padding: 20px 18px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .mu-facts b { display: block; font: 500 clamp(28px, 3vw, 38px)/1.1 var(--f-display); color: var(--text); letter-spacing: -0.02em; }
@@ -825,3 +825,21 @@ html[data-lang="zh"] .cites { font-family: var(--cjk); }
   .mu-facts { grid-template-columns: 1fr 1fr; }
   .doc ul.mu-chaps { grid-template-columns: 1fr; }
 }
+
+/* About Muons: body text sized like the rest of the site */
+.mu-doc, .mu-doc p, .prose.mu-doc p { font-size: 15.5px; line-height: 1.75; }
+.mu-doc li { font-size: 15.5px; }
+.mu-doc h2 { font-size: clamp(24px, 2.2vw, 30px); }
+.mu-doc h3 { font-size: clamp(19px, 1.7vw, 22px); }
+.mu-doc .mu-facts b { font-size: clamp(24px, 2.4vw, 32px); }
+.chap { padding: 18px 18px 12px; }
+.chap > p.mono { margin-bottom: 10px; }
+.prose.mu-doc p.mu-hook { font-size: 18px; }
+.prose.mu-doc p.mu-note { font-size: 14px; }
+.doc .mu-links { display: flex; flex-wrap: wrap; gap: 8px 24px; }
+.doc .mu-links a { text-decoration: none; border-bottom: 1px solid rgba(47, 200, 255, .35); }
+.mu-doc .mu-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: center; margin: 1.8em 0; }
+.mu-doc .mu-pair figure { margin: 0; }
+.mu-doc .mu-pair img { width: 100%; height: auto; }
+.mu-doc .table-wrap table { min-width: 560px; }
+@media (max-width: 560px) { .mu-doc .mu-pair { grid-template-columns: 1fr; } }

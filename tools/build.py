@@ -439,7 +439,7 @@ def build_muons():
         hero = phero(f'{i + 1:02d}/{len(MUONS):02d}', 'About Muons', '缪子科普', bi(en, zh),
                      bi('Right now, cosmic muons are passing through you. Meet the particle behind them — where it comes from, why physicists love it, and how you can see it yourself.',
                         '此刻，宇宙线缪子正穿过你的身体。来认识这种粒子——它从哪里来，物理学家为何钟爱它，以及你如何亲眼看见它。') if k == 'index' else '', scene='muonium')
-        body = hero + f'<section class="pbody"><div class="wrap with-side"><aside class="side">{side}</aside><div class="prose doc">{b}{pn}</div></div></section>'
+        body = hero + f'<section class="pbody"><div class="wrap with-side"><aside class="side">{side}</aside><div class="prose doc mu-doc">{b}{pn}</div></div></section>'
         layout(f'muons/{k}.html', en, f'{en} — muon physics primer by the TDLI Muon Physics Group.', body, 'muons')
 
 def page(path, key, code, en, zh, lead_en='', lead_zh='', active='', ids=None, people=False, with_toc=False, desc=None, pre='', scene='module'):
