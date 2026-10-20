@@ -1,0 +1,97 @@
+[
+ {
+  "slug": "mengjie-wu", "name": "Mengjie Wu", "zh": "吴梦洁",
+  "role": ["Research Assistant", "科研助理"], "since": "2025.02", "topics": ["Muography", "缪子成像"],
+  "photo": "assets/media/2493.webp",
+  "education": [],
+  "orcid": "", "inspire": "", "scholar": "",
+  "names": ["Wu, Mengjie"]
+ },
+ {
+  "slug": "samy-kaci", "name": "Samy Kaci", "zh": "",
+  "role": ["Postdoctoral Researcher", "博士后"], "since": "2026.10", "topics": ["Particle astrophysics · LHAASO", "粒子天体物理 · LHAASO"],
+  "photo": "assets/img/people/samy-kaci.webp",
+  "education": [
+   ["2022 – 2026", "Ph.D., Tsung-Dao Lee Institute, Shanghai Jiao Tong University, China (advisor: Gwenael Giacinti)", "博士，上海交通大学李政道研究所（导师：Gwenael Giacinti）"],
+   ["", "Master, University of Science and Technology Houari Boumediene (USTHB), Algeria", "硕士，阿尔及利亚 Houari Boumediene 科技大学（USTHB）"],
+   ["", "Bachelor, University of Science and Technology Houari Boumediene (USTHB), Algeria", "学士，阿尔及利亚 Houari Boumediene 科技大学（USTHB）"]
+  ],
+  "orcid": "", "inspire": "2682013", "scholar": "",
+  "names": ["Kaci, Samy"]
+ },
+ {
+  "slug": "yonghao-zeng", "name": "Yonghao Zeng", "zh": "曾永浩",
+  "role": ["Doctoral Student", "博士研究生"], "since": "2022.09", "topics": ["Muon g-2 and muEDM", "缪子g-2与缪子EDM"],
+  "photo": "assets/media/1590.webp",
+  "education": [
+   ["2022 – present", "Ph.D. student, Tsung-Dao Lee Institute, Shanghai Jiao Tong University, China", "博士研究生，上海交通大学李政道研究所"]
+  ],
+  "orcid": "0009-0007-8417-599X", "inspire": "2696563", "scholar": "",
+  "names": ["Zeng, Yonghao", "Zeng, Y."]
+ },
+ {
+  "slug": "jiangtao-wang", "name": "Jiangtao Wang", "zh": "王江涛",
+  "role": ["Doctoral Student", "博士研究生"], "since": "2022.09", "topics": ["Shanghai Muon Source and Muography", "上海缪子源与缪子成像"],
+  "photo": "assets/media/1594.webp",
+  "education": [
+   ["2022 – present", "Ph.D. student, Tsung-Dao Lee Institute, Shanghai Jiao Tong University, China", "博士研究生，上海交通大学李政道研究所"]
+  ],
+  "orcid": "0000-0002-3820-6325", "inspire": "3126782", "scholar": "",
+  "names": ["Wang, Jiangtao"]
+ },
+ {
+  "slug": "xingyun-huang", "name": "Xingyun Huang", "zh": "黄幸运",
+  "role": ["Doctoral Student", "博士研究生"], "since": "2024.09", "topics": ["muEDM and Muography", "缪子EDM与缪子成像"],
+  "photo": "assets/media/2490.webp",
+  "education": [
+   ["2024 – present", "Ph.D. student, Tsung-Dao Lee Institute, Shanghai Jiao Tong University, China", "博士研究生，上海交通大学李政道研究所"],
+   ["– 2024", "Bachelor, Shanghai Jiao Tong University, China (thesis in the Muon Physics Group)", "学士，上海交通大学（毕业论文在本课题组完成）"]
+  ],
+  "orcid": "0009-0004-6405-3141", "inspire": "3126784", "scholar": "",
+  "names": ["Huang, Xingyun"]
+ },
+ {
+  "slug": "jun-kai-ng", "name": "Jun Kai Ng", "zh": "黄俊凯",
+  "role": ["Doctoral Student", "博士研究生"], "since": "2024.09", "topics": ["Shanghai Muon Source", "上海缪子源"],
+  "photo": "assets/media/2489.webp",
+  "education": [
+   ["2024 – present", "Ph.D. student, Tsung-Dao Lee Institute, Shanghai Jiao Tong University, China", "博士研究生，上海交通大学李政道研究所"],
+   ["2021 – 2024", "Master, Tsung-Dao Lee Institute, Shanghai Jiao Tong University, China — thesis: “Validation of the Calorimeter Acceptance Model in the Fermilab Muon g-2 Experiment”", "硕士，上海交通大学李政道研究所——论文：“Validation of the Calorimeter Acceptance Model in the Fermilab Muon g-2 Experiment”"],
+   ["2012 – 2015", "Bachelor, Malaysia", "学士，马来西亚"]
+  ],
+  "orcid": "0000-0001-5178-208X", "inspire": "2674349", "scholar": "",
+  "names": ["Ng, Jun Kai", "Ng, J.K."]
+ },
+ {
+  "slug": "yinghe-wang", "name": "Yinghe Wang", "zh": "王赢鹤",
+  "role": ["Doctoral Student", "博士研究生"], "since": "2024.11", "topics": ["Muography", "缪子成像"],
+  "photo": "assets/media/2495.webp",
+  "education": [
+   ["2024 – present", "Ph.D. student, Shanghai Jiao Tong University, China", "博士研究生，上海交通大学"],
+   ["2020 – 2023", "Master, Beihang University, China", "硕士，北京航空航天大学"]
+  ],
+  "orcid": "0009-0005-8359-6835", "inspire": "3126643", "scholar": "",
+  "names": ["Wang, Yinghe"]
+ },
+ {
+  "slug": "guan-ming-wong", "name": "Guan Ming Wong", "zh": "黄冠铭",
+  "role": ["Doctoral Student", "博士研究生"], "since": "2025.09", "topics": ["muEDM", "缪子EDM"],
+  "photo": "assets/media/1591.webp",
+  "education": [
+   ["2025 – present", "Ph.D. student, Tsung-Dao Lee Institute, Shanghai Jiao Tong University, China", "博士研究生，上海交通大学李政道研究所"]
+  ],
+  "orcid": "0009-0008-6731-6954", "inspire": "2674350", "scholar": "",
+  "names": ["Wong, Guan Ming", "Wong, G.M."]
+ },
+ {
+  "slug": "jing-tian-yang", "name": "Jing Tian Yang", "zh": "",
+  "role": ["Doctoral Student", "博士研究生"], "since": "2026.09", "topics": [],
+  "photo": "assets/img/people/jing-tian-yang.webp",
+  "education": [
+   ["2026 – present", "Ph.D. student, Tsung-Dao Lee Institute, Shanghai Jiao Tong University, China", "博士研究生，上海交通大学李政道研究所"],
+   ["– 2026", "Bachelor, Xiamen University Malaysia (XMUM), Malaysia", "学士，厦门大学马来西亚分校"]
+  ],
+  "orcid": "", "inspire": "", "scholar": "",
+  "names": ["Yang, Jing Tian"]
+ }
+]

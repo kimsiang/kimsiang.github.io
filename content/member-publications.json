@@ -1,0 +1,1347 @@
+{
+ "mengjie-wu": [
+  {
+   "id": 2906901,
+   "title": "Towards non-invasive sediment monitoring using muography: A pilot run at the Shanghai Outer Ring Tunnel",
+   "authors": [
+    "K.S. Khaw",
+    "S.Y. Hoh",
+    "T. Hu"
+   ],
+   "author_count": 26,
+   "collaboration": "",
+   "year": "2025",
+   "date": "2025-04-01",
+   "journal": "J.Appl.Phys. 138 (2025) 11, 114902",
+   "doi": "10.1063/5.0273686",
+   "arxiv": "2504.00582",
+   "cites": 4,
+   "kind": "journal",
+   "refereed": true
+  }
+ ],
+ "samy-kaci": [
+  {
+   "id": 3189064,
+   "title": "Anisotropic particle transport from a pulsar wind nebula revealed by Einstein Probe and LHAASO",
+   "authors": [
+    "Z. Cao",
+    "F. Aharonian",
+    "Y.X. Bai"
+   ],
+   "author_count": 342,
+   "collaboration": "",
+   "year": "2026",
+   "date": "2026-08-08",
+   "journal": "Sci.China Phys.Mech.Astron. 69 (2026) 11, 119514",
+   "doi": "10.1007/s11433-026-3098-2",
+   "arxiv": "2608.07850",
+   "cites": 1,
+   "kind": "journal",
+   "refereed": true
+  },
+  {
+   "id": 3172534,
+   "title": "Extreme PeV accelerator associated with GRS 1915+105",
+   "authors": [
+    "Z. Cao",
+    "F. Aharonian",
+    "Y. Bai"
+   ],
+   "author_count": 329,
+   "collaboration": "LHAASO",
+   "year": "2026",
+   "date": "2026-06-23",
+   "journal": "",
+   "doi": "",
+   "arxiv": "2606.25054",
+   "cites": 1,
+   "kind": "preprint",
+   "refereed": false
+  },
+  {
+   "id": 3149085,
+   "title": "Ultra-high-energy $γ$-ray imprints from PeV particles accelerated by supernova remnants",
+   "authors": [
+    "Z. Cao",
+    "F. Aharonian",
+    "Y. Bai"
+   ],
+   "author_count": 330,
+   "collaboration": "LHAASO",
+   "year": "2026",
+   "date": "2026-04-24",
+   "journal": "",
+   "doi": "",
+   "arxiv": "2604.22621",
+   "cites": 5,
+   "kind": "preprint",
+   "refereed": false
+  },
+  {
+   "id": 3129795,
+   "title": "An extreme particle accelerator powered by pulsar PSR J1849−0001",
+   "authors": [
+    "Z. Cao",
+    "F. Aharonian",
+    "Y. Bai"
+   ],
+   "author_count": 318,
+   "collaboration": "LHAASO",
+   "year": "2026",
+   "date": "2026-03-16",
+   "journal": "Nature Astron. 10 (2026) 7, 1029–1038",
+   "doi": "10.1038/s41550-026-02839-0",
+   "arxiv": "2603.15537",
+   "cites": 5,
+   "kind": "journal",
+   "refereed": true
+  },
+  {
+   "id": 3120784,
+   "title": "LHAASO Observations of Mrk 421 during 2021 March–2024 March: A Comprehensive Very-high-energy Catalog of Multitimescale Outbursts and Its Time-averaged Behavior",
+   "authors": [
+    "Z. Cao",
+    "F. Aharonian",
+    "Y. Bai"
+   ],
+   "author_count": 327,
+   "collaboration": "LHAASO",
+   "year": "2026",
+   "date": "2026-02-13",
+   "journal": "Astrophys.J.Suppl. 285 (2026) 2, 36",
+   "doi": "10.3847/1538-4365/ae76cc",
+   "arxiv": "2602.13411",
+   "cites": 2,
+   "kind": "journal",
+   "refereed": true
+  },
+  {
+   "id": 3108649,
+   "title": "Investigating pulsar wind nebula DA 495: Insights from LHAASO and multi-wavelength observations",
+   "authors": [
+    "Z. Cao",
+    "F. Aharonian",
+    "Y. Bai"
+   ],
+   "author_count": 348,
+   "collaboration": "LHAASO",
+   "year": "2026",
+   "date": "2026-01-16",
+   "journal": "Sci.China Phys.Mech.Astron. 69 (2026) 12, 129513",
+   "doi": "10.1007/s11433-026-3095-9",
+   "arxiv": "2601.11071",
+   "cites": 2,
+   "kind": "journal",
+   "refereed": true
+  },
+  {
+   "id": 3103113,
+   "title": "Probing dark matter annihilation in the Galactic Center with TRIDENT",
+   "authors": [
+    "Y. Wang",
+    "X. Chu",
+    "A. Cheek"
+   ],
+   "author_count": 10,
+   "collaboration": "",
+   "year": "2026",
+   "date": "2026-01-11",
+   "journal": "Phys.Rev.D 114 (2026) 6, 063008",
+   "doi": "10.1103/djnq-kfnh",
+   "arxiv": "2601.06817",
+   "cites": 1,
+   "kind": "journal",
+   "refereed": true
+  },
+  {
+   "id": 3097421,
+   "title": "Transient Large-Scale Anisotropy in TeV Cosmic Rays due to an Interplanetary Coronal Mass Ejection",
+   "authors": [
+    "Z. Cao",
+    "F. Aharonian",
+    "Y. Bai"
+   ],
+   "author_count": 318,
+   "collaboration": "LHAASO",
+   "year": "2026",
+   "date": "2026-01-06",
+   "journal": "Phys.Rev.Lett. 136 (2026) 25, 251002",
+   "doi": "10.1103/mkk2-hbq5",
+   "arxiv": "2601.02801",
+   "cites": 1,
+   "kind": "journal",
+   "refereed": true
+  },
+  {
+   "id": 3094950,
+   "title": "Energy-Dependent Shifts of Medium-Scale Anisotropies in Very-High-Energy Cosmic Rays Observed by LHAASO-KM2A",
+   "authors": [
+    "T.L. collabration",
+    "Z. Cao",
+    "F. Aharonian"
+   ],
+   "author_count": 322,
+   "collaboration": "LHAASO",
+   "year": "2026",
+   "date": "2025-12-20",
+   "journal": "Phys.Rev.Lett. 137 (2026) 5, 051004",
+   "doi": "10.1103/7y56-75l9",
+   "arxiv": "2512.18401",
+   "cites": 1,
+   "kind": "journal",
+   "refereed": true
+  },
+  {
+   "id": 3080954,
+   "title": "Precise Measurement of the Cosmic Ray Helium Spectrum above 0.1 PeV",
+   "authors": [
+    "Z. Cao",
+    "F. Aharonian",
+    "Y. Bai"
+   ],
+   "author_count": 335,
+   "collaboration": "LHAASO",
+   "year": "2026",
+   "date": "2025-11-07",
+   "journal": "Phys.Rev.Lett. 136 (2026) 12, 121001",
+   "doi": "10.1103/d838-49gt",
+   "arxiv": "2511.05013",
+   "cites": 24,
+   "kind": "journal",
+   "refereed": true
+  },
+  {
+   "id": 3075309,
+   "title": "Evidence of Cosmic-Ray Acceleration up to Sub-PeV Energies in the Supernova Remnant IC 443",
+   "authors": [
+    "Z. Cao",
+    "F. Aharonian",
+    "Y. Bai"
+   ],
+   "author_count": 316,
+   "collaboration": "LHAASO",
+   "year": "2026",
+   "date": "2025-10-30",
+   "journal": "Phys.Rev.Lett. 136 (2026) 16, 161002",
+   "doi": "10.1103/pxn6-qzhz",
+   "arxiv": "2510.26112",
+   "cites": 8,
+   "kind": "journal",
+   "refereed": true
+  },
+  {
+   "id": 3074014,
+   "title": "First Detection of Ultrahigh Energy Emission from Gamma-Ray Binary LS I <math display=\"inline\"><mrow><mo>+</mo><mn>61</mn><mo>°</mo></mrow></math> 303",
+   "authors": [
+    "Z. Cao",
+    "F. Aharonian",
+    "Y. Bai"
+   ],
+   "author_count": 338,
+   "collaboration": "LHAASO",
+   "year": "2026",
+   "date": "2025-10-27",
+   "journal": "Phys.Rev.Lett. 136 (2026) 18, 181001",
+   "doi": "10.1103/7xhp-tff7",
+   "arxiv": "2510.23345",
+   "cites": 6,
+   "kind": "journal",
+   "refereed": true
+  },
+  {
+   "id": 3094151,
+   "title": "Cygnus X-3: A variable petaelectronvolt gamma-ray source",
+   "authors": [
+    "Z. Cao",
+    "F. Aharonian",
+    "Y. Bai"
+   ],
+   "author_count": 344,
+   "collaboration": "LHAASO",
+   "year": "2025",
+   "date": "2025-12-18",
+   "journal": "",
+   "doi": "",
+   "arxiv": "2512.16638",
+   "cites": 32,
+   "kind": "preprint",
+   "refereed": false
+  },
+  {
+   "id": 3086497,
+   "title": "A Self-Consistent Model of the Ultra High-Energy Gamma-Ray Emission of Pulsar Wind Nebulae: Insights from LHAASO and ATNF Catalogs",
+   "authors": [
+    "S. Kaci",
+    "G. Giacinti",
+    "D. Semikoz"
+   ],
+   "author_count": 3,
+   "collaboration": "",
+   "year": "2025",
+   "date": "2025-11-25",
+   "journal": "",
+   "doi": "",
+   "arxiv": "2511.20452",
+   "cites": 2,
+   "kind": "preprint",
+   "refereed": false
+  },
+  {
+   "id": 3080982,
+   "title": "LHAASO Detection of Ultra-High-Energy Gamma-Ray Emission toward the Giant Molecular Clouds",
+   "authors": [
+    "Z. Cao",
+    "F. Aharonian",
+    "Y. Bai"
+   ],
+   "author_count": 318,
+   "collaboration": "LHAASO",
+   "year": "2025",
+   "date": "2025-11-07",
+   "journal": "",
+   "doi": "",
+   "arxiv": "2511.05015",
+   "cites": 2,
+   "kind": "preprint",
+   "refereed": false
+  },
+  {
+   "id": 3069351,
+   "title": "Energy calibration of LHAASO-KM2A using the cosmic ray Moon shadow",
+   "authors": [
+    "Z. Cao",
+    "F. Aharonian",
+    "Y. Bai"
+   ],
+   "author_count": 317,
+   "collaboration": "",
+   "year": "2025",
+   "date": "2025-10-14",
+   "journal": "Phys.Rev.D 112 (2025) 12, 123051",
+   "doi": "10.1103/gc7n-ypqw",
+   "arxiv": "2510.12649",
+   "cites": 1,
+   "kind": "journal",
+   "refereed": true
+  },
+  {
+   "id": 3064905,
+   "title": "A Giant Peanut-shaped Ultra-High-Energy Gamma-Ray Emitter Off the Galactic Plane",
+   "authors": [
+    "Z. Cao",
+    "F. Aharonian",
+    "Y. Bai"
+   ],
+   "author_count": 316,
+   "collaboration": "LHAASO",
+   "year": "2025",
+   "date": "2025-10-08",
+   "journal": "",
+   "doi": "",
+   "arxiv": "2510.06786",
+   "cites": 7,
+   "kind": "preprint",
+   "refereed": false
+  },
+  {
+   "id": 3034057,
+   "title": "Microquasars as the major contributors to Galactic cosmic rays around the \"knee\"",
+   "authors": [
+    "S. Kaci",
+    "G. Giacinti",
+    "F. Aharonian"
+   ],
+   "author_count": 4,
+   "collaboration": "",
+   "year": "2025",
+   "date": "2025-10-01",
+   "journal": "",
+   "doi": "",
+   "arxiv": "2510.01369",
+   "cites": 22,
+   "kind": "preprint",
+   "refereed": false
+  },
+  {
+   "id": 2928808,
+   "title": "Science Prospects for the Southern Wide-field Gamma-ray Observatory: SWGO",
+   "authors": [
+    "P. Abreu",
+    "R. Alfaro",
+    "A. Alfonso"
+   ],
+   "author_count": 309,
+   "collaboration": "SWGO",
+   "year": "2025",
+   "date": "2025-06-02",
+   "journal": "",
+   "doi": "",
+   "arxiv": "2506.01786",
+   "cites": 57,
+   "kind": "preprint",
+   "refereed": false
+  },
+  {
+   "id": 2927046,
+   "title": "All-Sky Search for Individual Primordial Black Hole Bursts with LHAASO",
+   "authors": [
+    "Z. Cao",
+    "F. Aharonian",
+    "Y. Bai"
+   ],
+   "author_count": 318,
+   "collaboration": "LHAASO",
+   "year": "2025",
+   "date": "2025-05-30",
+   "journal": "Phys.Rev.Lett. 135 (2025) 18, 181005",
+   "doi": "10.1103/nkby-9cs3",
+   "arxiv": "2505.24586",
+   "cites": 11,
+   "kind": "journal",
+   "refereed": true
+  },
+  {
+   "id": 2923202,
+   "title": "Precise measurements of the cosmic ray proton energy spectrum in the “knee” region",
+   "authors": [
+    "Z. Cao",
+    "F. Aharonian",
+    "Y. Bai"
+   ],
+   "author_count": 316,
+   "collaboration": "LHAASO",
+   "year": "2025",
+   "date": "2025-05-20",
+   "journal": "Sci.Bull. 70 (2025), 3668",
+   "doi": "10.1016/j.scib.2025.10.048",
+   "arxiv": "2505.14447",
+   "cites": 68,
+   "kind": "journal",
+   "refereed": true
+  },
+  {
+   "id": 2893936,
+   "title": "Constraining the Cosmic-Ray Energy Based on Observations of Nearby Galaxy Clusters by LHAASO",
+   "authors": [
+    "Z. Cao",
+    "F. Aharonian",
+    "Y. Bai"
+   ],
+   "author_count": 315,
+   "collaboration": "LHAASO",
+   "year": "2025",
+   "date": "2025-02-23",
+   "journal": "Astrophys.J.Lett. 982 (2025) 1, L19",
+   "doi": "10.3847/2041-8213/adb97d",
+   "arxiv": "2502.16499",
+   "cites": 3,
+   "kind": "journal",
+   "refereed": true
+  },
+  {
+   "id": 2893318,
+   "title": "Ultra-high-energy $\\gamma$-ray emission associated with the tail of a bow-shock pulsar wind nebula",
+   "authors": [
+    "Z. Cao",
+    "F. Aharonian",
+    "Y. Bai"
+   ],
+   "author_count": 318,
+   "collaboration": "LHAASO",
+   "year": "2025",
+   "date": "2025-02-21",
+   "journal": "Innovation 6 (2025) 4, 100802",
+   "doi": "10.1016/j.xinn.2025.100802",
+   "arxiv": "2502.15447",
+   "cites": 12,
+   "kind": "journal",
+   "refereed": true
+  },
+  {
+   "id": 2877767,
+   "title": "Broadband $\\gamma$-ray spectrum of supernova remnant Cassiopeia A",
+   "authors": [
+    "Z. Cao",
+    "F. Aharonian",
+    "Y. Bai"
+   ],
+   "author_count": 319,
+   "collaboration": "LHAASO",
+   "year": "2025",
+   "date": "2025-02-07",
+   "journal": "Astrophys.J.Lett. 982 (2025) 1, L33",
+   "doi": "10.3847/2041-8213/adb97c",
+   "arxiv": "2502.04848",
+   "cites": 11,
+   "kind": "journal",
+   "refereed": true
+  },
+  {
+   "id": 2839470,
+   "title": "Ultrahigh-energy gamma-ray emission associated with black hole–jet systems",
+   "authors": [
+    "Z. Cao",
+    "F. Aharonian",
+    "Y.X. Bai"
+   ],
+   "author_count": 317,
+   "collaboration": "LHAASO",
+   "year": "2025",
+   "date": "2024-10-11",
+   "journal": "Natl.Sci.Rev. 12 (2025) 12, nwaf496",
+   "doi": "10.1093/nsr/nwaf496",
+   "arxiv": "2410.08988",
+   "cites": 123,
+   "kind": "journal",
+   "refereed": true
+  },
+  {
+   "id": 2799405,
+   "title": "Imprints of PeV cosmic-ray sources on the diffuse gamma-ray emission",
+   "authors": [
+    "S. Kaci",
+    "G. Giacinti"
+   ],
+   "author_count": 2,
+   "collaboration": "",
+   "year": "2025",
+   "date": "2024-06-16",
+   "journal": "JCAP 01 (2025), 049",
+   "doi": "10.1088/1475-7516/2025/01/049",
+   "arxiv": "2406.11015",
+   "cites": 14,
+   "kind": "journal",
+   "refereed": true
+  },
+  {
+   "id": 2844109,
+   "title": "On the Contribution of Unresolved Pulsars to the Ultra-high-energy Galactic Diffuse Gamma-Ray Emission",
+   "authors": [
+    "S. Kaci",
+    "G. Giacinti",
+    "D. Semikoz"
+   ],
+   "author_count": 3,
+   "collaboration": "",
+   "year": "2024",
+   "date": "2024-07-29",
+   "journal": "Astrophys.J. 975 (2024) 1, L6",
+   "doi": "10.3847/2041-8213/ad8657",
+   "arxiv": "2407.20186",
+   "cites": 18,
+   "kind": "journal",
+   "refereed": true
+  },
+  {
+   "id": 2682012,
+   "title": "Galactic diffuse gamma-ray emission at VHE from discrete CR sources",
+   "authors": [
+    "S. Kaci",
+    "G. Giacinti"
+   ],
+   "author_count": 2,
+   "collaboration": "",
+   "year": "2023",
+   "date": "2023-07-25",
+   "journal": "PoS ICRC2023 (2023), 773",
+   "doi": "10.22323/1.444.0773",
+   "arxiv": "",
+   "cites": 2,
+   "kind": "proceedings",
+   "refereed": false
+  },
+  {
+   "id": 1869105,
+   "title": "Extended Very-High-Energy Gamma-Ray Emission Surrounding PSR J0622+3749 Observed by LHAASO-KM2A",
+   "authors": [
+    "F. Aharonian",
+    "Q. An",
+    "L. Bai"
+   ],
+   "author_count": 327,
+   "collaboration": "LHAASO",
+   "year": "2021",
+   "date": "2021-06-17",
+   "journal": "Phys.Rev.Lett. 126 (2021) 24, 241103",
+   "doi": "10.1103/PhysRevLett.126.241103",
+   "arxiv": "2106.09396",
+   "cites": 168,
+   "kind": "journal",
+   "refereed": true
+  }
+ ],
+ "yonghao-zeng": [
+  {
+   "id": 3190062,
+   "title": "An improved direct limit on the muon electric dipole moment",
+   "authors": [
+    "D. Aguillard",
+    "T. Albahri",
+    "D. Allspach"
+   ],
+   "author_count": 194,
+   "collaboration": "Muon g−2",
+   "year": "2026",
+   "date": "2026-08-11",
+   "journal": "",
+   "doi": "",
+   "arxiv": "2608.11124",
+   "cites": 2,
+   "kind": "preprint",
+   "refereed": false
+  },
+  {
+   "id": 3169190,
+   "title": "Final Report on the Measurement of the Positive Muon Anomalous Magnetic Moment at Fermilab to 127 ppb",
+   "authors": [
+    "D. Aguillard",
+    "T. Albahri",
+    "D. Allspach"
+   ],
+   "author_count": 194,
+   "collaboration": "Muon g−2",
+   "year": "2026",
+   "date": "2026-06-15",
+   "journal": "",
+   "doi": "",
+   "arxiv": "2606.17323",
+   "cites": 10,
+   "kind": "preprint",
+   "refereed": false
+  },
+  {
+   "id": 3137131,
+   "title": "Construction and characterization of a muon trigger detector for the PSI muEDM experiment",
+   "authors": [
+    "G.M. Wong",
+    "T. Hu",
+    "Samip Basnet"
+   ],
+   "author_count": 18,
+   "collaboration": "",
+   "year": "2026",
+   "date": "2026-03-29",
+   "journal": "Eur.Phys.J.C 86 (2026) 7, 911",
+   "doi": "10.1140/epjc/s10052-026-16145-6",
+   "arxiv": "2603.27483",
+   "cites": 0,
+   "kind": "journal",
+   "refereed": true
+  },
+  {
+   "id": 2928642,
+   "title": "Measurement of the Positive Muon Anomalous Magnetic Moment to 127 ppb",
+   "authors": [
+    "D. Aguillard",
+    "T. Albahri",
+    "D. Allspach"
+   ],
+   "author_count": 195,
+   "collaboration": "Muon g-2",
+   "year": "2025",
+   "date": "2025-06-03",
+   "journal": "Phys.Rev.Lett. 135 (2025) 10, 101802",
+   "doi": "10.1103/7clf-sm2v",
+   "arxiv": "2506.03069",
+   "cites": 282,
+   "kind": "journal",
+   "refereed": true
+  },
+  {
+   "id": 2906901,
+   "title": "Towards non-invasive sediment monitoring using muography: A pilot run at the Shanghai Outer Ring Tunnel",
+   "authors": [
+    "K.S. Khaw",
+    "S.Y. Hoh",
+    "T. Hu"
+   ],
+   "author_count": 26,
+   "collaboration": "",
+   "year": "2025",
+   "date": "2025-04-01",
+   "journal": "J.Appl.Phys. 138 (2025) 11, 114902",
+   "doi": "10.1063/5.0273686",
+   "arxiv": "2504.00582",
+   "cites": 4,
+   "kind": "journal",
+   "refereed": true
+  },
+  {
+   "id": 2874447,
+   "title": "A compact frozen-spin trap for the search for the electric dipole moment of the muon",
+   "authors": [
+    "A. Adelmann",
+    "A. Bainbridge",
+    "I. Bailey"
+   ],
+   "author_count": 65,
+   "collaboration": "",
+   "year": "2025",
+   "date": "2025-01-31",
+   "journal": "Eur.Phys.J.C 85 (2025) 6, 622",
+   "doi": "10.1140/epjc/s10052-025-14295-7",
+   "arxiv": "2501.18979",
+   "cites": 22,
+   "kind": "journal",
+   "refereed": true
+  },
+  {
+   "id": 2761441,
+   "title": "Detailed report on the measurement of the positive muon anomalous magnetic moment to 0.20 ppm",
+   "authors": [
+    "D. Aguillard",
+    "T. Albahri",
+    "D. Allspach"
+   ],
+   "author_count": 193,
+   "collaboration": "Muon g-2",
+   "year": "2024",
+   "date": "2024-02-23",
+   "journal": "Phys.Rev.D 110 (2024) 3, 032009",
+   "doi": "10.1103/PhysRevD.110.032009",
+   "arxiv": "2402.15410",
+   "cites": 114,
+   "kind": "journal",
+   "refereed": true
+  },
+  {
+   "id": 2687002,
+   "title": "Measurement of the Positive Muon Anomalous Magnetic Moment to 0.20 ppm",
+   "authors": [
+    "D. Aguillard",
+    "T. Albahri",
+    "D. Allspach"
+   ],
+   "author_count": 191,
+   "collaboration": "Muon g-2",
+   "year": "2023",
+   "date": "2023-08-10",
+   "journal": "Phys.Rev.Lett. 131 (2023) 16, 161802",
+   "doi": "10.1103/PhysRevLett.131.161802",
+   "arxiv": "2308.06230",
+   "cites": 747,
+   "kind": "journal",
+   "refereed": true
+  },
+  {
+   "id": 2639009,
+   "title": "Probing electroweak phase transition in the singlet Standard Model via bbγγ and 4l channels",
+   "authors": [
+    "W. Zhang",
+    "H.L. Li",
+    "K. Liu"
+   ],
+   "author_count": 6,
+   "collaboration": "",
+   "year": "2023",
+   "date": "2023-03-06",
+   "journal": "JHEP 12 (2023), 018",
+   "doi": "10.1007/JHEP12(2023)018",
+   "arxiv": "2303.03612",
+   "cites": 21,
+   "kind": "journal",
+   "refereed": true
+  }
+ ],
+ "jiangtao-wang": [
+  {
+   "id": 3203792,
+   "title": "Simulation study of accelerator-based muography using the GeV-scale forward muon component at SHINE",
+   "authors": [
+    "J. Wang",
+    "Y. Wang",
+    "S. Chen"
+   ],
+   "author_count": 10,
+   "collaboration": "",
+   "year": "2026",
+   "date": "2026-09-14",
+   "journal": "",
+   "doi": "",
+   "arxiv": "2609.15846",
+   "cites": 0,
+   "kind": "preprint",
+   "refereed": false
+  },
+  {
+   "id": 3101005,
+   "title": "Design studies on a kHz–MHz repetition rate pulsed muon source based on electron accelerator",
+   "authors": [
+    "Y. Takeuchi",
+    "F. Liu",
+    "J. Wang"
+   ],
+   "author_count": 5,
+   "collaboration": "",
+   "year": "2025",
+   "date": "2025-11-05",
+   "journal": "JACoW IPAC2025 (2025), TUPM092",
+   "doi": "10.18429/JACoW-IPAC2025-TUPM092",
+   "arxiv": "",
+   "cites": 0,
+   "kind": "proceedings",
+   "refereed": false
+  },
+  {
+   "id": 2906901,
+   "title": "Towards non-invasive sediment monitoring using muography: A pilot run at the Shanghai Outer Ring Tunnel",
+   "authors": [
+    "K.S. Khaw",
+    "S.Y. Hoh",
+    "T. Hu"
+   ],
+   "author_count": 26,
+   "collaboration": "",
+   "year": "2025",
+   "date": "2025-04-01",
+   "journal": "J.Appl.Phys. 138 (2025) 11, 114902",
+   "doi": "10.1063/5.0273686",
+   "arxiv": "2504.00582",
+   "cites": 4,
+   "kind": "journal",
+   "refereed": true
+  },
+  {
+   "id": 2896777,
+   "title": "Simulation studies of a high-repetition-rate electron-driven surface muon beamline at SHINE",
+   "authors": [
+    "F. Liu",
+    "Y. Takeuchi",
+    "S. Chen"
+   ],
+   "author_count": 11,
+   "collaboration": "",
+   "year": "2025",
+   "date": "2025-03-03",
+   "journal": "Phys.Rev.Accel.Beams 28 (2025) 8, 083401",
+   "doi": "10.1103/t2d3-xqnp",
+   "arxiv": "2503.01597",
+   "cites": 11,
+   "kind": "journal",
+   "refereed": true
+  },
+  {
+   "id": 2716600,
+   "title": "A pulsed muon source based on a high-repetition-rate electron accelerator",
+   "authors": [
+    "M. Lv",
+    "J. Wang",
+    "K.S. Khaw"
+   ],
+   "author_count": 3,
+   "collaboration": "",
+   "year": "2023",
+   "date": "2023-09-26",
+   "journal": "JACoW IPAC2023 (2023), TUPA087",
+   "doi": "10.18429/JACoW-IPAC2023-TUPA087",
+   "arxiv": "",
+   "cites": 2,
+   "kind": "proceedings",
+   "refereed": false
+  },
+  {
+   "id": 2674344,
+   "title": "A Pulsed Muon Source Based on a High-Repetition-Rate Electron Accelerator",
+   "authors": [
+    "M. Lv",
+    "J. Wang",
+    "K.S. Khaw"
+   ],
+   "author_count": 3,
+   "collaboration": "",
+   "year": "2023",
+   "date": "2023-07-03",
+   "journal": "",
+   "doi": "",
+   "arxiv": "2307.01455",
+   "cites": 4,
+   "kind": "proceedings",
+   "refereed": false
+  }
+ ],
+ "xingyun-huang": [
+  {
+   "id": 3137131,
+   "title": "Construction and characterization of a muon trigger detector for the PSI muEDM experiment",
+   "authors": [
+    "G.M. Wong",
+    "T. Hu",
+    "Samip Basnet"
+   ],
+   "author_count": 18,
+   "collaboration": "",
+   "year": "2026",
+   "date": "2026-03-29",
+   "journal": "Eur.Phys.J.C 86 (2026) 7, 911",
+   "doi": "10.1140/epjc/s10052-026-16145-6",
+   "arxiv": "2603.27483",
+   "cites": 0,
+   "kind": "journal",
+   "refereed": true
+  },
+  {
+   "id": 2906901,
+   "title": "Towards non-invasive sediment monitoring using muography: A pilot run at the Shanghai Outer Ring Tunnel",
+   "authors": [
+    "K.S. Khaw",
+    "S.Y. Hoh",
+    "T. Hu"
+   ],
+   "author_count": 26,
+   "collaboration": "",
+   "year": "2025",
+   "date": "2025-04-01",
+   "journal": "J.Appl.Phys. 138 (2025) 11, 114902",
+   "doi": "10.1063/5.0273686",
+   "arxiv": "2504.00582",
+   "cites": 4,
+   "kind": "journal",
+   "refereed": true
+  }
+ ],
+ "jun-kai-ng": [
+  {
+   "id": 3203792,
+   "title": "Simulation study of accelerator-based muography using the GeV-scale forward muon component at SHINE",
+   "authors": [
+    "J. Wang",
+    "Y. Wang",
+    "S. Chen"
+   ],
+   "author_count": 10,
+   "collaboration": "",
+   "year": "2026",
+   "date": "2026-09-14",
+   "journal": "",
+   "doi": "",
+   "arxiv": "2609.15846",
+   "cites": 0,
+   "kind": "preprint",
+   "refereed": false
+  },
+  {
+   "id": 3190062,
+   "title": "An improved direct limit on the muon electric dipole moment",
+   "authors": [
+    "D. Aguillard",
+    "T. Albahri",
+    "D. Allspach"
+   ],
+   "author_count": 194,
+   "collaboration": "Muon g−2",
+   "year": "2026",
+   "date": "2026-08-11",
+   "journal": "",
+   "doi": "",
+   "arxiv": "2608.11124",
+   "cites": 2,
+   "kind": "preprint",
+   "refereed": false
+  },
+  {
+   "id": 3169190,
+   "title": "Final Report on the Measurement of the Positive Muon Anomalous Magnetic Moment at Fermilab to 127 ppb",
+   "authors": [
+    "D. Aguillard",
+    "T. Albahri",
+    "D. Allspach"
+   ],
+   "author_count": 194,
+   "collaboration": "Muon g−2",
+   "year": "2026",
+   "date": "2026-06-15",
+   "journal": "",
+   "doi": "",
+   "arxiv": "2606.17323",
+   "cites": 10,
+   "kind": "preprint",
+   "refereed": false
+  },
+  {
+   "id": 3137131,
+   "title": "Construction and characterization of a muon trigger detector for the PSI muEDM experiment",
+   "authors": [
+    "G.M. Wong",
+    "T. Hu",
+    "Samip Basnet"
+   ],
+   "author_count": 18,
+   "collaboration": "",
+   "year": "2026",
+   "date": "2026-03-29",
+   "journal": "Eur.Phys.J.C 86 (2026) 7, 911",
+   "doi": "10.1140/epjc/s10052-026-16145-6",
+   "arxiv": "2603.27483",
+   "cites": 0,
+   "kind": "journal",
+   "refereed": true
+  },
+  {
+   "id": 2864834,
+   "title": "Beam test performance of a prototype muon trigger detector for the PSI muEDM experiment",
+   "authors": [
+    "T. Hu",
+    "J.K. Ng",
+    "G.M. Wong"
+   ],
+   "author_count": 10,
+   "collaboration": "PSI muEDM",
+   "year": "2026",
+   "date": "2025-05-06",
+   "journal": "Radiat.Detect.Technol.Methods 10 (2026) 1, 22–35",
+   "doi": "10.1007/s41605-025-00570-4",
+   "arxiv": "2501.01546",
+   "cites": 3,
+   "kind": "journal",
+   "refereed": true
+  },
+  {
+   "id": 3101005,
+   "title": "Design studies on a kHz–MHz repetition rate pulsed muon source based on electron accelerator",
+   "authors": [
+    "Y. Takeuchi",
+    "F. Liu",
+    "J. Wang"
+   ],
+   "author_count": 5,
+   "collaboration": "",
+   "year": "2025",
+   "date": "2025-11-05",
+   "journal": "JACoW IPAC2025 (2025), TUPM092",
+   "doi": "10.18429/JACoW-IPAC2025-TUPM092",
+   "arxiv": "",
+   "cites": 0,
+   "kind": "proceedings",
+   "refereed": false
+  },
+  {
+   "id": 2928642,
+   "title": "Measurement of the Positive Muon Anomalous Magnetic Moment to 127 ppb",
+   "authors": [
+    "D. Aguillard",
+    "T. Albahri",
+    "D. Allspach"
+   ],
+   "author_count": 195,
+   "collaboration": "Muon g-2",
+   "year": "2025",
+   "date": "2025-06-03",
+   "journal": "Phys.Rev.Lett. 135 (2025) 10, 101802",
+   "doi": "10.1103/7clf-sm2v",
+   "arxiv": "2506.03069",
+   "cites": 282,
+   "kind": "journal",
+   "refereed": true
+  },
+  {
+   "id": 2906901,
+   "title": "Towards non-invasive sediment monitoring using muography: A pilot run at the Shanghai Outer Ring Tunnel",
+   "authors": [
+    "K.S. Khaw",
+    "S.Y. Hoh",
+    "T. Hu"
+   ],
+   "author_count": 26,
+   "collaboration": "",
+   "year": "2025",
+   "date": "2025-04-01",
+   "journal": "J.Appl.Phys. 138 (2025) 11, 114902",
+   "doi": "10.1063/5.0273686",
+   "arxiv": "2504.00582",
+   "cites": 4,
+   "kind": "journal",
+   "refereed": true
+  },
+  {
+   "id": 2909070,
+   "title": "The Entrance and Time Of Flight detector prototypes of the muEDM experiment",
+   "authors": [
+    "A. Papa",
+    "A. Baldini",
+    "H. Benmansour"
+   ],
+   "author_count": 29,
+   "collaboration": "",
+   "year": "2025",
+   "date": "2025-03-24",
+   "journal": "Nucl.Instrum.Meth.A 1076 (2025), 170432",
+   "doi": "10.1016/j.nima.2025.170432",
+   "arxiv": "",
+   "cites": 1,
+   "kind": "proceedings",
+   "refereed": true
+  },
+  {
+   "id": 2830968,
+   "title": "Research and development of a muon entrance trigger for the muEDM experiment at PSI",
+   "authors": [
+    "G.M. Wong",
+    "J.K. Ng",
+    "T. Hu"
+   ],
+   "author_count": 5,
+   "collaboration": "",
+   "year": "2024",
+   "date": "2024-05-24",
+   "journal": "Nucl.Part.Phys.Proc. 346 (2024), 15537",
+   "doi": "10.1016/j.nuclphysbps.2024.05.014",
+   "arxiv": "",
+   "cites": 3,
+   "kind": "proceedings",
+   "refereed": false
+  },
+  {
+   "id": 2761441,
+   "title": "Detailed report on the measurement of the positive muon anomalous magnetic moment to 0.20 ppm",
+   "authors": [
+    "D. Aguillard",
+    "T. Albahri",
+    "D. Allspach"
+   ],
+   "author_count": 193,
+   "collaboration": "Muon g-2",
+   "year": "2024",
+   "date": "2024-02-23",
+   "journal": "Phys.Rev.D 110 (2024) 3, 032009",
+   "doi": "10.1103/PhysRevD.110.032009",
+   "arxiv": "2402.15410",
+   "cites": 114,
+   "kind": "journal",
+   "refereed": true
+  },
+  {
+   "id": 2687002,
+   "title": "Measurement of the Positive Muon Anomalous Magnetic Moment to 0.20 ppm",
+   "authors": [
+    "D. Aguillard",
+    "T. Albahri",
+    "D. Allspach"
+   ],
+   "author_count": 191,
+   "collaboration": "Muon g-2",
+   "year": "2023",
+   "date": "2023-08-10",
+   "journal": "Phys.Rev.Lett. 131 (2023) 16, 161802",
+   "doi": "10.1103/PhysRevLett.131.161802",
+   "arxiv": "2308.06230",
+   "cites": 747,
+   "kind": "journal",
+   "refereed": true
+  },
+  {
+   "id": 2674348,
+   "title": "Status of the muEDM Experiment at PSI †",
+   "authors": [
+    "K.S. Khaw",
+    "C. Chen",
+    "M. Giovannozzi"
+   ],
+   "author_count": 10,
+   "collaboration": "PSI muEDM",
+   "year": "2023",
+   "date": "2023-07-04",
+   "journal": "Phys.Sci.Forum 8 (2023) 1, 50",
+   "doi": "10.3390/psf2023008050",
+   "arxiv": "2307.01535",
+   "cites": 5,
+   "kind": "proceedings",
+   "refereed": false
+  }
+ ],
+ "yinghe-wang": [
+  {
+   "id": 3203792,
+   "title": "Simulation study of accelerator-based muography using the GeV-scale forward muon component at SHINE",
+   "authors": [
+    "J. Wang",
+    "Y. Wang",
+    "S. Chen"
+   ],
+   "author_count": 10,
+   "collaboration": "",
+   "year": "2026",
+   "date": "2026-09-14",
+   "journal": "",
+   "doi": "",
+   "arxiv": "2609.15846",
+   "cites": 0,
+   "kind": "preprint",
+   "refereed": false
+  },
+  {
+   "id": 2906901,
+   "title": "Towards non-invasive sediment monitoring using muography: A pilot run at the Shanghai Outer Ring Tunnel",
+   "authors": [
+    "K.S. Khaw",
+    "S.Y. Hoh",
+    "T. Hu"
+   ],
+   "author_count": 26,
+   "collaboration": "",
+   "year": "2025",
+   "date": "2025-04-01",
+   "journal": "J.Appl.Phys. 138 (2025) 11, 114902",
+   "doi": "10.1063/5.0273686",
+   "arxiv": "2504.00582",
+   "cites": 4,
+   "kind": "journal",
+   "refereed": true
+  }
+ ],
+ "guan-ming-wong": [
+  {
+   "id": 3137131,
+   "title": "Construction and characterization of a muon trigger detector for the PSI muEDM experiment",
+   "authors": [
+    "G.M. Wong",
+    "T. Hu",
+    "Samip Basnet"
+   ],
+   "author_count": 18,
+   "collaboration": "",
+   "year": "2026",
+   "date": "2026-03-29",
+   "journal": "Eur.Phys.J.C 86 (2026) 7, 911",
+   "doi": "10.1140/epjc/s10052-026-16145-6",
+   "arxiv": "2603.27483",
+   "cites": 0,
+   "kind": "journal",
+   "refereed": true
+  },
+  {
+   "id": 2864834,
+   "title": "Beam test performance of a prototype muon trigger detector for the PSI muEDM experiment",
+   "authors": [
+    "T. Hu",
+    "J.K. Ng",
+    "G.M. Wong"
+   ],
+   "author_count": 10,
+   "collaboration": "PSI muEDM",
+   "year": "2026",
+   "date": "2025-05-06",
+   "journal": "Radiat.Detect.Technol.Methods 10 (2026) 1, 22–35",
+   "doi": "10.1007/s41605-025-00570-4",
+   "arxiv": "2501.01546",
+   "cites": 3,
+   "kind": "journal",
+   "refereed": true
+  },
+  {
+   "id": 2885934,
+   "title": "Development of Fast Front-End Electronics for the Muon Trigger Detector in the PSI muEDM Experiment",
+   "authors": [
+    "T. Hu",
+    "G.M. Wong",
+    "C. Dutsov"
+   ],
+   "author_count": 9,
+   "collaboration": "",
+   "year": "2025",
+   "date": "2025-05-06",
+   "journal": "IEEE Trans.Nucl.Sci. 72 (2025) 7, 2229–2237",
+   "doi": "10.1109/TNS.2025.3578674",
+   "arxiv": "2502.11186",
+   "cites": 2,
+   "kind": "journal",
+   "refereed": true
+  },
+  {
+   "id": 2906901,
+   "title": "Towards non-invasive sediment monitoring using muography: A pilot run at the Shanghai Outer Ring Tunnel",
+   "authors": [
+    "K.S. Khaw",
+    "S.Y. Hoh",
+    "T. Hu"
+   ],
+   "author_count": 26,
+   "collaboration": "",
+   "year": "2025",
+   "date": "2025-04-01",
+   "journal": "J.Appl.Phys. 138 (2025) 11, 114902",
+   "doi": "10.1063/5.0273686",
+   "arxiv": "2504.00582",
+   "cites": 4,
+   "kind": "journal",
+   "refereed": true
+  },
+  {
+   "id": 2896624,
+   "title": "Bayesian optimization of beam injection and storage in the PSI muEDM Experiment",
+   "authors": [
+    "S.Y. Hoh",
+    "Y. Shang",
+    "R. Chakraborty"
+   ],
+   "author_count": 9,
+   "collaboration": "",
+   "year": "2025",
+   "date": "2025-03-03",
+   "journal": "",
+   "doi": "",
+   "arxiv": "2503.01607",
+   "cites": 1,
+   "kind": "preprint",
+   "refereed": false
+  },
+  {
+   "id": 2874447,
+   "title": "A compact frozen-spin trap for the search for the electric dipole moment of the muon",
+   "authors": [
+    "A. Adelmann",
+    "A. Bainbridge",
+    "I. Bailey"
+   ],
+   "author_count": 65,
+   "collaboration": "",
+   "year": "2025",
+   "date": "2025-01-31",
+   "journal": "Eur.Phys.J.C 85 (2025) 6, 622",
+   "doi": "10.1140/epjc/s10052-025-14295-7",
+   "arxiv": "2501.18979",
+   "cites": 22,
+   "kind": "journal",
+   "refereed": true
+  },
+  {
+   "id": 2830968,
+   "title": "Research and development of a muon entrance trigger for the muEDM experiment at PSI",
+   "authors": [
+    "G.M. Wong",
+    "J.K. Ng",
+    "T. Hu"
+   ],
+   "author_count": 5,
+   "collaboration": "",
+   "year": "2024",
+   "date": "2024-05-24",
+   "journal": "Nucl.Part.Phys.Proc. 346 (2024), 15537",
+   "doi": "10.1016/j.nuclphysbps.2024.05.014",
+   "arxiv": "",
+   "cites": 3,
+   "kind": "proceedings",
+   "refereed": false
+  },
+  {
+   "id": 2674348,
+   "title": "Status of the muEDM Experiment at PSI †",
+   "authors": [
+    "K.S. Khaw",
+    "C. Chen",
+    "M. Giovannozzi"
+   ],
+   "author_count": 10,
+   "collaboration": "PSI muEDM",
+   "year": "2023",
+   "date": "2023-07-04",
+   "journal": "Phys.Sci.Forum 8 (2023) 1, 50",
+   "doi": "10.3390/psf2023008050",
+   "arxiv": "2307.01535",
+   "cites": 5,
+   "kind": "proceedings",
+   "refereed": false
+  }
+ ],
+ "jing-tian-yang": []
+}
