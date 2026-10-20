@@ -774,3 +774,13 @@ html[data-lang="zh"] .cites { font-family: var(--cjk); }
 .pera.pre { border-left-color: var(--faint); background: rgba(255, 255, 255, .025); color: var(--muted); }
 .pera[hidden] { display: none; }
 .sh-pill { display: inline-block; vertical-align: 0.5em; margin-left: 8px; padding: 1px 6px; border: 1px solid rgba(47, 200, 255, .35); border-radius: 999px; font-size: 8.5px; line-height: 1.4; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); opacity: .85; }
+
+/* partner institutions */
+.partners-h { margin: 56px 0 18px; font: 500 15px/1.3 var(--f-display); color: var(--muted); letter-spacing: .01em; }
+.partners { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; }
+.partner { display: flex; flex-direction: column; gap: 6px; padding: 18px 18px 20px; border: 1px solid var(--line); border-radius: 8px; background: var(--bg-2); min-height: 132px; }
+.partner .mono { font-size: 10.5px; color: var(--faint); letter-spacing: .14em; }
+.partner .logo { height: 44px; display: flex; align-items: center; margin: 2px 0 4px; }
+.partner .logo img { max-height: 44px; max-width: 100%; object-fit: contain; background: #fff; padding: 4px 6px; border-radius: 4px; }
+.partner b { font: 500 18px/1.2 var(--f-display); color: var(--text); margin-top: auto; }
+.partner p { font-size: 12px; line-height: 1.45; color: var(--muted); }
