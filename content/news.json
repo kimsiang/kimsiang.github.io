@@ -1,5 +1,12 @@
 [
  {
+  "slug": "new-members-join-the-group-in-2026",
+  "date": "2026-10-15",
+  "title": "New members join the group in 2026",
+  "excerpt": "",
+  "thumb": "assets/img/people/samy-kaci-sm.webp"
+ },
+ {
   "slug": "nufact-2026-the-27th-international-workshop-on-neutrinos-from-accelerators",
   "date": "2026-09-05",
   "title": "NuFact 2026: The 27th International Workshop on Neutrinos from Accelerators, hosted at TDLI",
@@ -28,6 +35,13 @@
   "thumb": "assets/media/gcp26-group-sm.webp"
  },
  {
+  "slug": "muedm-muon-trigger-detector-paper-published-in-epjc",
+  "date": "2026-07-15",
+  "title": "Our muEDM muon trigger detector paper is out in EPJC",
+  "excerpt": "",
+  "thumb": "assets/media/2441-sm.webp"
+ },
+ {
   "slug": "tdli-delegation-visits-malaysia-and-singapore-to-deepen-joint-phd-training",
   "date": "2026-06-22",
   "title": "TDLI delegation visits Malaysia and Singapore to deepen joint PhD training",
@@ -47,6 +61,20 @@
   "title": "Muon g-2 Collaboration wins the 2026 Breakthrough Prize in Fundamental Physics",
   "excerpt": "",
   "thumb": "assets/media/bp26-banner-sm.webp"
+ },
+ {
+  "slug": "kim-siang-khaw-receives-the-2026-sjtu-presidents-award",
+  "date": "2026-04-06",
+  "title": "Kim Siang Khaw receives the 2026 SJTU President’s Award",
+  "excerpt": "",
+  "thumb": "assets/img/people/pi.webp"
+ },
+ {
+  "slug": "tdli-inpac-winter-school-in-particle-physics-2026",
+  "date": "2026-01-27",
+  "title": "TDLI & INPAC Winter School in Particle Physics 2026",
+  "excerpt": "",
+  "thumb": "assets/media/2116-sm.webp"
  },
  {
   "slug": "post-2583",
