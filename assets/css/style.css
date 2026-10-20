@@ -787,6 +787,7 @@ html[data-lang="zh"] .cites { font-family: var(--cjk); }
 .partner .mono { font-size: 10.5px; color: var(--faint); letter-spacing: .14em; }
 .partner .logo { height: 58px; margin: 14px 0; display: flex; align-items: center; justify-content: center; padding: 8px 10px; border-radius: 6px; background: #fff; width: 100%; box-sizing: border-box; }
 .partner .logo.dark { background: #0d2a4a; }
+.partner .logo.blue { background: #0053a1; }
 .partner .logo.none { background: none; padding: 0; }
 .partner .logo img { max-height: 100%; max-width: 100%; width: auto; height: auto; object-fit: contain; display: block; }
 .partner b { font: 500 19px/1.2 var(--f-display); color: var(--text); }
