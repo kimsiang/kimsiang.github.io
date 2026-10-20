@@ -228,7 +228,8 @@ def month(d):
 def news_rows(items):
     out = []
     for n in items:
-        out.append(f'''<li class="rv"><a href="{{ROOT}}news/{n["slug"]}.html"><time datetime="{n["date"]}">{n["date"][:7].replace("-", ".")}</time><span class="n-cat">News</span><span class="n-t">{html.escape(n["title"])}<small>{html.escape(n["excerpt"][:150].rstrip())}{"…" if len(n["excerpt"]) > 150 else ""}</small></span><span class="arr">→</span></a></li>''')
+        th = f'<img src="{{ROOT}}{n["thumb"]}" alt="" loading="lazy" decoding="async">' if n.get('thumb') else '<span class="nc-ph">μ</span>'
+        out.append(f'''<li class="rv"><a href="{{ROOT}}news/{n["slug"]}.html"><span class="n-img">{th}</span><time datetime="{n["date"]}">{n["date"][:7].replace("-", ".")}</time><span class="n-cat">News</span><span class="n-t">{html.escape(n["title"])}<small>{html.escape(n["excerpt"][:150].rstrip())}{"…" if len(n["excerpt"]) > 150 else ""}</small></span><span class="arr">→</span></a></li>''')
     return '<ul class="news">\n      ' + '\n      '.join(out) + '\n    </ul>'
 
 def build_news():
