@@ -84,6 +84,28 @@
     tl.scrollBy({ left: +b.dataset.dir * w, behavior: reduced ? 'auto' : 'smooth' });
   }));
 
+  /* ---------- Gallery: filter + lightbox ---------- */
+  const chips = document.querySelectorAll('.chips button');
+  const gItems = document.querySelectorAll('.g-item');
+  chips.forEach((c) => c.addEventListener('click', () => {
+    chips.forEach((x) => x.classList.toggle('on', x === c));
+    gItems.forEach((it) => { it.hidden = c.dataset.f !== 'all' && it.dataset.cat !== c.dataset.f; });
+  }));
+  const lb = document.getElementById('lightbox');
+  if (lb && lb.showModal) {
+    const lbImg = lb.querySelector('img'), lbCap = lb.querySelector('.lb-cap');
+    document.querySelectorAll('.g-item button').forEach((b) => b.addEventListener('click', () => {
+      const im = b.querySelector('img');
+      lbImg.src = b.dataset.full; lbImg.alt = im.alt;
+      const cap = b.querySelector('.g-cap ' + (doc.dataset.lang === 'zh' ? '.zh' : '.en'));
+      const yr = b.querySelector('.g-cap small');
+      lbCap.textContent = (cap ? cap.textContent : im.alt) + (yr ? ' · ' + yr.textContent : '');
+      lb.showModal();
+    }));
+    lb.querySelector('.lb-close').addEventListener('click', () => lb.close());
+    lb.addEventListener('click', (e) => { if (e.target === lb) lb.close(); });
+  }
+
   /* ---------- Contact form → compose email ---------- */
   const form = document.getElementById('contact-form');
   if (form) form.addEventListener('submit', (e) => {
