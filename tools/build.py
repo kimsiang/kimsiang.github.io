@@ -267,24 +267,10 @@ def build_news():
         layout(f'news/{n["slug"]}.html', n['title'], n['excerpt'][:160] or n['title'], body, 'news')
 
 # ------------------------------------------------------------------ publications
-def build_publications():
-    pubs = json.load(open(os.path.join(C, 'publications.json')))
-    raw = read('pages/publications.html')
-    soup = BeautifulSoup(raw, 'html.parser')
-    # keep popular-science + review sections from the curated page, drop the old paper lists
-    keep, on = [], False
-    for el in list(soup.children):
-        if getattr(el, 'name', None) == 'h2':
-            t = el.get_text(strip=True)
-            on = ('科普' in t or 'Review' in t)
-        if on: keep.append(str(el))
-    curated = prose(''.join(keep))
-    curated = curated.replace('科普文章/媒体专访</h2>', '<span class="en">Popular science &amp; media</span><span class="zh">科普文章/媒体专访</span></h2>')
-    cites = sum(p['cites'] for p in pubs)
-    cs = sorted((p['cites'] for p in pubs), reverse=True)
-    h = sum(1 for i, c in enumerate(cs, 1) if c >= i)
-    kinds = {'journal': ('Journal articles', '期刊论文'), 'proceedings': ('Proceedings', '会议论文'),
-             'preprint': ('Preprints', '预印本'), 'report': ('Reports', '报告'), 'thesis': ('Theses', '学位论文')}
+KINDS = {'journal': ('Journal articles', '期刊论文'), 'proceedings': ('Proceedings', '会议论文'),
+         'preprint': ('Preprints', '预印本'), 'report': ('Reports', '报告'), 'thesis': ('Theses', '学位论文')}
+
+def pub_rows(pubs):
     rows, cur = [], None
     for p in pubs:
         if p['year'] != cur:
@@ -302,13 +288,32 @@ def build_publications():
         if p['cites']: badges.append(f'<span class="cites" title="Citations (INSPIRE)">{p["cites"]} {bi("citations", "次引用")}</span>')
         big = 'big' if p['author_count'] > 50 else 'small'
         rows.append(f'''<li class="pub" data-kind="{p["kind"]}" data-size="{big}" data-q="{html.escape((p["title"] + " " + auth + " " + p["journal"]).lower())}">
-        <span class="pk mono">{bi(*kinds[p["kind"]])}</span>
+        <span class="pk mono">{bi(*KINDS[p["kind"]])}</span>
         <div><a class="pt" href="{url}" target="_blank" rel="noopener">{html.escape(p["title"])}</a>
         <p class="pa">{auth}</p>
         {f'<p class="pj">{html.escape(p["journal"])}</p>' if p["journal"] else ""}
         <p class="pb mono">{" · ".join(badges)}</p></div></li>''')
+    return rows
+
+def build_publications():
+    pubs = json.load(open(os.path.join(C, 'publications.json')))
+    raw = read('pages/publications.html')
+    soup = BeautifulSoup(raw, 'html.parser')
+    # keep popular-science + review sections from the curated page, drop the old paper lists
+    keep, on = [], False
+    for el in list(soup.children):
+        if getattr(el, 'name', None) == 'h2':
+            t = el.get_text(strip=True)
+            on = ('科普' in t or 'Review' in t)
+        if on: keep.append(str(el))
+    curated = prose(''.join(keep))
+    curated = curated.replace('科普文章/媒体专访</h2>', '<span class="en">Popular science &amp; media</span><span class="zh">科普文章/媒体专访</span></h2>')
+    cites = sum(p['cites'] for p in pubs)
+    cs = sorted((p['cites'] for p in pubs), reverse=True)
+    h = sum(1 for i, c in enumerate(cs, 1) if c >= i)
+    rows = pub_rows(pubs)
     chips = f'<button type="button" class="on" data-k="all">{bi("All", "全部")}</button>' + ''.join(
-        f'<button type="button" data-k="{k}">{bi(*v)}</button>' for k, v in kinds.items() if any(p['kind'] == k for p in pubs))
+        f'<button type="button" data-k="{k}">{bi(*v)}</button>' for k, v in KINDS.items() if any(p['kind'] == k for p in pubs))
     stats = f'''<div class="pstats">
       <div><b>{len(pubs)}</b>{bi("Publications", "论文")}</div>
       <div><b>{cites:,}</b>{bi("Citations", "引用")}</div>
