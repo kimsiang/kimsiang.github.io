@@ -9,6 +9,7 @@ import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
 import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
 import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js';
 import { OutputPass } from 'three/addons/postprocessing/OutputPass.js';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
 
 const CYAN = new THREE.Color(0x2fc8ff);
 const BLUE = new THREE.Color(0x2251ff);
@@ -48,92 +49,143 @@ export function initHero(canvas, opts = {}) {
   }
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, small() ? 1.5 : 1.75));
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
-  renderer.toneMappingExposure = 1.05;
+  renderer.toneMappingExposure = 1.0;
+  renderer.shadowMap.enabled = true;
+  renderer.shadowMap.type = THREE.PCFShadowMap;
 
   const scene = new THREE.Scene();
-  scene.fog = new THREE.FogExp2(0x03060b, 0.045);
+  scene.fog = new THREE.FogExp2(0x03060b, 0.028);
+  // studio reflections → metals and satin surfaces read as solid objects
+  const pmrem = new THREE.PMREMGenerator(renderer);
+  scene.environment = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
+  scene.environmentIntensity = 0.32;
 
   const camera = new THREE.PerspectiveCamera(34, 1, 0.1, 200);
 
   // ---------- Lights ----------
-  scene.add(new THREE.AmbientLight(0x6d8cff, 0.35));
-  const key = new THREE.DirectionalLight(0xcfe6ff, 0.9);
-  key.position.set(6, 10, 7);
+  scene.add(new THREE.HemisphereLight(0x9cc4ff, 0x05070c, 0.5));
+  const key = new THREE.DirectionalLight(0xe4f0ff, 2.0);
+  key.position.set(7, 12, 6);
+  key.castShadow = true;
+  key.shadow.mapSize.set(small() ? 1024 : 2048, small() ? 1024 : 2048);
+  Object.assign(key.shadow.camera, { left: -9, right: 9, top: 9, bottom: -9, near: 1, far: 40 });
+  key.shadow.bias = -0.0004;
+  key.shadow.normalBias = 0.02;
+  key.shadow.radius = 4;
   scene.add(key);
-  const rim = new THREE.DirectionalLight(0x2251ff, 2.2);
-  rim.position.set(-8, 2, -6);
+  const rim = new THREE.DirectionalLight(0x2f6bff, 3.2);
+  rim.position.set(-9, 3, -7);
   scene.add(rim);
+  const fill = new THREE.PointLight(0x2fc8ff, 6, 12, 2);
+  fill.position.set(-4, 1, 5);
+  scene.add(fill);
+
+  // ---------- Materials ----------
+  const alu = new THREE.MeshStandardMaterial({ color: 0xb9c3d1, metalness: 1, roughness: 0.28 });
+  const aluDark = new THREE.MeshStandardMaterial({ color: 0x3a4352, metalness: 0.9, roughness: 0.38 });
+  const anod = new THREE.MeshStandardMaterial({ color: 0x0b0f16, metalness: 0.6, roughness: 0.42 });
+  const steel = new THREE.MeshStandardMaterial({ color: 0x222833, metalness: 0.85, roughness: 0.5 });
+  const pcb = new THREE.MeshStandardMaterial({ color: 0x0f3b2c, metalness: 0.2, roughness: 0.55 });
+  const copper = new THREE.MeshStandardMaterial({ color: 0xd08a4a, metalness: 1, roughness: 0.3 });
+  const cableMat = new THREE.MeshStandardMaterial({ color: 0x10141c, metalness: 0.1, roughness: 0.65 });
+  const ledMat = new THREE.MeshBasicMaterial({ color: 0x3dffb4 });
+
+  const cast = (m) => { m.castShadow = true; m.receiveShadow = true; return m; };
+  const box = (w, h, d, mat) => cast(new THREE.Mesh(new THREE.BoxGeometry(w, h, d), mat));
 
   // ---------- Detector ----------
   const det = new THREE.Group();
   scene.add(det);
   const planeY = [];
-  const strips = []; // strips[p][i] = { mesh, mat, glow }
-  const stripW = SIZE_X / STRIPS;
-
-  const frameMat = new THREE.MeshStandardMaterial({ color: 0x8794a8, metalness: 0.9, roughness: 0.35 });
-  const boardMat = new THREE.MeshStandardMaterial({ color: 0x0a1a14, metalness: 0.3, roughness: 0.7 });
-  const edgeMat = new THREE.LineBasicMaterial({ color: 0x4fbfff, transparent: true, opacity: 0.5 });
+  const strips = [];
+  const T = 0.16;          // scintillator thickness
+  const RAIL = 0.16;       // frame rail width
+  const RH = 0.26;         // frame rail height
 
   for (let p = 0; p < PLANES; p++) {
     const y = (p - (PLANES - 1) / 2) * PLANE_GAP;
     planeY.push(y);
     const plane = new THREE.Group();
     plane.position.y = y;
-    const alongX = p % 2 === 1; // alternate x / z readout
+    const alongX = p % 2 === 1;
     const row = [];
-    for (let i = 0; i < STRIPS; i++) {
-      const mat = new THREE.MeshStandardMaterial({
-        color: 0x0d1a2c, metalness: 0.25, roughness: 0.78,
+    const n = STRIPS, span = alongX ? SIZE_Z : SIZE_X, w = span / n;
+    for (let i = 0; i < n; i++) {
+      // wrapped scintillator bar: satin black with a clear-coat sheen
+      const mat = new THREE.MeshPhysicalMaterial({
+        color: 0x16233a, metalness: 0.1, roughness: 0.55, clearcoat: 0.35, clearcoatRoughness: 0.45,
         emissive: CYAN, emissiveIntensity: 0,
       });
-      const w = alongX ? SIZE_Z / STRIPS : stripW;
-      const geo = alongX
-        ? new THREE.BoxGeometry(SIZE_X, 0.07, w * 0.9)
-        : new THREE.BoxGeometry(w * 0.9, 0.07, SIZE_Z);
-      const m = new THREE.Mesh(geo, mat);
-      if (alongX) m.position.z = -SIZE_Z / 2 + w * (i + 0.5);
-      else m.position.x = -SIZE_X / 2 + w * (i + 0.5);
+      const m = alongX ? box(SIZE_X, T, w * 0.94, mat) : box(w * 0.94, T, SIZE_Z, mat);
+      if (alongX) m.position.z = -SIZE_Z / 2 + w * (i + 0.5); else m.position.x = -SIZE_X / 2 + w * (i + 0.5);
       plane.add(m);
       row.push({ mat, glow: 0 });
     }
     strips.push({ row, alongX });
 
-    // hairline outline of the active area
-    const outline = new THREE.LineSegments(
-      new THREE.EdgesGeometry(new THREE.BoxGeometry(SIZE_X + 0.12, 0.09, SIZE_Z + 0.12)), edgeMat);
-    plane.add(outline);
+    // aluminium tray: four rails + thin base plate
+    const fx = SIZE_X + RAIL * 2, fz = SIZE_Z + RAIL * 2;
+    for (const sz of [-1, 1]) { const r = box(fx, RH, RAIL, alu); r.position.set(0, 0.02, sz * (SIZE_Z / 2 + RAIL / 2)); plane.add(r); }
+    for (const sx of [-1, 1]) { const r = box(RAIL, RH, SIZE_Z, alu); r.position.set(sx * (SIZE_X / 2 + RAIL / 2), 0.02, 0); plane.add(r); }
+    const base = box(fx, 0.03, fz, aluDark); base.position.y = -T / 2 - 0.03; plane.add(base);
 
-    // readout board along one edge with status LEDs
-    const board = new THREE.Mesh(
-      alongX ? new THREE.BoxGeometry(0.22, 0.05, SIZE_Z) : new THREE.BoxGeometry(SIZE_X, 0.05, 0.22),
-      boardMat);
-    if (alongX) board.position.x = SIZE_X / 2 + 0.2; else board.position.z = SIZE_Z / 2 + 0.2;
-    plane.add(board);
-    const ledMat = new THREE.MeshBasicMaterial({ color: 0x3dffb4 });
-    for (let k = 0; k < 3; k++) {
-      const led = new THREE.Mesh(new THREE.BoxGeometry(0.05, 0.03, 0.05), ledMat);
-      led.position.copy(board.position);
-      led.position.y += 0.04;
-      if (alongX) led.position.z = SIZE_Z / 2 - 0.25 - k * 0.15; else led.position.x = SIZE_X / 2 - 0.25 - k * 0.15;
-      plane.add(led);
+    // readout electronics box along one edge: anodised housing, PCB, connectors, LEDs
+    const L = alongX ? SIZE_Z : SIZE_X;
+    const ro = new THREE.Group();
+    const housing = box(L * 0.92, 0.32, 0.42, anod); ro.add(housing);
+    const board = box(L * 0.86, 0.03, 0.3, pcb); board.position.y = 0.175; ro.add(board);
+    for (let k = 0; k < 8; k++) {
+      const c = cast(new THREE.Mesh(new THREE.CylinderGeometry(0.035, 0.035, 0.12, 12), copper));
+      c.rotation.x = Math.PI / 2; c.position.set(-L * 0.4 + k * (L * 0.8 / 7), 0, 0.26); ro.add(c);
     }
+    for (let k = 0; k < 3; k++) {
+      const led = new THREE.Mesh(new THREE.BoxGeometry(0.06, 0.03, 0.06), ledMat);
+      led.position.set(L * 0.36 - k * 0.14, 0.2, -0.08); ro.add(led);
+    }
+    if (alongX) { ro.rotation.y = Math.PI / 2; ro.position.set(SIZE_X / 2 + RAIL + 0.24, 0, 0); }
+    else ro.position.set(0, 0, SIZE_Z / 2 + RAIL + 0.24);
+    plane.add(ro);
     det.add(plane);
   }
 
-  // support posts
-  const postH = PLANE_GAP * (PLANES - 1) + 0.9;
+  // extruded-profile corner posts + steel base
+  const postH = PLANE_GAP * (PLANES - 1) + 1.4;
+  const baseY = planeY[0] - 0.75;
   for (const sx of [-1, 1]) for (const sz of [-1, 1]) {
-    const post = new THREE.Mesh(new THREE.BoxGeometry(0.1, postH, 0.1), frameMat);
-    post.position.set(sx * (SIZE_X / 2 + 0.12), 0, sz * (SIZE_Z / 2 + 0.12));
+    const post = box(0.24, postH, 0.24, alu);
+    post.position.set(sx * (SIZE_X / 2 + RAIL + 0.12), baseY + postH / 2, sz * (SIZE_Z / 2 + RAIL + 0.12));
     det.add(post);
+    const slot = box(0.05, postH, 0.26, aluDark); slot.position.copy(post.position); det.add(slot);
+    const cap = box(0.34, 0.06, 0.34, aluDark); cap.position.set(post.position.x, baseY + postH, post.position.z); det.add(cap);
+  }
+  const plinth = box(SIZE_X + 1.6, 0.3, SIZE_Z + 1.6, steel);
+  plinth.position.y = baseY - 0.15;
+  det.add(plinth);
+
+  // cables from readout boxes down to the floor
+  for (let p = 0; p < PLANES; p++) {
+    const alongX = p % 2 === 1;
+    const start = alongX ? new THREE.Vector3(SIZE_X / 2 + RAIL + 0.5, planeY[p], SIZE_Z * 0.3)
+                         : new THREE.Vector3(SIZE_X * 0.3, planeY[p], SIZE_Z / 2 + RAIL + 0.5);
+    const end = alongX ? new THREE.Vector3(SIZE_X / 2 + 1.4 + p * 0.12, baseY - 0.3, SIZE_Z * 0.2 + p * 0.1)
+                       : new THREE.Vector3(SIZE_X * 0.2 + p * 0.1, baseY - 0.3, SIZE_Z / 2 + 1.4 + p * 0.12);
+    const mid = start.clone().lerp(end, 0.5); mid.y -= 0.2;
+    mid.add(alongX ? new THREE.Vector3(0.5, 0, 0) : new THREE.Vector3(0, 0, 0.5));
+    const curve = new THREE.CatmullRomCurve3([start, mid, end]);
+    det.add(cast(new THREE.Mesh(new THREE.TubeGeometry(curve, 24, 0.035, 8), cableMat)));
   }
 
-  // floor grid
-  const grid = new THREE.GridHelper(80, 80, 0x1c3a66, 0x0d1a2e);
-  grid.position.y = planeY[0] - 1.6;
+  // floor: dark satin that receives shadows, with a faint engineering grid on top
+  const floor = new THREE.Mesh(new THREE.PlaneGeometry(120, 120),
+    new THREE.MeshStandardMaterial({ color: 0x05080e, metalness: 0.1, roughness: 0.85 }));
+  floor.rotation.x = -Math.PI / 2;
+  floor.position.y = baseY - 0.3;
+  floor.receiveShadow = true;
+  scene.add(floor);
+  const grid = new THREE.GridHelper(80, 80, 0x1c3a66, 0x0e1c33);
+  grid.position.y = baseY - 0.295;
   grid.material.transparent = true;
-  grid.material.opacity = 0.55;
+  grid.material.opacity = 0.4;
   scene.add(grid);
 
   // dust / ambient particles
@@ -280,7 +332,7 @@ export function initHero(canvas, opts = {}) {
   // ---------- Post-processing ----------
   const composer = new EffectComposer(renderer);
   composer.addPass(new RenderPass(scene, camera));
-  const bloom = new UnrealBloomPass(new THREE.Vector2(1, 1), 0.8, 0.45, 0.42);
+  const bloom = new UnrealBloomPass(new THREE.Vector2(1, 1), 0.55, 0.35, 0.85);
   composer.addPass(bloom);
   composer.addPass(new OutputPass());
 
@@ -316,8 +368,8 @@ export function initHero(canvas, opts = {}) {
     mx += (mouseX - mx) * 0.04;
     my += (mouseY - my) * 0.04;
     const portrait = canvas.clientHeight > canvas.clientWidth * 1.1;
-    const r = (portrait ? 31 : small() ? 20 : 18.5) + scrollP * 5;
-    const el = 0.32 + my * 0.06 + scrollP * 0.25;
+    const r = (portrait ? 34 : small() ? 23 : 22) + scrollP * 5;
+    const el = 0.42 + my * 0.06 + scrollP * 0.25;
     const a = az + mx * 0.18;
     camera.position.set(Math.cos(a) * Math.cos(el) * r, Math.sin(el) * r, Math.sin(a) * Math.cos(el) * r);
     camera.lookAt(portrait ? mobileTarget : target);
@@ -345,7 +397,7 @@ export function initHero(canvas, opts = {}) {
     for (const m of muons) if (m.active) step(m, dt);
     for (const S of strips) for (const s of S.row) {
       if (s.glow > 0) { s.glow = Math.max(0, s.glow - dt * 1.1); }
-      s.mat.emissiveIntensity = s.glow * s.glow * 3.2;
+      s.mat.emissiveIntensity = s.glow * s.glow * 2.2;
     }
     for (const h of hitSprites) if (h.life > 0) {
       h.life = Math.max(0, h.life - dt * 1.6);
