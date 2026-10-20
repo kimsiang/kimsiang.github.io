@@ -19,6 +19,9 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 C = os.path.join(ROOT, 'content')
 YEAR = date.today().year
 
+import hashlib as _h
+CSS_V = _h.md5(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "assets", "css", "style.css"), "rb").read()).hexdigest()[:8]
+
 def bi(en, zh=None):
     """Bilingual span pair (zh falls back to en)."""
     return f'<span class="en">{en}</span><span class="zh">{zh if zh is not None else en}</span>'
@@ -62,7 +65,7 @@ def layout(path, title, desc, body, active='', home=False):
   <meta name="twitter:card" content="summary_large_image">
   <link rel="preload" href="{R}assets/fonts/space-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="{R}assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="{R}assets/css/style.css">
+  <link rel="stylesheet" href="{R}assets/css/style.css?v={CSS_V}">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%2304070c'/><text x='50' y='70' font-size='64' text-anchor='middle' fill='%232fc8ff' font-family='sans-serif'>μ</text></svg>">
   <script>try {{ var l = localStorage.getItem('lang'); if (l === 'zh' || l === 'en') {{ document.documentElement.dataset.lang = l; document.documentElement.lang = l === 'zh' ? 'zh-CN' : 'en'; }} }} catch (e) {{}}</script>
 </head>
@@ -229,7 +232,7 @@ def news_rows(items):
     out = []
     for n in items:
         th = f'<img src="{{ROOT}}{n["thumb"]}" alt="" loading="lazy" decoding="async">' if n.get('thumb') else '<span class="nc-ph">μ</span>'
-        out.append(f'''<li class="rv"><a href="{{ROOT}}news/{n["slug"]}.html"><span class="n-img">{th}</span><time datetime="{n["date"]}">{n["date"][:7].replace("-", ".")}</time><span class="n-cat">News</span><span class="n-t">{html.escape(n["title"])}<small>{html.escape(n["excerpt"][:150].rstrip())}{"…" if len(n["excerpt"]) > 150 else ""}</small></span><span class="arr">→</span></a></li>''')
+        out.append(f'''<li class="rv"><a href="{{ROOT}}news/{n["slug"]}.html"><span class="n-img">{th}</span><span class="n-body"><span class="n-meta"><time datetime="{n["date"]}">{n["date"][:7].replace("-", ".")}</time><span class="n-cat">News</span></span><span class="n-t">{html.escape(n["title"])}<small>{html.escape(n["excerpt"][:150].rstrip())}{"…" if len(n["excerpt"]) > 150 else ""}</small></span></span><span class="arr">→</span></a></li>''')
     return '<ul class="news">\n      ' + '\n      '.join(out) + '\n    </ul>'
 
 def build_news():
