@@ -768,4 +768,4 @@ html[data-lang="zh"] .cites { font-family: var(--cjk); }
 .pera:first-child { margin-top: 0; }
 .pera.pre { border-left-color: var(--faint); background: rgba(255, 255, 255, .025); color: var(--muted); }
 .pera[hidden] { display: none; }
-.sh-pill { display: inline-block; vertical-align: middle; margin-left: 12px; padding: 3px 9px; border: 1px solid rgba(47, 200, 255, .45); border-radius: 999px; font-size: 10.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); }
+.sh-pill { display: inline-block; vertical-align: 0.5em; margin-left: 8px; padding: 1px 6px; border: 1px solid rgba(47, 200, 255, .35); border-radius: 999px; font-size: 8.5px; line-height: 1.4; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); opacity: .85; }
