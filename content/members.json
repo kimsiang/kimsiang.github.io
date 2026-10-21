@@ -445,5 +445,28 @@
    "Li, Yifei"
   ],
   "awards": []
+ },
+ {
+  "slug": "yuheng-du",
+  "name": "Yuheng Du",
+  "zh": "杜语衡",
+  "role": [
+   "Undergraduate Student",
+   "本科生"
+  ],
+  "since": "2026.02",
+  "topics": [
+   "muEDM",
+   "缪子电偶极矩"
+  ],
+  "photo": "assets/img/people/yuheng-du.webp",
+  "education": [],
+  "orcid": "0009-0004-6435-0250",
+  "inspire": "",
+  "scholar": "",
+  "names": [
+   "Du, Yuheng"
+  ],
+  "awards": []
  }
 ]
