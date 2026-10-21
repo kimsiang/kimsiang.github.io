@@ -398,6 +398,9 @@ def build_members():
 
         edu = ''.join(f'<li><b>{html.escape(y)}</b><span>{bi(html.escape(en), html.escape(zh))}</span></li>'
                       for y, en, zh in m['education'])
+        awards = (f'<ul class="mtl">' + ''.join(f'<li><b>{html.escape(y)}</b><span>{bi(html.escape(en), html.escape(zh))}</span></li>'
+                                            for y, en, zh in m.get('awards', [])) + '</ul>'
+                  if m.get('awards') else '<p>' + bi('No awards listed yet.', '暂无。') + '</p>')
         mine = json.load(open(os.path.join(C, 'publications.json'))) if m.get('all_pubs') else pubs.get(m['slug'], [])
         if mine:
             cites = sum(p['cites'] for p in mine)
@@ -408,6 +411,7 @@ def build_members():
             plist = '<p>' + bi('No publications listed yet.', '暂无论文。') + '</p>'
         body = ('<h2 id="background">' + bi('Background', '教育与经历') + '</h2>'
                 + f'<ul class="mtl">{edu}</ul>'
+                + '<h2 id="awards">' + bi('Awards', '荣誉奖励') + '</h2>' + awards
                 + '<h2 id="publications">' + bi('Publications', '论文发表') + '</h2>' + plist
                 + '<p class="src mono">' + bi(f'Data: INSPIRE-HEP, updated {today}', f'数据来源：INSPIRE-HEP，更新于{today}') + '</p>')
         out = (hero + '<section class="pbody"><div class="wrap with-side">'
