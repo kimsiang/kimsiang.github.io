@@ -422,5 +422,28 @@
    "Yap, Jia Cheng"
   ],
   "awards": []
+ },
+ {
+  "slug": "yifei-li",
+  "name": "Yifei Li",
+  "zh": "李逸飞",
+  "role": [
+   "Undergraduate Student",
+   "本科生"
+  ],
+  "since": "2024.09",
+  "topics": [
+   "Shanghai Muon Radiography",
+   "上海缪子成像"
+  ],
+  "photo": "assets/img/people/yifei-li.webp",
+  "education": [],
+  "orcid": "0009-0008-9731-8942",
+  "inspire": "",
+  "scholar": "jBLEXBgAAAAJ",
+  "names": [
+   "Li, Yifei"
+  ],
+  "awards": []
  }
 ]

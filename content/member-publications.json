@@ -186,7 +186,7 @@
    "journal": "Phys.Rev.Lett. 135 (2025) 10, 101802",
    "doi": "10.1103/7clf-sm2v",
    "arxiv": "2506.03069",
-   "cites": 282,
+   "cites": 283,
    "kind": "journal",
    "refereed": true
   },
@@ -1686,7 +1686,7 @@
    "journal": "Phys.Rev.Lett. 135 (2025) 10, 101802",
    "doi": "10.1103/7clf-sm2v",
    "arxiv": "2506.03069",
-   "cites": 282,
+   "cites": 283,
    "kind": "journal",
    "refereed": true
   },
@@ -2072,7 +2072,7 @@
    "journal": "Phys.Rev.Lett. 135 (2025) 10, 101802",
    "doi": "10.1103/7clf-sm2v",
    "arxiv": "2506.03069",
-   "cites": 282,
+   "cites": 283,
    "kind": "journal",
    "refereed": true
   },
@@ -2406,5 +2406,6 @@
    "kind": "preprint",
    "refereed": false
   }
- ]
+ ],
+ "yifei-li": []
 }
