@@ -1,6 +1,23 @@
 {
+ "2137670": {
+  "abstract": "A portion of the Muon g-2 Storage Ring electric system, which provides vertical beam focusing, exhibited an unexpected time dependence that produced a characteristic evolution of the stored beam during Run-1 of the Muon g-2 Experiment at Fermilab (E989). A method to reconstruct the Run-1 electric guide fields has been developed, which is based on a numerical model of the muon storage ring and optimization algorithms supported by COSY INFINITY. This method takes beam profile measurements from the Muon g-2 straw tracking detectors as input, and it produces a full reconstruction of the time-dependent fields. The fields can then be used for the reproduction of detailed beam tracking simulations and the calculation of ring lattice parameters for acceptance studies and systematic error evaluations.",
+  "keywords": [
+   "storage-ring",
+   "detector",
+   "lattice",
+   "experiment",
+   "dipole",
+   "muon: magnetic moment",
+   "muon: storage ring",
+   "beam focusing",
+   "beam profile",
+   "track data analysis",
+   "drift chamber: drift tube",
+   "electric field: spatial distribution"
+  ]
+ },
  "1847173": {
-  "abstract": "This letter of intent proposes an experiment to search for an electric dipole moment of the muon based on the frozen-spin technique. We intend to exploit the high electric field, E=1{ GV/m}, experienced in the rest frame of the muon with a momentum of p=125 { MeV/}c when passing through a large magnetic field of | {B}|=3{ T}. Current muon fluxes at the 1 beam line permit an improved search with a sensitivity of $ (d_ ) 6 10^{-23}e{ cm}$, about three orders of magnitude more sensitivity than for the current upper limit of |d_ | 1.8 10^{-19}e{ cm}\\,(C.L. 95\\%). With the advent of the new high intensity muon beam, HIMB, and the cold muon source, muCool, at PSI the sensitivity of the search could be further improved by tailoring a re-acceleration scheme to match the experiments injection phase space. While a null result would set a significantly improved upper limit on an otherwise un-constrained Wilson coefficient, the discovery of a muon EDM would corroborate the existence of physics beyond the Standard Model.",
+  "abstract": "This letter of intent proposes an experiment to search for an electric dipole moment of the muon based on the frozen-spin technique. We intend to exploit the high electric field, $E=1{\\rm GV/m}$, experienced in the rest frame of the muon with a momentum of $p=125 {\\rm MeV/}c$ when passing through a large magnetic field of $|\\vec{B}|=3{\\rm T}$. Current muon fluxes at the $\\mu$E1 beam line permit an improved search with a sensitivity of $\\sigma(d_\\mu)\\leq 6\\times10^{-23}e{\\rm cm}$, about three orders of magnitude more sensitivity than for the current upper limit of $|d_\\mu|\\leq1.8\\times10^{-19}e{\\rm cm}$\\,(C.L. 95\\%). With the advent of the new high intensity muon beam, HIMB, and the cold muon source, muCool, at PSI the sensitivity of the search could be further improved by tailoring a re-acceleration scheme to match the experiments injection phase space. While a null result would set a significantly improved upper limit on an otherwise un-constrained Wilson coefficient, the discovery of a muon EDM would corroborate the existence of physics beyond the Standard Model.",
   "keywords": [
    "muon: electric moment",
    "muon: beam",
@@ -14,6 +31,20 @@
    "phase space",
    "new physics: search for",
    "injection"
+  ]
+ },
+ "2906901": {
+  "abstract": "This study demonstrates the application of cosmic-ray muography as a non-invasive method for monitoring sediment accumulation and tidal influences in the Shanghai Outer Ring Tunnel, an immersed tube tunnel located beneath the Huangpu River in Shanghai, China. A portable, dual-layer plastic scintillator detector was deployed to conduct muon flux scans along the tunnel’s length and to continuously monitor muon flux, allowing for the study of tidal effects. Geant4 simulations validated the correlation between muon attenuation and overburden thickness, incorporating sediment, water, and concrete layers. Key findings include a strong anti-correlation between the measured muon flux and the water levels observed at a nearby tide gauge. The results align with geotechnical data and simulations, especially in the region of interest, confirming muography’s sensitivity to sediment dynamics. This work establishes muography as a robust tool for long-term, real-time monitoring of submerged infrastructure, offering significant advantages over conventional invasive techniques. The study underscores the potential for integrating muography into civil engineering practices to enhance safety and operational resilience in tidal environments.</jats:p>",
+  "keywords": []
+ },
+ "1867586": {
+  "abstract": "",
+  "keywords": [
+   "muon: magnetic moment",
+   "muon: spin",
+   "Brookhaven Lab",
+   "new physics",
+   "muon"
   ]
  },
  "2885934": {
@@ -33,39 +64,21 @@
    "Development Of Electronics"
   ]
  },
- "1867586": {
-  "abstract": "",
+ "2864834": {
+  "abstract": "We present the design, construction, and beam test results of a prototype muon trigger detector developed for the muon electric dipole moment (muEDM) experiment at the Paul Scherrer Institute (PSI). The muEDM experiment aims to increase the sensitivity of the muon EDM measurement by several orders of magnitude beyond the current limit established by the BNL E821 experiment. Precise and reliable muon identification at the entrance of the storage solenoid is crucial, as the trigger detector must quickly generate a trigger signal to activate a pulsed magnetic kicker, enabling the capture and storage of incoming muons. The trigger detector consists of two primary components: a thin gate detector made from a plastic scintillator read out by eight silicon photomultipliers (SiPMs), and a telescope detector made of four plastic scintillators also read out by SiPMs. The telescope detector operates in anticoincidence with the gate detector, identifying muons that pass through the gate detector without activating the telescope detector, thus ensuring the selection of muons with trajectories optimal for stable storage within the solenoid. A proof-of-principle test was performed at the PSI $\\pi $E1 beamline using ${27.5}\\, \\hbox {MeV}/\\hbox {c}$ muons to characterize the detector’s timing performance, scintillator light yield, and triggering efficiency. Experimental data showed excellent agreement with detailed Geant4 Monte Carlo simulations that incorporated optical photon generation, transportation, and detection. The results successfully validate the detector design and confirm its suitability for the stringent timing, efficiency, and trajectory-selection requirements essential to the muEDM experiment.",
   "keywords": [
-   "muon: magnetic moment",
-   "muon: spin",
-   "Brookhaven Lab",
-   "new physics",
-   "muon"
+   "Trigger",
+   "Electric dipole moment",
+   "Silicon photomultiplier",
+   "Optical photon"
   ]
  },
- "2137670": {
-  "abstract": "A portion of the Muon g-2 Storage Ring electric system, which provides vertical beam focusing, exhibited an unexpected time dependence that produced a characteristic evolution of the stored beam during Run-1 of the Muon g-2 Experiment at Fermilab (E989). A method to reconstruct the Run-1 electric guide fields has been developed, which is based on a numerical model of the muon storage ring and optimization algorithms supported by COSY INFINITY. This method takes beam profile measurements from the Muon g-2 straw tracking detectors as input, and it produces a full reconstruction of the time-dependent fields. The fields can then be used for the reproduction of detailed beam tracking simulations and the calculation of ring lattice parameters for acceptance studies and systematic error evaluations.",
-  "keywords": [
-   "storage-ring",
-   "detector",
-   "lattice",
-   "experiment",
-   "dipole",
-   "muon: magnetic moment",
-   "muon: storage ring",
-   "beam focusing",
-   "beam profile",
-   "track data analysis",
-   "drift chamber: drift tube",
-   "electric field: spatial distribution"
-  ]
- },
- "2906901": {
-  "abstract": "This study demonstrates the application of cosmic-ray muography as a non-invasive method for monitoring sediment accumulation and tidal influences in the Shanghai Outer Ring Tunnel, an immersed tube tunnel located beneath the Huangpu River in Shanghai, China. A portable, dual-layer plastic scintillator detector was deployed to conduct muon flux scans along the tunnel’s length and to continuously monitor muon flux, allowing for the study of tidal effects. Geant4 simulations validated the correlation between muon attenuation and overburden thickness, incorporating sediment, water, and concrete layers. Key findings include a strong anti-correlation between the measured muon flux and the water levels observed at a nearby tide gauge. The results align with geotechnical data and simulations, especially in the region of interest, confirming muography’s sensitivity to sediment dynamics. This work establishes muography as a robust tool for long-term, real-time monitoring of submerged infrastructure, offering significant advantages over conventional invasive techniques. The study underscores the potential for integrating muography into civil engineering practices to enhance safety and operational resilience in tidal environments.</jats:p>",
+ "2896624": {
+  "abstract": "The muEDM experiment at the Paul Scherrer Institute aims to measure the electric dipole moment with an unprecedented sensitivity of $6 \\times 10^{-23}\\,\\mathrm{e}\\cdot\\mathrm{cm}$. A key aspect of this experiment is the injection and storage of the muon beam, which traverses a long, narrow superconducting channel before entering a solenoid magnet. The muon is then kicked by a pulsed magnetic field into a stable orbit within the solenoid's central region, where the electric dipole moment is measured. To study the beam injection and storage process, we developed a G4beamline simulation to model the dynamics of beam injection and storage, incorporating all relevant electric and magnetic fields. We subsequently employed a Bayesian optimization technique to improve the muon storage efficiency for Phase I of the muEDM experiment. The optimization is demonstrated using data simulated by G4beamline. We have observed an enhancement in the beam injection and storage efficiency, which increased to 0.556% through the utilization of Bayesian optimization with Gaussian processes, compared to 0.324% when employing the polynomial chaos expansion. This approach can be applied to adjust actual experimental parameters, aiding in achieving the desired performance for beam injection and storage in the muEDM experiment.",
   "keywords": []
  },
  "2610840": {
-  "abstract": "Dark photons have been well motivated as strong candidates for dark force carriers and light dark matter in the sub-GeV mass range. Compared with collider experiments, fixed-target experiments provide a complementary approach to searching for dark photons, particularly in the lower mass range. We have studied the physics potential of the electron-on-target experiment based on the Shanghai SHINE facility, which provides 10 MHz single electron beam at 8 GeV energy. This analysis focuses on dark photons being produced via electron and nucleon interaction and then decays to dark matter candidates, which escape detection as missing momentum in the detector. This experiment takes advantage of using missing momentum to enhance signal versus background separation power. In this study, signal samples as a function of dark photon mass and an inclusive background sample with 2.5 billion events are simulated with GEANT4. For better background estimates, major rare background processes have also been simulated. This paper presents the experiment and detector design, signal and background simulations, analysis strategy, and the prospective study of the experiment sensitivity. With 9 × 10^{14} electron-on-target events (about three years running), this experiment is expected to rule out most of the sensitive regions predicted by popular dark photon models.",
+  "abstract": "Dark photons have been well motivated as strong candidates for dark force carriers and light dark matter in the sub-GeV mass range. Compared with collider experiments, fixed-target experiments provide a complementary approach to searching for dark photons, particularly in the lower mass range. We have studied the physics potential of the electron-on-target experiment based on the Shanghai SHINE facility, which provides 10 MHz single electron beam at 8 GeV energy. This analysis focuses on dark photons being produced via electron and nucleon interaction and then decays to dark matter candidates, which escape detection as missing momentum in the detector. This experiment takes advantage of using missing momentum to enhance signal versus background separation power. In this study, signal samples as a function of dark photon mass and an inclusive background sample with 2.5 billion events are simulated with GEANT4. For better background estimates, major rare background processes have also been simulated. This paper presents the experiment and detector design, signal and background simulations, analysis strategy, and the prospective study of the experiment sensitivity. With 9 × 10$^{14}$ electron-on-target events (about three years running), this experiment is expected to rule out most of the sensitive regions predicted by popular dark photon models.",
   "keywords": [
    "dark matter",
    "dark photon",
@@ -81,22 +94,25 @@
    "sensitivity"
   ]
  },
- "2864834": {
-  "abstract": "We present the design, construction, and beam test results of a prototype muon trigger detector developed for the muon electric dipole moment (muEDM) experiment at the Paul Scherrer Institute (PSI). The muEDM experiment aims to increase the sensitivity of the muon EDM measurement by several orders of magnitude beyond the current limit established by the BNL E821 experiment. Precise and reliable muon identification at the entrance of the storage solenoid is crucial, as the trigger detector must quickly generate a trigger signal to activate a pulsed magnetic kicker, enabling the capture and storage of incoming muons. The trigger detector consists of two primary components: a thin gate detector made from a plastic scintillator read out by eight silicon photomultipliers (SiPMs), and a telescope detector made of four plastic scintillators also read out by SiPMs. The telescope detector operates in anticoincidence with the gate detector, identifying muons that pass through the gate detector without activating the telescope detector, thus ensuring the selection of muons with trajectories optimal for stable storage within the solenoid. A proof-of-principle test was performed at the PSI E1 beamline using {27.5}\\, {MeV}/ {c} muons to characterize the detector’s timing performance, scintillator light yield, and triggering efficiency. Experimental data showed excellent agreement with detailed Geant4 Monte Carlo simulations that incorporated optical photon generation, transportation, and detection. The results successfully validate the detector design and confirm its suitability for the stringent timing, efficiency, and trajectory-selection requirements essential to the muEDM experiment.",
-  "keywords": [
-   "Trigger",
-   "Electric dipole moment",
-   "Silicon photomultiplier",
-   "Optical photon"
-  ]
- },
- "2896624": {
-  "abstract": "The muEDM experiment at the Paul Scherrer Institute aims to measure the electric dipole moment with an unprecedented sensitivity of $6 10^{-23}\\, {e} {cm}$. A key aspect of this experiment is the injection and storage of the muon beam, which traverses a long, narrow superconducting channel before entering a solenoid magnet. The muon is then kicked by a pulsed magnetic field into a stable orbit within the solenoid's central region, where the electric dipole moment is measured. To study the beam injection and storage process, we developed a G4beamline simulation to model the dynamics of beam injection and storage, incorporating all relevant electric and magnetic fields. We subsequently employed a Bayesian optimization technique to improve the muon storage efficiency for Phase I of the muEDM experiment. The optimization is demonstrated using data simulated by G4beamline. We have observed an enhancement in the beam injection and storage efficiency, which increased to 0.556% through the utilization of Bayesian optimization with Gaussian processes, compared to 0.324% when employing the polynomial chaos expansion. This approach can be applied to adjust actual experimental parameters, aiding in achieving the desired performance for beam injection and storage in the muEDM experiment.",
-  "keywords": []
- },
  "2848269": {
   "abstract": "DarkSHINE is a newly proposed fixed-target experiment initiative to search for the invisible decay of Dark Photon via missing energy/momentum signatures, based on the high repetition rate electron beam to be deployed/delivered by the Shanghai High repetition rate XFEL and Extreme light facility (SHINE). This report elaborates the baseline design of DarkSHINE experiment by introducing the physics goals, experimental setups, details of each sub-detector system technical designs, signal and backgground modelings, expected search sensitivities and future prospects, which mark an important step towards the further prototyping and technical demonstrations.",
   "keywords": []
+ },
+ "1856531": {
+  "abstract": "The Muon g-2 Experiment at Fermi National Accelerator Laboratory (FNAL) has measured the muon anomalous precession frequency $\\omega_a$ to an uncertainty of 434 parts per billion (ppb), statistical, and 56 ppb, systematic, with data collected in four storage ring configurations during its first physics run in 2018. When combined with a precision measurement of the magnetic field of the experiment's muon storage ring, the precession frequency measurement determines a muon magnetic anomaly of $a_{\\mu}({\\rm FNAL}) = 116\\,592\\,040(54) \\times 10^{-11}$ (0.46 ppm). This article describes the multiple techniques employed in the reconstruction, analysis and fitting of the data to measure the precession frequency. It also presents the averaging of the results from the eleven separate determinations of \\omega_a, and the systematic uncertainties on the result.",
+  "keywords": [
+   "Particle Physics Experiments",
+   "precession: frequency",
+   "muon: magnetic moment",
+   "muon: storage ring",
+   "precision measurement",
+   "magnetic field",
+   "statistical",
+   "accelerator",
+   "anomaly",
+   "data analysis method",
+   "experimental results"
+  ]
  },
  "3101005": {
   "abstract": "Certain types of muon experiments, such as muon spin rotation techniques and muon lifetime measurements, require beams with repetition rates around 50 kHz for optimal statistical performance. However, existing facilities are limited to pulsed beams operating at 25-50 Hz or continuous beams, both constrained by the time structure of proton drivers. Despite ongoing efforts to optimize these proton time structures, significant limitations in flexibility persist.This work introduces an alternative approach to muon production using high-repetition-rate (kHz-MHz) electron beams generated by superconducting linacs at XFEL facilities. This method provides unique temporal characteristics, promising substantial improvements in beam precision, flexibility, and experimental efficiency.We present comprehensive particle tracking simulations for the design of a surface muon beamline and detailed Monte Carlo studies to optimize target materials and geometries. The results underscore the potential of electron-driven muon sources to complement muon-based fundamental and applied physics research while extending the capabilities of current and future XFEL facilities.",
@@ -110,37 +126,18 @@
    "positron"
   ]
  },
- "2716600": {
-  "abstract": "Muons have been playing an important and unique role in both fundamental physics and applied sciences; Recent results of the muon magnetic anomaly hint at physics beyond the Standard Model; Muon spin rotation techniques have been widely applied to the study of superconductivity and magnetic materials. A typical muon experiment measurement time of 10 muon lifetimes means that an ideal muon source should operate at around 50 kHz in the pulsed mode. However, current muon sources are either driven by several 10 Hz pulsed proton accelerators (e.g. J-PARC) or DC proton accelerators (e.g. PSI), resulting in low-duty cycles for many types of muon experiments. Here we explore the use of a high-repetition-rate pulsed electron beam at the Shanghai SHINE facility as a muon source driver. SHINE is based on an 8-GeV CW superconducting RF linac, with a bunch rate of 1 MHz and a bunch charge of 100 pC. Downstream of undulators, the electron beam is deflected and absorbed in a beam dump. Based on a GEANT4 Monte Carlo simulation, we estimated the maximum intensity of the muon beam to be around 10^{9}. The main production channels are photo-nuclear and Bethe-Heitler processes and each of these processes generates muon beams with different kinematics and time profiles. Such muon beams can improve the performance of current muon physics experiments such as the muonium to anti-muonium conversion and the muon spin rotation technique.",
+ "2674344": {
+  "abstract": "Muons have established a unique and pivotal role in both fundamental physics and applied sciences. Given that a typical muon experiment spans roughly ten muon lifetimes, the optimal muon source should operate at around 50 kHz in pulsed mode. However, existing muon facilities operate in either the 25-50 Hz pulsed mode or continuous beam (DC) mode, which results in low-duty cycles for various muon experiments. As a result, precision muon physics with continuous muon beam has been limited by statistical uncertainty. In this study, we investigate the potential of a high-repetition-rate pulsed electron beam at the Shanghai SHINE facility to serve as a muon source driver. SHINE houses an 8-GeV CW superconducting RF linac, with a 1 MHz bunch rate and 100 pC bunch charge. Following X-ray production, the electron beam is deflected downstream of the undulators and absorbed in a beam dump. Using Geant4 Monte Carlo simulations, we estimated the yield of the muon beam to be approximately $10^{3}\\mu^{\\pm}$/bunch. This type of muon beam could be instrumental in a broad range of muon experiments, including muon lifetime measurement, a search for muonium to anti-muonium conversion, and the muon spin spectroscopy.",
   "keywords": [
-   "electron",
-   "electronics",
-   "bunching",
-   "target",
-   "dumping",
    "muon: particle source",
    "electron: beam",
    "beam: pulsed",
    "numerical calculations: Monte Carlo",
    "GEANT",
-   "electron: accelerator",
-   "J-PARC Lab"
-  ]
- },
- "1856531": {
-  "abstract": "The Muon g-2 Experiment at Fermi National Accelerator Laboratory (FNAL) has measured the muon anomalous precession frequency _a to an uncertainty of 434 parts per billion (ppb), statistical, and 56 ppb, systematic, with data collected in four storage ring configurations during its first physics run in 2018. When combined with a precision measurement of the magnetic field of the experiment's muon storage ring, the precession frequency measurement determines a muon magnetic anomaly of $a_{ }({ FNAL}) = 116\\,592\\,040(54) 10^{-11}$ (0.46 ppm). This article describes the multiple techniques employed in the reconstruction, analysis and fitting of the data to measure the precession frequency. It also presents the averaging of the results from the eleven separate determinations of _a, and the systematic uncertainties on the result.",
-  "keywords": [
-   "Particle Physics Experiments",
-   "precession: frequency",
-   "muon: magnetic moment",
-   "muon: storage ring",
-   "precision measurement",
-   "magnetic field",
-   "statistical",
-   "accelerator",
-   "anomaly",
-   "data analysis method",
-   "experimental results"
+   "linear accelerator: superconductivity",
+   "muon: spin",
+   "muon: yield",
+   "X-ray: emission"
   ]
  },
  "2718934": {
@@ -160,70 +157,26 @@
    "muon: background"
   ]
  },
- "3202780": {
-  "abstract": "Muon beams are essential tools for a wide range of applications such as the search for rare muon decays and muon spectroscopy. However, conventional muon beams produced from pion decay have large emittance and broad momentum spread. Conventional beam-cooling techniques cannot improve the beam quality significantly owing to the 2.2 μs muon mean lifetime. This has motivated the development of dedicated muon beam cooling and moderation methods. This review surveys the principal approaches, including ionisation cooling for high-brightness muon beams, low-energy muon moderation and frictional cooling for slow muon production, and laser ionisation of thermal muonium for ultra-low-emittance muon sources. The challenges associated with producing slow negative muons and emerging concepts based on cyclotron trapping and muon-catalysed fusion are also discussed. These complementary techniques offer promising pathways towards next-generation muon facilities and precision experiments.",
-  "keywords": []
- },
- "2674344": {
-  "abstract": "Muons have established a unique and pivotal role in both fundamental physics and applied sciences. Given that a typical muon experiment spans roughly ten muon lifetimes, the optimal muon source should operate at around 50 kHz in pulsed mode. However, existing muon facilities operate in either the 25-50 Hz pulsed mode or continuous beam (DC) mode, which results in low-duty cycles for various muon experiments. As a result, precision muon physics with continuous muon beam has been limited by statistical uncertainty. In this study, we investigate the potential of a high-repetition-rate pulsed electron beam at the Shanghai SHINE facility to serve as a muon source driver. SHINE houses an 8-GeV CW superconducting RF linac, with a 1 MHz bunch rate and 100 pC bunch charge. Following X-ray production, the electron beam is deflected downstream of the undulators and absorbed in a beam dump. Using Geant4 Monte Carlo simulations, we estimated the yield of the muon beam to be approximately 10^{3} ^{ }/bunch. This type of muon beam could be instrumental in a broad range of muon experiments, including muon lifetime measurement, a search for muonium to anti-muonium conversion, and the muon spin spectroscopy.",
+ "2716600": {
+  "abstract": "Muons have been playing an important and unique role in both fundamental physics and applied sciences; Recent results of the muon magnetic anomaly hint at physics beyond the Standard Model; Muon spin rotation techniques have been widely applied to the study of superconductivity and magnetic materials. A typical muon experiment measurement time of 10 muon lifetimes means that an ideal muon source should operate at around 50 kHz in the pulsed mode. However, current muon sources are either driven by several 10 Hz pulsed proton accelerators (e.g. J-PARC) or DC proton accelerators (e.g. PSI), resulting in low-duty cycles for many types of muon experiments. Here we explore the use of a high-repetition-rate pulsed electron beam at the Shanghai SHINE facility as a muon source driver. SHINE is based on an 8-GeV CW superconducting RF linac, with a bunch rate of 1 MHz and a bunch charge of 100 pC. Downstream of undulators, the electron beam is deflected and absorbed in a beam dump. Based on a GEANT4 Monte Carlo simulation, we estimated the maximum intensity of the muon beam to be around $10^{9}$. The main production channels are photo-nuclear and Bethe-Heitler processes and each of these processes generates muon beams with different kinematics and time profiles. Such muon beams can improve the performance of current muon physics experiments such as the muonium to anti-muonium conversion and the muon spin rotation technique.",
   "keywords": [
+   "electron",
+   "electronics",
+   "bunching",
+   "target",
+   "dumping",
    "muon: particle source",
    "electron: beam",
    "beam: pulsed",
    "numerical calculations: Monte Carlo",
    "GEANT",
-   "linear accelerator: superconductivity",
-   "muon: spin",
-   "muon: yield",
-   "X-ray: emission"
+   "electron: accelerator",
+   "J-PARC Lab"
   ]
  },
- "2909070": {
-  "abstract": "The Entrance and Time-Of-Flight (TOF) detectors of the muEDM experiment at PSI are presented here. The detectors are made of very thin <math altimg=\"si1.svg\" display=\"inline\" id=\"d1e483\"><mrow><mn>100</mn><mspace class=\"nbsp\" width=\"1em\"/><mi mathvariant=\"normal\">μ</mi><mi mathvariant=\"normal\">m</mi></mrow></math> scintillating foils coupled to Silicon Photomultipliers (SiPMs). The obtained results, in conditions very similar to the final setup, are very promising: The expected detector performances are addressed and satisfy the experiment requirements, with a detection efficiency above 95% and an intrinsic time resolution of <math altimg=\"si2.svg\" display=\"inline\" id=\"d1e494\"><mrow><mo>≈</mo><mn>300</mn></mrow></math> ps.",
-  "keywords": [
-   "Plastic scintillators",
-   "Silicon-photomultipliers",
-   "Muons",
-   "Positrons",
-   "Time of flight",
-   "Electric dipole moment"
-  ]
- },
- "3137131": {
-  "abstract": "We present the upgraded design, construction, and beam test results for the Muon Trigger Detector (MTD) developed for the muon Electric Dipole Moment (muEDM) experiment at the Paul Scherrer Institute (PSI) in Switzerland. This experiment aims to improve the sensitivity of the muon EDM measurement by more than three orders of magnitude beyond the current limit established by the BNL Muon g-2 experiment. Precise identification of storable incoming muons at the entrance of the storage solenoid is essential, as the MTD must rapidly trigger a pulsed magnetic kicker to confine muons in the central region of the solenoid, where a weakly focusing magnetic field is maintained. The MTD comprises two subsystems: a {0.1}{mm}-thick plastic scintillator ``gate detector'' read out by four silicon photomultipliers (SiPMs), and a 5{mm}-thick CNC-machined plastic scintillator ``active aperture detector'' read out by six SiPMs. The geometry of the active aperture detector was optimized through acceptance studies to maximize both storage efficiency and background veto efficiency. Integrated fast electronics generate an LVTTL trigger signal under an anti-coincidence condition -- a muon detected in the gate but not in the aperture -- ensuring selective triggering of storable muon events for the EDM measurement. The system was tested at the PSI πE1 beamline using {22.5}{MeV/ {c}} muons under scaled-down conditions to characterize detector response and trigger performance. A Geant4 simulation incorporating detailed optical photon transport and SiPM response modeling was developed and reproduces the measured event topologies with { }97\\% agreement. These results validate the detector design and demonstrate the MTD's readiness for deployment in the full muEDM Phase-1 setup.",
+ "3202780": {
+  "abstract": "Muon beams are essential tools for a wide range of applications such as the search for rare muon decays and muon spectroscopy. However, conventional muon beams produced from pion decay have large emittance and broad momentum spread. Conventional beam-cooling techniques cannot improve the beam quality significantly owing to the 2.2 $μ$s muon mean lifetime. This has motivated the development of dedicated muon beam cooling and moderation methods. This review surveys the principal approaches, including ionisation cooling for high-brightness muon beams, low-energy muon moderation and frictional cooling for slow muon production, and laser ionisation of thermal muonium for ultra-low-emittance muon sources. The challenges associated with producing slow negative muons and emerging concepts based on cyclotron trapping and muon-catalysed fusion are also discussed. These complementary techniques offer promising pathways towards next-generation muon facilities and precision experiments.",
   "keywords": []
- },
- "1856534": {
-  "abstract": "The Fermi National Accelerator Laboratory has measured the anomalous precession frequency a^{}_ = (g^{}_ -2)/2 of the muon to a combined precision of 0.46 parts per million with data collected during its first physics run in 2018. This paper documents the measurement of the magnetic field in the muon storage ring. The magnetic field is monitored by nuclear magnetic resonance systems and calibrated in terms of the equivalent proton spin precession frequency in a spherical water sample at 34.7^ . The measured field is weighted by the muon distribution resulting in { }'^{}_p, the denominator in the ratio ^{}_a/ { }'^{}_p that together with known fundamental constants yields a^{}_ . The reported uncertainty on { }'^{}_p for the Run-1 data set is 114 ppb consisting of uncertainty contributions from frequency extraction, calibration, mapping, tracking, and averaging of 56 ppb, and contributions from fast transient fields of 99 ppb.",
-  "keywords": [
-   "Fundamental concepts",
-   "muon: magnetic moment",
-   "precession: frequency",
-   "muon: storage ring",
-   "p: spin",
-   "spin: precession",
-   "magnetic field",
-   "calibration",
-   "accelerator",
-   "water"
-  ]
- },
- "2687002": {
-  "abstract": "We present a new measurement of the positive muon magnetic anomaly, <math display=\"inline\"><mrow><msub><mrow><mi>a</mi></mrow><mrow><mi>μ</mi></mrow></msub><mo>≡</mo><mo stretchy=\"false\">(</mo><msub><mrow><mi>g</mi></mrow><mrow><mi>μ</mi></mrow></msub><mo>-</mo><mn>2</mn><mo stretchy=\"false\">)</mo><mo>/</mo><mn>2</mn></mrow></math>, from the Fermilab Muon <math display=\"inline\"><mi>g</mi><mo>-</mo><mn>2</mn></math> Experiment using data collected in 2019 and 2020. We have analyzed more than 4 times the number of positrons from muon decay than in our previous result from 2018 data. The systematic error is reduced by more than a factor of 2 due to better running conditions, a more stable beam, and improved knowledge of the magnetic field weighted by the muon distribution, <math display=\"inline\"><mrow><msubsup><mrow><mover accent=\"true\"><mrow><mi>ω</mi></mrow><mrow><mo stretchy=\"false\">˜</mo></mrow></mover></mrow><mrow><mi>p</mi></mrow><mrow><mo>′</mo></mrow></msubsup></mrow></math>, and of the anomalous precession frequency corrected for beam dynamics effects, <math display=\"inline\"><msub><mi>ω</mi><mi>a</mi></msub></math>. From the ratio <math display=\"inline\"><mrow><msub><mrow><mi>ω</mi></mrow><mrow><mi>a</mi></mrow></msub><mo>/</mo><msubsup><mrow><mover accent=\"true\"><mrow><mi>ω</mi></mrow><mrow><mo stretchy=\"false\">˜</mo></mrow></mover></mrow><mrow><mi>p</mi></mrow><mrow><mo>′</mo></mrow></msubsup></mrow></math>, together with precisely determined external parameters, we determine <math display=\"inline\"><mrow><msub><mrow><mi>a</mi></mrow><mrow><mi>μ</mi></mrow></msub><mo>=</mo><mn>116</mn><mtext> </mtext><mn>592</mn><mtext> </mtext><mn>057</mn><mo stretchy=\"false\">(</mo><mn>25</mn><mo stretchy=\"false\">)</mo><mo>×</mo><msup><mrow><mn>10</mn></mrow><mrow><mo>-</mo><mn>11</mn></mrow></msup></mrow></math> (0.21 ppm). Combining this result with our previous result from the 2018 data, we obtain <math display=\"inline\"><mrow><msub><mrow><mi>a</mi></mrow><mrow><mi>μ</mi></mrow></msub><mrow><mo stretchy=\"false\">(</mo><mi>FNAL</mi><mo stretchy=\"false\">)</mo></mrow><mo>=</mo><mn>116</mn><mtext> </mtext><mn>592</mn><mtext> </mtext><mn>055</mn><mo stretchy=\"false\">(</mo><mn>24</mn><mo stretchy=\"false\">)</mo><mo>×</mo><msup><mrow><mn>10</mn></mrow><mrow><mo>-</mo><mn>11</mn></mrow></msup></mrow></math> (0.20 ppm). The new experimental world average is <math display=\"inline\"><mrow><msub><mrow><mi>a</mi></mrow><mrow><mi>μ</mi></mrow></msub><mo stretchy=\"false\">(</mo><mi>exp</mi><mo stretchy=\"false\">)</mo><mo>=</mo><mn>116</mn><mtext> </mtext><mn>592</mn><mtext> </mtext><mn>059</mn><mo stretchy=\"false\">(</mo><mn>22</mn><mo stretchy=\"false\">)</mo><mo>×</mo><msup><mrow><mn>10</mn></mrow><mrow><mo>-</mo><mn>11</mn></mrow></msup></mrow></math> (0.19 ppm), which represents a factor of 2 improvement in precision.",
-  "keywords": [
-   "muon: magnetic moment",
-   "magnetic moment: anomaly",
-   "muon: decay",
-   "magnetic field",
-   "precession: frequency",
-   "beam dynamics",
-   "beam: stability",
-   "positron",
-   "Fermilab",
-   "numerical calculations",
-   "experimental results",
-   "S004MM"
-  ]
  },
  "2830968": {
   "abstract": "The muEDM experiment at the Paul Scherrer Institute (PSI) in Switzerland aims to probe the muon electric dipole moment (EDM) using the frozen-spin technique in a compact storage ring, with a sensitivity of <math altimg=\"si1.svg\"><mn>6</mn><mo>×</mo><msup><mrow><mn>10</mn></mrow><mrow><mo linebreak=\"badbreak\" linebreakstyle=\"after\">−</mo><mn>23</mn></mrow></msup></math> e⋅cm. A fast entrance detector is expected to work in concert with a magnetic pulse generator to direct muons into the desired orbit. Simultaneously, the entrance detector is designed to veto muons that exceed the apparatus's admittance without introducing significant multiple scatterings. We developed a prototype entrance trigger detector consisting of a thin scintillator for detecting incoming muons and four wall scintillators as veto detectors. The prototype was tested at 27.5 MeV/c at the πE1 beamline at PSI. A total of <math altimg=\"si2.svg\"><mn>7</mn><mo>×</mo><msup><mrow><mn>10</mn></mrow><mrow><mn>5</mn></mrow></msup></math> events were collected, which were read out by SiPMs coupled to the plastic scintillators under two different beam tunes. These events were analyzed to characterize the detector's performance, which was also cross-checked with Monte Carlo simulations that took into account the beam phase space and scintillation processes.",
@@ -234,25 +187,8 @@
    "Frozen-spin technique"
   ]
  },
- "2895711": {
-  "abstract": "Particle physics is a fundamental physics discipline that aims to explore the mysteries of microscopic constitutes of matter and their interactions. This article reviews the major progress and breakthroughs of particle physics in 2021, including dark matter physics, neutrino and astroparticle physics, muon anomalous magnetic moment, flavor physics, new exotic hadron state and strong interaction physics, Higgs physics, electroweak physics and searches for beyond the standard model new physics. A brief outlook of near future particle physics hotspots and large scale scientific facilities is also presented.",
-  "keywords": [
-   "暗物质",
-   "中微子",
-   "希格斯物理",
-   "超标准模型新物理",
-   "强子物理",
-   "大科学装置",
-   "dark matter",
-   "neutrino",
-   "higgs",
-   "new physics beyond the Standard Model",
-   "hadron physics",
-   "large scale scientific facilities"
-  ]
- },
  "1856628": {
-  "abstract": "This paper presents the beam dynamics systematic corrections and their uncertainties for the Run-1 data set of the Fermilab Muon g-2 Experiment. Two corrections to the measured muon precession frequency _a^m are associated with well-known effects owing to the use of electrostatic quadrupole (ESQ) vertical focusing in the storage ring. An average vertically oriented motional magnetic field is felt by relativistic muons passing transversely through the radial electric field components created by the ESQ system. The correction depends on the stored momentum distribution and the tunes of the ring, which has relatively weak vertical focusing. Vertical betatron motions imply that the muons do not orbit the ring in a plane exactly orthogonal to the vertical magnetic field direction. A correction is necessary to account for an average pitch angle associated with their trajectories. A third small correction is necessary because muons that escape the ring during the storage time are slightly biased in initial spin phase compared to the parent distribution. Finally, because two high-voltage resistors in the ESQ network had longer than designed RC time constants, the vertical and horizontal centroids and envelopes of the stored muon beam drifted slightly, but coherently, during each storage ring fill. This led to the discovery of an important phase-acceptance relationship that requires a correction. The sum of the corrections to _a^m is 0.50 0.09 ppm; the uncertainty is small compared to the 0.43 ppm statistical precision of _a^m.",
+  "abstract": "This paper presents the beam dynamics systematic corrections and their uncertainties for the Run-1 data set of the Fermilab Muon g-2 Experiment. Two corrections to the measured muon precession frequency $\\omega_a^m$ are associated with well-known effects owing to the use of electrostatic quadrupole (ESQ) vertical focusing in the storage ring. An average vertically oriented motional magnetic field is felt by relativistic muons passing transversely through the radial electric field components created by the ESQ system. The correction depends on the stored momentum distribution and the tunes of the ring, which has relatively weak vertical focusing. Vertical betatron motions imply that the muons do not orbit the ring in a plane exactly orthogonal to the vertical magnetic field direction. A correction is necessary to account for an average pitch angle associated with their trajectories. A third small correction is necessary because muons that escape the ring during the storage time are slightly biased in initial spin phase compared to the parent distribution. Finally, because two high-voltage resistors in the ESQ network had longer than designed RC time constants, the vertical and horizontal centroids and envelopes of the stored muon beam drifted slightly, but coherently, during each storage ring fill. This led to the discovery of an important phase-acceptance relationship that requires a correction. The sum of the corrections to $\\omega_a^m$ is 0.50 $\\pm$ 0.09 ppm; the uncertainty is small compared to the 0.43 ppm statistical precision of $\\omega_a^m$.",
   "keywords": [
    "Single-Particle Dynamics",
    "muon: magnetic moment",
@@ -283,8 +219,72 @@
    "new physics: search for"
   ]
  },
+ "1856534": {
+  "abstract": "The Fermi National Accelerator Laboratory has measured the anomalous precession frequency $a^{}_\\mu = (g^{}_\\mu-2)/2$ of the muon to a combined precision of 0.46 parts per million with data collected during its first physics run in 2018. This paper documents the measurement of the magnetic field in the muon storage ring. The magnetic field is monitored by nuclear magnetic resonance systems and calibrated in terms of the equivalent proton spin precession frequency in a spherical water sample at 34.7$^\\circ$C. The measured field is weighted by the muon distribution resulting in $\\tilde{\\omega}'^{}_p$, the denominator in the ratio $\\omega^{}_a$/$\\tilde{\\omega}'^{}_p$ that together with known fundamental constants yields $a^{}_\\mu$. The reported uncertainty on $\\tilde{\\omega}'^{}_p$ for the Run-1 data set is 114 ppb consisting of uncertainty contributions from frequency extraction, calibration, mapping, tracking, and averaging of 56 ppb, and contributions from fast transient fields of 99 ppb.",
+  "keywords": [
+   "Fundamental concepts",
+   "muon: magnetic moment",
+   "precession: frequency",
+   "muon: storage ring",
+   "p: spin",
+   "spin: precession",
+   "magnetic field",
+   "calibration",
+   "accelerator",
+   "water"
+  ]
+ },
+ "2909070": {
+  "abstract": "The Entrance and Time-Of-Flight (TOF) detectors of the muEDM experiment at PSI are presented here. The detectors are made of very thin <math altimg=\"si1.svg\" display=\"inline\" id=\"d1e483\"><mrow><mn>100</mn><mspace class=\"nbsp\" width=\"1em\"/><mi mathvariant=\"normal\">μ</mi><mi mathvariant=\"normal\">m</mi></mrow></math> scintillating foils coupled to Silicon Photomultipliers (SiPMs). The obtained results, in conditions very similar to the final setup, are very promising: The expected detector performances are addressed and satisfy the experiment requirements, with a detection efficiency above 95% and an intrinsic time resolution of <math altimg=\"si2.svg\" display=\"inline\" id=\"d1e494\"><mrow><mo>≈</mo><mn>300</mn></mrow></math> ps.",
+  "keywords": [
+   "Plastic scintillators",
+   "Silicon-photomultipliers",
+   "Muons",
+   "Positrons",
+   "Time of flight",
+   "Electric dipole moment"
+  ]
+ },
+ "3137131": {
+  "abstract": "We present the upgraded design, construction, and beam test results for the Muon Trigger Detector (MTD) developed for the muon Electric Dipole Moment (muEDM) experiment at the Paul Scherrer Institute (PSI) in Switzerland. This experiment aims to improve the sensitivity of the muon EDM measurement by more than three orders of magnitude beyond the current limit established by the BNL Muon $g-2$ experiment. Precise identification of storable incoming muons at the entrance of the storage solenoid is essential, as the MTD must rapidly trigger a pulsed magnetic kicker to confine muons in the central region of the solenoid, where a weakly focusing magnetic field is maintained. The MTD comprises two subsystems: a \\SI{0.1}{mm}-thick plastic scintillator ``gate detector'' read out by four silicon photomultipliers (SiPMs), and a \\SI5{mm}-thick CNC-machined plastic scintillator ``active aperture detector'' read out by six SiPMs. The geometry of the active aperture detector was optimized through acceptance studies to maximize both storage efficiency and background veto efficiency. Integrated fast electronics generate an LVTTL trigger signal under an anti-coincidence condition -- a muon detected in the gate but not in the aperture -- ensuring selective triggering of storable muon events for the EDM measurement. The system was tested at the PSI $π$E1 beamline using \\SI{22.5}{MeV/\\textit{c}} muons under scaled-down conditions to characterize detector response and trigger performance. A Geant4 simulation incorporating detailed optical photon transport and SiPM response modeling was developed and reproduces the measured event topologies with ${\\sim}97\\%$ agreement. These results validate the detector design and demonstrate the MTD's readiness for deployment in the full muEDM Phase-1 setup.",
+  "keywords": []
+ },
+ "2895711": {
+  "abstract": "Particle physics is a fundamental physics discipline that aims to explore the mysteries of microscopic constitutes of matter and their interactions. This article reviews the major progress and breakthroughs of particle physics in 2021, including dark matter physics, neutrino and astroparticle physics, muon anomalous magnetic moment, flavor physics, new exotic hadron state and strong interaction physics, Higgs physics, electroweak physics and searches for beyond the standard model new physics. A brief outlook of near future particle physics hotspots and large scale scientific facilities is also presented.",
+  "keywords": [
+   "暗物质",
+   "中微子",
+   "希格斯物理",
+   "超标准模型新物理",
+   "强子物理",
+   "大科学装置",
+   "dark matter",
+   "neutrino",
+   "higgs",
+   "new physics beyond the Standard Model",
+   "hadron physics",
+   "large scale scientific facilities"
+  ]
+ },
+ "2687002": {
+  "abstract": "We present a new measurement of the positive muon magnetic anomaly, <math display=\"inline\"><mrow><msub><mrow><mi>a</mi></mrow><mrow><mi>μ</mi></mrow></msub><mo>≡</mo><mo stretchy=\"false\">(</mo><msub><mrow><mi>g</mi></mrow><mrow><mi>μ</mi></mrow></msub><mo>-</mo><mn>2</mn><mo stretchy=\"false\">)</mo><mo>/</mo><mn>2</mn></mrow></math>, from the Fermilab Muon <math display=\"inline\"><mi>g</mi><mo>-</mo><mn>2</mn></math> Experiment using data collected in 2019 and 2020. We have analyzed more than 4 times the number of positrons from muon decay than in our previous result from 2018 data. The systematic error is reduced by more than a factor of 2 due to better running conditions, a more stable beam, and improved knowledge of the magnetic field weighted by the muon distribution, <math display=\"inline\"><mrow><msubsup><mrow><mover accent=\"true\"><mrow><mi>ω</mi></mrow><mrow><mo stretchy=\"false\">˜</mo></mrow></mover></mrow><mrow><mi>p</mi></mrow><mrow><mo>′</mo></mrow></msubsup></mrow></math>, and of the anomalous precession frequency corrected for beam dynamics effects, <math display=\"inline\"><msub><mi>ω</mi><mi>a</mi></msub></math>. From the ratio <math display=\"inline\"><mrow><msub><mrow><mi>ω</mi></mrow><mrow><mi>a</mi></mrow></msub><mo>/</mo><msubsup><mrow><mover accent=\"true\"><mrow><mi>ω</mi></mrow><mrow><mo stretchy=\"false\">˜</mo></mrow></mover></mrow><mrow><mi>p</mi></mrow><mrow><mo>′</mo></mrow></msubsup></mrow></math>, together with precisely determined external parameters, we determine <math display=\"inline\"><mrow><msub><mrow><mi>a</mi></mrow><mrow><mi>μ</mi></mrow></msub><mo>=</mo><mn>116</mn><mtext> </mtext><mn>592</mn><mtext> </mtext><mn>057</mn><mo stretchy=\"false\">(</mo><mn>25</mn><mo stretchy=\"false\">)</mo><mo>×</mo><msup><mrow><mn>10</mn></mrow><mrow><mo>-</mo><mn>11</mn></mrow></msup></mrow></math> (0.21 ppm). Combining this result with our previous result from the 2018 data, we obtain <math display=\"inline\"><mrow><msub><mrow><mi>a</mi></mrow><mrow><mi>μ</mi></mrow></msub><mrow><mo stretchy=\"false\">(</mo><mi>FNAL</mi><mo stretchy=\"false\">)</mo></mrow><mo>=</mo><mn>116</mn><mtext> </mtext><mn>592</mn><mtext> </mtext><mn>055</mn><mo stretchy=\"false\">(</mo><mn>24</mn><mo stretchy=\"false\">)</mo><mo>×</mo><msup><mrow><mn>10</mn></mrow><mrow><mo>-</mo><mn>11</mn></mrow></msup></mrow></math> (0.20 ppm). The new experimental world average is <math display=\"inline\"><mrow><msub><mrow><mi>a</mi></mrow><mrow><mi>μ</mi></mrow></msub><mo stretchy=\"false\">(</mo><mi>exp</mi><mo stretchy=\"false\">)</mo><mo>=</mo><mn>116</mn><mtext> </mtext><mn>592</mn><mtext> </mtext><mn>059</mn><mo stretchy=\"false\">(</mo><mn>22</mn><mo stretchy=\"false\">)</mo><mo>×</mo><msup><mrow><mn>10</mn></mrow><mrow><mo>-</mo><mn>11</mn></mrow></msup></mrow></math> (0.19 ppm), which represents a factor of 2 improvement in precision.",
+  "keywords": [
+   "muon: magnetic moment",
+   "magnetic moment: anomaly",
+   "muon: decay",
+   "magnetic field",
+   "precession: frequency",
+   "beam dynamics",
+   "beam: stability",
+   "positron",
+   "Fermilab",
+   "numerical calculations",
+   "experimental results",
+   "S004MM"
+  ]
+ },
  "1856627": {
-  "abstract": "We present the first results of the Fermilab Muon g-2 Experiment for the positive muon magnetic anomaly a_ (g_ -2)/2. The anomaly is determined from the precision measurements of two angular frequencies. Intensity variation of high-energy positrons from muon decays directly encodes the difference frequency _a between the spin-precession and cyclotron frequencies for polarized muons in a magnetic storage ring. The storage ring magnetic field is measured using nuclear magnetic resonance probes calibrated in terms of the equivalent proton spin precession frequency { { }'^{}_p} in a spherical water sample at 34.7^{ }C. The ratio _a / { { }'^{}_p}, together with known fundamental constants, determines $a_ ({ FNAL}) = 116\\,592\\,040(54) 10^{-11}$ (0.46 ppm). The result is 3.3 standard deviations greater than the standard model prediction and is in excellent agreement with the previous Brookhaven National Laboratory (BNL) E821 measurement. After combination with previous measurements of both ^+ and ^-, the new experimental average of $a_ ({ Exp}) = 116\\,592\\,061(41) 10^{-11}$ (0.35 ppm) increases the tension between experiment and theory to 4.2 standard deviations",
+  "abstract": "We present the first results of the Fermilab Muon g-2 Experiment for the positive muon magnetic anomaly $a_\\mu \\equiv (g_\\mu-2)/2$. The anomaly is determined from the precision measurements of two angular frequencies. Intensity variation of high-energy positrons from muon decays directly encodes the difference frequency $\\omega_a$ between the spin-precession and cyclotron frequencies for polarized muons in a magnetic storage ring. The storage ring magnetic field is measured using nuclear magnetic resonance probes calibrated in terms of the equivalent proton spin precession frequency ${\\tilde{\\omega}'^{}_p}$ in a spherical water sample at 34.7$^{\\circ}$C. The ratio $\\omega_a / {\\tilde{\\omega}'^{}_p}$, together with known fundamental constants, determines $a_\\mu({\\rm FNAL}) = 116\\,592\\,040(54)\\times 10^{-11}$ (0.46 ppm). The result is 3.3 standard deviations greater than the standard model prediction and is in excellent agreement with the previous Brookhaven National Laboratory (BNL) E821 measurement. After combination with previous measurements of both $\\mu^+$ and $\\mu^-$, the new experimental average of $a_\\mu({\\rm Exp}) = 116\\,592\\,061(41)\\times 10^{-11}$ (0.35 ppm) increases the tension between experiment and theory to 4.2 standard deviations",
   "keywords": [
    "Elementary Particles and Fields",
    "muon+: magnetic moment: measured",
@@ -300,12 +300,8 @@
    "calibration"
   ]
  },
- "3203792": {
-  "abstract": "Muography exploits the penetrating power of muons to image the interior of large dense objects, but cosmic-ray sources provide only ~1 {cm}^{-2}{min}^{-1} predominantly from above, limiting imaging speed and accessible geometries. Electron-driven muon production has recently been demonstrated with laser-wakefield accelerators, but shot-to-shot fluctuations hinder systematic studies required for quantitative accelerator muography. Using Geant4 Monte Carlo simulations, we model the full experimental setup at Shaft 2 of the Shanghai High repetition rate XFEL and Extreme light facility (SHINE), from a 3 GeV, 50 pC, 50 Hz commissioning electron beam interacting with a muon target through 25 m of beamline structures and a 3 m-thick concrete isolation wall. Approximately 0.28 effective reconstructed single-muon events per bunch, with residual kinetic energies below 1.2 GeV after traversing the wall, reach the downstream muography test area (~14 s^{-1}). The wall absorbs most charged background particles below ~1 GeV, while residual neutrons can be discriminated by their characteristic detector energy deposition. Scattering-tomography simulations show that 3 10^{5} effective muon events, accumulated in approximately 6 h at the commissioning rate, yield a Structural Similarity Index above 0.9, demonstrating the feasibility of quantitative accelerator-based muography using SHINE's electron-driven GeV-scale forward muon source. At the 8 GeV/50 kHz benchmark, the projected muon intensity exceeds 5 10^{4} μ/s, corresponding conservatively to approximately one muon per bunch at the detector. This exceeds the cosmic-ray flux by orders of magnitude, while SHINE's superconducting linac provides a stable, controlled platform for developing electron-on-target muography.",
-  "keywords": []
- },
  "2611054": {
-  "abstract": "We explore a model of dark matter (DM) that can explain the reported discrepancy in the muon anomalous magnetic moment and predict a large electric dipole moment (EDM) of the muon. The model contains a DM fermion and new scalars whose exclusive interactions with the muon radiatively generate the observed muon mass. Constraints from DM direct and indirect detection experiments as well as collider searches are safely evaded. The model parameter space that gives the observed DM abundance and explains the muon g-2 anomaly leads to the muon EDM of d_{ } (4-5) 10^{-22} \\, e \\, { cm} that can be probed by the projected PSI muEDM experiment. Another viable parameter space even achieves $d_{ } = {O}(10^{-21}) \\, e \\, { cm} reachable by the ongoing Fermilab Muon g-2 experiment and the future J-PARC Muon g-2$/EDM experiment.",
+  "abstract": "We explore a model of dark matter (DM) that can explain the reported discrepancy in the muon anomalous magnetic moment and predict a large electric dipole moment (EDM) of the muon. The model contains a DM fermion and new scalars whose exclusive interactions with the muon radiatively generate the observed muon mass. Constraints from DM direct and indirect detection experiments as well as collider searches are safely evaded. The model parameter space that gives the observed DM abundance and explains the muon $g-2$ anomaly leads to the muon EDM of $d_{\\mu} \\simeq (4$-$5) \\times 10^{-22} \\, e \\, {\\rm cm}$ that can be probed by the projected PSI muEDM experiment. Another viable parameter space even achieves $d_{\\mu} = \\mathcal{O}(10^{-21}) \\, e \\, {\\rm cm}$ reachable by the ongoing Fermilab Muon $g-2$ experiment and the future J-PARC Muon $g-2$/EDM experiment.",
   "keywords": [
    "CP Violation",
    "Electric Dipole Moments",
@@ -319,25 +315,29 @@
    "anomaly"
   ]
  },
- "2674348": {
-  "abstract": "Permanent electric dipole moments (EDMs) are excellent probes of physics beyond the Standard Model, especially on new sources of CP violation. The muon EDM has recently attracted significant attention due to discrepancies in the magnetic anomaly of the muon, as well as potential violations of lepton-flavor universality in B-meson decays. At the Paul Scherrer Institute in Switzerland, we have proposed a muon EDM search experiment employing the frozen-spin technique, where a radial electric field is exerted within a storage solenoid to cancel the muon's anomalous spin precession. Consequently, the EDM signal can be inferred from the upstream-downstream asymmetry of the decay positron count versus time. The experiment is planned to take place in two phases, anticipating an annual statistical sensitivity of 3 10^{-21}e for Phase~I, and 6 10^{-23}e for Phase~II. Going beyond 10^{-21}e will enable us to probe various Standard Model extensions.",
+ "2928642": {
+  "abstract": "A new measurement of the magnetic anomaly <math display=\"inline\"><mrow><msub><mrow><mi>a</mi></mrow><mrow><mi>μ</mi></mrow></msub></mrow></math> of the positive muon is presented based on data taken from 2020 to 2023 by the Muon <math display=\"inline\"><mi>g</mi><mo>-</mo><mn>2</mn></math> Experiment at Fermi National Accelerator Laboratory (FNAL). This dataset contains over 2.5 times the total statistics of our previous results. From the ratio of the precession frequencies for muons and protons in our storage ring magnetic field, together with precisely known ratios of fundamental constants, we determine <math display=\"inline\"><mrow><msub><mrow><mi>a</mi></mrow><mrow><mi>μ</mi></mrow></msub><mo>=</mo><mrow><mn>1</mn><mtext> </mtext><mn>165</mn><mtext> </mtext><mn>920</mn><mtext> </mtext><mn>710</mn><mo stretchy=\"false\">(</mo><mn>162</mn><mo stretchy=\"false\">)</mo><mo>×</mo><msup><mrow><mn>10</mn></mrow><mrow><mo>-</mo><mn>12</mn></mrow></msup></mrow></mrow></math> (139 ppb) for the new datasets, and <math display=\"inline\"><mrow><msub><mrow><mi>a</mi></mrow><mrow><mi>μ</mi></mrow></msub><mo>=</mo><mrow><mn>1</mn><mtext> </mtext><mn>165</mn><mtext> </mtext><mn>920</mn><mtext> </mtext><mn>705</mn><mo stretchy=\"false\">(</mo><mn>148</mn><mo stretchy=\"false\">)</mo><mo>×</mo><msup><mrow><mn>10</mn></mrow><mrow><mo>-</mo><mn>12</mn></mrow></msup></mrow></mrow></math> (127 ppb) when combined with our previous results. The new experimental world average, dominated by the measurements at FNAL, is <math display=\"inline\"><mrow><msub><mrow><mi>a</mi></mrow><mrow><mi>μ</mi></mrow></msub><mo stretchy=\"false\">(</mo><mi>exp</mi><mo stretchy=\"false\">)</mo><mo>=</mo><mrow><mn>1</mn><mtext> </mtext><mn>165</mn><mtext> </mtext><mn>920</mn><mtext> </mtext><mn>715</mn><mo stretchy=\"false\">(</mo><mn>145</mn><mo stretchy=\"false\">)</mo><mo>×</mo><msup><mrow><mn>10</mn></mrow><mrow><mo>-</mo><mn>12</mn></mrow></msup></mrow></mrow></math> (124 ppb). The measurements at FNAL have improved the precision on the world average by over a factor of 4.",
+  "keywords": []
+ },
+ "2015643": {
+  "abstract": "The presence of a permanent electric dipole moment in an elementary particle implies Charge-Parity symmetry violation and thus could help explain the matter-antimatter asymmetry observed in our universe. Within the context of the Standard Model, the electric dipole moment of elementary particles is extremely small. However, many Standard Model extensions such as supersymmetry predict large electric dipole moments. Recently, the muon electric dipole moment has become a topic of particular interest due to the tensions in the magnetic anomaly of the muon and the electron, and hints of lepton-flavor universality violation in B-meson decays. In this article, we discuss a dedicated effort at the Paul Scherrer Institute in Switzerland to search for the muon electric dipole moment using a 3-T compact solenoid storage ring and the frozen-spin technique. This technique could reach a sensitivity of $6\\times10^{-23}$ $e\\cdot$cm after a year of data taking with the $p=125$ MeV/$c$ muon beam at the Paul Scherrer Institute. This allows us to probe various Standard Model extensions not reachable by traditional searches using muon $g-2$ storage rings.",
   "keywords": [
-   "electric dipole moment",
-   "frozen-spin technique",
-   "CP violation",
-   "lepton universality",
    "muon: electric moment",
    "B: decay",
+   "lepton: flavor: universality",
+   "universality: violation",
+   "muon: beam",
    "dipole: electric",
-   "spin: precession",
    "CP: violation",
-   "asymmetry: CP",
-   "decay: asymmetry",
-   "new physics: search for"
+   "tension",
+   "sensitivity",
+   "electron: magnetic moment",
+   "muon: magnetic moment",
+   "asymmetry: CP"
   ]
  },
  "2761441": {
-  "abstract": "We present details on a new measurement of the muon magnetic anomaly, <math display=\"inline\"><msub><mi>a</mi><mi>μ</mi></msub><mo>=</mo><mo stretchy=\"false\">(</mo><msub><mi>g</mi><mi>μ</mi></msub><mo>-</mo><mn>2</mn><mo stretchy=\"false\">)</mo><mo>/</mo><mn>2</mn></math>. The result is based on positive muon data taken at Fermilab’s Muon Campus during the 2019 and 2020 accelerator runs. The measurement uses <math display=\"inline\"><mrow><mn>3.1</mn><mtext> </mtext><mtext> </mtext><mi>GeV</mi><mo>/</mo><mi>c</mi></mrow></math> polarized muons stored in a 7.1-m-radius storage ring with a 1.45 T uniform magnetic field. The value of <math display=\"inline\"><msub><mi>a</mi><mi>μ</mi></msub></math> is determined from the measured difference between the muon spin precession frequency and its cyclotron frequency. This difference is normalized to the strength of the magnetic field, measured using nuclear magnetic resonance. The ratio is then corrected for small contributions from beam motion, beam dispersion, and transient magnetic fields. We measure <math display=\"inline\"><msub><mi>a</mi><mi>μ</mi></msub><mo>=</mo><mn>116</mn><mn>592</mn><mn>057</mn><mo stretchy=\"false\">(</mo><mn>25</mn><mo stretchy=\"false\">)</mo><mo>×</mo><msup><mn>10</mn><mrow><mo>-</mo><mn>11</mn></mrow></msup></math> (0.21 ppm). This is the world’s most precise measurement of this quantity and represents a factor of 2.2 improvement over our previous result based on the 2018 dataset. In combination, the two datasets yield <math display=\"inline\"><msub><mi>a</mi><mi>μ</mi></msub><mo stretchy=\"false\">(</mo><mrow><mi>FNAL</mi></mrow><mo stretchy=\"false\">)</mo><mo>=</mo><mn>116</mn><mn>592</mn><mn>055</mn><mo stretchy=\"false\">(</mo><mn>24</mn><mo stretchy=\"false\">)</mo><mo>×</mo><msup><mn>10</mn><mrow><mo>-</mo><mn>11</mn></mrow></msup></math> (0.20 ppm). Combining this with the measurements from Brookhaven National Laboratory for both positive and negative muons, the new world average is <math display=\"inline\"><mrow><msub><mrow><mi>a</mi></mrow><mrow><mi>μ</mi></mrow></msub><mo stretchy=\"false\">(</mo><mi>exp</mi><mo stretchy=\"false\">)</mo><mo>=</mo><mn>116</mn><mn>592</mn><mn>059</mn><mo stretchy=\"false\">(</mo><mn>22</mn><mo stretchy=\"false\">)</mo><mo>×</mo><msup><mrow><mn>10</mn></mrow><mrow><mo>-</mo><mn>11</mn></mrow></msup></mrow></math> (0.19 ppm).",
+  "abstract": "We present details on a new measurement of the muon magnetic anomaly, <math display=\"inline\"><msub><mi>a</mi><mi>μ</mi></msub><mo>=</mo><mo stretchy=\"false\">(</mo><msub><mi>g</mi><mi>μ</mi></msub><mo>-</mo><mn>2</mn><mo stretchy=\"false\">)</mo><mo>/</mo><mn>2</mn></math>. The result is based on positive muon data taken at Fermilab’s Muon Campus during the 2019 and 2020 accelerator runs. The measurement uses <math display=\"inline\"><mrow><mn>3.1</mn><mtext> </mtext><mtext> </mtext><mi>GeV</mi><mo>/</mo><mi>c</mi></mrow></math> polarized muons stored in a 7.1-m-radius storage ring with a 1.45 T uniform magnetic field. The value of <math display=\"inline\"><msub><mi>a</mi><mi>μ</mi></msub></math> is determined from the measured difference between the muon spin precession frequency and its cyclotron frequency. This difference is normalized to the strength of the magnetic field, measured using nuclear magnetic resonance. The ratio is then corrected for small contributions from beam motion, beam dispersion, and transient magnetic fields. We measure <math display=\"inline\"><msub><mi>a</mi><mi>μ</mi></msub><mo>=</mo><mn>116</mn><mn>592</mn><mn>057</mn><mo stretchy=\"false\">(</mo><mn>25</mn><mo stretchy=\"false\">)</mo><mo>×</mo><msup><mn>10</mn><mrow><mo>-</mo><mn>11</mn></mrow></msup></math> (0.21 ppm). This is the world’s most precise measurement of this quantity and represents a factor of 2.2 improvement over our previous result based on the 2018 dataset. In combination, the two datasets yield <math display=\"inline\"><msub><mi>a</mi><mi>μ</mi></msub><mo stretchy=\"false\">(</mo><mrow><mi>FNAL</mi></mrow><mo stretchy=\"false\">)</mo><mo>=</mo><mn>116</mn><mn>592</mn><mn>055</mn><mo stretchy=\"false\">(</mo><mn>24</mn><mo stretchy=\"false\">)</mo><mo>×</mo><msup><mn>10</mn><mrow><mo>-</mo><mn>11</mn></mrow></msup></math> (0.20 ppm). Combining this with the measurements from Brookhaven National Laboratory for both positive and negative muons, the new world average is <math display=\"inline\"><mrow><msub><mrow><mi>a</mi></mrow><mrow><mi>μ</mi></mrow></msub><mo stretchy=\"false\">(</mo><mi>exp</mi><mo stretchy=\"false\">)</mo><mo>=</mo><mn>116</mn><mn>592</mn><mn>059</mn><mo stretchy=\"false\">(</mo><mn>22</mn><mo stretchy=\"false\">)</mo><mo>×</mo><msup><mrow><mn>10</mn></mrow><mrow><mo>-</mo><mn>11</mn></mrow></msup></mrow></math> (0.19 ppm).",
   "keywords": [
    "muon: storage ring",
    "muon: secondary beam",
@@ -353,9 +353,37 @@
    "nucleus"
   ]
  },
- "2928642": {
-  "abstract": "A new measurement of the magnetic anomaly <math display=\"inline\"><mrow><msub><mrow><mi>a</mi></mrow><mrow><mi>μ</mi></mrow></msub></mrow></math> of the positive muon is presented based on data taken from 2020 to 2023 by the Muon <math display=\"inline\"><mi>g</mi><mo>-</mo><mn>2</mn></math> Experiment at Fermi National Accelerator Laboratory (FNAL). This dataset contains over 2.5 times the total statistics of our previous results. From the ratio of the precession frequencies for muons and protons in our storage ring magnetic field, together with precisely known ratios of fundamental constants, we determine <math display=\"inline\"><mrow><msub><mrow><mi>a</mi></mrow><mrow><mi>μ</mi></mrow></msub><mo>=</mo><mrow><mn>1</mn><mtext> </mtext><mn>165</mn><mtext> </mtext><mn>920</mn><mtext> </mtext><mn>710</mn><mo stretchy=\"false\">(</mo><mn>162</mn><mo stretchy=\"false\">)</mo><mo>×</mo><msup><mrow><mn>10</mn></mrow><mrow><mo>-</mo><mn>12</mn></mrow></msup></mrow></mrow></math> (139 ppb) for the new datasets, and <math display=\"inline\"><mrow><msub><mrow><mi>a</mi></mrow><mrow><mi>μ</mi></mrow></msub><mo>=</mo><mrow><mn>1</mn><mtext> </mtext><mn>165</mn><mtext> </mtext><mn>920</mn><mtext> </mtext><mn>705</mn><mo stretchy=\"false\">(</mo><mn>148</mn><mo stretchy=\"false\">)</mo><mo>×</mo><msup><mrow><mn>10</mn></mrow><mrow><mo>-</mo><mn>12</mn></mrow></msup></mrow></mrow></math> (127 ppb) when combined with our previous results. The new experimental world average, dominated by the measurements at FNAL, is <math display=\"inline\"><mrow><msub><mrow><mi>a</mi></mrow><mrow><mi>μ</mi></mrow></msub><mo stretchy=\"false\">(</mo><mi>exp</mi><mo stretchy=\"false\">)</mo><mo>=</mo><mrow><mn>1</mn><mtext> </mtext><mn>165</mn><mtext> </mtext><mn>920</mn><mtext> </mtext><mn>715</mn><mo stretchy=\"false\">(</mo><mn>145</mn><mo stretchy=\"false\">)</mo><mo>×</mo><msup><mrow><mn>10</mn></mrow><mrow><mo>-</mo><mn>12</mn></mrow></msup></mrow></mrow></math> (124 ppb). The measurements at FNAL have improved the precision on the world average by over a factor of 4.",
-  "keywords": []
+ "2011844": {
+  "abstract": "The search for a permanent electric dipole moment (EDM) of the muon is an excellent probe for physics beyond the Standard Model of particle physics. We propose the first dedicated muon EDM search employing the frozen-spin technique at the Paul Scherrer Institute (PSI), Switzerland, with a sensitivity of $6 \\times 10^{-23}~e\\!\\cdot\\!\\mathrm{cm}$, improving the current best limit set by the E821 experiment at Brookhaven National Laboratory by more than three orders of magnitude. In preparation for a high precision experiment to measure the muon EDM, several R&D studies have been performed at PSI: the characterisation of a possible beamline to host the experiment for the muon beam injection study and the measurement of the multiple Coulomb scattering of positrons in potential detector materials at low momenta for the positron tracking scheme development. This paper discusses experimental concepts and the current status of the muEDM experiment at PSI.",
+  "keywords": [
+   "muon: electric moment",
+   "momentum: low",
+   "scattering: Coulomb",
+   "muon: secondary beam",
+   "beam: injection",
+   "positron",
+   "sensitivity",
+   "new physics: search for",
+   "experimental methods",
+   "experimental results"
+  ]
+ },
+ "2674348": {
+  "abstract": "Permanent electric dipole moments (EDMs) are excellent probes of physics beyond the Standard Model, especially on new sources of CP violation. The muon EDM has recently attracted significant attention due to discrepancies in the magnetic anomaly of the muon, as well as potential violations of lepton-flavor universality in B-meson decays. At the Paul Scherrer Institute in Switzerland, we have proposed a muon EDM search experiment employing the frozen-spin technique, where a radial electric field is exerted within a storage solenoid to cancel the muon's anomalous spin precession. Consequently, the EDM signal can be inferred from the upstream-downstream asymmetry of the decay positron count versus time. The experiment is planned to take place in two phases, anticipating an annual statistical sensitivity of $3\\times10^{-21}$$e\\cdot$cm for Phase~I, and $6\\times10^{-23}$$e\\cdot$cm for Phase~II. Going beyond $10^{-21}$$e\\cdot$cm will enable us to probe various Standard Model extensions.",
+  "keywords": [
+   "electric dipole moment",
+   "frozen-spin technique",
+   "CP violation",
+   "lepton universality",
+   "muon: electric moment",
+   "B: decay",
+   "dipole: electric",
+   "spin: precession",
+   "CP: violation",
+   "asymmetry: CP",
+   "decay: asymmetry",
+   "new physics: search for"
+  ]
  },
  "2796213": {
   "abstract": "In the J-PARC Muon <math altimg=\"si1.svg\"><mi>g</mi><mo linebreak=\"goodbreak\" linebreakstyle=\"after\">−</mo><mn>2</mn></math>/EDM experiment, the Polarization Monitor plays a crucial role in assessing the quality of muon beams by measuring the spin polarization of muons in the muonium production chamber. This is achieved through analyzing the asymmetry in muon decay, which serves as an indicator of beam quality. The development of this detector system is segmented into three distinct phases. The initial two phases have undergone validation using atmospheric muons. A significant aspect of Phase 1 is the simulation study, which, when integrated with energy deposition calibration derived from experimental data, effectively minimizes background noise caused by muon decays within the scintillator. Furthermore, the construction of the Phase 1 apparatus has been completed, and preliminary data collection has revealed a notable difference in asymmetry between polarized and unpolarized muons. This finding is instrumental in advancing the development of Phases 2 and 3 of the detector system.",
@@ -374,70 +402,12 @@
    "background: noise"
   ]
  },
- "2015643": {
-  "abstract": "The presence of a permanent electric dipole moment in an elementary particle implies Charge-Parity symmetry violation and thus could help explain the matter-antimatter asymmetry observed in our universe. Within the context of the Standard Model, the electric dipole moment of elementary particles is extremely small. However, many Standard Model extensions such as supersymmetry predict large electric dipole moments. Recently, the muon electric dipole moment has become a topic of particular interest due to the tensions in the magnetic anomaly of the muon and the electron, and hints of lepton-flavor universality violation in B-meson decays. In this article, we discuss a dedicated effort at the Paul Scherrer Institute in Switzerland to search for the muon electric dipole moment using a 3-T compact solenoid storage ring and the frozen-spin technique. This technique could reach a sensitivity of 6 10^{-23} e after a year of data taking with the p=125 MeV/c muon beam at the Paul Scherrer Institute. This allows us to probe various Standard Model extensions not reachable by traditional searches using muon g-2 storage rings.",
-  "keywords": [
-   "muon: electric moment",
-   "B: decay",
-   "lepton: flavor: universality",
-   "universality: violation",
-   "muon: beam",
-   "dipole: electric",
-   "CP: violation",
-   "tension",
-   "sensitivity",
-   "electron: magnetic moment",
-   "muon: magnetic moment",
-   "asymmetry: CP"
-  ]
- },
- "2011844": {
-  "abstract": "The search for a permanent electric dipole moment (EDM) of the muon is an excellent probe for physics beyond the Standard Model of particle physics. We propose the first dedicated muon EDM search employing the frozen-spin technique at the Paul Scherrer Institute (PSI), Switzerland, with a sensitivity of 6 10^{-23}~e\\! \\! {cm}, improving the current best limit set by the E821 experiment at Brookhaven National Laboratory by more than three orders of magnitude. In preparation for a high precision experiment to measure the muon EDM, several R&D studies have been performed at PSI: the characterisation of a possible beamline to host the experiment for the muon beam injection study and the measurement of the multiple Coulomb scattering of positrons in potential detector materials at low momenta for the positron tracking scheme development. This paper discusses experimental concepts and the current status of the muEDM experiment at PSI.",
-  "keywords": [
-   "muon: electric moment",
-   "momentum: low",
-   "scattering: Coulomb",
-   "muon: secondary beam",
-   "beam: injection",
-   "positron",
-   "sensitivity",
-   "new physics: search for",
-   "experimental methods",
-   "experimental results"
-  ]
+ "3203792": {
+  "abstract": "Muography exploits the penetrating power of muons to image the interior of large dense objects, but cosmic-ray sources provide only ~1 {cm}^{-2}{min}^{-1} predominantly from above, limiting imaging speed and accessible geometries. Electron-driven muon production has recently been demonstrated with laser-wakefield accelerators, but shot-to-shot fluctuations hinder systematic studies required for quantitative accelerator muography. Using Geant4 Monte Carlo simulations, we model the full experimental setup at Shaft 2 of the Shanghai High repetition rate XFEL and Extreme light facility (SHINE), from a 3 GeV, 50 pC, 50 Hz commissioning electron beam interacting with a muon target through 25 m of beamline structures and a 3 m-thick concrete isolation wall. Approximately 0.28 effective reconstructed single-muon events per bunch, with residual kinetic energies below 1.2 GeV after traversing the wall, reach the downstream muography test area (~14 s^{-1}). The wall absorbs most charged background particles below ~1 GeV, while residual neutrons can be discriminated by their characteristic detector energy deposition. Scattering-tomography simulations show that $3\\times 10^{5}$ effective muon events, accumulated in approximately 6 h at the commissioning rate, yield a Structural Similarity Index above 0.9, demonstrating the feasibility of quantitative accelerator-based muography using SHINE's electron-driven GeV-scale forward muon source. At the 8 GeV/50 kHz benchmark, the projected muon intensity exceeds $5 \\times 10^{4}$ μ/s, corresponding conservatively to approximately one muon per bunch at the detector. This exceeds the cosmic-ray flux by orders of magnitude, while SHINE's superconducting linac provides a stable, controlled platform for developing electron-on-target muography.",
+  "keywords": []
  },
  "2973398": {
-  "abstract": "High-intensity muon beams could enable a muonium-based axion search through resonant quantum transitions between hyperfine states. Combining theoretical calculations with simulation results, we demonstrate that such a muonium-based experimental approach could complement and tighten constraints on the axion-muon coupling beyond existing limits from the muon <math display=\"inline\"><mi>g</mi><mo>-</mo><mn>2</mn></math> measurement over the axion mass range of <math display=\"inline\"><mrow><mn>18</mn><mi>–</mi><mn>130</mn><mtext> </mtext><mtext> </mtext><mi mathvariant=\"normal\">μ</mi><mi>eV</mi></mrow></math>. These results establish a new spectroscopic channel in muonium that enables searches for axion and axionlike particle dark matter.",
-  "keywords": []
- },
- "2811015": {
-  "abstract": "This paper presents the design and optimization of a lutetium yttrium oxyorthosilicate (LYSO) crystal electromagnetic calorimeter (ECAL) for the DarkSHINE experiment, which aims to identify dark photons as potential mediators of dark forces. The ECAL design was evaluated through comprehensive simulations, focusing on optimizing dimensions, material selection, energy distribution, and energy resolution. The configuration consisted of 21 21 11 LYSO crystals, each measuring 2.5 cm 2.5 cm 4 cm, arranged in a staggered layout to enhance signal detection efficiency. A 4 GeV energy dynamic range was established to ensure accurate energy measurements without saturation, which is essential for background rejection and signal identification. A detailed digitization model was developed to simulate scintillation, silicon photomultiplier, and analog-to-digital converter behaviors, providing a realistic representation of the detector’s performance. Additionally, the study assessed radiation damage in the ECAL region, emphasizing the importance of using radiation-resistant scintillators and silicon sensors.",
-  "keywords": [
-   "Electromagnetic calorimeter",
-   "LYSO",
-   "Scintillator detector",
-   "Light dark matter",
-   "Dark photon"
-  ]
- },
- "2874447": {
-  "abstract": "Electric dipole moments (EDM) of fundamental particles inherently violate time-reversal (T) and the combined charge-conjugation and parity symmetry (CP). We aim to measure the EDM of the muon using the frozen-spin technique within a compact storage trap. This method exploits the high effective electric field, E {165\\, {MV/m}}, experienced in the rest frame of the muon with a momentum of about {23\\, {MeV/}}c when it passes through a solenoidal magnetic field of | {B}|={2.5\\, {T}}. In this paper, we outline the fundamental considerations for a muon EDM search and present a conceptual design for a demonstration experiment to be conducted at secondary muon beamlines of the Paul Scherrer Institute in Switzerland. In Phase I, with an anticipated data acquisition period of 200 days, the expected sensitivity to a muon EDM is $ (d) {4E-21\\, {{ {e}}\\! \\! {cm}}}$. In a subsequent phase, Phase II, we propose to improve the sensitivity to $ (d) {6E-23\\, {{ {e}}\\! \\! {cm}}}$ using a dedicated instrument installed on a different beamline that produces muons of momentum 125 {MeV}\\!/\\!{ c}.",
-  "keywords": []
- },
- "2896777": {
-  "abstract": "A high-repetition-rate pulsed muon source operating at approximately 50 kHz holds the potential to improve the sensitivity of various particle physics and materials science experiments involving muons. In this article, we propose utilizing the high-repetition-rate pulsed electron beam at the SHINE facility to generate a surface muon beam. Our simulation studies indicate that an 8 GeV, 100 pC charge pulsed electron beam impinging on a copper target can produce up to <math display=\"inline\"><mn>2</mn><mo>×</mo><msup><mn>10</mn><mn>3</mn></msup></math> muons per pulse. Beamline optimization results demonstrate that approximately 60 surface muons per electron bunch can be efficiently transported to the end of the beamline. This translates to a surface muon rate of <math display=\"inline\"><mrow><mn>3</mn><mo>×</mo><msup><mrow><mn>10</mn></mrow><mrow><mn>6</mn></mrow></msup><mtext> </mtext><mtext> </mtext><msup><mrow><mi mathvariant=\"normal\">μ</mi></mrow><mrow><mo>+</mo></mrow></msup><mo>/</mo><mi mathvariant=\"normal\">s</mi></mrow></math> when the pulsed electron beam is operated at 50 kHz, which is comparable to existing muon facilities. This high-repetition-rate pulsed muon beam, with its ideal time structure, represents a unique and pioneering effort once constructed. It serves as a model for building cost-effective muon sources at existing electron machines with GeV electron energies. In addition to the typical challenges encountered in conventional muon beamlines, such as the installation and construction of the target station and beamline, the removal of substantial quantities of positrons is also a major challenge. A potential solution to this issue is also discussed.",
-  "keywords": []
- },
- "3190062": {
-  "abstract": "A limit on the permanent electric dipole moment (EDM) of the positive muon is presented based on data from the Fermilab Muon g-2 Experiment taken between 2019 and 2020. The tracking detectors measure the average vertical decay angle of positrons from muon decays, enabling a search for an interaction between a possible muon EDM d_μ and the lab-frame magnetic field. The result, $d_μ= (-0.35 0.19_{ {stat}} 0.34_{ {sys}}) 10^{-19}~e $cm, is consistent with zero and sets a new direct limit on the muon EDM of |d_μ|<1.10 10^{-19}~e at the 95 percent confidence level.",
-  "keywords": []
- },
- "3169190": {
-  "abstract": "This report details the final measurement of the muon magnetic anomaly, a_μ=(g_μ-2)/2, by the Muon g-2 experiment at Fermi National Accelerator Laboratory (FNAL), using positive muons collected from 2021 to 2023. The value of a_μ is determined from the ratio of the anomalous spin precession frequency to the shielded proton precession frequency in the muon storage ring magnetic field, combined with external constants known at the 22 ppb level. The new dataset, containing over 2.5 times the statistics of our previous results, yields a_μ=116\\,592\\,0710(162) 10^{-12} (139 ppb), or a_μ=116\\,592\\,0705(148) 10^{-12} (127 ppb) when combined with our previous results. The new experimental world average, dominated by the measurements at FNAL, is $a_μ^{ {Exp}}=116\\,592\\,0715(145) 10^{-12}$ (124 ppb).",
-  "keywords": []
- },
- "2148087": {
-  "abstract": "We present an apparatus for detection of cyclotron radiation yielding a frequency-based <math display=\"inline\"><msup><mi>β</mi><mo>±</mo></msup></math> kinetic energy determination in the 5 keV to 2.1 MeV range, characteristic of nuclear <math display=\"inline\"><mi>β</mi></math> decays. The cyclotron frequency of the radiating <math display=\"inline\"><mi>β</mi></math> particles in a magnetic field is used to determine the <math display=\"inline\"><mi>β</mi></math> energy precisely. Our work establishes the foundation to apply the cyclotron radiation emission spectroscopy (CRES) technique, developed by the Project 8 Collaboration, far beyond the 18-keV tritium endpoint region. We report initial measurements of <math display=\"inline\"><msup><mi>β</mi><mo>-</mo></msup></math>’s from <math display=\"inline\"><mrow><mmultiscripts><mrow><mi>He</mi></mrow><mprescripts/><none/><mrow><mn>6</mn></mrow></mmultiscripts></mrow></math> and <math display=\"inline\"><msup><mi>β</mi><mo>+</mo></msup></math>’s from <math display=\"inline\"><mrow><mmultiscripts><mrow><mi>Ne</mi></mrow><mprescripts/><none/><mrow><mn>19</mn></mrow></mmultiscripts></mrow></math> decays to demonstrate the broadband response of our detection system and assess potential systematic uncertainties for <math display=\"inline\"><mi>β</mi></math> spectroscopy over the full (MeV) energy range. To our knowledge, this is the first direct observation of cyclotron radiation from individual highly relativistic <math display=\"inline\"><mi>β</mi></math>’s in a waveguide. This work establishes the application of CRES to a variety of nuclei, opening its reach to searches for new physics beyond the TeV scale via precision <math display=\"inline\"><mi>β</mi></math>-decay measurements.",
+  "abstract": "High-intensity muon beams could enable a muonium-based axion search through resonant quantum transitions between hyperfine states. Combining theoretical calculations with simulation results, we demonstrate that such a muonium-based experimental approach could complement and tighten constraints on the axion-muon coupling beyond existing limits from the muon <math display=\"inline\"><mi>g</mi><mo>-</mo><mn>2</mn></math> measurement over the axion mass range of <math display=\"inline\"><mrow><mn>18</mn><mi>–</mi><mn>130</mn><mtext> </mtext><mtext> </mtext><mi mathvariant=\"normal\">μ</mi><mi>eV</mi></mrow></math>. These results establish a new spectroscopic channel in muonium that enables searches for axion and axionlike particle dark matter.",
   "keywords": []
  },
  "3209454": {
@@ -449,25 +419,51 @@
    "muon spin spectroscopy"
   ]
  },
- "1713858": {
-  "abstract": "Experiments with muons (μ^{+}) and muonium atoms (μ^{+}e^{−}) offer several promising possibilities for testing fundamental symmetries. Examples of such experiments include the search for a muon electric dipole moment, measurement of the muon g − 2 and experiments with muonium from laser spectroscopy to gravity experiments. These experiments require high quality muon beams with small transverse size and high intensity at low energy. At the Paul Scherrer Institute, Switzerland, we are developing a novel device that reduces the phase space of a standard μ^{+} beam by a factor of 10^{10} with 10^{− 3} efficiency. The phase space compression is achieved by stopping a standard μ^{+} beam in cryogenic helium gas. The stopped μ^{+} are manipulated into a small spot using complex electric and magnetic fields in combination with gas density gradients. From there, the muons are extracted into the vacuum and into a field-free region. Various aspects of this compression scheme have been demonstrated. In this article the current status will be reported.",
+ "2874447": {
+  "abstract": "Electric dipole moments (EDM) of fundamental particles inherently violate time-reversal (T) and the combined charge-conjugation and parity symmetry (CP). We aim to measure the EDM of the muon using the frozen-spin technique within a compact storage trap. This method exploits the high effective electric field, $E\\approx {165\\,\\mathrm{MV/m}}$, experienced in the rest frame of the muon with a momentum of about ${23\\,\\mathrm{MeV/}}c$ when it passes through a solenoidal magnetic field of $|\\vec {B}|={2.5\\,\\textrm{T}}$. In this paper, we outline the fundamental considerations for a muon EDM search and present a conceptual design for a demonstration experiment to be conducted at secondary muon beamlines of the Paul Scherrer Institute in Switzerland. In Phase I, with an anticipated data acquisition period of 200 days, the expected sensitivity to a muon EDM is $\\sigma (d)\\le {4E-21\\,\\mathrm{{\\text {e}}\\!\\cdot \\!\\text {cm}}}$. In a subsequent phase, Phase II, we propose to improve the sensitivity to $\\sigma (d)\\le {6E-23\\,\\mathrm{{\\text {e}}\\!\\cdot \\!\\text {cm}}}$ using a dedicated instrument installed on a different beamline that produces muons of momentum 125 $\\textrm{MeV}\\!/\\!{ c}$.",
+  "keywords": []
+ },
+ "2811015": {
+  "abstract": "This paper presents the design and optimization of a lutetium yttrium oxyorthosilicate (LYSO) crystal electromagnetic calorimeter (ECAL) for the DarkSHINE experiment, which aims to identify dark photons as potential mediators of dark forces. The ECAL design was evaluated through comprehensive simulations, focusing on optimizing dimensions, material selection, energy distribution, and energy resolution. The configuration consisted of 21$\\times $21$\\times $11 LYSO crystals, each measuring 2.5 cm$\\times $2.5 cm$\\times $4 cm, arranged in a staggered layout to enhance signal detection efficiency. A 4 GeV energy dynamic range was established to ensure accurate energy measurements without saturation, which is essential for background rejection and signal identification. A detailed digitization model was developed to simulate scintillation, silicon photomultiplier, and analog-to-digital converter behaviors, providing a realistic representation of the detector’s performance. Additionally, the study assessed radiation damage in the ECAL region, emphasizing the importance of using radiation-resistant scintillators and silicon sensors.",
   "keywords": [
-   "Muon",
-   "Muon beam",
-   "Phase space cooling",
-   "Drift velocity",
-   "activity report",
-   "muon+: beam",
-   "muon+: particle source",
-   "muon+",
-   "beam cooling",
-   "gas: density",
-   "helium: gas",
-   "phase space"
+   "Electromagnetic calorimeter",
+   "LYSO",
+   "Scintillator detector",
+   "Light dark matter",
+   "Dark photon"
+  ]
+ },
+ "3169190": {
+  "abstract": "This report details the final measurement of the muon magnetic anomaly, $a_μ=(g_μ-2)/2$, by the Muon $g-2$ experiment at Fermi National Accelerator Laboratory (FNAL), using positive muons collected from 2021 to 2023. The value of $a_μ$ is determined from the ratio of the anomalous spin precession frequency to the shielded proton precession frequency in the muon storage ring magnetic field, combined with external constants known at the 22 ppb level. The new dataset, containing over $2.5$ times the statistics of our previous results, yields $a_μ=116\\,592\\,0710(162)\\times 10^{-12}$ (139 ppb), or $a_μ=116\\,592\\,0705(148)\\times 10^{-12}$ (127 ppb) when combined with our previous results. The new experimental world average, dominated by the measurements at FNAL, is $a_μ^{\\text{Exp}}=116\\,592\\,0715(145)\\times 10^{-12}$ (124 ppb).",
+  "keywords": []
+ },
+ "3190062": {
+  "abstract": "A limit on the permanent electric dipole moment (EDM) of the positive muon is presented based on data from the Fermilab Muon g-2 Experiment taken between 2019 and 2020. The tracking detectors measure the average vertical decay angle of positrons from muon decays, enabling a search for an interaction between a possible muon EDM $d_μ$ and the lab-frame magnetic field. The result, $d_μ= (-0.35 \\pm 0.19_{\\mathrm{stat}} \\pm 0.34_{\\mathrm{sys}}) \\times10^{-19}~e\\cdot$cm, is consistent with zero and sets a new direct limit on the muon EDM of $|d_μ|<1.10\\times10^{-19}~e\\cdot$cm at the 95 percent confidence level.",
+  "keywords": []
+ },
+ "2896777": {
+  "abstract": "A high-repetition-rate pulsed muon source operating at approximately 50 kHz holds the potential to improve the sensitivity of various particle physics and materials science experiments involving muons. In this article, we propose utilizing the high-repetition-rate pulsed electron beam at the SHINE facility to generate a surface muon beam. Our simulation studies indicate that an 8 GeV, 100 pC charge pulsed electron beam impinging on a copper target can produce up to <math display=\"inline\"><mn>2</mn><mo>×</mo><msup><mn>10</mn><mn>3</mn></msup></math> muons per pulse. Beamline optimization results demonstrate that approximately 60 surface muons per electron bunch can be efficiently transported to the end of the beamline. This translates to a surface muon rate of <math display=\"inline\"><mrow><mn>3</mn><mo>×</mo><msup><mrow><mn>10</mn></mrow><mrow><mn>6</mn></mrow></msup><mtext> </mtext><mtext> </mtext><msup><mrow><mi mathvariant=\"normal\">μ</mi></mrow><mrow><mo>+</mo></mrow></msup><mo>/</mo><mi mathvariant=\"normal\">s</mi></mrow></math> when the pulsed electron beam is operated at 50 kHz, which is comparable to existing muon facilities. This high-repetition-rate pulsed muon beam, with its ideal time structure, represents a unique and pioneering effort once constructed. It serves as a model for building cost-effective muon sources at existing electron machines with GeV electron energies. In addition to the typical challenges encountered in conventional muon beamlines, such as the installation and construction of the target station and beamline, the removal of substantial quantities of positrons is also a major challenge. A potential solution to this issue is also discussed.",
+  "keywords": []
+ },
+ "2148087": {
+  "abstract": "We present an apparatus for detection of cyclotron radiation yielding a frequency-based <math display=\"inline\"><msup><mi>β</mi><mo>±</mo></msup></math> kinetic energy determination in the 5 keV to 2.1 MeV range, characteristic of nuclear <math display=\"inline\"><mi>β</mi></math> decays. The cyclotron frequency of the radiating <math display=\"inline\"><mi>β</mi></math> particles in a magnetic field is used to determine the <math display=\"inline\"><mi>β</mi></math> energy precisely. Our work establishes the foundation to apply the cyclotron radiation emission spectroscopy (CRES) technique, developed by the Project 8 Collaboration, far beyond the 18-keV tritium endpoint region. We report initial measurements of <math display=\"inline\"><msup><mi>β</mi><mo>-</mo></msup></math>’s from <math display=\"inline\"><mrow><mmultiscripts><mrow><mi>He</mi></mrow><mprescripts/><none/><mrow><mn>6</mn></mrow></mmultiscripts></mrow></math> and <math display=\"inline\"><msup><mi>β</mi><mo>+</mo></msup></math>’s from <math display=\"inline\"><mrow><mmultiscripts><mrow><mi>Ne</mi></mrow><mprescripts/><none/><mrow><mn>19</mn></mrow></mmultiscripts></mrow></math> decays to demonstrate the broadband response of our detection system and assess potential systematic uncertainties for <math display=\"inline\"><mi>β</mi></math> spectroscopy over the full (MeV) energy range. To our knowledge, this is the first direct observation of cyclotron radiation from individual highly relativistic <math display=\"inline\"><mi>β</mi></math>’s in a waveguide. This work establishes the application of CRES to a variety of nuclei, opening its reach to searches for new physics beyond the TeV scale via precision <math display=\"inline\"><mi>β</mi></math>-decay measurements.",
+  "keywords": []
+ },
+ "1754786": {
+  "abstract": "",
+  "keywords": [
+   "MUONS (PARTICLE PHYSICS)",
+   "MUONIUM (ATOMIC PHYSICS)",
+   "PRODUCTION OF ELEMENTARY PARTICLES",
+   "MUONIUM (ATOMPHYSIK)",
+   "STRAHLEN + STRAHLENBÜNDEL VON ELEMENTARTEILCHEN (TEILCHENPHYSIK)",
+   "ELEMENTARY-PARTICLE BEAMS (PARTICLE PHYSICS)",
+   "ERZEUGUNG VON ELEMENTARTEILCHEN",
+   "MYONEN (TEILCHENPHYSIK)"
   ]
  },
  "1788475": {
-  "abstract": "We demonstrate efficient transverse compression of a 12.5 MeV/c muon beam stopped in a helium gas target featuring a vertical density gradient and crossed electric and magnetic fields. The muon stop distribution extending vertically over 14 mm was reduced to a 0.25 mm size (RMS) within 3.5 . The simulation including cross sections for low-energy ^+- {He} elastic and charge exchange ( ^+ muonium) collisions describes the measurements well. By combining the transverse compression stage with a previously demonstrated longitudinal compression stage, we can improve the phase space density of a ^+ beam by a factor of 10^{10} with 10^{-3} efficiency.",
+  "abstract": "We demonstrate efficient transverse compression of a 12.5 MeV/c muon beam stopped in a helium gas target featuring a vertical density gradient and crossed electric and magnetic fields. The muon stop distribution extending vertically over 14 mm was reduced to a 0.25 mm size (RMS) within 3.5 $\\mu$s. The simulation including cross sections for low-energy $\\mu^+$-$\\text{He}$ elastic and charge exchange ($\\mu^+\\leftrightarrow $ muonium) collisions describes the measurements well. By combining the transverse compression stage with a previously demonstrated longitudinal compression stage, we can improve the phase space density of a $\\mu^+ $ beam by a factor of $ 10^{10} $ with $ 10^{-3} $ efficiency.",
   "keywords": [
    "Plasma and Beam Physics"
   ]
@@ -484,21 +480,34 @@
    "muon: decay"
   ]
  },
- "1754786": {
-  "abstract": "",
+ "1713858": {
+  "abstract": "Experiments with muons (μ$^{+}$) and muonium atoms (μ$^{+}$e$^{−}$) offer several promising possibilities for testing fundamental symmetries. Examples of such experiments include the search for a muon electric dipole moment, measurement of the muon g − 2 and experiments with muonium from laser spectroscopy to gravity experiments. These experiments require high quality muon beams with small transverse size and high intensity at low energy. At the Paul Scherrer Institute, Switzerland, we are developing a novel device that reduces the phase space of a standard μ$^{+}$ beam by a factor of 10$^{10}$ with 10$^{− 3}$ efficiency. The phase space compression is achieved by stopping a standard μ$^{+}$ beam in cryogenic helium gas. The stopped μ$^{+}$ are manipulated into a small spot using complex electric and magnetic fields in combination with gas density gradients. From there, the muons are extracted into the vacuum and into a field-free region. Various aspects of this compression scheme have been demonstrated. In this article the current status will be reported.",
   "keywords": [
-   "MUONS (PARTICLE PHYSICS)",
-   "MUONIUM (ATOMIC PHYSICS)",
-   "PRODUCTION OF ELEMENTARY PARTICLES",
-   "MUONIUM (ATOMPHYSIK)",
-   "STRAHLEN + STRAHLENBÜNDEL VON ELEMENTARTEILCHEN (TEILCHENPHYSIK)",
-   "ELEMENTARY-PARTICLE BEAMS (PARTICLE PHYSICS)",
-   "ERZEUGUNG VON ELEMENTARTEILCHEN",
-   "MYONEN (TEILCHENPHYSIK)"
+   "Muon",
+   "Muon beam",
+   "Phase space cooling",
+   "Drift velocity",
+   "activity report",
+   "muon+: beam",
+   "muon+: particle source",
+   "muon+",
+   "beam cooling",
+   "gas: density",
+   "helium: gas",
+   "phase space"
+  ]
+ },
+ "1280965": {
+  "abstract": "<p>A <inline-formula><mml:math display=\"inline\"><mml:mrow><mml:mn>10</mml:mn><mml:mtext> </mml:mtext><mml:mtext> </mml:mtext><mml:mi>MeV</mml:mi><mml:mo>/</mml:mo><mml:mi>c</mml:mi></mml:mrow></mml:math></inline-formula> positive muon beam was stopped in helium gas of a few mbar in a magnetic field of 5 T. The muon “swarm” has been efficiently compressed from a length of 16 cm down to a few mm along the magnetic field axis (longitudinal compression) using electrostatic fields. The simulation reproduces the low energy interactions of slow muons in helium gas. Phase space compression occurs on the order of microseconds, compatible with the muon lifetime of <inline-formula><mml:math display=\"inline\"><mml:mrow><mml:mn>2</mml:mn><mml:mtext> </mml:mtext><mml:mtext> </mml:mtext><mml:mi>μ</mml:mi><mml:mi mathvariant=\"normal\">s</mml:mi></mml:mrow></mml:math></inline-formula>. This paves the way for the preparation of a high-quality low-energy muon beam, with an increase in phase space density relative to a standard surface muon beam of <inline-formula><mml:math display=\"inline\"><mml:msup><mml:mn>10</mml:mn><mml:mn>7</mml:mn></mml:msup></mml:math></inline-formula>. The achievable phase space compression by using only the longitudinal stage presented here is of the order of <inline-formula><mml:math display=\"inline\"><mml:msup><mml:mn>10</mml:mn><mml:mn>4</mml:mn></mml:msup></mml:math></inline-formula>.</p>",
+  "keywords": [
+   "29.27.-a",
+   "14.60.Ef",
+   "29.38.Db",
+   "82.20.Tr"
   ]
  },
  "1631981": {
-  "abstract": "The Muon g-2 experiment at Fermilab, with the aim to measure the muon anomalous magnetic moment to an unprecedented level of 140~ppb, has started beam and detector commissioning in Summer 2017. To deal with incoming data projected to be around tens of petabytes, a robust data reconstruction and analysis chain based on Fermilab's {art} event-processing framework is developed. Herein, I report the current status of the framework, together with its novel features such as multi-threaded algorithms for online data quality monitor (DQM) and fast-turnaround operation (nearline). Performance of the framework during the commissioning run is also discussed.",
+  "abstract": "The Muon g-2 experiment at Fermilab, with the aim to measure the muon anomalous magnetic moment to an unprecedented level of 140~ppb, has started beam and detector commissioning in Summer 2017. To deal with incoming data projected to be around tens of petabytes, a robust data reconstruction and analysis chain based on Fermilab's \\textit{art} event-processing framework is developed. Herein, I report the current status of the framework, together with its novel features such as multi-threaded algorithms for online data quality monitor (DQM) and fast-turnaround operation (nearline). Performance of the framework during the commissioning run is also discussed.",
   "keywords": [
    "activity report",
    "muon: magnetic moment",
@@ -510,17 +519,8 @@
    "programming"
   ]
  },
- "1280965": {
-  "abstract": "<p>A <inline-formula><mml:math display=\"inline\"><mml:mrow><mml:mn>10</mml:mn><mml:mtext> </mml:mtext><mml:mtext> </mml:mtext><mml:mi>MeV</mml:mi><mml:mo>/</mml:mo><mml:mi>c</mml:mi></mml:mrow></mml:math></inline-formula> positive muon beam was stopped in helium gas of a few mbar in a magnetic field of 5 T. The muon “swarm” has been efficiently compressed from a length of 16 cm down to a few mm along the magnetic field axis (longitudinal compression) using electrostatic fields. The simulation reproduces the low energy interactions of slow muons in helium gas. Phase space compression occurs on the order of microseconds, compatible with the muon lifetime of <inline-formula><mml:math display=\"inline\"><mml:mrow><mml:mn>2</mml:mn><mml:mtext> </mml:mtext><mml:mtext> </mml:mtext><mml:mi>μ</mml:mi><mml:mi mathvariant=\"normal\">s</mml:mi></mml:mrow></mml:math></inline-formula>. This paves the way for the preparation of a high-quality low-energy muon beam, with an increase in phase space density relative to a standard surface muon beam of <inline-formula><mml:math display=\"inline\"><mml:msup><mml:mn>10</mml:mn><mml:mn>7</mml:mn></mml:msup></mml:math></inline-formula>. The achievable phase space compression by using only the longitudinal stage presented here is of the order of <inline-formula><mml:math display=\"inline\"><mml:msup><mml:mn>10</mml:mn><mml:mn>4</mml:mn></mml:msup></mml:math></inline-formula>.</p>",
-  "keywords": [
-   "29.27.-a",
-   "14.60.Ef",
-   "29.38.Db",
-   "82.20.Tr"
-  ]
- },
  "1734415": {
-  "abstract": "A single calorimeter station for the Muon g−2 experiment at Fermilab includes the following subsystems: a 54-element array of PbF 2 Cherenkov crystals read out by large-area SiPMs, bias and slow-control electronics, a suite of 800 MSPS waveform digitizers, a clock and control distribution network, a gain calibration and monitoring system, and a GPU-based front-end which is read out through a MIDAS data acquisition environment. The entire system performance was evaluated using 2.5–5 GeV electrons at the End Station Test Beam at SLAC. This paper includes a description of the individual subsystems and the results of measurements of the energy response and resolution, energy-scale stability, timing resolution, and spatial uniformity. All measured performances meet or exceed the g−2 experimental requirements. Based on the success of the tests, the complete production of the required 24 calorimeter stations has been made and installation into the main experiment is complete. Furthermore, the calorimeter response measurements reported here informed the design of the reconstruction algorithms that are now employed in the running g−2 experiment.",
+  "abstract": "A single calorimeter station for the Muon g−2  experiment at Fermilab includes the following subsystems: a 54-element array of PbF 2  Cherenkov crystals read out by large-area SiPMs, bias and slow-control electronics, a suite of 800 MSPS waveform digitizers, a clock and control distribution network, a gain calibration and monitoring system, and a GPU-based front-end which is read out through a MIDAS data acquisition environment. The entire system performance was evaluated using 2.5–5 GeV electrons at the End Station Test Beam at SLAC. This paper includes a description of the individual subsystems and the results of measurements of the energy response and resolution, energy-scale stability, timing resolution, and spatial uniformity. All measured performances meet or exceed the g−2  experimental requirements. Based on the success of the tests, the complete production of the required 24 calorimeter stations has been made and installation into the main experiment is complete. Furthermore, the calorimeter response measurements reported here informed the design of the reconstruction algorithms that are now employed in the running g−2  experiment.",
   "keywords": [
    "Lead-fluoride calorimeter",
    "Silicon photomultiplier",
@@ -537,7 +537,7 @@
   ]
  },
  "1082446": {
-  "abstract": "We report on Muonium (Mu) emission into vacuum following { }+ implantation in mesoporous thin SiO2 films. We obtain a yield of Mu into vacuum of (38 4)% at 250 K temperature and (20 4)% at 100 K for 5 keV { }+ implantation energy. From the implantation energy dependence of the Mu vacuum yield we determine the Mu diffusion constants in these films: D250KMu = (1.6 0.1) 10-4 cm2/s and D100KMu = (4.2 0.5) 10-5 cm2/s. Describing the diffusion process as quantum mechanical tunneling from pore-to-pore, we reproduce the measured temperature dependence T^3/2 of the diffusion constant. We extract a potential barrier of (-0.3 0.1) eV which is consistent with our computed Mu work-function in SiO2 of [-0.3,-0.9] eV. The high Mu vacuum yield even at low temperatures represents an important step towards next generation Mu spectroscopy experiments.",
+  "abstract": "We report on Muonium (Mu) emission into vacuum following {\\mu}+ implantation in mesoporous thin SiO2 films. We obtain a yield of Mu into vacuum of (38\\pm4)% at 250 K temperature and (20\\pm4)% at 100 K for 5 keV {\\mu}+ implantation energy. From the implantation energy dependence of the Mu vacuum yield we determine the Mu diffusion constants in these films: D250KMu = (1.6 \\pm 0.1) \\times 10-4 cm2/s and D100KMu = (4.2\\pm0.5)\\times10-5 cm2/s. Describing the diffusion process as quantum mechanical tunneling from pore-to-pore, we reproduce the measured temperature dependence T^3/2 of the diffusion constant. We extract a potential barrier of (-0.3 \\pm 0.1) eV which is consistent with our computed Mu work-function in SiO2 of [-0.3,-0.9] eV. The high Mu vacuum yield even at low temperatures represents an important step towards next generation Mu spectroscopy experiments.",
   "keywords": [
    "temperature: low",
    "diffusion",
@@ -547,7 +547,7 @@
   ]
  },
  "1740748": {
-  "abstract": "The Muon g-2 experiment, E989, is currently taking data at Fermilab with the aim of reducing the experimental error on the muon anomaly by a factor of four and possibly clarifying the current discrepancy with the theoretical prediction. A central component of this four-fold improvement in precision is the laser calibration system of the calorimeters, which has to monitor the gain variations of the photo-sensors with a 0.04\\% precision on the short-term ( 1\\,ms). This is about one order of magnitude better than what has ever been achieved for the calibration of a particle physics calorimeter. The system is designed to monitor also long-term gain variations, mostly due to temperature effects, with a precision below the per mille level. This article reviews the design, the implementation and the performance of the Muon g-2 laser calibration system, showing how the experimental requirements have been met.",
+  "abstract": "The Muon $g-2$ experiment, E989, is currently taking data at Fermilab with the aim of reducing the experimental error on the muon anomaly by a factor of four and possibly clarifying the current discrepancy with the theoretical prediction. A central component of this four-fold improvement in precision is the laser calibration system of the calorimeters, which has to monitor the gain variations of the photo-sensors with a 0.04\\% precision on the short-term ($\\sim 1\\,$ms). This is about one order of magnitude better than what has ever been achieved for the calibration of a particle physics calorimeter. The system is designed to monitor also long-term gain variations, mostly due to temperature effects, with a precision below the per mille level. This article reviews the design, the implementation and the performance of the Muon $g-2$ laser calibration system, showing how the experimental requirements have been met.",
   "keywords": [
    "temperature: effect",
    "calibration: optical",
@@ -561,41 +561,6 @@
    "detector: alignment",
    "detector: calibration",
    "detector: monitoring"
-  ]
- },
- "1374936": {
-  "abstract": "The PSI low-energy spectrometer is an instrument dedicated to muon spin rotation and relaxation measurements. Knowledge of the muon beam parameters such as spatial, kinetic energy and arrival-time distributions at the sample position are important ingredients to analyze the spectra. We present here the measured energy losses in the thin carbon foil of the muon start detector deduced from time-of-flight measurements. Muonium formation in the thin carbon foil (10 nm thickness) of the muon start detector also affect the measurable decay asymmetry and therefore need to be accounted for. Muonium formation and energy losses in the start detector, whose relevance increase with decreasing muon implantation energy (<10 keV), have been implemented in Geant4 Monte Carlo simulation to reproduce the measured time-of-flight spectra. Simulated and measured time-of-flight and beam spot agrees only if a small fraction of so called \"unmoderated\" muons which contaminate the mono-energetic muon beam of the spectrometer is introduced. Moreover the sensitivity of the beam size and related upstream-downstream asymmetry for a specially shaped \"nose\" sample plate has been studied for various beam line settings, which is of relevance for the study of thermal muonium emission into vacuum from mesoporous silica at cryogenic temperatures.",
-  "keywords": [
-   "Muon spectrometers",
-   "Instrumentation  for particle  accelerators  and storage  rings - low energy (linear accelerators,  cyclotrons,  electrostatic  accelerators)",
-   "Targets (spallation  source targets,  radioisotope  production,  neutrino  and  muon  sources)",
-   "Instrumentation  and  methods  for time-of-flight (TOF) spectroscopy"
-  ]
- },
- "1704404": {
-  "abstract": "A novel device to compress the phase space of a muon beam by a factor of 10^{10} with a 10^{-3} efficiency is under development. A surface muon beam is stopped in a helium gas target consisting of several compression stages, wherein strong electric and magnetic fields are applied. The spatial extent of the stopped muon swarm is decreased by means of these fields until muons with eV energy are extracted into vacuum through a small orifice. It was observed that a 20 cm long muon stop distribution can be compressed in the longitudinal direction to a sub-mm extent within 2~ {s} . Additionally, a drift perpendicular to the magnetic field of the compressed low-energy muon swarm was successfully demonstrated, paving the way towards extraction from the gas and re-acceleration of the muons.",
-  "keywords": [
-   "muon: beam",
-   "helium: target",
-   "helium: gas",
-   "magnetic field",
-   "electric field",
-   "muon",
-   "phase space",
-   "beam emittance",
-   "muon: spatial distribution"
-  ]
- },
- "1471280": {
-  "abstract": "We report the achievement of spatial confinement of muonium atoms (the bound state of a positive muon and an electron). Muonium emitted into vacuum from mesoporous silica reflects between two SiO_2 confining surfaces separated by 1 mm. From the data, one can extract that the reflection probability on the confining surfaces kept at 100 K is about 90% and the reflection process is well described by a cosine law. This technique enables new experiments with this exotic atomic system and is a very important step towards a measurement of the 1S-2S transition frequency using continuous wave laser spectroscopy.",
-  "keywords": [
-   "muonium",
-   "confinement",
-   "silicon: oxygen",
-   "laser",
-   "spectrometer",
-   "measurement methods",
-   "atom: excited state"
   ]
  },
  "1295566": {
@@ -615,8 +580,43 @@
    "Mach-Zehnder interferometer"
   ]
  },
+ "1374936": {
+  "abstract": "The PSI low-energy $\\mu$SR spectrometer is an instrument dedicated to muon spin rotation and relaxation measurements. Knowledge of the muon beam parameters such as spatial, kinetic energy and arrival-time distributions at the sample position are important ingredients to analyze the $\\mu$SR spectra. We present here the measured energy losses in the thin carbon foil of the muon start detector deduced from time-of-flight measurements. Muonium formation in the thin carbon foil (10 nm thickness) of the muon start detector also affect the measurable decay asymmetry and therefore need to be accounted for. Muonium formation and energy losses in the start detector, whose relevance increase with decreasing muon implantation energy ($<10$ keV), have been implemented in Geant4 Monte Carlo simulation to reproduce the measured time-of-flight spectra. Simulated and measured time-of-flight and beam spot agrees only if a small fraction of so called \"unmoderated\" muons which contaminate the mono-energetic muon beam of the $\\mu$SR spectrometer is introduced. Moreover the sensitivity of the beam size and related upstream-downstream asymmetry for a specially shaped \"nose\" sample plate has been studied for various beam line settings, which is of relevance for the study of thermal muonium emission into vacuum from mesoporous silica at cryogenic temperatures.",
+  "keywords": [
+   "Muon spectrometers",
+   "Instrumentation  for particle  accelerators  and storage  rings - low energy (linear accelerators,  cyclotrons,  electrostatic  accelerators)",
+   "Targets (spallation  source targets,  radioisotope  production,  neutrino  and  muon  sources)",
+   "Instrumentation  and  methods  for time-of-flight (TOF) spectroscopy"
+  ]
+ },
+ "1704404": {
+  "abstract": "A novel device to compress the phase space of a muon beam by a factor of $10^{10}$ with a $10^{-3}$ efficiency is under development. A surface muon beam is stopped in a helium gas target consisting of several compression stages, wherein strong electric and magnetic fields are applied. The spatial extent of the stopped muon swarm is decreased by means of these fields until muons with eV energy are extracted into vacuum through a small orifice. It was observed that a 20 cm long muon stop distribution can be compressed in the longitudinal direction to a sub-mm extent within $2~\\upmu \\hbox {s}$ . Additionally, a drift perpendicular to the magnetic field of the compressed low-energy muon swarm was successfully demonstrated, paving the way towards extraction from the gas and re-acceleration of the muons.",
+  "keywords": [
+   "muon: beam",
+   "helium: target",
+   "helium: gas",
+   "magnetic field",
+   "electric field",
+   "muon",
+   "phase space",
+   "beam emittance",
+   "muon: spatial distribution"
+  ]
+ },
+ "1471280": {
+  "abstract": "We report the achievement of spatial confinement of muonium atoms (the bound state of a positive muon and an electron). Muonium emitted into vacuum from mesoporous silica reflects between two SiO$_2$ confining surfaces separated by 1 mm. From the data, one can extract that the reflection probability on the confining surfaces kept at 100 K is about 90% and the reflection process is well described by a cosine law. This technique enables new experiments with this exotic atomic system and is a very important step towards a measurement of the 1S-2S transition frequency using continuous wave laser spectroscopy.",
+  "keywords": [
+   "muonium",
+   "confinement",
+   "silicon: oxygen",
+   "laser",
+   "spectrometer",
+   "measurement methods",
+   "atom: excited state"
+  ]
+ },
  "1496973": {
-  "abstract": "We have developed a custom amplifier board coupled to a large-format 16-channel Hamamatsu silicon photomultiplier device for use as the light sensor for the electromagnetic calorimeters in the Muon g - 2 experiment at Fermilab. The calorimeter absorber is an array of lead-fluoride crystals, which produces short-duration Cherenkov light. The detector sits in the high magnetic field of the muon storage ring. The SiPMs selected, and their accompanying custom electronics, must preserve the short pulse shape, have high quantum efficiency, be non-magnetic, exhibit gain stability under varying rate conditions, and cover a fairly large fraction of the crystal exit surface area. We describe an optimized design that employs the new-generation of thru-silicon via devices. The performance is documented in a series of bench and beam tests.",
+  "abstract": "We have developed a custom amplifier board coupled to a large-format 16-channel Hamamatsu silicon photomultiplier device for use as the light sensor for the electromagnetic calorimeters in the Muon g - 2 experiment at Fermilab. The calorimeter absorber is an array of lead-fluoride crystals, which produces short-duration Cherenkov light. The detector sits in the high magnetic field of the muon storage ring. The SiPMs selected, and their accompanying custom electronics, must preserve the short pulse shape, have high quantum efficiency, be non-magnetic, exhibit gain stability under varying rate conditions, and cover a fairly large fraction of the crystal exit surface area. We describe an optimized design that employs the new-generation of thru-silicon via devices. The performance is documented in a series of bench and beam tests.",
   "keywords": [
    "photomultiplier: silicon",
    "calorimeter: electromagnetic",

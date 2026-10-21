@@ -20,6 +20,7 @@ C = os.path.join(ROOT, 'content')
 YEAR = date.today().year
 
 import hashlib as _h
+ASK_V = _h.md5(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "assets", "js", "ask.js"), "rb").read()).hexdigest()[:8]
 CSS_V = _h.md5(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "assets", "css", "style.css"), "rb").read()).hexdigest()[:8]
 
 def bi(en, zh=None):
@@ -104,6 +105,7 @@ def layout(path, title, desc, body, active='', home=False):
 </footer>
 
 <script src="{R}assets/js/main.js" defer></script>
+{"<script src=\"assets/js/ask.js?v=" + ASK_V + "\" defer></script>" if home else ""}
 </body>
 </html>
 '''

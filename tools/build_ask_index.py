@@ -28,9 +28,15 @@ except ImportError:
     sys.exit('pip install beautifulsoup4')
 
 # ------------------------------------------------------------------ helpers
+TEX = {r'\times': '×', r'\mu': 'μ', r'\pm': '±', r'\sim': '~', r'\approx': '≈', r'\rm': '', r'\mathrm': '', r'\text': '',
+       r'\!': '', r'\,': ' ', r'\ ': ' ', r'\cdot': '·', r'\ell': 'ℓ', r'\gamma': 'γ', r'\pi': 'π', r'\nu': 'ν', r'\tau': 'τ', r'\alpha': 'α', r'\beta': 'β', r'\theta': 'θ', r'\sigma': 'σ', r'\Delta': 'Δ', r'\delta': 'δ', r'\le': '≤', r'\ge': '≥', r'\leq': '≤', r'\geq': '≥'}
 def clean(t):
-    t = re.sub(r'\$[^$]{1,40}\$', lambda m: m.group(0).strip('$'), t)   # drop $...$ TeX fences
+    t = t.replace('$', '')
+    for k, v in TEX.items(): t = t.replace(k, v)
     t = re.sub(r'\\[a-zA-Z]+', ' ', t)
+    t = re.sub(r'([\^_])\{([^{}]*)\}', lambda m: m.group(1) + m.group(2), t)   # ^{-23} -> ^-23
+    t = re.sub(r'[{}]', '', t).replace('~', ' ')
+    t = re.sub(r'(Read more|Our [^.→]{0,40}|Try [^.→]{0,40}|体验[^.→]{0,30}|我们的[^.→]{0,20})\s*[→↗]', '', t)
     return re.sub(r'\s+', ' ', t).strip()
 
 def text_of(node):
@@ -63,8 +69,10 @@ def chunks(soup, min_len=120, max_len=900):
             flush(); head = text_of(el)
         else:
             if el.find_parent(['h2', 'h3']): continue
+            if el.name == 'li' and el.find_parent('li'): continue
             t = text_of(el)
-            if t: buf.append(t)
+            if not t or 'http' in t or re.search(r'arXiv:|et al\.|doi\.org', t): continue   # reference lists, not prose
+            buf.append(t)
     flush()
     return out
 
@@ -81,7 +89,7 @@ def fetch_abstracts(ids):
                 for h in json.load(r)['hits']['hits']:
                     m = h['metadata']
                     abs_ = max((a.get('value', '') for a in m.get('abstracts', [])), key=len, default='')
-                    cache[str(m['control_number'])] = {'abstract': clean(abs_), 'keywords': [kw['value'] for kw in m.get('keywords', [])][:12]}
+                    cache[str(m['control_number'])] = {'abstract': abs_, 'keywords': [kw['value'] for kw in m.get('keywords', [])][:12]}
             print(f'  fetched abstracts {min(k + 40, len(need))}/{len(need)}')
         json.dump(cache, open(CACHE, 'w'), indent=1, ensure_ascii=False)
     return cache
@@ -97,7 +105,7 @@ def papers():
         auth = ', '.join(p['authors'][:3]) + (' et al.' if p.get('author_count', 0) > 3 else '')
         docs.append({
             'id': f'p{p["id"]}', 'type': 'paper', 'title': clean(p['title']),
-            'text': a.get('abstract', ''), 'kw': a.get('keywords', []),
+            'text': clean(a.get('abstract', '')), 'kw': a.get('keywords', []),
             'authors': auth, 'coll': p.get('collaboration', ''), 'year': p['year'],
             'venue': p.get('journal') or (f'arXiv:{p["arxiv"]}' if p.get('arxiv') else p.get('kind', '')),
             'cites': p.get('cites', 0), 'url': url,
@@ -110,7 +118,6 @@ PAGES = [  # (content file, public url, title en, title zh)
     ('teaching.html', 'teaching.html', 'Teaching', '教学'),
     ('kim.html', 'kim.html', 'Kim Siang Khaw — PI profile', '许金祥 — 课题组长'),
     ('people.html', 'people.html', 'People', '团队成员'),
-    ('talks.html', 'talks.html', 'Selected talks', '学术报告'),
     ('muons__index.html', 'muons/index.html', 'About Muons', '缪子科普'),
     ('muons__fundamental-muon-physics.html', 'muons/fundamental-muon-physics.html', 'Fundamental muon physics', '缪子基础物理'),
     ('muons__muon-sources.html', 'muons/muon-sources.html', 'Muon sources', '缪子源'),

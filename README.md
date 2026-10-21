@@ -36,6 +36,18 @@ Refresh each member's paper list (their INSPIRE record + PI papers matching thei
 python3 tools/update_members.py && python3 tools/build.py
 ```
 
+### “Ask the group” search bar
+
+The home-page ask-bar answers questions from the group's own papers and pages. Retrieval (BM25) runs entirely in the visitor's browser over `assets/data/ask-index.json`, so it needs no server and works inside mainland China. Rebuild the index whenever papers, pages, news or members change:
+
+```bash
+python3 tools/build_ask_index.py            # fetches abstracts from INSPIRE (cached in content/abstracts.json)
+python3 tools/build_ask_index.py --offline  # reuse cached abstracts
+python3 tools/build.py
+```
+
+Out of the box the answer is *extractive* — the best-matching sentences, each cited back to its source. To add a written LLM synthesis on top, deploy `tools/ask-worker.example.js` as a Cloudflare Worker (or any endpoint with the same JSON contract) and set `window.MUON_ASK_ENDPOINT = 'https://…'` before `ask.js` loads. The page sends the question plus the retrieved passages; the model is told to answer from those passages only and cite them as `[n]`.
+
 The 3D hero (a simulated cosmic-muon tracker) lives in `src/hero.js` and is bundled with Three.js into `assets/js/hero.bundle.js`:
 
 ```bash
