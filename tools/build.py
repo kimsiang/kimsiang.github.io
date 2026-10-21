@@ -40,7 +40,7 @@ NAV = [
 ]
 FOOT = [
     ('talks.html', 'Talks', '学术报告'), ('posters.html', 'Posters', '学术海报'),
-    ('kim.html', 'PI profile', '个人主页'), ('index.html#joinus', 'Join us', '加入我们'),
+    ('theses.html', 'Theses', '学位论文'), ('kim.html', 'PI profile', '个人主页'), ('index.html#joinus', 'Join us', '加入我们'),
 ]
 
 def layout(path, title, desc, body, active='', home=False):
@@ -489,7 +489,92 @@ def build_home():
            'TDLI Muon Physics Group at Shanghai Jiao Tong University — precision muon physics, Muon g-2, muEDM, SHINE muon source, and muography. Led by Prof. Kim Siang Khaw (许金祥).',
            body, home=True)
 
+# ------------------------------------------------------------------ theses archive
+LEVELS = {'phd': ('PhD', '博士'), 'msc': ("Master's", '硕士'), 'bsc': ("Bachelor's", '本科'), 'proj': ('Project', '科研项目')}
+
+def build_theses():
+    d = json.load(open(os.path.join(C, 'theses.json')))
+    th = sorted(d['theses'], key=lambda t: (t['year'], t.get('date', ''), {'phd': 2, 'msc': 1, 'bsc': 0}[t['level']]), reverse=True)
+    slugs = {m['slug'] for m in MEMBERS}
+
+    def who(name, zh='', slug=''):
+        n = html.escape(name) + (f'<span class="cjk">【{zh}】</span>' if zh else '')
+        return f'<a href="{{ROOT}}people/{slug}.html">{n}</a>' if slug in slugs else n
+
+    def row(k, kind_html, title_html, sub, badges, q):
+        return (f'<li class="pub" data-k="{k}" data-q="{html.escape(q.lower())}"><span class="pk mono">{kind_html}</span>'
+                f'<div>{title_html}<p class="pa">{sub}</p>'
+                + (f'<p class="pb mono">{" · ".join(badges)}</p>' if badges else '') + '</div></li>')
+
+    rows = ['<li class="pyear">' + bi('Completed theses', '已完成学位论文') + '</li>']
+    for t in th:
+        title = html.escape(t['title']) if t['title'] else ('<span class="faint">' + bi('Title to be added', '题目待补充') + '</span>')
+        if t.get('title_zh'):
+            title += f'<br><span class="cjk">{html.escape(t["title_zh"])}</span>'
+        url = t.get('pdf') or (f'https://doi.org/{t["doi"]}' if t.get('doi') else '')
+        title_html = f'<a class="pt" href="{url}" target="_blank" rel="noopener">{title}</a>' if url else f'<p class="pt">{title}</p>'
+        sub = who(t['name'], t.get('zh', ''), t.get('slug', '')) + (f' · {html.escape(t["topic"])}' if t.get('topic') else '')
+        badges = [str(t.get('date') or t['year'])]
+        if t.get('now'):
+            badges.append(bi('Now: ', '现：') + html.escape(t['now']))
+        if t.get('pdf'):
+            badges.append(f'<a href="{t["pdf"]}" target="_blank" rel="noopener">PDF</a>')
+        if t.get('doi'):
+            badges.append(f'<a href="https://doi.org/{t["doi"]}" target="_blank" rel="noopener">DOI</a>')
+        if t.get('news'):
+            badges.append(f'<a href="{{ROOT}}news/{t["news"]}.html">' + bi('News', '新闻') + '</a>')
+        rows.append(row(t['level'], bi(*LEVELS[t['level']]) + f'<br>{t["year"]}', title_html, sub, badges,
+                        ' '.join([t['name'], t.get('zh', ''), t['title'], t.get('topic', ''), t.get('now', '')])))
+
+    cur = [m for m in MEMBERS if m['role'][0] in ('Doctoral Student', "Master's Student")]
+    cur.sort(key=lambda m: (m['role'][0] != 'Doctoral Student', m['since']))
+    if cur:
+        rows.append('<li class="pyear">' + bi('In progress', '在读') + '</li>')
+        for m in cur:
+            lv = 'phd' if m['role'][0] == 'Doctoral Student' else 'msc'
+            topic = bi(*m['topics']) if m['topics'] else bi('Thesis topic to be announced', '课题待定')
+            rows.append(row(lv, bi(*LEVELS[lv]) + '<br>' + bi('in progress', '在读'), f'<p class="pt">{topic}</p>',
+                            who(m['name'], m['zh'], m['slug']), [bi(f'Since {m["since"]}', f'{m["since"]} 起')],
+                            ' '.join([m['name'], m['zh']] + m['topics'])))
+
+    rows.append('<li class="pyear">' + bi('Student research projects', '学生科研项目') + '</li>')
+    for p in d['projects']:
+        names = ', '.join(who(n, z) for n, z in p['names'])
+        badges = [p['period'] + (' · ' + bi('ongoing', '进行中') if p.get('ongoing') else '')]
+        if p.get('note'):
+            badges.append(html.escape(p['note']))
+        if p.get('news'):
+            badges.append(f'<a href="{{ROOT}}news/{p["news"]}.html">' + bi('News', '新闻') + '</a>')
+        topic = html.escape(p['topic']) if p['topic'] else bi(p['program'], p['program_zh'])
+        rows.append(row('proj', bi(*LEVELS['proj']), f'<p class="pt">{topic}</p>',
+                        bi(html.escape(p['program']), p['program_zh']) + ' · ' + names, badges,
+                        ' '.join([p['program'], p['program_zh'], p['topic']] + [x for n in p['names'] for x in n])))
+
+    n_proj = len(d['projects'])
+    n_stu = len({n for p in d['projects'] for n, _ in p['names']})
+    stats = ('<div class="pstats">'
+             f'<div><b>{len(th)}</b>{bi("Completed theses", "已完成学位论文")}</div>'
+             f'<div><b>{len(cur)}</b>{bi("Theses in progress", "在读研究生")}</div>'
+             f'<div><b>{n_proj}</b>{bi("Student projects", "学生科研项目")}</div>'
+             f'<div><b>{n_stu}</b>{bi("Project students", "参与项目学生")}</div></div>')
+    keys = [k for k in LEVELS if k == 'proj' or any(t['level'] == k for t in th) or (k in ('phd', 'msc') and cur)]
+    chips = f'<button type="button" class="on" data-k="all">{bi("All", "全部")}</button>' + ''.join(
+        f'<button type="button" data-k="{k}">{bi("Projects", "科研项目") if k == "proj" else bi(*LEVELS[k])}</button>' for k in keys)
+    body = phero('THESIS', 'People', '团队成员', bi('Theses &amp; student research', '学位论文与学生科研'), scene='ring', lead_html=bi(
+        'Bachelor’s, Master’s and PhD theses supervised in the group, the theses now in progress, and the undergraduate and high-school research projects hosted since 2020.',
+        '课题组指导完成的本科、硕士与博士学位论文、在读研究生课题，以及2020年以来承担的本科生与高中生科研项目。'))
+    join = bi('Want to do your thesis with us? <a href="{ROOT}index.html#joinus">Join us →</a>',
+              '想在课题组完成毕业论文？<a href="{ROOT}index.html#joinus">加入我们 →</a>')
+    body += ('<section class="pbody"><div class="wrap">' + stats
+             + '<div class="filters"><div class="chips" role="group" aria-label="Filter by level">' + chips + '</div>'
+             + '<label class="search"><span class="sr">Search</span><input type="search" id="pub-q" placeholder="Search name, title, topic / 搜索" autocomplete="off"></label></div>'
+             + '<ol class="pubs" id="pubs">' + ''.join(rows) + '</ol>'
+             + '<p class="empty" id="pub-empty" hidden>' + bi('No matching entries.', '没有匹配的条目。') + '</p>'
+             + '<p class="src mono">' + join + '</p></div></section>')
+    layout('theses.html', 'Theses', 'Theses and student research projects of the TDLI Muon Physics Group, Shanghai Jiao Tong University.', body, 'people')
+
+
 if __name__ == '__main__':
-    build_home(); build_pages(); build_muons(); build_news(); build_publications(); build_members()
+    build_home(); build_pages(); build_muons(); build_news(); build_publications(); build_members(); build_theses()
     n = sum(1 for d, _, fs in os.walk(ROOT) if not any(x in os.path.relpath(d, ROOT).split(os.sep) for x in ('.git', 'node_modules', 'content', 'tools')) for f in fs if f.endswith('.html'))
     print('built', n, 'html files')

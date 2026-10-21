@@ -10,6 +10,7 @@ Sources
   * content/pages/*.html  — Research, About Muons chapters, Teaching, PI profile
   * content/news/*.html   — news posts
   * content/members.json  — one short entry per member
+  * content/theses.json   — theses and student research projects
 
 The index is plain JSON; assets/js/ask.js does BM25 retrieval in the browser, so the
 feature works on GitHub Pages with no server. Keep the file small (< ~600 kB).
@@ -166,8 +167,20 @@ def members():
         docs.append({'id': f'm-{m["slug"]}', 'type': 'member', 'title': m.get('name', m['slug']), 'text': t, 'url': f'people/{m["slug"]}.html'})
     return docs
 
+def theses():
+    d = json.load(open(os.path.join(C, 'theses.json')))
+    lv = {'phd': 'PhD thesis', 'msc': "Master's thesis", 'bsc': "Bachelor's thesis"}
+    docs = []
+    for i, t in enumerate(d['theses']):
+        txt = f"{lv[t['level']]} ({t['year']}) by {t['name']} {t.get('zh', '')}: {t['title'] or t.get('topic', '')}. Topic: {t.get('topic', '')}. Now: {t.get('now', '')}"
+        docs.append({'id': f't-{i}', 'type': 'page', 'title': f"{lv[t['level']]} · {t['name']}", 'text': clean(txt), 'url': 'theses.html'})
+    for i, p in enumerate(d['projects']):
+        txt = f"Student research project, {p['program']} {p['program_zh']} ({p['period']}): {p['topic']}. Students: " + ', '.join(' '.join(n).strip() for n in p['names'])
+        docs.append({'id': f'tp-{i}', 'type': 'page', 'title': f"{p['program']} · {p['topic'] or p['period']}", 'text': clean(txt), 'url': 'theses.html'})
+    return docs
+
 if __name__ == '__main__':
-    docs = papers() + pages() + news() + members()
+    docs = papers() + pages() + news() + members() + theses()
     os.makedirs(os.path.dirname(OUT), exist_ok=True)
     json.dump({'built': __import__('datetime').date.today().isoformat(), 'docs': docs}, open(OUT, 'w'), ensure_ascii=False, separators=(',', ':'))
     kinds = {}
