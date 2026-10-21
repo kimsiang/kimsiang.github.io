@@ -1,4 +1,1046 @@
 {
+ "kim-siang-khaw": [
+  {
+   "id": 3203792,
+   "title": "Simulation study of accelerator-based muography using the GeV-scale forward muon component at SHINE",
+   "authors": [
+    "J. Wang",
+    "Y. Wang",
+    "S. Chen"
+   ],
+   "author_count": 10,
+   "collaboration": "",
+   "year": "2026",
+   "date": "2026-09-14",
+   "journal": "",
+   "doi": "",
+   "arxiv": "2609.15846",
+   "cites": 0,
+   "kind": "preprint",
+   "refereed": false
+  },
+  {
+   "id": 3202780,
+   "title": "Progress in Muon Cooling and Moderation Techniques",
+   "authors": [
+    "C. Zhang",
+    "K.S. Khaw",
+    "C. Rogers"
+   ],
+   "author_count": 3,
+   "collaboration": "",
+   "year": "2026",
+   "date": "2026-09-11",
+   "journal": "",
+   "doi": "",
+   "arxiv": "2609.12420",
+   "cites": 0,
+   "kind": "preprint",
+   "refereed": false
+  },
+  {
+   "id": 3190062,
+   "title": "An improved direct limit on the muon electric dipole moment",
+   "authors": [
+    "D. Aguillard",
+    "T. Albahri",
+    "D. Allspach"
+   ],
+   "author_count": 194,
+   "collaboration": "Muon g−2",
+   "year": "2026",
+   "date": "2026-08-11",
+   "journal": "",
+   "doi": "",
+   "arxiv": "2608.11124",
+   "cites": 2,
+   "kind": "preprint",
+   "refereed": false
+  },
+  {
+   "id": 3209454,
+   "title": "Muon sources and detection technology in muon spin spectroscopy applications: A review",
+   "authors": [
+    "Z. Pan",
+    "B. Ye",
+    "Q. Li"
+   ],
+   "author_count": 8,
+   "collaboration": "",
+   "year": "2026",
+   "date": "2026-07-17",
+   "journal": "Int.J.Mod.Phys.A 41 (2026) 23, 2630013",
+   "doi": "10.1142/s0217751x26300139",
+   "arxiv": "",
+   "cites": 0,
+   "kind": "journal",
+   "refereed": true
+  },
+  {
+   "id": 3169190,
+   "title": "Final Report on the Measurement of the Positive Muon Anomalous Magnetic Moment at Fermilab to 127 ppb",
+   "authors": [
+    "D. Aguillard",
+    "T. Albahri",
+    "D. Allspach"
+   ],
+   "author_count": 194,
+   "collaboration": "Muon g−2",
+   "year": "2026",
+   "date": "2026-06-15",
+   "journal": "",
+   "doi": "",
+   "arxiv": "2606.17323",
+   "cites": 10,
+   "kind": "preprint",
+   "refereed": false
+  },
+  {
+   "id": 3137131,
+   "title": "Construction and characterization of a muon trigger detector for the PSI muEDM experiment",
+   "authors": [
+    "G.M. Wong",
+    "T. Hu",
+    "Samip Basnet"
+   ],
+   "author_count": 18,
+   "collaboration": "",
+   "year": "2026",
+   "date": "2026-03-29",
+   "journal": "Eur.Phys.J.C 86 (2026) 7, 911",
+   "doi": "10.1140/epjc/s10052-026-16145-6",
+   "arxiv": "2603.27483",
+   "cites": 0,
+   "kind": "journal",
+   "refereed": true
+  },
+  {
+   "id": 2973398,
+   "title": "Muonium Spectroscopy as a Quantum Sensor for Axion Dark Matter",
+   "authors": [
+    "F. Fang",
+    "K.S. Khaw",
+    "C. Zhang"
+   ],
+   "author_count": 8,
+   "collaboration": "",
+   "year": "2026",
+   "date": "2025-09-25",
+   "journal": "Phys.Rev.Lett. 137 (2026) 11, 111803",
+   "doi": "10.1103/483j-ct1h",
+   "arxiv": "2509.20862",
+   "cites": 0,
+   "kind": "journal",
+   "refereed": true
+  },
+  {
+   "id": 2864834,
+   "title": "Beam test performance of a prototype muon trigger detector for the PSI muEDM experiment",
+   "authors": [
+    "T. Hu",
+    "J.K. Ng",
+    "G.M. Wong"
+   ],
+   "author_count": 10,
+   "collaboration": "PSI muEDM",
+   "year": "2026",
+   "date": "2025-05-06",
+   "journal": "Radiat.Detect.Technol.Methods 10 (2026) 1, 22–35",
+   "doi": "10.1007/s41605-025-00570-4",
+   "arxiv": "2501.01546",
+   "cites": 3,
+   "kind": "journal",
+   "refereed": true
+  },
+  {
+   "id": 3101005,
+   "title": "Design studies on a kHz–MHz repetition rate pulsed muon source based on electron accelerator",
+   "authors": [
+    "Y. Takeuchi",
+    "F. Liu",
+    "J. Wang"
+   ],
+   "author_count": 5,
+   "collaboration": "",
+   "year": "2025",
+   "date": "2025-11-05",
+   "journal": "JACoW IPAC2025 (2025), TUPM092",
+   "doi": "10.18429/JACoW-IPAC2025-TUPM092",
+   "arxiv": "",
+   "cites": 0,
+   "kind": "proceedings",
+   "refereed": false
+  },
+  {
+   "id": 2928642,
+   "title": "Measurement of the Positive Muon Anomalous Magnetic Moment to 127 ppb",
+   "authors": [
+    "D. Aguillard",
+    "T. Albahri",
+    "D. Allspach"
+   ],
+   "author_count": 195,
+   "collaboration": "Muon g-2",
+   "year": "2025",
+   "date": "2025-06-03",
+   "journal": "Phys.Rev.Lett. 135 (2025) 10, 101802",
+   "doi": "10.1103/7clf-sm2v",
+   "arxiv": "2506.03069",
+   "cites": 282,
+   "kind": "journal",
+   "refereed": true
+  },
+  {
+   "id": 2885934,
+   "title": "Development of Fast Front-End Electronics for the Muon Trigger Detector in the PSI muEDM Experiment",
+   "authors": [
+    "T. Hu",
+    "G.M. Wong",
+    "C. Dutsov"
+   ],
+   "author_count": 9,
+   "collaboration": "",
+   "year": "2025",
+   "date": "2025-05-06",
+   "journal": "IEEE Trans.Nucl.Sci. 72 (2025) 7, 2229–2237",
+   "doi": "10.1109/TNS.2025.3578674",
+   "arxiv": "2502.11186",
+   "cites": 2,
+   "kind": "journal",
+   "refereed": true
+  },
+  {
+   "id": 2906901,
+   "title": "Towards non-invasive sediment monitoring using muography: A pilot run at the Shanghai Outer Ring Tunnel",
+   "authors": [
+    "K.S. Khaw",
+    "S.Y. Hoh",
+    "T. Hu"
+   ],
+   "author_count": 26,
+   "collaboration": "",
+   "year": "2025",
+   "date": "2025-04-01",
+   "journal": "J.Appl.Phys. 138 (2025) 11, 114902",
+   "doi": "10.1063/5.0273686",
+   "arxiv": "2504.00582",
+   "cites": 4,
+   "kind": "journal",
+   "refereed": true
+  },
+  {
+   "id": 2909070,
+   "title": "The Entrance and Time Of Flight detector prototypes of the muEDM experiment",
+   "authors": [
+    "A. Papa",
+    "A. Baldini",
+    "H. Benmansour"
+   ],
+   "author_count": 29,
+   "collaboration": "",
+   "year": "2025",
+   "date": "2025-03-24",
+   "journal": "Nucl.Instrum.Meth.A 1076 (2025), 170432",
+   "doi": "10.1016/j.nima.2025.170432",
+   "arxiv": "",
+   "cites": 1,
+   "kind": "proceedings",
+   "refereed": true
+  },
+  {
+   "id": 2896624,
+   "title": "Bayesian optimization of beam injection and storage in the PSI muEDM Experiment",
+   "authors": [
+    "S.Y. Hoh",
+    "Y. Shang",
+    "R. Chakraborty"
+   ],
+   "author_count": 9,
+   "collaboration": "",
+   "year": "2025",
+   "date": "2025-03-03",
+   "journal": "",
+   "doi": "",
+   "arxiv": "2503.01607",
+   "cites": 1,
+   "kind": "preprint",
+   "refereed": false
+  },
+  {
+   "id": 2896777,
+   "title": "Simulation studies of a high-repetition-rate electron-driven surface muon beamline at SHINE",
+   "authors": [
+    "F. Liu",
+    "Y. Takeuchi",
+    "S. Chen"
+   ],
+   "author_count": 11,
+   "collaboration": "",
+   "year": "2025",
+   "date": "2025-03-03",
+   "journal": "Phys.Rev.Accel.Beams 28 (2025) 8, 083401",
+   "doi": "10.1103/t2d3-xqnp",
+   "arxiv": "2503.01597",
+   "cites": 11,
+   "kind": "journal",
+   "refereed": true
+  },
+  {
+   "id": 2874447,
+   "title": "A compact frozen-spin trap for the search for the electric dipole moment of the muon",
+   "authors": [
+    "A. Adelmann",
+    "A. Bainbridge",
+    "I. Bailey"
+   ],
+   "author_count": 65,
+   "collaboration": "",
+   "year": "2025",
+   "date": "2025-01-31",
+   "journal": "Eur.Phys.J.C 85 (2025) 6, 622",
+   "doi": "10.1140/epjc/s10052-025-14295-7",
+   "arxiv": "2501.18979",
+   "cites": 22,
+   "kind": "journal",
+   "refereed": true
+  },
+  {
+   "id": 2811015,
+   "title": "Design of a LYSO crystal electromagnetic calorimeter for dark photon detection in the DarkSHINE experiment",
+   "authors": [
+    "Z.Y. Zhao",
+    "Z. Zhao",
+    "Q.B. Liu"
+   ],
+   "author_count": 44,
+   "collaboration": "DarkSHINE",
+   "year": "2025",
+   "date": "2024-07-25",
+   "journal": "Nucl.Sci.Tech. 36 (2025) 3, 41",
+   "doi": "10.1007/s41365-024-01618-8",
+   "arxiv": "2407.17800",
+   "cites": 8,
+   "kind": "journal",
+   "refereed": true
+  },
+  {
+   "id": 2848269,
+   "title": "DarkSHINE Baseline Design Report: Physics Prospects and Detector Technologies",
+   "authors": [
+    "J. Chen",
+    "J.Y. Chen",
+    "J.F. Chen"
+   ],
+   "author_count": 37,
+   "collaboration": "DarkSHINE",
+   "year": "2024",
+   "date": "2024-11-14",
+   "journal": "",
+   "doi": "",
+   "arxiv": "2411.09345",
+   "cites": 7,
+   "kind": "preprint",
+   "refereed": false
+  },
+  {
+   "id": 2830968,
+   "title": "Research and development of a muon entrance trigger for the muEDM experiment at PSI",
+   "authors": [
+    "G.M. Wong",
+    "J.K. Ng",
+    "T. Hu"
+   ],
+   "author_count": 5,
+   "collaboration": "",
+   "year": "2024",
+   "date": "2024-05-24",
+   "journal": "Nucl.Part.Phys.Proc. 346 (2024), 15537",
+   "doi": "10.1016/j.nuclphysbps.2024.05.014",
+   "arxiv": "",
+   "cites": 3,
+   "kind": "proceedings",
+   "refereed": false
+  },
+  {
+   "id": 2796213,
+   "title": "Development of a polarization monitor for the J-PARC muon g − 2/EDM experiment",
+   "authors": [
+    "M. Lyu",
+    "X. Cai",
+    "F. Yu"
+   ],
+   "author_count": 5,
+   "collaboration": "",
+   "year": "2024",
+   "date": "2024-02-28",
+   "journal": "Nucl.Part.Phys.Proc. 344 (2024), 15514",
+   "doi": "10.1016/j.nuclphysbps.2024.02.002",
+   "arxiv": "",
+   "cites": 0,
+   "kind": "proceedings",
+   "refereed": false
+  },
+  {
+   "id": 2761441,
+   "title": "Detailed report on the measurement of the positive muon anomalous magnetic moment to 0.20 ppm",
+   "authors": [
+    "D. Aguillard",
+    "T. Albahri",
+    "D. Allspach"
+   ],
+   "author_count": 193,
+   "collaboration": "Muon g-2",
+   "year": "2024",
+   "date": "2024-02-23",
+   "journal": "Phys.Rev.D 110 (2024) 3, 032009",
+   "doi": "10.1103/PhysRevD.110.032009",
+   "arxiv": "2402.15410",
+   "cites": 114,
+   "kind": "journal",
+   "refereed": true
+  },
+  {
+   "id": 2718934,
+   "title": "Design of hadronic calorimeter for DarkSHINE experiment",
+   "authors": [
+    "Z. Wang",
+    "R. Yuan",
+    "H.Q. Liu"
+   ],
+   "author_count": 33,
+   "collaboration": "DarkSHINE",
+   "year": "2024",
+   "date": "2023-11-03",
+   "journal": "Nucl.Sci.Tech. 35 (2024) 9, 148",
+   "doi": "10.1007/s41365-024-01502-5",
+   "arxiv": "2311.01780",
+   "cites": 8,
+   "kind": "journal",
+   "refereed": true
+  },
+  {
+   "id": 2716600,
+   "title": "A pulsed muon source based on a high-repetition-rate electron accelerator",
+   "authors": [
+    "M. Lv",
+    "J. Wang",
+    "K.S. Khaw"
+   ],
+   "author_count": 3,
+   "collaboration": "",
+   "year": "2023",
+   "date": "2023-09-26",
+   "journal": "JACoW IPAC2023 (2023), TUPA087",
+   "doi": "10.18429/JACoW-IPAC2023-TUPA087",
+   "arxiv": "",
+   "cites": 2,
+   "kind": "proceedings",
+   "refereed": false
+  },
+  {
+   "id": 2687002,
+   "title": "Measurement of the Positive Muon Anomalous Magnetic Moment to 0.20 ppm",
+   "authors": [
+    "D. Aguillard",
+    "T. Albahri",
+    "D. Allspach"
+   ],
+   "author_count": 191,
+   "collaboration": "Muon g-2",
+   "year": "2023",
+   "date": "2023-08-10",
+   "journal": "Phys.Rev.Lett. 131 (2023) 16, 161802",
+   "doi": "10.1103/PhysRevLett.131.161802",
+   "arxiv": "2308.06230",
+   "cites": 747,
+   "kind": "journal",
+   "refereed": true
+  },
+  {
+   "id": 2674348,
+   "title": "Status of the muEDM Experiment at PSI †",
+   "authors": [
+    "K.S. Khaw",
+    "C. Chen",
+    "M. Giovannozzi"
+   ],
+   "author_count": 10,
+   "collaboration": "PSI muEDM",
+   "year": "2023",
+   "date": "2023-07-04",
+   "journal": "Phys.Sci.Forum 8 (2023) 1, 50",
+   "doi": "10.3390/psf2023008050",
+   "arxiv": "2307.01535",
+   "cites": 5,
+   "kind": "proceedings",
+   "refereed": false
+  },
+  {
+   "id": 2674344,
+   "title": "A Pulsed Muon Source Based on a High-Repetition-Rate Electron Accelerator",
+   "authors": [
+    "M. Lv",
+    "J. Wang",
+    "K.S. Khaw"
+   ],
+   "author_count": 3,
+   "collaboration": "",
+   "year": "2023",
+   "date": "2023-07-03",
+   "journal": "",
+   "doi": "",
+   "arxiv": "2307.01455",
+   "cites": 4,
+   "kind": "proceedings",
+   "refereed": false
+  },
+  {
+   "id": 2611054,
+   "title": "A large muon EDM from dark matter",
+   "authors": [
+    "K.S. Khaw",
+    "Y. Nakai",
+    "R. Sato"
+   ],
+   "author_count": 5,
+   "collaboration": "",
+   "year": "2023",
+   "date": "2022-12-06",
+   "journal": "JHEP 02 (2023), 234",
+   "doi": "10.1007/JHEP02(2023)234",
+   "arxiv": "2212.02891",
+   "cites": 11,
+   "kind": "journal",
+   "refereed": true
+  },
+  {
+   "id": 2610840,
+   "title": "Prospective study of light dark matter search with a newly proposed DarkSHINE experiment",
+   "authors": [
+    "J. Chen",
+    "J.Y. Chen",
+    "J.F. Chen"
+   ],
+   "author_count": 34,
+   "collaboration": "DarkSHINE",
+   "year": "2023",
+   "date": "2022-11-29",
+   "journal": "Sci.China Phys.Mech.Astron. 66 (2023) 1, 211062",
+   "doi": "10.1007/s11433-022-1983-8",
+   "arxiv": "",
+   "cites": 27,
+   "kind": "journal",
+   "refereed": true
+  },
+  {
+   "id": 2148087,
+   "title": "First Observation of Cyclotron Radiation from MeV-Scale <math display=\"inline\"><msup><mi>e</mi><mo>±</mo></msup></math> following Nuclear <math display=\"inline\"><mi>β</mi></math> Decay",
+   "authors": [
+    "W. Byron",
+    "H. Harrington",
+    "R. Taylor"
+   ],
+   "author_count": 33,
+   "collaboration": "He6-CRES",
+   "year": "2023",
+   "date": "2022-09-06",
+   "journal": "Phys.Rev.Lett. 131 (2023) 8, 082502",
+   "doi": "10.1103/PhysRevLett.131.082502",
+   "arxiv": "2209.02870",
+   "cites": 26,
+   "kind": "journal",
+   "refereed": true
+  },
+  {
+   "id": 2137670,
+   "title": "Beam-Based Diagnostics of Electric Guide Fields and Lattice Parameters for Run-1 of the Muon g-2 Storage Ring at Fermilab",
+   "authors": [
+    "D. Tarazona",
+    "M. Berz",
+    "J. Crnkovic"
+   ],
+   "author_count": 9,
+   "collaboration": "",
+   "year": "2022",
+   "date": "2022-07-19",
+   "journal": "JACoW IPAC2022 (2022), MOPOTK035",
+   "doi": "10.18429/JACoW-IPAC2022-MOPOTK035",
+   "arxiv": "2211.08951",
+   "cites": 1,
+   "kind": "proceedings",
+   "refereed": false
+  },
+  {
+   "id": 1868388,
+   "title": "Muon g − 2: A review",
+   "authors": [
+    "A. Keshavarzi",
+    "K.S. Khaw",
+    "T. Yoshioka"
+   ],
+   "author_count": 3,
+   "collaboration": "",
+   "year": "2022",
+   "date": "2022-01-26",
+   "journal": "Nucl.Phys.B 975 (2022), 115675",
+   "doi": "10.1016/j.nuclphysb.2022.115675",
+   "arxiv": "2106.06723",
+   "cites": 110,
+   "kind": "journal",
+   "refereed": true
+  },
+  {
+   "id": 2015643,
+   "title": "Search for the muon electric dipole moment using frozen-spin technique at PSI",
+   "authors": [
+    "K.S. Khaw",
+    "A. Adelmann",
+    "M. Backhaus"
+   ],
+   "author_count": 13,
+   "collaboration": "muon EDM initiative",
+   "year": "2022",
+   "date": "2022-01-21",
+   "journal": "PoS NuFact2021 (2022), 136",
+   "doi": "10.22323/1.402.0136",
+   "arxiv": "2201.08729",
+   "cites": 10,
+   "kind": "proceedings",
+   "refereed": false
+  },
+  {
+   "id": 2011844,
+   "title": "muEDM: Towards a Search for the Muon Electric Dipole Moment at PSI Using the Frozen-spin Technique",
+   "authors": [
+    "M. Sakurai",
+    "A. Adelmann",
+    "M. Backhaus"
+   ],
+   "author_count": 11,
+   "collaboration": "",
+   "year": "2022",
+   "date": "2022-01-17",
+   "journal": "JPS Conf.Proc. 37 (2022), 020604",
+   "doi": "10.7566/JPSCP.37.020604",
+   "arxiv": "2201.06561",
+   "cites": 18,
+   "kind": "proceedings",
+   "refereed": false
+  },
+  {
+   "id": 2895711,
+   "title": "2021年粒子物理学热点回眸",
+   "authors": [
+    "J. He",
+    "K.S. Khaw",
+    "N. Zhou"
+   ],
+   "author_count": 5,
+   "collaboration": "",
+   "year": "2022",
+   "date": "2022",
+   "journal": "Science & Technology Review [科技导报] 40 (2022) 1, 6–24",
+   "doi": "10.3981/j.issn.1000-7857.2022.01.001",
+   "arxiv": "",
+   "cites": 0,
+   "kind": "journal",
+   "refereed": false
+  },
+  {
+   "id": 1867586,
+   "title": "Muon spinning its way to new physics",
+   "authors": [
+    "K.S. Khaw",
+    "L. Li",
+    "J. Shu"
+   ],
+   "author_count": 3,
+   "collaboration": "",
+   "year": "2021",
+   "date": "2021-06-05",
+   "journal": "Front.Phys.(Beijing) 16 (2021) 6, 64602",
+   "doi": "10.1007/s11467-021-1089-2",
+   "arxiv": "",
+   "cites": 0,
+   "kind": "journal",
+   "refereed": true
+  },
+  {
+   "id": 1856531,
+   "title": "Measurement of the anomalous precession frequency of the muon in the Fermilab Muon $g−2$ Experiment",
+   "authors": [
+    "T. Albahri",
+    "A. Anastasi",
+    "A. Anisenkov"
+   ],
+   "author_count": 178,
+   "collaboration": "Muon g-2",
+   "year": "2021",
+   "date": "2021-04-07",
+   "journal": "Phys.Rev.D 103 (2021) 7, 072002",
+   "doi": "10.1103/PhysRevD.103.072002",
+   "arxiv": "2104.03247",
+   "cites": 310,
+   "kind": "journal",
+   "refereed": true
+  },
+  {
+   "id": 1856534,
+   "title": "Magnetic-field measurement and analysis for the Muon $g−2$ Experiment at Fermilab",
+   "authors": [
+    "T. Albahri",
+    "A. Anastasi",
+    "K. Badgley"
+   ],
+   "author_count": 173,
+   "collaboration": "Muon g-2",
+   "year": "2021",
+   "date": "2021-04-07",
+   "journal": "Phys.Rev.A 103 (2021) 4, 042208",
+   "doi": "10.1103/PhysRevA.103.042208",
+   "arxiv": "2104.03201",
+   "cites": 189,
+   "kind": "journal",
+   "refereed": true
+  },
+  {
+   "id": 1856627,
+   "title": "Measurement of the Positive Muon Anomalous Magnetic Moment to 0.46 ppm",
+   "authors": [
+    "B. Abi",
+    "T. Albahri",
+    "S. Al-Kilani"
+   ],
+   "author_count": 237,
+   "collaboration": "Muon g-2",
+   "year": "2021",
+   "date": "2021-04-07",
+   "journal": "Phys.Rev.Lett. 126 (2021) 14, 141801",
+   "doi": "10.1103/PhysRevLett.126.141801",
+   "arxiv": "2104.03281",
+   "cites": 2192,
+   "kind": "journal",
+   "refereed": true
+  },
+  {
+   "id": 1856628,
+   "title": "Beam dynamics corrections to the Run-1 measurement of the muon anomalous magnetic moment at Fermilab",
+   "authors": [
+    "T. Albahri",
+    "A. Anastasi",
+    "K. Badgley"
+   ],
+   "author_count": 177,
+   "collaboration": "Muon g-2",
+   "year": "2021",
+   "date": "2021-04-07",
+   "journal": "Phys.Rev.Accel.Beams 24 (2021) 4, 044002",
+   "doi": "10.1103/PhysRevAccelBeams.24.044002",
+   "arxiv": "2104.03240",
+   "cites": 134,
+   "kind": "journal",
+   "refereed": true
+  },
+  {
+   "id": 1847173,
+   "title": "Search for a muon EDM using the frozen-spin technique",
+   "authors": [
+    "A. Adelmann",
+    "M. Backhaus",
+    "C. Chavez Barajas"
+   ],
+   "author_count": 38,
+   "collaboration": "",
+   "year": "2021",
+   "date": "2021-02-17",
+   "journal": "",
+   "doi": "",
+   "arxiv": "2102.08838",
+   "cites": 74,
+   "kind": "preprint",
+   "refereed": false
+  },
+  {
+   "id": 1788475,
+   "title": "Demonstration of Muon-Beam Transverse Phase-Space Compression",
+   "authors": [
+    "A. Antognini",
+    "N. Ayres",
+    "I. Belosevic"
+   ],
+   "author_count": 19,
+   "collaboration": "",
+   "year": "2020",
+   "date": "2020-03-26",
+   "journal": "Phys.Rev.Lett. 125 (2020) 16, 164802",
+   "doi": "10.1103/PhysRevLett.125.164802",
+   "arxiv": "2003.11986",
+   "cites": 29,
+   "kind": "journal",
+   "refereed": true
+  },
+  {
+   "id": 1740748,
+   "title": "The laser-based gain monitoring system of the calorimeters in the Muon $g-2$ experiment at Fermilab",
+   "authors": [
+    "A. Anastasi",
+    "A. Basti",
+    "F. Bedeschi"
+   ],
+   "author_count": 44,
+   "collaboration": "Muon g-2",
+   "year": "2019",
+   "date": "2019-06-19",
+   "journal": "JINST 14 (2019), P11025",
+   "doi": "10.1088/1748-0221/14/11/P11025",
+   "arxiv": "1906.08432",
+   "cites": 40,
+   "kind": "journal",
+   "refereed": true
+  },
+  {
+   "id": 1734415,
+   "title": "Performance of the Muon $g-2$ calorimeter and readout systems measured with test beam data",
+   "authors": [
+    "K. Khaw",
+    "M. Bartolini",
+    "H. Binney"
+   ],
+   "author_count": 34,
+   "collaboration": "Muon g-2",
+   "year": "2019",
+   "date": "2019-05-10",
+   "journal": "Nucl.Instrum.Meth.A 945 (2019), 162558",
+   "doi": "10.1016/j.nima.2019.162558",
+   "arxiv": "1905.04407",
+   "cites": 36,
+   "kind": "journal",
+   "refereed": true
+  },
+  {
+   "id": 1713858,
+   "title": "muCool: A novel low-energy muon beam for future precision experiments",
+   "authors": [
+    "I. Belosevic",
+    "A. Antognini",
+    "Y. Bao"
+   ],
+   "author_count": 18,
+   "collaboration": "",
+   "year": "2019",
+   "date": "2019-01-15",
+   "journal": "Hyperfine Interact. 240 (2019) 1, 41",
+   "doi": "10.1007/s10751-019-1589-4",
+   "arxiv": "1901.04886",
+   "cites": 6,
+   "kind": "proceedings",
+   "refereed": false
+  },
+  {
+   "id": 1704404,
+   "title": "muCool: A next step towards efficient muon beam compression",
+   "authors": [
+    "I. Belosevic",
+    "A. Antognini",
+    "Y. Bao"
+   ],
+   "author_count": 19,
+   "collaboration": "",
+   "year": "2019",
+   "date": "2018-11-20",
+   "journal": "Eur.Phys.J.C 79 (2019) 5, 430",
+   "doi": "10.1140/epjc/s10052-019-6932-z",
+   "arxiv": "1811.08332",
+   "cites": 13,
+   "kind": "journal",
+   "refereed": true
+  },
+  {
+   "id": 1653947,
+   "title": "Expression of Interest for Evolution of the Mu2e Experiment",
+   "authors": [
+    "F. Abusalma",
+    "D. Ambrose",
+    "A. Artikov"
+   ],
+   "author_count": 128,
+   "collaboration": "Mu2e",
+   "year": "2018",
+   "date": "2018-02-07",
+   "journal": "",
+   "doi": "",
+   "arxiv": "1802.02599",
+   "cites": 60,
+   "kind": "preprint",
+   "refereed": false
+  },
+  {
+   "id": 1631981,
+   "title": "Muon g-2 Reconstruction and Analysis Framework for the Muon Anomalous Precession Frequency",
+   "authors": [
+    "K.S. Khaw"
+   ],
+   "author_count": 1,
+   "collaboration": "Muon g-2",
+   "year": "2018",
+   "date": "2017-10-21",
+   "journal": "J.Phys.Conf.Ser. 1085 (2018) 3, 032039",
+   "doi": "10.1088/1742-6596/1085/3/032039",
+   "arxiv": "1710.07839",
+   "cites": 2,
+   "kind": "proceedings",
+   "refereed": false
+  },
+  {
+   "id": 1496973,
+   "title": "Design and performance of SiPM-based readout of PbF$_2$ crystals for high-rate, precision timing applications",
+   "authors": [
+    "J. Kaspar",
+    "A. Fienberg",
+    "D. Hertzog"
+   ],
+   "author_count": 22,
+   "collaboration": "",
+   "year": "2017",
+   "date": "2016-11-09",
+   "journal": "JINST 12 (2017) 01, P01009",
+   "doi": "10.1088/1748-0221/12/01/P01009",
+   "arxiv": "1611.03180",
+   "cites": 56,
+   "kind": "journal",
+   "refereed": true
+  },
+  {
+   "id": 1471280,
+   "title": "Spatial confinement of muonium atoms",
+   "authors": [
+    "K. Khaw",
+    "A. Antognini",
+    "T. Prokscha"
+   ],
+   "author_count": 7,
+   "collaboration": "",
+   "year": "2016",
+   "date": "2016-06-19",
+   "journal": "Phys.Rev.A 94 (2016) 2, 022716",
+   "doi": "10.1103/PhysRevA.94.022716",
+   "arxiv": "1606.05840",
+   "cites": 19,
+   "kind": "journal",
+   "refereed": true
+  },
+  {
+   "id": 1374936,
+   "title": "Geant4 simulation of the PSI LEM beam line: energy loss and muonium formation in thin foils and the impact of unmoderated muons on the μSR spectrometer",
+   "authors": [
+    "K.S. Khaw",
+    "A. Antognini",
+    "P. Crivelli"
+   ],
+   "author_count": 8,
+   "collaboration": "",
+   "year": "2015",
+   "date": "2015-06-05",
+   "journal": "JINST 10 (2015) 10, P10025",
+   "doi": "10.1088/1748-0221/10/10/P10025",
+   "arxiv": "1506.01779",
+   "cites": 20,
+   "kind": "journal",
+   "refereed": true
+  },
+  {
+   "id": 1341289,
+   "title": "Muon (g-2) Technical Design Report",
+   "authors": [
+    "J. Grange",
+    "V. Guarino",
+    "P. Winter"
+   ],
+   "author_count": 200,
+   "collaboration": "Muon g-2",
+   "year": "2015",
+   "date": "2015-01-27",
+   "journal": "",
+   "doi": "10.2172/1251172",
+   "arxiv": "1501.06858",
+   "cites": 638,
+   "kind": "report",
+   "refereed": false
+  },
+  {
+   "id": 1754786,
+   "title": "Towards next generation fundamental precision measurements with muons",
+   "authors": [
+    "K.S. Khaw"
+   ],
+   "author_count": 1,
+   "collaboration": "",
+   "year": "2015",
+   "date": "2015",
+   "journal": "",
+   "doi": "10.3929/ethz-a-010486463",
+   "arxiv": "",
+   "cites": 4,
+   "kind": "thesis",
+   "refereed": false
+  },
+  {
+   "id": 1280965,
+   "title": "Muon cooling: longitudinal compression",
+   "authors": [
+    "Y. Bao",
+    "A. Antognini",
+    "W. Bertl"
+   ],
+   "author_count": 13,
+   "collaboration": "",
+   "year": "2014",
+   "date": "2014-02-11",
+   "journal": "Phys.Rev.Lett. 112 (2014) 22, 224801",
+   "doi": "10.1103/PhysRevLett.112.224801",
+   "arxiv": "1402.2418",
+   "cites": 34,
+   "kind": "journal",
+   "refereed": true
+  },
+  {
+   "id": 1295566,
+   "title": "Testing antimatter gravity with muonium",
+   "authors": [
+    "K. Kirch",
+    "K.S. Khaw"
+   ],
+   "author_count": 2,
+   "collaboration": "",
+   "year": "2014",
+   "date": "2014",
+   "journal": "Int.J.Mod.Phys.Conf.Ser. 30 (2014), 1460258",
+   "doi": "10.1142/S2010194514602580",
+   "arxiv": "1509.02918",
+   "cites": 19,
+   "kind": "proceedings",
+   "refereed": false
+  },
+  {
+   "id": 1082446,
+   "title": "Muonium emission into vacuum from mesoporous thin films at cryogenic temperatures",
+   "authors": [
+    "A. Antognini",
+    "P. Crivelli",
+    "T. Prokscha"
+   ],
+   "author_count": 12,
+   "collaboration": "",
+   "year": "2012",
+   "date": "2011-12",
+   "journal": "Phys.Rev.Lett. 108 (2012), 143401",
+   "doi": "10.1103/PhysRevLett.108.143401",
+   "arxiv": "1112.4887",
+   "cites": 45,
+   "kind": "journal",
+   "refereed": true
+  }
+ ],
  "mengjie-wu": [
   {
    "id": 2906901,
@@ -1343,5 +2385,26 @@
    "refereed": false
   }
  ],
- "jing-tian-yong": []
+ "jing-tian-yong": [],
+ "jia-cheng-yap": [
+  {
+   "id": 3203792,
+   "title": "Simulation study of accelerator-based muography using the GeV-scale forward muon component at SHINE",
+   "authors": [
+    "J. Wang",
+    "Y. Wang",
+    "S. Chen"
+   ],
+   "author_count": 10,
+   "collaboration": "",
+   "year": "2026",
+   "date": "2026-09-14",
+   "journal": "",
+   "doi": "",
+   "arxiv": "2609.15846",
+   "cites": 0,
+   "kind": "preprint",
+   "refereed": false
+  }
+ ]
 }
