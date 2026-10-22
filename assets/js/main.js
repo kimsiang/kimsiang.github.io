@@ -170,6 +170,20 @@
     const subject = `[TDLI Muon] Message from ${d.get('name')}`;
     const body = `Name: ${d.get('name')}\nEmail: ${d.get('email')}\nAffiliation: ${d.get('affiliation') || '-'}\n\n${d.get('message')}`;
     window.location.href = `mailto:kimsiang84@sjtu.edu.cn?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    // mailto: fails silently on many phones / machines without a mail client — never dead-end the visitor
+    const note = form.querySelector('.form-note');
+    if (note && !note.dataset.fallback) {
+      note.dataset.fallback = '1';
+      const zh = doc.dataset.lang === 'zh';
+      note.innerHTML = zh
+        ? '邮件应用没有打开？<button type="button" class="copy-msg">复制留言</button> 后发送至 <a href="mailto:kimsiang84@sjtu.edu.cn">kimsiang84@sjtu.edu.cn</a>'
+        : 'Mail app didn’t open? <button type="button" class="copy-msg">Copy the message</button> and send it to <a href="mailto:kimsiang84@sjtu.edu.cn">kimsiang84@sjtu.edu.cn</a>';
+      note.querySelector('.copy-msg').addEventListener('click', (ev) => {
+        const b = ev.currentTarget;
+        const done = () => { b.textContent = zh ? '已复制 ✓' : 'Copied ✓'; };
+        if (navigator.clipboard) navigator.clipboard.writeText(`${subject}\n\n${body}`).then(done, done); else done();
+      });
+    }
   });
 
   /* ---------- 3D tilt on solid cards ---------- */
@@ -202,6 +216,8 @@
   /* ---------- 3D hero ---------- */
   const canvas = document.getElementById('hero-canvas');
   if (!canvas) return;
+  // Phones get the static fallback: the 600 KB three.js bundle isn't worth it on a small screen
+  if (window.innerWidth < 860) return;
   const $ = (id) => document.getElementById(id);
   const pad = (n) => String(n).padStart(6, '0');
   import(heroSrc).then(({ initHero }) => {
