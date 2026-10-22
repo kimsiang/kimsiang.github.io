@@ -138,7 +138,7 @@ html[data-lang="zh"] .eyebrow { letter-spacing: .2em; font-family: var(--cjk); f
 .dot, .live { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 10px var(--accent); flex: none; }
 .live { animation: blink 1.6s infinite; }
 @keyframes blink { 50% { opacity: .25; } }
-.hero-title { font-size: clamp(42px, 5.6vw, 84px); font-weight: 500; line-height: 1.0; letter-spacing: -0.035em; max-width: 12.5em; }
+.hero-title { font-size: clamp(42px, 5.6vw, 84px); font-weight: 500; line-height: 1.0; letter-spacing: -0.035em; max-width: 12.5em; text-shadow: 0 2px 28px rgba(4, 7, 12, .85); }
 .hero-title em { display: block; font-style: normal; font-weight: 300; color: transparent; background: linear-gradient(90deg, #cfe9ff 0%, var(--accent) 45%, #6f8dff 100%); -webkit-background-clip: text; background-clip: text; font-size: .62em; line-height: 1.12; margin-top: .3em; max-width: 15em; letter-spacing: -0.025em; }
 html[data-lang="zh"] .hero-title { font-family: var(--cjk); font-weight: 600; font-size: clamp(38px, 5.6vw, 82px); line-height: 1.15; }
 html[data-lang="zh"] .hero-title em { font-weight: 300; font-size: .7em; }
@@ -161,7 +161,7 @@ html[data-lang="zh"] .hero-title em { font-weight: 300; font-size: .7em; }
 .ask input::placeholder { color: var(--faint); }
 .ask input::-webkit-search-cancel-button { -webkit-appearance: none; }
 html[data-lang="zh"] .ask input { font-family: var(--cjk); }
-.ask kbd { flex: none; font: 500 11px/1 var(--f-mono); color: var(--faint); border: 1px solid var(--line-2); border-radius: 3px; padding: 4px 6px; }
+.ask kbd { flex: none; font: 500 11px/1 var(--f-mono); color: var(--muted); border: 1px solid rgba(255, 255, 255, .22); border-radius: 3px; padding: 4px 7px; background: rgba(255, 255, 255, .04); }
 .ask-go { flex: none; width: 40px; height: 40px; border: 0; border-radius: 3px; background: var(--accent); color: #031019; font-size: 18px; cursor: pointer; display: grid; place-items: center; transition: background .25s, box-shadow .25s; }
 .ask-go:hover { background: #7bdcff; box-shadow: 0 0 20px rgba(47, 200, 255, .45); }
 .ask.busy .ask-prompt { animation: blink .6s infinite; }
@@ -769,8 +769,8 @@ html[data-lang="zh"] .cites { font-family: var(--cjk); }
 }
 @media (max-width: 860px) {
   .hero { justify-content: flex-end; }
-  .hero-shade { background: linear-gradient(0deg, var(--bg) 6%, rgba(4, 7, 12, .86) 42%, rgba(4, 7, 12, .1) 72%), linear-gradient(180deg, rgba(4, 7, 12, .7), transparent 20%); }
-  .hero-inner { padding-top: 46vh; padding-bottom: 32px; }
+  .hero-shade { background: linear-gradient(0deg, var(--bg) 10%, rgba(4, 7, 12, .94) 48%, rgba(4, 7, 12, .2) 78%), linear-gradient(180deg, rgba(4, 7, 12, .7), transparent 20%); }
+  .hero-inner { padding-top: 24vh; padding-bottom: 32px; }
   .spec-strip { position: static; grid-template-columns: 1fr 1fr; padding-bottom: 32px; }
   .spec { padding: 18px 12px 18px 0; margin-right: 12px; border-bottom: 1px solid var(--line); }
   .spec:nth-child(2n) { border-right: 0; margin-right: 0; padding-left: 0; }
@@ -1048,7 +1048,8 @@ html[data-lang="zh"] .kim .klead { font-family: var(--cjk); }
 
 /* timeline year cards with background photos */
 .timeline { column-gap: 12px; }
-.timeline li.tl-img { isolation: isolate; min-height: 380px; display: flex; flex-direction: column; justify-content: flex-end; padding: 150px 20px 24px; border-radius: var(--r, 6px); background-size: cover; background-position: center; background-repeat: no-repeat; }
+.timeline li.tl-img { isolation: isolate; min-height: 380px; display: flex; flex-direction: column; justify-content: flex-end; padding: 150px 20px 24px; border-radius: var(--r, 6px); overflow: hidden; }
+.timeline li.tl-img > img.tl-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; border-radius: inherit; }
 .timeline li.tl-img::before { left: 20px; }
 .timeline li.tl-img::after { content: ""; position: absolute; inset: 0; z-index: -1; border-radius: inherit;
   background: linear-gradient(180deg, rgba(4, 7, 12, .15) 0%, rgba(4, 7, 12, .55) 35%, rgba(4, 7, 12, .92) 62%, rgba(4, 7, 12, .97) 100%);
