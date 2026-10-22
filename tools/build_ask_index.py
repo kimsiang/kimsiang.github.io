@@ -179,8 +179,18 @@ def theses():
         docs.append({'id': f'tp-{i}', 'type': 'page', 'title': f"{p['program']} · {p['topic'] or p['period']}", 'text': clean(txt), 'url': 'theses.html'})
     return docs
 
+def results():
+    from bs4 import BeautifulSoup as BS
+    soup = BS(open(os.path.join(ROOT, 'results.html')).read(), 'html.parser')
+    docs = []
+    for a in soup.select('article.res'):
+        for z in a.select('.zh'): z.decompose()
+        t = clean(a.get_text(' '))
+        docs.append({'id': 'r-' + a['id'], 'type': 'page', 'title': 'Headline result · ' + clean(a.select_one('h2').get_text(' ')), 'text': t[:900], 'url': 'results.html#' + a['id']})
+    return docs
+
 if __name__ == '__main__':
-    docs = papers() + pages() + news() + members() + theses()
+    docs = papers() + pages() + news() + members() + theses() + results()
     os.makedirs(os.path.dirname(OUT), exist_ok=True)
     json.dump({'built': __import__('datetime').date.today().isoformat(), 'docs': docs}, open(OUT, 'w'), ensure_ascii=False, separators=(',', ':'))
     kinds = {}

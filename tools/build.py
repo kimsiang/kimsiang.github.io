@@ -40,7 +40,7 @@ NAV = [
 ]
 FOOT = [
     ('talks.html', 'Talks', '学术报告'), ('posters.html', 'Posters', '学术海报'),
-    ('theses.html', 'Theses', '学位论文'), ('kim.html', 'PI profile', '个人主页'), ('index.html#joinus', 'Join us', '加入我们'),
+    ('results.html', 'Results', '代表性成果'), ('theses.html', 'Theses', '学位论文'), ('kim.html', 'PI profile', '个人主页'), ('index.html#joinus', 'Join us', '加入我们'),
 ]
 
 def layout(path, title, desc, body, active='', home=False):
@@ -576,5 +576,6 @@ def build_theses():
 
 if __name__ == '__main__':
     build_home(); build_pages(); build_muons(); build_news(); build_publications(); build_members(); build_theses()
+    import results, sys; results.build_results(sys.modules[__name__])
     n = sum(1 for d, _, fs in os.walk(ROOT) if not any(x in os.path.relpath(d, ROOT).split(os.sep) for x in ('.git', 'node_modules', 'content', 'tools')) for f in fs if f.endswith('.html'))
     print('built', n, 'html files')
