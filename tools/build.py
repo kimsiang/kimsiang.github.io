@@ -475,13 +475,7 @@ def build_pages():
     page('gallery.html', 'gallery', 'PHOTO', 'Photo gallery', '照片集',
          'Life in the lab and around the world — from building the Muon Tech Lab to Fermilab, PSI and KEK.',
          '实验室内外的点滴——从建设缪子技术实验室，到费米实验室、PSI与KEK。', 'gallery', with_toc=True)
-    intro = '''<section class="pbody tight"><div class="wrap"><div class="prose doc"><div class="en-only">
-<p><strong>Kim Siang Khaw (许金祥)</strong> is a Tenured Fellow of the Tsung-Dao Lee Institute and Tenured Associate Professor in the School of Physics and Astronomy, Shanghai Jiao Tong University, where he leads the Muon Physics Group. His research uses the muon as a probe — precision measurements of its anomalous magnetic moment and electric dipole moment — to test the Standard Model and search for new physics, alongside a new high-repetition-rate muon source at SHINE and muography for underground space in Shanghai.</p>
-<p>Born in Penang, Malaysia, he studied and worked for 16 years in Japan (Osaka University of Foreign Studies, Kyoto University, University of Tokyo), Switzerland (ETH Zurich) and the USA (University of Washington) before moving to Shanghai, and works in Malay, Japanese, German, English and Chinese. Outside physics he enjoys badminton, guitar, cooking, durian and travel — more than 25 countries so far. The profile below is in Chinese.</p>
-</div></div></div></section>'''
-    page('kim.html', 'kim', 'PI', 'Kim Siang Khaw', '许金祥',
-         'Principal Investigator · Tenured Associate Professor, TDLI & SPA, Shanghai Jiao Tong University',
-         '课题组长 · 上海交通大学李政道研究所 / 物理与天文学院 长聘副教授', 'people', pre=intro)
+    import kim, sys; kim.build_kim(sys.modules[__name__])
 
 def build_home():
     body = read('home.html').replace('{{HOME_NEWS}}', news_rows(news[:6]))

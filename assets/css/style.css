@@ -1012,3 +1012,31 @@ html[data-lang="en"] .rplot .zh,html[data-lang="zh"] .rplot .en{display:none}
 @media(max-width:900px){.res{grid-template-columns:1fr;gap:28px;padding:48px 0}.hstrip{grid-template-columns:1fr 1fr}.hstrip a:nth-child(2){border-right:0}.hstrip a:nth-child(3){padding-left:0}.hstrip a:nth-child(-n+2){border-bottom:1px solid var(--line)}}
 @media(max-width:520px){.res-fig{padding:12px}}
 @media(max-width:640px){.res-fig{overflow-x:auto;-webkit-overflow-scrolling:touch}.res-fig .rplot{min-width:620px}}
+
+/* PI profile (kim.html) */
+.kstats { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); margin: 0 0 28px; }
+.kstats div { display: flex; flex-direction: column; gap: 2px; padding: 12px 0; font-size: 11.5px; color: var(--muted); }
+.kstats b { font: 400 24px/1 var(--f-display); color: var(--text); letter-spacing: -0.02em; }
+.mside .mlabel { margin-top: 24px; }
+.kaddr { display: flex; flex-direction: column; gap: 3px; padding: 11px 0; border-bottom: 1px solid var(--line); font-size: 13px; color: var(--muted); }
+.kaddr > b { font-weight: 500; color: var(--text); font-size: 14px; }
+.mside .toc { margin-top: 28px; }
+.kim .klead { font: 400 clamp(19px, 1.6vw, 22px)/1.5 var(--f-display); color: var(--text); letter-spacing: -0.01em; }
+html[data-lang="zh"] .kim .klead { font-family: var(--cjk); }
+.kim h2 { scroll-margin-top: 96px; }
+.kfig { margin: 28px 0 0; }
+.kfig img { width: 100%; border: 1px solid var(--line); border-radius: 4px; }
+.kfig figcaption { margin-top: 8px; font-size: 12.5px; color: var(--faint); }
+.kgrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.kgrid .kfig { margin-top: 12px; }
+.kgrid .kfig img { aspect-ratio: 4 / 3; object-fit: cover; }
+.kpill { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 8px; }
+.kpill a { display: flex; flex-direction: column; gap: 6px; padding: 18px 18px 20px; border: 1px solid var(--line); background: var(--bg-2); color: var(--text); transition: border-color .3s, transform .4s var(--ease); }
+.kpill a:hover { border-color: rgba(47, 200, 255, .5); transform: translateY(-2px); }
+.kpill .mono { font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); }
+.kpill b { font: 500 18px/1.25 var(--f-display); }
+.kpill b + span { font-size: 13.5px; line-height: 1.55; color: var(--muted); }
+.kmore { margin-top: 18px; font-size: 12.5px; }
+.kmore a { color: var(--accent); }
+.kim .pubs { margin-top: 8px; }
+@media (max-width: 640px) { .kpill, .kgrid { grid-template-columns: 1fr; } }
