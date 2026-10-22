@@ -44,7 +44,7 @@ def build_kim(B):
             + ''.join(f'<li><a href="#{i}">{bi(e, z)}</a></li>' for i, e, z in [
                 ('bio', 'Biography', '个人简介'), ('research', 'Research', '研究方向'), ('career', 'Career', '教育与经历'),
                 ('honours', 'Honours', '荣誉奖励'), ('service', 'Service', '学术服务'), ('papers', 'Selected papers', '代表性论文'),
-                ('group', 'Working with me', '加入团队'), ('outside', 'Outside the lab', '工作之余')])
+                ('group', 'Working with me', '加入团队')])
             + '</ol></nav>')
 
     # ---------------------------------------------------------------- body
@@ -105,18 +105,13 @@ def build_kim(B):
               + fig('assets/media/1936.webp', 'Graduation day', '毕业典礼')
               + fig('assets/media/1934.webp', 'Team-building day', '团建活动') + '</div>')
 
-    outside = two(
-        '<p>Outside physics I play badminton, the guitar, and enjoy cooking and good food — as a Penangite, durian comes first. I have travelled to more than 25 countries and 50 cities. I also share physics with the public, in Chinese, as “从槟城出发的粒子” (Particles from Penang).</p>',
-        '<p>工作之余，我喜欢打羽毛球、弹吉他、下厨和品尝美食——身为槟城人，对榴莲情有独钟。至今已踏足超过25个国家、50余座城市。我也以“从槟城出发的粒子”为名，用中文开展物理科普。</p>')
-
     body = (H('bio', 'Biography', '个人简介') + bio
             + H('research', 'Research', '研究方向') + research
             + H('career', 'Career', '教育与经历') + career
             + H('honours', 'Honours', '荣誉奖励') + honours
             + H('service', 'Service &amp; leadership', '学术服务') + service
             + H('papers', 'Selected papers', '代表性论文') + papers
-            + H('group', 'Working with me', '加入团队') + group
-            + H('outside', 'Outside the lab', '工作之余') + outside)
+            + H('group', 'Working with me', '加入团队') + group)
 
     hero = B.phero('PI', 'People', '团队成员', 'Kim Siang Khaw <span class="zh-name">许金祥</span>', bi(
         'Tenured Fellow, Tsung-Dao Lee Institute · Tenured Associate Professor, School of Physics and Astronomy, Shanghai Jiao Tong University',
