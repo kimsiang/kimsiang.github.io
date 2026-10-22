@@ -1040,3 +1040,8 @@ html[data-lang="zh"] .kim .klead { font-family: var(--cjk); }
 .kmore a { color: var(--accent); }
 .kim .pubs { margin-top: 8px; }
 @media (max-width: 640px) { .kpill, .kgrid { grid-template-columns: 1fr; } }
+.kall { margin-top: 20px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.kall summary { cursor: pointer; list-style: none; padding: 14px 0; font: 500 13px/1.4 var(--f-mono); color: var(--accent); display: flex; justify-content: space-between; }
+.kall summary::-webkit-details-marker { display: none; }
+.kall summary::after { content: "+"; transition: transform .25s var(--ease); }
+.kall[open] summary::after { transform: rotate(45deg); }

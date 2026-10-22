@@ -357,13 +357,14 @@ def build_publications():
 
 # ------------------------------------------------------------------ member sub-pages
 MEMBERS = json.load(open(os.path.join(C, 'members.json')))
+PI_SLUG = 'kim-siang-khaw'   # the PI's profile lives at kim.html; people/<PI_SLUG>.html just redirects there
 CODES = {'Principal Investigator': 'PI', 'Research Assistant': 'RA', 'Postdoctoral Researcher': 'POSTDOC', 'Doctoral Student': 'PHD', "Master's Student": 'MSC'}
 
 def link_members(raw):
     """On the People page, link each current member's name to their sub-page."""
     soup = BeautifulSoup(raw, 'html.parser')
     for m in MEMBERS:
-        href = '{ROOT}people/' + m['slug'] + '.html'
+        href = '{ROOT}kim.html' if m['slug'] == PI_SLUG else '{ROOT}people/' + m['slug'] + '.html'
         for st in soup.find_all('strong'):
             if st.find_parent('a') or not st.get_text(strip=True).startswith(m['name']): continue
             a = soup.new_tag('a', href=href, **{'class': 'plink'})
@@ -377,6 +378,13 @@ def build_members():
     pubs = json.load(open(os.path.join(C, 'member-publications.json')))
     today = date.today().isoformat()
     for m in MEMBERS:
+        if m['slug'] == PI_SLUG:
+            open(os.path.join(ROOT, 'people', PI_SLUG + '.html'), 'w').write(
+                '<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>Kim Siang Khaw · TDLI Muon Physics Group</title>'
+                '<link rel="canonical" href="https://kimsiang.github.io/kim.html"><meta name="robots" content="noindex">'
+                '<meta http-equiv="refresh" content="0; url=../kim.html"></head>'
+                '<body><p>This page has moved to <a href="../kim.html">kim.html</a>.</p></body></html>\n')
+            continue
         role_en, role_zh = m['role']
         name = html.escape(m['name'])
         title = name + (f' <span class="zh-name">{m["zh"]}</span>' if m['zh'] else '')

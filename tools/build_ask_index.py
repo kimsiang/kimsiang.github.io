@@ -164,7 +164,7 @@ def members():
         awards = ' '.join(flat(a) for a in m.get('awards', []))
         t = clean(' · '.join(b for b in bits if b) + '. ' + edu + ' ' + awards)[:900]
         if len(t) < 20: continue
-        docs.append({'id': f'm-{m["slug"]}', 'type': 'member', 'title': m.get('name', m['slug']), 'text': t, 'url': f'people/{m["slug"]}.html'})
+        docs.append({'id': f'm-{m["slug"]}', 'type': 'member', 'title': m.get('name', m['slug']), 'text': t, 'url': 'kim.html' if m['slug'] == 'kim-siang-khaw' else f'people/{m["slug"]}.html'})
     return docs
 
 def theses():

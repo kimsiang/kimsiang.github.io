@@ -39,7 +39,7 @@ def build_kim(B):
             '<span class="kaddr"><b>' + bi('Lab', '实验室') + '</b><span>' + bi('Lab S243, Tsung-Dao Lee Institute, 1 Lisuo Road, Pudong, Shanghai', '上海市浦东新区李所路1号 李政道研究所 S243') + '</span></span></div>'
             '<p class="mono mlabel">' + bi('Profiles', '学术主页') + '</p>'
             '<div class="mlinks">' + ''.join(f'<a href="{u}" target="_blank" rel="noopener"><b>{n}</b><span>{i}</span></a>' for n, i, u in links)
-            + '<a href="{ROOT}people/kim-siang-khaw.html"><b>' + bi('Full publication list', '完整论文列表') + '</b><span>' + bi('Synced from INSPIRE-HEP →', '同步自INSPIRE-HEP →') + '</span></a></div>'
+            + '<a href="#all-papers"><b>' + bi('Full publication list', '完整论文列表') + '</b><span>' + bi(f'All {len(pubs)} papers on this page ↓', f'本页列出全部 {len(pubs)} 篇 ↓') + '</span></a></div>'
             '<nav class="toc" aria-label="On this page"><p class="mono">' + bi('On this page', '本页目录') + '</p><ol>'
             + ''.join(f'<li><a href="#{i}">{bi(e, z)}</a></li>' for i, e, z in [
                 ('bio', 'Biography', '个人简介'), ('research', 'Research', '研究方向'), ('career', 'Career', '教育与经历'),
@@ -88,7 +88,10 @@ def build_kim(B):
     pick = {2928642: 'g-2', 3190062: 'EDM', 2874447: 'muEDM', 2896777: 'SHINE', 2906901: 'Muography', 1754786: 'PhD thesis'}
     sel = sorted([p for p in pubs if p['id'] in pick], key=lambda p: p['date'], reverse=True)
     papers = '<ol class="pubs">' + ''.join(B.pub_rows(sel)) + '</ol>'
-    papers += '<p class="kmore mono"><a href="{ROOT}people/kim-siang-khaw.html">' + bi(f'All {len(pubs)} papers →', f'全部 {len(pubs)} 篇论文 →') + '</a> · <a href="{ROOT}talks.html">' + bi('Talks →', '学术报告 →') + '</a></p>'
+    papers += ('<details class="kall" id="all-papers"><summary>' + bi(f'All {len(pubs)} papers · {cites:,} citations', f'全部 {len(pubs)} 篇论文 · 引用 {cites:,} 次') + '</summary>'
+               + '<ol class="pubs">' + ''.join(B.pub_rows(pubs)) + '</ol>'
+               + '<p class="src mono">' + bi(f'Data: INSPIRE-HEP, updated {B.date.today().isoformat()}', f'数据来源：INSPIRE-HEP，更新于{B.date.today().isoformat()}') + '</p></details>')
+    papers += '<p class="kmore mono"><a href="{ROOT}publications.html">' + bi('Group publications →', '课题组论文 →') + '</a> · <a href="{ROOT}talks.html">' + bi('Talks →', '学术报告 →') + '</a></p>'
 
     group = two(
         '<p>We are a small, international team, and I try to keep the atmosphere open and curious. Each week we run a study group on introductory particle-physics textbooks, a journal club, and dedicated meetings for the Muon g-2 and muEDM collaborations. Students present their work at a national or international conference about twice a year, and strong graduate students can spend extended research periods at Fermilab and PSI.</p>'
