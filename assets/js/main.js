@@ -216,8 +216,6 @@
   /* ---------- 3D hero ---------- */
   const canvas = document.getElementById('hero-canvas');
   if (!canvas) return;
-  // Phones get the static fallback: the 600 KB three.js bundle isn't worth it on a small screen
-  if (window.innerWidth < 860) return;
   const $ = (id) => document.getElementById(id);
   const pad = (n) => String(n).padStart(6, '0');
   import(heroSrc).then(({ initHero }) => {

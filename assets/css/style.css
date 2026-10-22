@@ -772,7 +772,7 @@ html[data-lang="zh"] .cites { font-family: var(--cjk); }
 @media (max-width: 860px) {
   .hero { justify-content: flex-end; }
   .hero-shade { background: linear-gradient(0deg, var(--bg) 10%, rgba(4, 7, 12, .94) 48%, rgba(4, 7, 12, .2) 78%), linear-gradient(180deg, rgba(4, 7, 12, .7), transparent 20%); }
-  .hero-inner { padding-top: 24vh; padding-bottom: 32px; }
+  .hero-inner { padding-top: 36vh; padding-bottom: 32px; }
   .spec-strip { position: static; grid-template-columns: 1fr 1fr; padding-bottom: 32px; }
   .spec { padding: 18px 12px 18px 0; margin-right: 12px; border-bottom: 1px solid var(--line); }
   .spec:nth-child(2n) { border-right: 0; margin-right: 0; padding-left: 0; }
