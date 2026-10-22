@@ -211,20 +211,36 @@ def article(body, side=''):
 # ------------------------------------------------------------------ news
 news = json.load(open(os.path.join(C, 'news.json')))
 
-def _excerpt(slug, fallback=''):
+# Bilingual news: content/news/<slug>.html is the original post; an optional
+# translation lives in content/news/zh/<slug>.html (or content/news/en/<slug>.html
+# when the original is in Chinese). news.json may carry title_en / title_zh.
+def news_src(slug, lang):
+    for f in (os.path.join(C, 'news', lang, slug + '.html'), os.path.join(C, 'news', slug + '.html')):
+        if os.path.exists(f): return open(f).read()
+    return ''
+
+def _excerpt(raw, fallback=''):
     """First paragraph of the post body, so previews follow the edited text."""
-    try:
-        soup = BeautifulSoup(open(os.path.join(C, 'news', slug + '.html')).read(), 'html.parser')
-    except FileNotFoundError:
-        return fallback
+    soup = BeautifulSoup(raw, 'html.parser')
     for p in soup.find_all('p'):
         t = re.sub(r'\s+', ' ', p.get_text(' ', strip=True)).strip()
-        if len(t) > 40:
+        if len(t) > 40 or (re.search(r'[\u4e00-\u9fff]', t) and len(t) > 15):
             return t[:240]
     return fallback
 
 for _n in news:
-    _n['excerpt'] = _excerpt(_n['slug'], _n.get('excerpt', ''))
+    _n['t_en'] = _n.get('title_en') or _n['title']
+    _n['t_zh'] = _n.get('title_zh') or _n['title']
+    _n['excerpt'] = _excerpt(news_src(_n['slug'], 'en'), _n.get('excerpt', ''))
+    _n['excerpt_zh'] = _excerpt(news_src(_n['slug'], 'zh'), _n['excerpt'])
+
+def ntitle(n):
+    return bi(html.escape(n['t_en']), html.escape(n['t_zh']))
+
+def nexc(n, k):
+    e, z = n['excerpt'], n['excerpt_zh']
+    cut = lambda s: html.escape(s[:k].rstrip()) + ('…' if len(s) > k else '')
+    return bi(cut(e), cut(z))
 
 def month(d):
     y, m, dd = d.split('-')
@@ -234,7 +250,7 @@ def news_rows(items):
     out = []
     for n in items:
         th = f'<img src="{{ROOT}}{n["thumb"]}" alt="" loading="lazy" decoding="async">' if n.get('thumb') else '<span class="nc-ph">μ</span>'
-        out.append(f'''<li class="rv"><a href="{{ROOT}}news/{n["slug"]}.html"><span class="n-img">{th}</span><span class="n-body"><span class="n-meta"><time datetime="{n["date"]}">{n["date"][:7].replace("-", ".")}</time><span class="n-cat">News</span></span><span class="n-t">{html.escape(n["title"])}<small>{html.escape(n["excerpt"][:150].rstrip())}{"…" if len(n["excerpt"]) > 150 else ""}</small></span></span><span class="arr">→</span></a></li>''')
+        out.append(f'''<li class="rv"><a href="{{ROOT}}news/{n["slug"]}.html"><span class="n-img">{th}</span><span class="n-body"><span class="n-meta"><time datetime="{n["date"]}">{n["date"][:7].replace("-", ".")}</time><span class="n-cat">News</span></span><span class="n-t">{ntitle(n)}<small>{nexc(n, 150)}</small></span></span><span class="arr">→</span></a></li>''')
     return '<ul class="news">\n      ' + '\n      '.join(out) + '\n    </ul>'
 
 def build_news():
@@ -244,8 +260,8 @@ def build_news():
     cards = []
     for n in news:
         th = f'<img src="{{ROOT}}{n["thumb"]}" alt="" loading="lazy" decoding="async">' if n['thumb'] else '<span class="nc-ph">μ</span>'
-        cards.append(f'''<li class="ncard" data-y="{n["date"][:4]}" data-q="{html.escape((n["title"] + " " + n["excerpt"]).lower())}">
-        <a href="{{ROOT}}news/{n["slug"]}.html"><span class="nc-img">{th}</span><span class="nc-body"><time datetime="{n["date"]}">{month(n["date"])}</time><h3>{html.escape(n["title"])}</h3><p>{html.escape(n["excerpt"][:180])}</p></span></a></li>''')
+        cards.append(f'''<li class="ncard" data-y="{n["date"][:4]}" data-q="{html.escape((n["t_en"] + " " + n["t_zh"] + " " + n["excerpt"] + " " + n["excerpt_zh"]).lower())}">
+        <a href="{{ROOT}}news/{n["slug"]}.html"><span class="nc-img">{th}</span><span class="nc-body"><time datetime="{n["date"]}">{month(n["date"])}</time><h3>{ntitle(n)}</h3><p>{nexc(n, 180)}</p></span></a></li>''')
     body = phero('NEWS', 'News & events', '新闻动态', bi('News &amp; events', '新闻动态'),
                  bi(f'{len(news)} stories from the group since {years[-1]} — conferences, beam tests, workshops, people and papers.',
                     f'自{years[-1]}年以来的{len(news)}条课题组动态——会议、束流测试、研讨会、成员与论文。'))
@@ -264,14 +280,15 @@ def build_news():
         newer = news[i - 1] if i > 0 else None
         older = news[i + 1] if i + 1 < len(news) else None
         crumbs = f'<p class="crumbs mono"><a href="{{ROOT}}news/index.html">{bi("News", "新闻动态")}</a> / {n["date"][:4]}</p>'
-        hero = phero(month(n['date']), 'News', '新闻', html.escape(n['title']), crumbs=crumbs)
+        hero = phero(month(n['date']), 'News', '新闻', ntitle(n), crumbs=crumbs)
         pn = '<nav class="pn">'
-        pn += f'<a class="prev" href="{{ROOT}}news/{older["slug"]}.html"><small>{bi("← Older", "← 更早")}</small>{html.escape(older["title"])}</a>' if older else '<span></span>'
-        pn += f'<a class="next" href="{{ROOT}}news/{newer["slug"]}.html"><small>{bi("Newer →", "更新 →")}</small>{html.escape(newer["title"])}</a>' if newer else '<span></span>'
+        pn += f'<a class="prev" href="{{ROOT}}news/{older["slug"]}.html"><small>{bi("← Older", "← 更早")}</small>{ntitle(older)}</a>' if older else '<span></span>'
+        pn += f'<a class="next" href="{{ROOT}}news/{newer["slug"]}.html"><small>{bi("Newer →", "更新 →")}</small>{ntitle(newer)}</a>' if newer else '<span></span>'
         pn += '</nav>'
-        b = prose(read(f'news/{n["slug"]}.html'))
+        en, zh = news_src(n['slug'], 'en'), news_src(n['slug'], 'zh')
+        b = prose(en) if en == zh else f'<div class="en">{prose(en)}</div><div class="zh">{prose(zh)}</div>'
         body = hero + f'<section class="pbody"><div class="wrap"><article class="prose doc post">{b}</article>{pn}</div></section>'
-        layout(f'news/{n["slug"]}.html', n['title'], n['excerpt'][:160] or n['title'], body, 'news')
+        layout(f'news/{n["slug"]}.html', n['t_en'], n['excerpt'][:160] or n['t_en'], body, 'news')
 
 # ------------------------------------------------------------------ publications
 KINDS = {'journal': ('Journal articles', '期刊论文'), 'proceedings': ('Proceedings', '会议论文'),

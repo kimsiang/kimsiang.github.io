@@ -147,12 +147,19 @@ def pages():
 def news():
     docs = []
     for n in json.load(open(os.path.join(C, 'news.json'))):
-        try: src = open(os.path.join(C, 'news', n['slug'] + '.html')).read()
+        ef = os.path.join(C, 'news', 'en', n['slug'] + '.html')
+        try: src = open(ef if os.path.exists(ef) else os.path.join(C, 'news', n['slug'] + '.html')).read()
         except FileNotFoundError: continue
         s_en, _ = split_lang(src)
         t = clean(' '.join(text_of(p) for p in s_en.find_all('p')))[:1200]
         if len(t) < 60: continue
-        docs.append({'id': f'n-{n["slug"]}', 'type': 'news', 'title': n['title'], 'text': t, 'url': f'news/{n["slug"]}.html', 'date': n['date']})
+        docs.append({'id': f'n-{n["slug"]}', 'type': 'news', 'title': n.get('title_en') or n['title'], 'text': t, 'url': f'news/{n["slug"]}.html', 'date': n['date']})
+        zf = os.path.join(C, 'news', 'zh', n['slug'] + '.html')
+        if os.path.exists(zf):
+            zs = BeautifulSoup(open(zf).read(), 'html.parser')
+            zt = clean(' '.join(text_of(p) for p in zs.find_all('p')))[:600]
+            if len(zt) > 30:
+                docs.append({'id': f'nz-{n["slug"]}', 'type': 'news', 'title': n.get('title_zh') or n['title'], 'text': zt, 'url': f'news/{n["slug"]}.html', 'date': n['date'], 'lang': 'zh'})
     return docs
 
 def members():
