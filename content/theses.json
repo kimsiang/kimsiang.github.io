@@ -1,27 +1,286 @@
 {
  "_help": "Theses archive (theses.html). 'theses' = completed degree theses supervised in the group; level: phd | msc | bsc. Optional fields: zh, slug (links to people/<slug>.html), title_zh, pdf, doi, news (news slug), now. Current PhD/Master's students are listed automatically from members.json as 'In progress'. 'projects' = non-degree student research (PRP, Zhiyuan, internships...); ongoing: true while running.",
  "theses": [
-  {"level": "bsc", "year": 2026, "date": "2026-06", "name": "Beining Rao", "zh": "饶倍宁", "title": "", "topic": "Positronium Physics", "now": "PhD student, Indiana University"},
-  {"level": "bsc", "year": 2026, "date": "2026-06", "name": "Beiyao Shi", "zh": "史贝尧", "title": "", "topic": "Multi-wire Proportional Chamber", "now": "Master's student, University of Tokyo"},
-  {"level": "bsc", "year": 2024, "date": "2024-06-04", "name": "Yimin Wan", "zh": "万一民", "title": "Design and Construction of Spark Chamber Frame Structure, Gas System, and Camera System", "topic": "Spark Chamber for Muon Physics", "news": "yimin-wan-and-xingyun-huang-have-successfully-defended-their-bachelors", "now": "Master's student, Shanghai Advanced Research Institute (SARI), CAS"},
-  {"level": "bsc", "year": 2024, "date": "2024-06-04", "name": "Xingyun Huang", "zh": "黄幸运", "slug": "xingyun-huang", "title": "Spark-Chamber-based Muon Mass Measurement", "topic": "Spark Chamber for Muon Physics", "news": "yimin-wan-and-xingyun-huang-have-successfully-defended-their-bachelors", "now": "PhD student in the group (muEDM)"},
-  {"level": "msc", "year": 2024, "date": "2024-05-12", "name": "Jun Kai Ng", "zh": "黄俊凯", "slug": "jun-kai-ng", "title": "Validation of the Calorimeter Acceptance Model in the Fermilab Muon g-2 Experiment", "topic": "Muon g-2", "news": "jun-kai-ng-successfully-defends-his-masters-thesis", "now": "PhD student in the group (SHINE Muon Source), CSC Scholarship"}
+  {
+   "level": "bsc",
+   "year": 2026,
+   "date": "2026-06",
+   "name": "Beining Rao",
+   "zh": "饶倍宁",
+   "title": "",
+   "topic": "Positronium Physics",
+   "now": "PhD student, Indiana University"
+  },
+  {
+   "level": "bsc",
+   "year": 2026,
+   "date": "2026-06",
+   "name": "Beiyao Shi",
+   "zh": "史贝尧",
+   "title": "",
+   "topic": "Multi-wire Proportional Chamber",
+   "now": "Master's student, University of Tokyo"
+  },
+  {
+   "level": "bsc",
+   "year": 2024,
+   "date": "2024-06-04",
+   "name": "Yimin Wan",
+   "zh": "万一民",
+   "title": "Design and Construction of Spark Chamber Frame Structure, Gas System, and Camera System",
+   "topic": "Spark Chamber for Muon Physics",
+   "news": "yimin-wan-and-xingyun-huang-have-successfully-defended-their-bachelors",
+   "now": "Master's student, Shanghai Advanced Research Institute (SARI), CAS"
+  },
+  {
+   "level": "bsc",
+   "year": 2024,
+   "date": "2024-06-04",
+   "name": "Xingyun Huang",
+   "zh": "黄幸运",
+   "slug": "xingyun-huang",
+   "title": "Spark-Chamber-based Muon Mass Measurement",
+   "topic": "Spark Chamber for Muon Physics",
+   "news": "yimin-wan-and-xingyun-huang-have-successfully-defended-their-bachelors",
+   "now": "PhD student in the group (muEDM)"
+  },
+  {
+   "level": "msc",
+   "year": 2024,
+   "date": "2024-05-12",
+   "name": "Jun Kai Ng",
+   "zh": "黄俊凯",
+   "slug": "jun-kai-ng",
+   "title": "Validation of the Calorimeter Acceptance Model in the Fermilab Muon g-2 Experiment",
+   "topic": "Muon g-2",
+   "news": "jun-kai-ng-successfully-defends-his-masters-thesis",
+   "now": "PhD student in the group (SHINE Muon Source), CSC Scholarship"
+  }
  ],
  "projects": [
-  {"program": "SJTU Bole Program", "program_zh": "伯乐计划", "period": "2026.02 – 2028.06", "names": [["Yuheng Du", "杜语衡"]], "topic": "muEDM", "ongoing": true},
-  {"program": "University Student Innovation and Entrepreneurship Training Program", "program_zh": "大学生创新创业训练计划", "period": "2024.09 –", "names": [["Yifei Li", "李逸飞"], ["Xu Chen", "陈旭"], ["Jier Qiu", "邱吉尔"]], "topic": "Shanghai Muon Radiography", "ongoing": true},
-  {"program": "SJTU Summer Research Internship", "program_zh": "上海交大暑期科研实习", "period": "2026.07 – 2026.08", "names": [["Darwin Lo", ""]], "topic": "Muon Scattering Tomography", "note": "Imperial College London"},
-  {"program": "Zhiyuan Scholar Research Program", "program_zh": "致远学者科研计划", "period": "2023.09 – 2026.06", "names": [["Beining Rao", "饶倍宁"], ["Zeyu Luo", "罗泽宇"], ["Xuerui Liu", "刘学睿"]], "topic": "Positronium Physics"},
-  {"program": "48th Participation in Research Program (PRP)", "program_zh": "第48期PRP", "period": "2025.09 – 2026.06", "names": [["Zhou Xu", "徐洲"], ["Beiyao Shi", "史贝尧"]], "topic": "Multi-wire Proportional Chamber"},
-  {"program": "Internship in Engineering", "program_zh": "工程实习", "period": "2025.11 – 2026.05", "names": [["Wujie Zhang", "张武杰"]], "topic": "Electronics for Shanghai Muography"},
-  {"program": "Internship in Engineering", "program_zh": "工程实习", "period": "2025.11 – 2026.05", "names": [["Zihong Li", "李梓宏"]], "topic": "Mechanical Engineering"},
-  {"program": "High School Research Projects", "program_zh": "高中生科研项目", "period": "2024.01 – 2024.06", "names": [["Dong Zhang", "张栋"]], "topic": "Muon Positioning System"},
-  {"program": "High School Research Projects", "program_zh": "高中生科研项目", "period": "2024.01 – 2024.06", "names": [["Jiayi Hao", "郝嘉逸"]], "topic": "Muon Flux Variations and Their Correlation with Earth and Space Weather"},
-  {"program": "6th Zhiyuan Future Scholars Program", "program_zh": "第六期致远未来学者项目", "period": "2023", "names": [["Meng Lyu", "吕濛"], ["Xintong Cai", ""], ["Fangyuan Yu", ""], ["Siyuan Chen", "陈思元"]], "topic": "", "news": "post-1470"},
-  {"program": "Physics Research Practice", "program_zh": "物理研究实践", "period": "2022.03 – 2022.07", "names": [["Zhen Wu", "吴真"], ["Kaihua Xue", "薛恺华"]], "topic": "Laboratory Muon Physics"},
-  {"program": "40th PRP and Physics Research Practice", "program_zh": "第40期PRP及物理研究实践", "period": "2021.09 –", "names": [["Yichi Xu", "徐亦驰"]], "topic": "Laboratory Muon Physics"},
-  {"program": "DAAD RISE Worldwide", "program_zh": "DAAD RISE Worldwide", "period": "2021.07 – 2021.10", "names": [["Lucine Tabatt", ""]], "topic": "Dark SHINE", "note": "now at ETH Zurich"},
-  {"program": "TDLI Visiting Student", "program_zh": "李政道研究所访问学生", "period": "2020.10 – 2021.09", "names": [["Desmond He", "何征霆"]], "topic": "Dark SHINE", "note": "now at ETH Zurich"},
-  {"program": "38th Participation in Research Program (PRP)", "program_zh": "第38期PRP", "period": "2020.09 – 2021.09", "names": [["Le He", "何乐"]], "topic": "Dark SHINE"}
+  {
+   "program": "SJTU Bole Program",
+   "program_zh": "伯乐计划",
+   "period": "2026.02 – 2028.06",
+   "names": [
+    [
+     "Yuheng Du",
+     "杜语衡"
+    ]
+   ],
+   "topic": "muEDM",
+   "ongoing": true
+  },
+  {
+   "program": "University Student Innovation and Entrepreneurship Training Program",
+   "program_zh": "大学生创新创业训练计划",
+   "period": "2024.09 –",
+   "names": [
+    [
+     "Yifei Li",
+     "李逸飞"
+    ],
+    [
+     "Xu Chen",
+     "陈旭"
+    ],
+    [
+     "Jier Qiu",
+     "邱吉尔"
+    ]
+   ],
+   "topic": "Shanghai Muon Radiography",
+   "ongoing": true
+  },
+  {
+   "program": "SJTU Summer Research Internship",
+   "program_zh": "上海交大暑期科研实习",
+   "period": "2026.07 – 2026.08",
+   "names": [
+    [
+     "Darwin Lo",
+     ""
+    ]
+   ],
+   "topic": "Muon Scattering Tomography",
+   "note": "Imperial College London"
+  },
+  {
+   "program": "Zhiyuan Scholar Research Program",
+   "program_zh": "致远学者科研计划",
+   "period": "2023.09 – 2026.06",
+   "names": [
+    [
+     "Beining Rao",
+     "饶倍宁"
+    ],
+    [
+     "Zeyu Luo",
+     "罗泽宇"
+    ],
+    [
+     "Xuerui Liu",
+     "刘学睿"
+    ]
+   ],
+   "topic": "Positronium Physics",
+   "note": "Outstanding Achievement Award, Second Prize (2026)",
+   "news": "positronium-project-wins-second-prize-at-the-9th-zhiyuan-future-scholars-program"
+  },
+  {
+   "program": "48th Participation in Research Program (PRP)",
+   "program_zh": "第48期PRP",
+   "period": "2025.09 – 2026.06",
+   "names": [
+    [
+     "Zhou Xu",
+     "徐洲"
+    ],
+    [
+     "Beiyao Shi",
+     "史贝尧"
+    ]
+   ],
+   "topic": "Multi-wire Proportional Chamber"
+  },
+  {
+   "program": "Internship in Engineering",
+   "program_zh": "工程实习",
+   "period": "2025.11 – 2026.05",
+   "names": [
+    [
+     "Wujie Zhang",
+     "张武杰"
+    ]
+   ],
+   "topic": "Electronics for Shanghai Muography"
+  },
+  {
+   "program": "Internship in Engineering",
+   "program_zh": "工程实习",
+   "period": "2025.11 – 2026.05",
+   "names": [
+    [
+     "Zihong Li",
+     "李梓宏"
+    ]
+   ],
+   "topic": "Mechanical Engineering"
+  },
+  {
+   "program": "High School Research Projects",
+   "program_zh": "高中生科研项目",
+   "period": "2024.01 – 2024.06",
+   "names": [
+    [
+     "Dong Zhang",
+     "张栋"
+    ]
+   ],
+   "topic": "Muon Positioning System"
+  },
+  {
+   "program": "High School Research Projects",
+   "program_zh": "高中生科研项目",
+   "period": "2024.01 – 2024.06",
+   "names": [
+    [
+     "Jiayi Hao",
+     "郝嘉逸"
+    ]
+   ],
+   "topic": "Muon Flux Variations and Their Correlation with Earth and Space Weather"
+  },
+  {
+   "program": "6th Zhiyuan Future Scholars Program",
+   "program_zh": "第六期致远未来学者项目",
+   "period": "2023",
+   "names": [
+    [
+     "Meng Lyu",
+     "吕濛"
+    ],
+    [
+     "Xintong Cai",
+     ""
+    ],
+    [
+     "Fangyuan Yu",
+     ""
+    ],
+    [
+     "Siyuan Chen",
+     "陈思元"
+    ]
+   ],
+   "topic": "",
+   "news": "post-1470"
+  },
+  {
+   "program": "Physics Research Practice",
+   "program_zh": "物理研究实践",
+   "period": "2022.03 – 2022.07",
+   "names": [
+    [
+     "Zhen Wu",
+     "吴真"
+    ],
+    [
+     "Kaihua Xue",
+     "薛恺华"
+    ]
+   ],
+   "topic": "Laboratory Muon Physics"
+  },
+  {
+   "program": "40th PRP and Physics Research Practice",
+   "program_zh": "第40期PRP及物理研究实践",
+   "period": "2021.09 –",
+   "names": [
+    [
+     "Yichi Xu",
+     "徐亦驰"
+    ]
+   ],
+   "topic": "Laboratory Muon Physics"
+  },
+  {
+   "program": "DAAD RISE Worldwide",
+   "program_zh": "DAAD RISE Worldwide",
+   "period": "2021.07 – 2021.10",
+   "names": [
+    [
+     "Lucine Tabatt",
+     ""
+    ]
+   ],
+   "topic": "Dark SHINE",
+   "note": "now at ETH Zurich"
+  },
+  {
+   "program": "TDLI Visiting Student",
+   "program_zh": "李政道研究所访问学生",
+   "period": "2020.10 – 2021.09",
+   "names": [
+    [
+     "Desmond He",
+     "何征霆"
+    ]
+   ],
+   "topic": "Dark SHINE",
+   "note": "now at ETH Zurich"
+  },
+  {
+   "program": "38th Participation in Research Program (PRP)",
+   "program_zh": "第38期PRP",
+   "period": "2020.09 – 2021.09",
+   "names": [
+    [
+     "Le He",
+     "何乐"
+    ]
+   ],
+   "topic": "Dark SHINE"
+  }
  ]
 }
