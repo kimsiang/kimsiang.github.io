@@ -10,6 +10,7 @@ import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
 import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js';
 import { OutputPass } from 'three/addons/postprocessing/OutputPass.js';
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+import { hasWebGL } from './scenes.js';
 
 const CYAN = new THREE.Color(0x2fc8ff);
 const BLUE = new THREE.Color(0x2251ff);
@@ -42,6 +43,7 @@ export function initHero(canvas, opts = {}) {
   const small = () => window.innerWidth < 860;
 
   let renderer;
+  if (!hasWebGL()) return null; // no WebGL → CSS fallback stays visible
   try {
     renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true, powerPreference: 'high-performance' });
   } catch (e) {
@@ -376,15 +378,14 @@ export function initHero(canvas, opts = {}) {
   }
 
   // ---------- Loop ----------
-  let running = true, last = performance.now(), spawnT = 0;
-  const io = new IntersectionObserver(([e]) => {
-    running = e.isIntersecting;
-    if (running) { last = performance.now(); requestAnimationFrame(loop); }
-  });
-  io.observe(canvas);
-  document.addEventListener('visibilitychange', () => {
-    if (!document.hidden && running) { last = performance.now(); requestAnimationFrame(loop); }
-  });
+  // One animation chain at most: `raf` holds the pending frame, so the IntersectionObserver,
+  // visibilitychange and the initial start can never stack extra loops.
+  let running = true, last = performance.now(), spawnT = 0, raf = 0;
+  const kick = () => {
+    if (raf || !running || document.hidden) return;
+    last = performance.now();
+    raf = requestAnimationFrame(loop);
+  };
 
   function update(dt) {
     az += dt * 0.05;
@@ -412,13 +413,14 @@ export function initHero(canvas, opts = {}) {
   }
 
   function loop(now) {
+    raf = 0;
     if (!running || document.hidden) return;
     const dt = Math.min(0.05, (now - last) / 1000);
     last = now;
     update(dt);
     placeCamera();
     composer.render();
-    requestAnimationFrame(loop);
+    raf = requestAnimationFrame(loop);
   }
 
   if (reduced) {
@@ -431,7 +433,9 @@ export function initHero(canvas, opts = {}) {
     return { reduced: true };
   }
 
-  requestAnimationFrame(loop);
+  new IntersectionObserver(([e]) => { running = e.isIntersecting; kick(); }).observe(canvas);
+  document.addEventListener('visibilitychange', kick);
+  kick();
   return { rate: () => recent.length / 10 };
 }
 export { initSubScene } from './scenes.js';

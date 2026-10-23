@@ -21,8 +21,23 @@ function glow() {
   const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; return t;
 }
 
+// Probe once with a throwaway canvas so browsers without WebGL fall back quietly
+// instead of three.js logging "Error creating WebGL context".
+let _gl;
+export function hasWebGL() {
+  if (_gl !== undefined) return _gl;
+  try {
+    const c = document.createElement('canvas');
+    const g = window.WebGLRenderingContext && (c.getContext('webgl2') || c.getContext('webgl'));
+    _gl = !!g;
+    if (g) g.getExtension('WEBGL_lose_context')?.loseContext();
+  } catch (e) { _gl = false; }
+  return _gl;
+}
+
 function stage(canvas) {
   let renderer;
+  if (!hasWebGL()) return null;
   try { renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true }); } catch (e) { return null; }
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
@@ -263,14 +278,16 @@ export function initSubScene(canvas, mode = 'module') {
     S.camera.position.set(Math.cos(a) * Math.cos(e) * rr, Math.sin(e) * rr + target.y, Math.sin(a) * Math.cos(e) * rr);
     S.camera.lookAt(target);
   };
-  let last = performance.now(), t = 0, running = true;
+  let last = performance.now(), t = 0, running = true, raf = 0;
   const loop = (now) => {
+    raf = 0;
     if (!running || document.hidden) return;
     const dt = Math.min(0.05, (now - last) / 1000); last = now; t += dt;
-    obj.tick(dt, t); place(); S.composer.render(); requestAnimationFrame(loop);
+    obj.tick(dt, t); place(); S.composer.render(); raf = requestAnimationFrame(loop);
   };
+  const kick = () => { if (raf || !running || document.hidden) return; last = performance.now(); raf = requestAnimationFrame(loop); };
   if (reduced) { obj.tick(0.016, 0); place(); S.composer.render(); return { reduced: true }; }
-  new IntersectionObserver(([e]) => { running = e.isIntersecting; if (running) { last = performance.now(); requestAnimationFrame(loop); } }).observe(canvas);
-  document.addEventListener('visibilitychange', () => { if (!document.hidden && running) { last = performance.now(); requestAnimationFrame(loop); } });
+  new IntersectionObserver(([e]) => { running = e.isIntersecting; kick(); }).observe(canvas);
+  document.addEventListener('visibilitychange', kick);
   return { mode };
 }
