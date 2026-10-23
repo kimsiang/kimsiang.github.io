@@ -95,7 +95,10 @@
     const avg = len.reduce((a, b) => a + b, 0) / len.length;
     return { df, tf, len, avg, N: docs.length };
   };
-  const load = () => loading || (loading = fetch(INDEX_URL).then((r) => r.json()).then((j) => { DOCS = j.docs; META = j; IDX = build(DOCS); }));
+  const load = () => loading || (loading = fetch(INDEX_URL)
+    .then((r) => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+    .then((j) => { DOCS = j.docs; META = j; IDX = build(DOCS); })
+    .catch((e) => { loading = null; throw e; }));   // let the next attempt retry instead of caching the failure
 
   const search = (q) => {
     const { base, extra } = expand(q);
@@ -240,15 +243,24 @@
     q = q.trim(); if (!q) { panel.hidden = true; last = ''; return; }
     if (q === last) return; last = q;
     bar.classList.add('busy');
-    await load();
+    try {
+      await load();
+    } catch (e) {
+      bar.classList.remove('busy'); last = '';
+      panel.hidden = false;
+      panel.innerHTML = `<div class="ask-ans"><p class="ask-empty">${T('Couldn’t load the search index — check your connection and try again.', '检索索引加载失败，请检查网络后重试。')}</p></div>`;
+      return;
+    }
+    if (q !== last) { return; }                       // a newer question arrived while the index was loading
     render(q, search(q));
     bar.classList.remove('busy');
     if (window.innerWidth < 760) setTimeout(() => panel.scrollIntoView({ block: 'start', behavior: 'smooth' }), 50);
     try { history.replaceState(null, '', '#ask?q=' + encodeURIComponent(q)); } catch (e) {}
   };
   input.addEventListener('input', () => { clearTimeout(timer); timer = setTimeout(() => run(input.value), 280); });
-  input.addEventListener('focus', load, { once: true });
-  input.addEventListener('mouseenter', load, { once: true });
+  const warm = () => { load().catch(() => {}); };   // prefetch; a failure here is retried on the first real query
+  input.addEventListener('focus', warm, { once: true });
+  input.addEventListener('mouseenter', warm, { once: true });
   bar.addEventListener('submit', (e) => { e.preventDefault(); clearTimeout(timer); run(input.value); });
   chips.forEach((c) => c.addEventListener('click', () => {
     input.value = c.querySelector(lang() === 'zh' ? '.zh' : '.en').textContent; input.focus(); run(input.value);
@@ -259,5 +271,7 @@
   });
   document.getElementById('lang-toggle')?.addEventListener('click', () => { if (last) { const q = last; last = ''; run(q); } });
   const m = location.hash.match(/^#ask\?q=(.+)/);
-  if (m) { input.value = decodeURIComponent(m[1]); run(input.value); setTimeout(() => bar.scrollIntoView({ block: 'start' }), 300); }
+  let q0 = null;
+  if (m) { try { q0 = decodeURIComponent(m[1].replace(/\+/g, ' ')); } catch (e) { q0 = m[1]; } }   // malformed %-escapes in a shared link must not crash the page
+  if (q0) { input.value = q0; run(input.value); setTimeout(() => bar.scrollIntoView({ block: 'start' }), 300); }
 })();

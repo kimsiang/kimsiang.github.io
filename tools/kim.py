@@ -90,7 +90,7 @@ def build_kim(B):
     papers = '<ol class="pubs">' + ''.join(B.pub_rows(sel)) + '</ol>'
     papers += ('<details class="kall" id="all-papers"><summary>' + bi(f'All {len(pubs)} papers · {cites:,} citations', f'全部 {len(pubs)} 篇论文 · 引用 {cites:,} 次') + '</summary>'
                + '<ol class="pubs">' + ''.join(B.pub_rows(pubs)) + '</ol>'
-               + '<p class="src mono">' + bi(f'Data: INSPIRE-HEP, updated {B.date.today().isoformat()}', f'数据来源：INSPIRE-HEP，更新于{B.date.today().isoformat()}') + '</p></details>')
+               + '<p class="src mono">' + bi(f'Data: INSPIRE-HEP, updated {B.data_date('publications.json')}', f'数据来源：INSPIRE-HEP，更新于{B.data_date('publications.json')}') + '</p></details>')
     papers += '<p class="kmore mono"><a href="{ROOT}publications.html">' + bi('Group publications →', '课题组论文 →') + '</a> · <a href="{ROOT}talks.html">' + bi('Talks →', '学术报告 →') + '</a></p>'
 
     group = two(

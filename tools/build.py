@@ -43,6 +43,24 @@ FOOT = [
     ('results.html', 'Results', '代表性成果'), ('theses.html', 'Theses', '学位论文'), ('kim.html', 'PI profile', '个人主页'), ('index.html#joinus', 'Join us', '加入我们'),
 ]
 
+def data_date(name):
+    """Date the INSPIRE data was last refreshed: the data file's last commit (uncommitted changes count as today)."""
+    import subprocess
+    f = os.path.join(C, name)
+    try:
+        dirty = subprocess.run(['git', 'status', '--porcelain', '--', f], capture_output=True, text=True, cwd=C).stdout.strip()
+        d = '' if dirty else subprocess.run(['git', 'log', '-1', '--format=%cs', '--', f], capture_output=True, text=True, cwd=C).stdout.strip()
+        if d: return d
+    except Exception:
+        pass
+    return date.today().isoformat()
+
+OG_HOME = '''  <meta property="og:url" content="https://kimsiang.github.io/">
+  <meta property="og:image" content="https://kimsiang.github.io/assets/video/group-film-poster.webp?v=6">
+  <meta property="og:image:width" content="960">
+  <meta property="og:image:height" content="540">
+'''
+
 def layout(path, title, desc, body, active='', home=False):
     depth = path.count('/')
     R = '../' * depth
@@ -63,7 +81,7 @@ def layout(path, title, desc, body, active='', home=False):
   <meta property="og:description" content="{html.escape(desc)}">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="TDLI Muon Physics Group">
-  <meta name="twitter:card" content="summary_large_image">
+{OG_HOME if home else ""}  <meta name="twitter:card" content="summary_large_image">
   <link rel="preload" href="{R}assets/fonts/space-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="{R}assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="{R}assets/css/style.css?v={CSS_V}">
@@ -367,7 +385,7 @@ def build_publications():
       {"".join(rows)}
   </ol>
   <p class="empty" id="pub-empty" hidden>{bi("No matching publications.", "没有匹配的论文。")}</p>
-  <p class="src mono">{bi(f"Data: INSPIRE-HEP, updated {date.today().isoformat()}", f"数据来源：INSPIRE-HEP，更新于{date.today().isoformat()}")}</p>
+  <p class="src mono">{bi(f"Data: INSPIRE-HEP, updated {data_date('publications.json')}", f"数据来源：INSPIRE-HEP，更新于{data_date('publications.json')}")}</p>
   <div class="prose doc curated">{curated}</div>
 </div></section>'''
     layout('publications.html', 'Publications', 'Publications of the TDLI Muon Physics Group — Muon g-2, muEDM, SHINE muon source and muography.', body, 'publications')
@@ -393,7 +411,7 @@ def link_members(raw):
 
 def build_members():
     pubs = json.load(open(os.path.join(C, 'member-publications.json')))
-    today = date.today().isoformat()
+    today = data_date('member-publications.json')
     for m in MEMBERS:
         if m['slug'] == PI_SLUG:
             open(os.path.join(ROOT, 'people', PI_SLUG + '.html'), 'w').write(
