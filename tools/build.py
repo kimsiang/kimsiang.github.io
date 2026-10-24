@@ -102,12 +102,12 @@ def tabbar(R, active):
 
 def layout(path, title, desc, body, active='', home=False, image=None, lastmod=None, title_zh=None, desc_zh=None, mirror=True):
     """Write the English page at `path` and, unless mirror=False, its Chinese twin at zh/`path`."""
-    out = _render(path, 'en', title, desc, body, active, home, image, lastmod)
+    out = _render(path, 'en', title, desc, body, active, home, image, lastmod, mirror)
     if mirror:
-        _render(path, 'zh', title_zh or title, desc_zh or desc, body, active, home, image, lastmod)
+        _render(path, 'zh', title_zh or title, desc_zh or desc, body, active, home, image, lastmod, mirror)
     return out
 
-def _render(path, lang, title, desc, body, active, home, image, lastmod):
+def _render(path, lang, title, desc, body, active, home, image, lastmod, mirror=True):
     zh = lang == 'zh'
     depth = path.count('/')
     R = '../' * depth                      # page links, relative to the language root
@@ -123,9 +123,10 @@ def _render(path, lang, title, desc, body, active, home, image, lastmod):
         full_title = 'TDLI缪子物理课题组 | TDLI Muon Physics Group — 上海交通大学李政道研究所' if zh else 'TDLI Muon Physics Group | TDLI缪子物理课题组 — 上海交通大学李政道研究所'
     else:
         full_title = f'{title} · TDLI缪子物理课题组' if zh else f'{title} · TDLI Muon Physics Group'
-    en_url, zh_url = canonical(path), canonical('zh/' + path)
+    en_url = canonical(path)
+    zh_url = canonical('zh/' + path) if mirror else en_url   # un-mirrored pages (404, offline) toggle in place
     out = f'''<!DOCTYPE html>
-<html lang="{'zh-CN' if zh else 'en'}" data-lang="{lang}">
+<html lang="{'zh-CN' if zh else 'en'}" data-lang="{lang}"{'' if mirror else ' data-nomirror'}>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
@@ -151,7 +152,7 @@ def _render(path, lang, title, desc, body, active, home, image, lastmod):
   <link rel="preload" href="{RA}assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="{RA}assets/css/style.css?v={CSS_V}">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%2304070c'/><text x='50' y='70' font-size='64' text-anchor='middle' fill='%232fc8ff' font-family='sans-serif'>μ</text></svg>">
-  <script>try {{ var l = localStorage.getItem('lang'); if ((l === 'zh' || l === 'en') && l !== document.documentElement.dataset.lang) {{ var a = document.querySelector('link[hreflang="' + (l === 'zh' ? 'zh-CN' : 'en') + '"]'); if (a) location.replace(a.href + location.hash); }} }} catch (e) {{}}</script>
+  <script>try {{ var l = localStorage.getItem('lang'); if ((l === 'zh' || l === 'en') && l !== document.documentElement.dataset.lang) {{ var a = document.querySelector('link[hreflang="' + (l === 'zh' ? 'zh-CN' : 'en') + '"]'); if (a && !document.documentElement.hasAttribute('data-nomirror') && a.href !== location.href.split('#')[0]) location.replace(a.href + location.hash); else if (l !== document.documentElement.dataset.lang) {{ document.documentElement.dataset.lang = l; document.documentElement.lang = l === 'zh' ? 'zh-CN' : 'en'; }} }} }} catch (e) {{}}</script>
 </head>
 <body class="{"home" if home else "sub"}">
 

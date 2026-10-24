@@ -19,7 +19,7 @@
     try { localStorage.setItem('lang', l); } catch (e) {}
     // every page has a twin under /zh/ (or at the root); go there so the URL carries the language
     const twin = document.querySelector('link[hreflang="' + (l === 'zh' ? 'zh-CN' : 'en') + '"]');
-    if (twin && twin.href !== location.href.split('#')[0]) location.href = twin.href + location.hash;
+    if (twin && !doc.hasAttribute('data-nomirror') && twin.href !== location.href.split('#')[0]) location.href = twin.href + location.hash;
     else setLang(l);
   });
 
