@@ -8,7 +8,10 @@ Reads   content/home.html            – home page body (hand-written, bilingual
         content/news/*.html + news.json
         content/publications.json    – refresh with tools/update_publications.py
         content/members.json         – member sub-pages; papers via tools/update_members.py
-Writes  index.html, *.html, news/*.html, muons/*.html, people/*.html
+Writes  index.html, *.html, news/*.html, muons/*.html, people/*.html   – English
+        zh/…                         – Chinese twin of every page (same body, data-lang="zh")
+        sitemap.xml, robots.txt, feed.xml, 404.html, offline.html
+        manifest.webmanifest, sw.js  – installable app shell (service worker)
 Local links inside content use the {ROOT} prefix, replaced per page depth.
 """
 import html, json, os, re
@@ -81,20 +84,49 @@ def og_block(path, image):
     out += f'  <meta property="og:image:width" content="{w}">\n  <meta property="og:image:height" content="{h}">\n'
     return out
 
-def layout(path, title, desc, body, active='', home=False, image=None, lastmod=None):
+TABS = [   # phone tab bar: (href, active key, en, zh, svg)
+    ('index.html', 'home', 'Home', '首页', '<path d="M3 11 12 3l9 8v10h-6v-6H9v6H3z"/>'),
+    ('research.html', 'research', 'Research', '研究', '<circle cx="12" cy="12" r="2.4"/><ellipse cx="12" cy="12" rx="10" ry="4"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(-60 12 12)"/>'),
+    ('people.html', 'people', 'People', '团队', '<circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><circle cx="17" cy="9" r="2.5"/><path d="M15.5 14.5a5 5 0 0 1 6 5"/>'),
+    ('news/index.html', 'news', 'News', '动态', '<path d="M4 5h13v14H4zM17 8h3v9a2 2 0 0 1-2 2M7 9h7M7 12h7M7 15h4"/>'),
+    ('index.html#ask', 'ask', 'Ask', '提问', '<circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5M9 9.5a2 2 0 0 1 3.9.6c0 1.4-2 1.6-2 2.9M11 15.5v.2"/>'),
+]
+
+def tabbar(R, active):
+    tabs = ''.join(
+        f'<a href="{R}{h}"{" class=\"active\" aria-current=\"page\"" if k == active else ""}><svg viewBox="0 0 24 24" aria-hidden="true">{svg}</svg><span>{bi(en, zh)}</span></a>'
+        for h, k, en, zh, svg in TABS)
+    return f'<nav class="tabbar" aria-label="Quick navigation">{tabs}</nav>'
+
+def layout(path, title, desc, body, active='', home=False, image=None, lastmod=None, title_zh=None, desc_zh=None, mirror=True):
+    """Write the English page at `path` and, unless mirror=False, its Chinese twin at zh/`path`."""
+    out = _render(path, 'en', title, desc, body, active, home, image, lastmod)
+    if mirror:
+        _render(path, 'zh', title_zh or title, desc_zh or desc, body, active, home, image, lastmod)
+    return out
+
+def _render(path, lang, title, desc, body, active, home, image, lastmod):
+    zh = lang == 'zh'
     depth = path.count('/')
-    R = '../' * depth
-    PAGES.append((canonical(path), lastmod))
+    R = '../' * depth                      # page links, relative to the language root
+    RA = R + ('../' if zh else '')         # assets live only at the site root
+    out_path = ('zh/' if zh else '') + path
+    PAGES.append((canonical(out_path), lastmod))
+    if home: active = 'home'
     nav = '\n    '.join(
-        f'<a href="{R}{h}"{" class=\"active\" aria-current=\"page\"" if k == active else ""}>{bi(en, zh)}</a>'
-        for h, k, en, zh in NAV)
-    foot = '\n      '.join(f'<a href="{R}{h}">{bi(en, zh)}</a>' for h, en, zh in FOOT)
-    full_title = 'TDLI Muon Physics Group | TDLI缪子物理课题组 — 上海交通大学李政道研究所' if home else f'{title} · TDLI Muon Physics Group'
+        f'<a href="{R}{h}"{" class=\"active\" aria-current=\"page\"" if k == active else ""}>{bi(en, z)}</a>'
+        for h, k, en, z in NAV)
+    foot = '\n      '.join(f'<a href="{R}{h}">{bi(en, z)}</a>' for h, en, z in FOOT)
+    if home:
+        full_title = 'TDLI缪子物理课题组 | TDLI Muon Physics Group — 上海交通大学李政道研究所' if zh else 'TDLI Muon Physics Group | TDLI缪子物理课题组 — 上海交通大学李政道研究所'
+    else:
+        full_title = f'{title} · TDLI缪子物理课题组' if zh else f'{title} · TDLI Muon Physics Group'
+    en_url, zh_url = canonical(path), canonical('zh/' + path)
     out = f'''<!DOCTYPE html>
-<html lang="en" data-lang="en">
+<html lang="{'zh-CN' if zh else 'en'}" data-lang="{lang}">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>{html.escape(full_title)}</title>
   <meta name="description" content="{html.escape(desc)}">
   <meta name="theme-color" content="#04070c">
@@ -102,14 +134,22 @@ def layout(path, title, desc, body, active='', home=False, image=None, lastmod=N
   <meta property="og:description" content="{html.escape(desc)}">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="TDLI Muon Physics Group">
-{og_block(path, image)}  <meta name="twitter:card" content="summary_large_image">
-  <link rel="canonical" href="{canonical(path)}">
-  <link rel="alternate" type="application/atom+xml" title="TDLI Muon Physics Group — news" href="{R}feed.xml">
-  <link rel="preload" href="{R}assets/fonts/space-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="{R}assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="{R}assets/css/style.css?v={CSS_V}">
+  <meta property="og:locale" content="{'zh_CN' if zh else 'en_US'}">
+{og_block(out_path, image)}  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="{canonical(out_path)}">
+  <link rel="alternate" hreflang="en" href="{en_url}">
+  <link rel="alternate" hreflang="zh-CN" href="{zh_url}">
+  <link rel="alternate" hreflang="x-default" href="{en_url}">
+  <link rel="alternate" type="application/atom+xml" title="TDLI Muon Physics Group — news" href="{RA}feed.xml">
+  <link rel="manifest" href="{RA}manifest.webmanifest">
+  <link rel="apple-touch-icon" href="{RA}assets/img/app/apple-touch-icon.png">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="preload" href="{RA}assets/fonts/space-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="{RA}assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="{RA}assets/css/style.css?v={CSS_V}">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%2304070c'/><text x='50' y='70' font-size='64' text-anchor='middle' fill='%232fc8ff' font-family='sans-serif'>μ</text></svg>">
-  <script>try {{ var l = localStorage.getItem('lang'); if (l === 'zh' || l === 'en') {{ document.documentElement.dataset.lang = l; document.documentElement.lang = l === 'zh' ? 'zh-CN' : 'en'; }} }} catch (e) {{}}</script>
+  <script>try {{ var l = localStorage.getItem('lang'); if ((l === 'zh' || l === 'en') && l !== document.documentElement.dataset.lang) {{ var a = document.querySelector('link[hreflang="' + (l === 'zh' ? 'zh-CN' : 'en') + '"]'); if (a) location.replace(a.href + location.hash); }} }} catch (e) {{}}</script>
 </head>
 <body class="{"home" if home else "sub"}">
 
@@ -145,13 +185,21 @@ def layout(path, title, desc, body, active='', home=False, image=None, lastmod=N
   </div>
 </footer>
 
-<script src="{R}assets/js/main.js" defer></script>
-{"<script src=\"assets/js/ask.js?v=" + ASK_V + "\" defer></script>" if home else ""}
+{tabbar(R, active)}
+
+<script src="{RA}assets/js/main.js" defer></script>
+{"<script src=\"" + RA + "assets/js/ask.js?v=" + ASK_V + "\" defer></script>" if home else ""}
 </body>
 </html>
 '''
+    if zh:
+        # body content references assets with the page-relative prefix; on the zh mirror they sit one level higher
+        fix = lambda t: re.sub(r'((?:href|src|poster|srcset|data-src)="|url\(["\']?)((?:\.\./)*)assets/', lambda m: f'{m.group(1)}{m.group(2)}../assets/', t)
+        head, _, rest = out.partition('<main id="main">')
+        main, _, tail = rest.partition('</main>')
+        out = head + '<main id="main">' + fix(main.replace('{ROOT}', R)) + '</main>' + tail
     out = out.replace('{ROOT}', R)
-    dest = os.path.join(ROOT, path)
+    dest = os.path.join(ROOT, out_path)
     os.makedirs(os.path.dirname(dest), exist_ok=True)
     open(dest, 'w').write(out)
     return out
@@ -316,7 +364,7 @@ def build_news():
   </ul>
   <p class="empty" id="news-empty" hidden>{bi("No matching news.", "没有匹配的新闻。")}</p>
 </div></section>'''
-    layout('news/index.html', 'News', 'News and events from the TDLI Muon Physics Group.', body, 'news', lastmod=news[0]['date'])
+    layout('news/index.html', 'News', 'News and events from the TDLI Muon Physics Group.', body, 'news', lastmod=news[0]['date'], title_zh='新闻动态', desc_zh='TDLI缪子物理课题组的新闻与活动。')
     for i, n in enumerate(news):
         newer = news[i - 1] if i > 0 else None
         older = news[i + 1] if i + 1 < len(news) else None
@@ -329,7 +377,7 @@ def build_news():
         en, zh = news_src(n['slug'], 'en'), news_src(n['slug'], 'zh')
         b = prose(en) if en == zh else f'<div class="en">{prose(en)}</div><div class="zh">{prose(zh)}</div>'
         body = hero + f'<section class="pbody"><div class="wrap"><article class="prose doc post">{b}</article>{pn}</div></section>'
-        layout(f'news/{n["slug"]}.html', n['t_en'], n['excerpt'][:160] or n['t_en'], body, 'news', image=n.get('thumb'), lastmod=n['date'])
+        layout(f'news/{n["slug"]}.html', n['t_en'], n['excerpt'][:160] or n['t_en'], body, 'news', image=n.get('thumb'), lastmod=n['date'], title_zh=n['t_zh'], desc_zh=n['excerpt_zh'][:160] or n['t_zh'])
 
 # ------------------------------------------------------------------ publications
 KINDS = {'journal': ('Journal articles', '期刊论文'), 'proceedings': ('Proceedings', '会议论文'),
@@ -519,7 +567,7 @@ def page(path, key, code, en, zh, lead_en='', lead_zh='', active='', ids=None, p
     if people: b = link_members(b)
     side = toc(b, 'h2' if people else 'h3') if with_toc else ''
     body = phero(code, en, zh, bi(en, zh), bi(lead_en, lead_zh) if lead_en else '', scene=scene) + pre + article(b, side)
-    layout(path, en, desc or f'{en} — TDLI Muon Physics Group, Shanghai Jiao Tong University.', body, active)
+    layout(path, en, desc or f'{en} — TDLI Muon Physics Group, Shanghai Jiao Tong University.', body, active, title_zh=zh)
 
 def build_pages():
     page('research.html', 'research', 'R&D', 'Research', '研究方向',
@@ -642,12 +690,92 @@ def build_404():
     body += f'''<section class="pbody"><div class="wrap">
   <p class="actions"><a class="btn btn-primary" href="/index.html">{bi('Home', '首页')}</a> <a class="btn" href="/news/index.html">{bi('News', '新闻动态')}</a> <a class="btn" href="/publications.html">{bi('Publications', '论文')}</a> <a class="btn" href="/people.html">{bi('People', '团队')}</a></p>
 </div></section>'''
-    out = layout('404.html', 'Page not found', 'The page you asked for is not on the TDLI Muon Physics Group site.', body)
+    out = layout('404.html', 'Page not found', 'The page you asked for is not on the TDLI Muon Physics Group site.', body, mirror=False)
     PAGES.pop()   # not for the sitemap
     # GitHub Pages serves 404.html from any depth, so every relative link must become site-absolute.
     out = re.sub(r'(href|src)="(?!https?:|#|/|data:|mailto:)', r'\1="/', out)
     out = out.replace('<meta name="theme-color"', '<meta name="robots" content="noindex">\n  <meta name="theme-color"')
     open(os.path.join(ROOT, '404.html'), 'w').write(out)
+
+def build_offline():
+    body = phero('OFFLINE', 'No connection', '离线', bi('You are offline', '当前处于离线状态'),
+                 bi('This page is not in your device\'s cache yet. Pages you have opened before will still load.',
+                    '这个页面尚未缓存到您的设备。之前打开过的页面仍可访问。'))
+    body += f"""<section class="pbody"><div class="wrap">
+  <p class="actions"><a class="btn btn-primary" href="/index.html">{bi('Home', '首页')}</a> <a class="btn" href="/news/index.html">{bi('News', '新闻动态')}</a> <a class="btn" href="/people.html">{bi('People', '团队')}</a></p>
+</div></section>"""
+    out = layout('offline.html', 'Offline', 'The TDLI Muon Physics Group site is offline on this device right now.', body, mirror=False)
+    PAGES.pop()
+    out = re.sub(r'(href|src)="(?!https?:|#|/|data:|mailto:)', r'\1="/', out)
+    out = out.replace('<meta name="theme-color"', '<meta name="robots" content="noindex">\n  <meta name="theme-color"')
+    open(os.path.join(ROOT, 'offline.html'), 'w').write(out)
+
+def build_app():
+    """manifest.webmanifest + sw.js: installable, offline-capable app shell."""
+    manifest = {
+        'name': 'TDLI Muon Physics Group', 'short_name': 'TDLI Muon', 'id': '/',
+        'description': 'Muon physics group at the Tsung-Dao Lee Institute, Shanghai Jiao Tong University — research, people, news and publications.',
+        'lang': 'en', 'start_url': '/?source=pwa', 'scope': '/', 'display': 'standalone',
+        'background_color': '#04070c', 'theme_color': '#04070c',
+        'icons': [
+            {'src': '/assets/img/app/icon-192.png', 'sizes': '192x192', 'type': 'image/png'},
+            {'src': '/assets/img/app/icon-512.png', 'sizes': '512x512', 'type': 'image/png'},
+            {'src': '/assets/img/app/icon-maskable-512.png', 'sizes': '512x512', 'type': 'image/png', 'purpose': 'maskable'},
+        ],
+        'shortcuts': [
+            {'name': 'News', 'url': '/news/', 'icons': [{'src': '/assets/img/app/icon-192.png', 'sizes': '192x192'}]},
+            {'name': 'People', 'url': '/people.html', 'icons': [{'src': '/assets/img/app/icon-192.png', 'sizes': '192x192'}]},
+            {'name': 'Publications', 'url': '/publications.html', 'icons': [{'src': '/assets/img/app/icon-192.png', 'sizes': '192x192'}]},
+        ],
+    }
+    json.dump(manifest, open(os.path.join(ROOT, 'manifest.webmanifest'), 'w'), indent=2, ensure_ascii=False)
+    hero_v = _h.md5(open(os.path.join(ROOT, 'assets', 'js', 'hero.bundle.js'), 'rb').read()).hexdigest()[:8]
+    main_v = _h.md5(open(os.path.join(ROOT, 'assets', 'js', 'main.js'), 'rb').read()).hexdigest()[:8]
+    ver = _h.md5((CSS_V + ASK_V + hero_v + main_v + news[0]['date']).encode()).hexdigest()[:10]
+    shell = ['/', '/offline.html', f'/assets/css/style.css?v={CSS_V}', '/assets/js/main.js', '/assets/js/hero.bundle.js',
+             f'/assets/js/ask.js?v={ASK_V}', '/assets/fonts/space-grotesk-latin-wght-normal.woff2',
+             '/assets/fonts/inter-latin-wght-normal.woff2', '/assets/fonts/jetbrains-mono-latin-wght-normal.woff2',
+             '/assets/img/app/icon-192.png']
+    sw = f"""/* TDLI Muon Physics Group — service worker (generated by tools/build.py) */
+const V = 'tdli-muon-{ver}';
+const SHELL = {json.dumps(shell)};
+self.addEventListener('install', (e) => {{
+  e.waitUntil(caches.open(V).then((c) => c.addAll(SHELL)).then(() => self.skipWaiting()));
+}});
+self.addEventListener('activate', (e) => {{
+  e.waitUntil(caches.keys().then((ks) => Promise.all(ks.filter((k) => k !== V).map((k) => caches.delete(k)))).then(() => self.clients.claim()));
+}});
+const cacheable = (u) => u.origin === location.origin && (/\\/assets\\/(css|js|fonts|data|img)\\//.test(u.pathname) || /\\/assets\\/media\\/.*-sm\\.webp$/.test(u.pathname));
+self.addEventListener('fetch', (e) => {{
+  const req = e.request;
+  if (req.method !== 'GET') return;
+  const url = new URL(req.url);
+  if (req.mode === 'navigate') {{
+    // pages: network first, fall back to the cached copy, then the offline page
+    e.respondWith((async () => {{
+      try {{
+        const r = await fetch(req);
+        if (r.ok) {{ const c = await caches.open(V); c.put(req, r.clone()); }}
+        return r;
+      }} catch (err) {{
+        return (await caches.match(req)) || (await caches.match('/offline.html'));
+      }}
+    }})());
+    return;
+  }}
+  if (cacheable(url)) {{
+    // styles, scripts, fonts, small images: cache first, refresh in the background
+    e.respondWith((async () => {{
+      const c = await caches.open(V);
+      const hit = await c.match(req);
+      const net = fetch(req).then((r) => {{ if (r.ok) c.put(req, r.clone()); return r; }}).catch(() => hit);
+      return hit || net;
+    }})());
+  }}
+}});
+"""
+    open(os.path.join(ROOT, 'sw.js'), 'w').write(sw)
+    return ver
 
 def build_feed(limit=30):
     """Atom feed of the latest news posts (feed.xml)."""
@@ -686,13 +814,13 @@ def build_sitemap():
     open(os.path.join(ROOT, 'sitemap.xml'), 'w').write(
         '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
         + '\n'.join(rows) + '\n</urlset>\n')
-    open(os.path.join(ROOT, 'robots.txt'), 'w').write(f'User-agent: *\nAllow: /\nDisallow: /content/\nDisallow: /tools/\n\nSitemap: {SITE}sitemap.xml\n')
+    open(os.path.join(ROOT, 'robots.txt'), 'w').write(f'User-agent: *\nAllow: /\nDisallow: /content/\nDisallow: /tools/\nDisallow: /offline.html\n\nSitemap: {SITE}sitemap.xml\n')
     return len(rows)
 
 
 if __name__ == '__main__':
     build_home(); build_pages(); build_muons(); build_news(); build_publications(); build_members(); build_theses()
     import results, sys; results.build_results(sys.modules[__name__])
-    build_404(); build_feed(); print('sitemap:', build_sitemap(), 'urls')
+    build_404(); build_offline(); build_feed(); print('app shell v', build_app()); print('sitemap:', build_sitemap(), 'urls')
     n = sum(1 for d, _, fs in os.walk(ROOT) if not any(x in os.path.relpath(d, ROOT).split(os.sep) for x in ('.git', 'node_modules', 'content', 'tools')) for f in fs if f.endswith('.html'))
     print('built', n, 'html files')

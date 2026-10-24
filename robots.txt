@@ -2,5 +2,6 @@ User-agent: *
 Allow: /
 Disallow: /content/
 Disallow: /tools/
+Disallow: /offline.html
 
 Sitemap: https://kimsiang.github.io/sitemap.xml

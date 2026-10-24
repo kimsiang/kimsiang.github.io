@@ -14,7 +14,19 @@
     try { localStorage.setItem('lang', l); } catch (e) {}
   };
   const langBtn = document.getElementById('lang-toggle');
-  if (langBtn) langBtn.addEventListener('click', () => setLang(doc.dataset.lang === 'zh' ? 'en' : 'zh'));
+  if (langBtn) langBtn.addEventListener('click', () => {
+    const l = doc.dataset.lang === 'zh' ? 'en' : 'zh';
+    try { localStorage.setItem('lang', l); } catch (e) {}
+    // every page has a twin under /zh/ (or at the root); go there so the URL carries the language
+    const twin = document.querySelector('link[hreflang="' + (l === 'zh' ? 'zh-CN' : 'en') + '"]');
+    if (twin && twin.href !== location.href.split('#')[0]) location.href = twin.href + location.hash;
+    else setLang(l);
+  });
+
+  /* ---------- Installable app shell ---------- */
+  if ('serviceWorker' in navigator && location.protocol === 'https:') {
+    window.addEventListener('load', () => { navigator.serviceWorker.register('/sw.js').catch(() => {}); });
+  }
 
   /* ---------- Nav: scrolled state + active section ---------- */
   const nav = document.getElementById('nav');
