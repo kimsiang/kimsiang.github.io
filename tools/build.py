@@ -55,15 +55,36 @@ def data_date(name):
         pass
     return date.today().isoformat()
 
-OG_HOME = '''  <meta property="og:url" content="https://kimsiang.github.io/">
-  <meta property="og:image" content="https://kimsiang.github.io/assets/video/group-film-poster.webp?v=6">
-  <meta property="og:image:width" content="960">
-  <meta property="og:image:height" content="540">
-'''
+SITE = 'https://kimsiang.github.io/'
+OG_DEFAULT = ('assets/video/group-film-poster.webp?v=6', 960, 540)
+PAGES = []   # (url, lastmod) of every page written by layout(); feeds sitemap.xml
 
-def layout(path, title, desc, body, active='', home=False):
+def canonical(path):
+    """Public URL of an output path: index.html files collapse to their directory."""
+    return SITE + (path[:-len('index.html')] if path.endswith('index.html') else path)
+
+def img_size(rel):
+    try:
+        from PIL import Image
+        return Image.open(os.path.join(ROOT, rel.split('?')[0])).size
+    except Exception:
+        return None
+
+def og_block(path, image):
+    """Open Graph url + image for a page, so every shared link renders a card."""
+    rel, w, h = OG_DEFAULT
+    if image:
+        s = img_size(image)
+        if s: rel, (w, h) = image, s
+    out = f'  <meta property="og:url" content="{canonical(path)}">\n'
+    out += f'  <meta property="og:image" content="{SITE}{rel}">\n'
+    out += f'  <meta property="og:image:width" content="{w}">\n  <meta property="og:image:height" content="{h}">\n'
+    return out
+
+def layout(path, title, desc, body, active='', home=False, image=None, lastmod=None):
     depth = path.count('/')
     R = '../' * depth
+    PAGES.append((canonical(path), lastmod))
     nav = '\n    '.join(
         f'<a href="{R}{h}"{" class=\"active\" aria-current=\"page\"" if k == active else ""}>{bi(en, zh)}</a>'
         for h, k, en, zh in NAV)
@@ -81,7 +102,9 @@ def layout(path, title, desc, body, active='', home=False):
   <meta property="og:description" content="{html.escape(desc)}">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="TDLI Muon Physics Group">
-{OG_HOME if home else ""}  <meta name="twitter:card" content="summary_large_image">
+{og_block(path, image)}  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="{canonical(path)}">
+  <link rel="alternate" type="application/atom+xml" title="TDLI Muon Physics Group — news" href="{R}feed.xml">
   <link rel="preload" href="{R}assets/fonts/space-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="{R}assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="{R}assets/css/style.css?v={CSS_V}">
@@ -293,7 +316,7 @@ def build_news():
   </ul>
   <p class="empty" id="news-empty" hidden>{bi("No matching news.", "没有匹配的新闻。")}</p>
 </div></section>'''
-    layout('news/index.html', 'News', 'News and events from the TDLI Muon Physics Group.', body, 'news')
+    layout('news/index.html', 'News', 'News and events from the TDLI Muon Physics Group.', body, 'news', lastmod=news[0]['date'])
     for i, n in enumerate(news):
         newer = news[i - 1] if i > 0 else None
         older = news[i + 1] if i + 1 < len(news) else None
@@ -306,7 +329,7 @@ def build_news():
         en, zh = news_src(n['slug'], 'en'), news_src(n['slug'], 'zh')
         b = prose(en) if en == zh else f'<div class="en">{prose(en)}</div><div class="zh">{prose(zh)}</div>'
         body = hero + f'<section class="pbody"><div class="wrap"><article class="prose doc post">{b}</article>{pn}</div></section>'
-        layout(f'news/{n["slug"]}.html', n['t_en'], n['excerpt'][:160] or n['t_en'], body, 'news')
+        layout(f'news/{n["slug"]}.html', n['t_en'], n['excerpt'][:160] or n['t_en'], body, 'news', image=n.get('thumb'), lastmod=n['date'])
 
 # ------------------------------------------------------------------ publications
 KINDS = {'journal': ('Journal articles', '期刊论文'), 'proceedings': ('Proceedings', '会议论文'),
@@ -611,8 +634,65 @@ def build_theses():
     layout('theses.html', 'Theses', 'Theses and student research projects of the TDLI Muon Physics Group, Shanghai Jiao Tong University.', body, 'people')
 
 
+# ------------------------------------------------------------------ reach: 404, feed, sitemap, robots
+def build_404():
+    body = phero('404', 'Not found', '未找到', bi('This page has decayed', '这个页面已经衰变了'),
+                 bi('Like a muon after 2.2 microseconds, the page you asked for is no longer here. The links below will get you back on track.',
+                    '就像缪子在2.2微秒后一样，您要找的页面已不在此处。请通过下方链接返回。'))
+    body += f'''<section class="pbody"><div class="wrap">
+  <p class="actions"><a class="btn btn-primary" href="/index.html">{bi('Home', '首页')}</a> <a class="btn" href="/news/index.html">{bi('News', '新闻动态')}</a> <a class="btn" href="/publications.html">{bi('Publications', '论文')}</a> <a class="btn" href="/people.html">{bi('People', '团队')}</a></p>
+</div></section>'''
+    out = layout('404.html', 'Page not found', 'The page you asked for is not on the TDLI Muon Physics Group site.', body)
+    PAGES.pop()   # not for the sitemap
+    # GitHub Pages serves 404.html from any depth, so every relative link must become site-absolute.
+    out = re.sub(r'(href|src)="(?!https?:|#|/|data:|mailto:)', r'\1="/', out)
+    out = out.replace('<meta name="theme-color"', '<meta name="robots" content="noindex">\n  <meta name="theme-color"')
+    open(os.path.join(ROOT, '404.html'), 'w').write(out)
+
+def build_feed(limit=30):
+    """Atom feed of the latest news posts (feed.xml)."""
+    items = []
+    for n in news[:limit]:
+        url = canonical(f'news/{n["slug"]}.html')
+        img = f'\n    <link rel="enclosure" type="image/webp" href="{SITE}{n["thumb"]}"/>' if n.get('thumb') else ''
+        items.append(f'''  <entry>
+    <title>{html.escape(n["t_en"])}</title>
+    <link href="{url}"/>{img}
+    <id>{url}</id>
+    <updated>{n["date"]}T00:00:00+08:00</updated>
+    <summary>{html.escape(n["excerpt"])}</summary>
+  </entry>''')
+    feed = f'''<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>TDLI Muon Physics Group — news</title>
+  <subtitle>News and events from the Muon Physics Group at the Tsung-Dao Lee Institute, Shanghai Jiao Tong University</subtitle>
+  <link href="{SITE}feed.xml" rel="self"/>
+  <link href="{SITE}news/"/>
+  <id>{SITE}</id>
+  <updated>{news[0]["date"]}T00:00:00+08:00</updated>
+  <author><name>TDLI Muon Physics Group</name></author>
+{chr(10).join(items)}
+</feed>
+'''
+    open(os.path.join(ROOT, 'feed.xml'), 'w').write(feed)
+
+def build_sitemap():
+    seen, rows = set(), []
+    for url, lastmod in PAGES:
+        if url in seen: continue
+        seen.add(url)
+        lm = f'<lastmod>{lastmod}</lastmod>' if lastmod else ''
+        rows.append(f'  <url><loc>{html.escape(url)}</loc>{lm}</url>')
+    open(os.path.join(ROOT, 'sitemap.xml'), 'w').write(
+        '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+        + '\n'.join(rows) + '\n</urlset>\n')
+    open(os.path.join(ROOT, 'robots.txt'), 'w').write(f'User-agent: *\nAllow: /\nDisallow: /content/\nDisallow: /tools/\n\nSitemap: {SITE}sitemap.xml\n')
+    return len(rows)
+
+
 if __name__ == '__main__':
     build_home(); build_pages(); build_muons(); build_news(); build_publications(); build_members(); build_theses()
     import results, sys; results.build_results(sys.modules[__name__])
+    build_404(); build_feed(); print('sitemap:', build_sitemap(), 'urls')
     n = sum(1 for d, _, fs in os.walk(ROOT) if not any(x in os.path.relpath(d, ROOT).split(os.sep) for x in ('.git', 'node_modules', 'content', 'tools')) for f in fs if f.endswith('.html'))
     print('built', n, 'html files')
