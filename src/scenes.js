@@ -265,6 +265,14 @@ function module(S) {
 
 const MODES = { ring, muonium, module };
 
+export function isSoftwareGL(renderer) {
+  try {
+    const gl = renderer.getContext(), ext = gl.getExtension('WEBGL_debug_renderer_info');
+    const name = ext ? gl.getParameter(ext.UNMASKED_RENDERER_WEBGL) : '';
+    return /swiftshader|llvmpipe|softpipe|software|mesa offscreen/i.test(name);
+  } catch (e) { return false; }
+}
+
 export function initSubScene(canvas, mode = 'module') {
   const S = stage(canvas); if (!S) return null;
   const obj = (MODES[mode] || module)(S);
@@ -278,16 +286,19 @@ export function initSubScene(canvas, mode = 'module') {
     S.camera.position.set(Math.cos(a) * Math.cos(e) * rr, Math.sin(e) * rr + target.y, Math.sin(a) * Math.cos(e) * rr);
     S.camera.lookAt(target);
   };
-  let last = performance.now(), t = 0, running = true, raf = 0;
+  let last = performance.now(), t = 0, running = true, raf = 0, frames = 0, slow = 0, frozen = false;
+  const software = isSoftwareGL(S.renderer);
   const loop = (now) => {
     raf = 0;
     if (!running || document.hidden) return;
-    const dt = Math.min(0.05, (now - last) / 1000); last = now; t += dt;
-    obj.tick(dt, t); place(); S.composer.render(); raf = requestAnimationFrame(loop);
+    const dt = Math.min(0.05, (now - last) / 1000);
+    if (frames < 40) { frames++; if (now - last > 80) slow++; if (software && frames >= 2 || slow >= 12) { running = false; frozen = true; } }
+    last = now; t += dt;
+    obj.tick(dt, t); place(); S.composer.render(); if (running) raf = requestAnimationFrame(loop);
   };
   const kick = () => { if (raf || !running || document.hidden) return; last = performance.now(); raf = requestAnimationFrame(loop); };
   if (reduced) { obj.tick(0.016, 0); place(); S.composer.render(); return { reduced: true }; }
-  new IntersectionObserver(([e]) => { running = e.isIntersecting; kick(); }).observe(canvas);
+  new IntersectionObserver(([e]) => { if (!frozen) { running = e.isIntersecting; kick(); } }).observe(canvas);
   document.addEventListener('visibilitychange', kick);
   return { mode };
 }

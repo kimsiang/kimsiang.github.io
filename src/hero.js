@@ -10,7 +10,7 @@ import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
 import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js';
 import { OutputPass } from 'three/addons/postprocessing/OutputPass.js';
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
-import { hasWebGL } from './scenes.js';
+import { hasWebGL, isSoftwareGL } from './scenes.js';
 
 const CYAN = new THREE.Color(0x2fc8ff);
 const BLUE = new THREE.Color(0x2251ff);
@@ -412,16 +412,22 @@ export function initHero(canvas, opts = {}) {
     recent = recent.filter(t => now - t < 10000);
   }
 
+  // Watchdog: on a software renderer or a machine that cannot hold ~12 fps, stop animating after
+  // the first frames and leave the last frame standing, instead of pegging the main thread.
+  let frames = 0, slow = 0;
+  const software = isSoftwareGL(renderer);
   function loop(now) {
     raf = 0;
     if (!running || document.hidden) return;
     const dt = Math.min(0.05, (now - last) / 1000);
+    if (frames < 40) { frames++; if (now - last > 80) slow++; if (software && frames >= 2 || slow >= 12) { running = false; frozen = true; } }
     last = now;
     update(dt);
     placeCamera();
     composer.render();
-    raf = requestAnimationFrame(loop);
+    if (running) raf = requestAnimationFrame(loop);
   }
+  let frozen = false;
 
   if (reduced) {
     // static event display: advance the simulation without animating
@@ -433,7 +439,7 @@ export function initHero(canvas, opts = {}) {
     return { reduced: true };
   }
 
-  new IntersectionObserver(([e]) => { running = e.isIntersecting; kick(); }).observe(canvas);
+  new IntersectionObserver(([e]) => { if (!frozen) { running = e.isIntersecting; kick(); } }).observe(canvas);
   document.addEventListener('visibilitychange', kick);
   kick();
   return { rate: () => recent.length / 10 };
