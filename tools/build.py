@@ -197,7 +197,7 @@ def _render(path, lang, title, desc, body, active, home, image, lastmod):
 '''
     if zh:
         # body content references assets with the page-relative prefix; on the zh mirror they sit one level higher
-        fix = lambda t: re.sub(r'((?:href|src|poster|srcset|data-src)="|url\(["\']?)((?:\.\./)*)assets/', lambda m: f'{m.group(1)}{m.group(2)}../assets/', t)
+        fix = lambda t: re.sub(r'((?:href|src|poster|srcset|data-[a-z-]+)="|url\(["\']?)((?:\.\./)*)assets/', lambda m: f'{m.group(1)}{m.group(2)}../assets/', t)
         head, _, rest = out.partition('<main id="main">')
         main, _, tail = rest.partition('</main>')
         out = head + '<main id="main">' + fix(main.replace('{ROOT}', R)) + '</main>' + tail
