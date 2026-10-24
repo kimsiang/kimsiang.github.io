@@ -1,0 +1,4 @@
+{
+  "_help": "Upcoming events for follow.html and events.ics. Each item: {\"title\": ..., \"title_zh\": ..., \"start\": \"YYYY-MM-DD\" or \"YYYY-MM-DDTHH:MM\", \"end\": optional, \"location\": ..., \"url\": optional}. Past events are dropped automatically at build time; times are Asia/Shanghai.",
+  "events": []
+}

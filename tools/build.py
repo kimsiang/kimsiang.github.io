@@ -24,6 +24,7 @@ YEAR = date.today().year
 
 import hashlib as _h
 ASK_V = _h.md5(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "assets", "js", "ask.js"), "rb").read()).hexdigest()[:8]
+LEARN_V = _h.md5(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "assets", "js", "learn.js"), "rb").read()).hexdigest()[:8]
 CSS_V = _h.md5(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "assets", "css", "style.css"), "rb").read()).hexdigest()[:8]
 
 def bi(en, zh=None):
@@ -43,7 +44,8 @@ NAV = [
 ]
 FOOT = [
     ('talks.html', 'Talks', '学术报告'), ('posters.html', 'Posters', '学术海报'),
-    ('results.html', 'Results', '代表性成果'), ('theses.html', 'Theses', '学位论文'), ('kim.html', 'PI profile', '个人主页'), ('index.html#joinus', 'Join us', '加入我们'),
+    ('results.html', 'Results', '代表性成果'), ('theses.html', 'Theses', '学位论文'), ('kim.html', 'PI profile', '个人主页'),
+    ('join.html', 'Join us', '加入我们'), ('follow.html', 'Follow', '关注'), ('partner.html', 'Work with us', '合作'),
 ]
 
 def data_date(name):
@@ -167,7 +169,7 @@ def _render(path, lang, title, desc, body, active, home, image, lastmod):
     <button class="lang" id="lang-toggle" type="button" aria-label="Switch language / 切换语言">
       <span data-l="en">EN</span><i></i><span data-l="zh">中文</span>
     </button>
-    <a href="{R}index.html#joinus" class="btn btn-sm btn-primary nav-cta">{bi('Join us', '加入我们')}</a>
+    <a href="{R}join.html" class="btn btn-sm btn-primary nav-cta">{bi('Join us', '加入我们')}</a>
     <button class="burger" id="burger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-links"><i></i><i></i></button>
   </div>
 </header>
@@ -189,6 +191,7 @@ def _render(path, lang, title, desc, body, active, home, image, lastmod):
 
 <script src="{RA}assets/js/main.js" defer></script>
 {"<script src=\"" + RA + "assets/js/ask.js?v=" + ASK_V + "\" defer></script>" if home else ""}
+{"<script src=\"" + RA + "assets/js/learn.js?v=" + LEARN_V + "\" defer></script>" if path.startswith('muons/') else ""}
 </body>
 </html>
 '''
@@ -820,7 +823,7 @@ def build_sitemap():
 
 if __name__ == '__main__':
     build_home(); build_pages(); build_muons(); build_news(); build_publications(); build_members(); build_theses()
-    import results, sys; results.build_results(sys.modules[__name__])
+    import results, hub, sys; results.build_results(sys.modules[__name__]); hub.build_hub(sys.modules[__name__])
     build_404(); build_offline(); build_feed(); print('app shell v', build_app()); print('sitemap:', build_sitemap(), 'urls')
     n = sum(1 for d, _, fs in os.walk(ROOT) if not any(x in os.path.relpath(d, ROOT).split(os.sep) for x in ('.git', 'node_modules', 'content', 'tools')) for f in fs if f.endswith('.html'))
     print('built', n, 'html files')

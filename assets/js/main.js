@@ -243,3 +243,24 @@
     if (api) requestAnimationFrame(() => canvas.classList.add('on'));
   }).catch(() => { /* static fallback remains */ });
 })();
+
+/* ---------- Hub pages: programme finder + copy buttons ---------- */
+(function () {
+  const progs = document.getElementById('hub-progs');
+  if (progs) {
+    const chips = [...document.querySelectorAll('.hub-who button')];
+    chips.forEach((b) => b.addEventListener('click', () => {
+      chips.forEach((c) => c.classList.toggle('on', c === b));
+      const who = b.dataset.who;
+      progs.querySelectorAll('li').forEach((li) => li.classList.toggle('off', who !== 'all' && !li.dataset.for.split(' ').includes(who)));
+    }));
+  }
+  document.querySelectorAll('[data-copy]').forEach((b) => b.addEventListener('click', async () => {
+    const t = document.querySelector(b.dataset.copy); if (!t) return;
+    try {
+      await navigator.clipboard.writeText(t.textContent.trim());
+      const orig = b.innerHTML; b.textContent = document.documentElement.dataset.lang === 'zh' ? '已复制 ✓' : 'Copied ✓';
+      setTimeout(() => { b.innerHTML = orig; }, 1500);
+    } catch (e) {}
+  }));
+})();
